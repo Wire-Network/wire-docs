@@ -1,0 +1,35 @@
+---
+slug: /
+title: ' '
+description: >-
+    Welcome to Wire Network Docs! The home for all you need to know about the 
+    Wire Netwok network, how to develop on it, and how to use it.
+sidebar_position: 1
+hide_table_of_contents: true
+---
+
+import TitleCard from '@site/src/components/TitleCard/TitleCard'
+
+<div class="title-cards-center">
+
+<div class='home-page-heading'>
+
+<h1 style={{fontSize: '3.5rem'}}>Welcome To The Wire Network!</h1>
+
+</div>
+
+<TitleCard 
+    colorClass='docs-card'
+    title='Developer Portal'
+    descriptionText='All you need to know to build on Wire Netwok and harness its power!'
+    linkURL='/overview/what-is-wire-network/introduction/'
+/>  
+
+<TitleCard 
+    colorClass='users-card'
+    title='News'
+    descriptionText='Latest News'
+    linkURL='/users/getting-started/'
+/>
+
+</div>

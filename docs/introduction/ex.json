@@ -1,0 +1,12 @@
+{
+    "position": 2.5,
+    "label": "Introduction",
+    "collapsible": true,
+    "collapsed": false,
+    "className": "red",
+    "link": {
+      "type": "generated-index",
+      "title": "Introduction"
+    }
+
+}

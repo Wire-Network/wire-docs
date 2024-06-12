@@ -1,0 +1,8 @@
+{
+  "label": "Wire Docs",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Description !"
+  }
+}
