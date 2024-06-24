@@ -42,6 +42,7 @@ const sidebars: SidebarsConfig = {
         "getting-started/launch-local-node",
         "getting-started/system-requirements",
         "getting-started/create-development-wallet",
+        "getting-started/create-development-accounts",
       ],
     },
     {

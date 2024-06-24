@@ -3,7 +3,6 @@ sidebar_position: 2
 id: create-development-wallet
 ---
 
-
 # Create Development Wallet
 
 Wallets store public-private key pairs, which are needed for signing operations performed on the blockchain. They can be accessed through the use of `cleos` command line tool.
@@ -80,7 +79,7 @@ Wallets:
 ]
 ```
 
-The asterisk (*) next to the name means that the wallet is currently unlocked.
+The asterisk (\*) next to the name means that the wallet is currently unlocked.
 
 ## Import keys into your wallet​
 
@@ -90,11 +89,21 @@ Generate a private key, `cleos` has a helper function for this, just run the fol
 cleos wallet create_key
 ```
 
-It will return something like..
+It will return something like:
 
 ```bash
 Created new private key with a public key of: "EOS8PEJ5FM42xLpHK...X6PymQu97KrGDJQY5Y"
 ```
+
+:::warning[IMPORTANT]
+
+**Save the public key somewhere safe as you would need it in the upcoming tutorials.**
+
+You could set it as environment variable:
+
+`export PUBLIC_KEY=public-key-value`
+
+:::
 
 ## Import the Development Key​
 
@@ -110,8 +119,6 @@ You'll be prompted for a private key, enter the eosio development key provided b
 5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
 ```
 
-**IMPORTANT**
+:::danger[WARNING]
 
-Never use the development key for a production account! Doing so will most certainly result in the loss of access to your account, this private key is publicly known.
-
-Wonderful, you now have a default wallet unlocked and loaded with a key, and are ready to proceed.
+**Never use the development key for a production account!** Doing so will most certainly result in the loss of access to your account, this private key is publicly known.
