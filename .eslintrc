@@ -1,6 +1,8 @@
 {
   "root": true,
   "parser": "@babel/eslint-parser",
+  "ignorePatterns": ["**/*.md"],
+
   // "parserOptions": { "sourceType": "module" },
   // "ecmaVersion": 7,
   // "sourceType": "module",
@@ -8,7 +10,9 @@
     "plugin:@docusaurus/recommended",
     "plugin:prettier/recommended"
   ],
-  "plugins": ["prettier"],
+  "plugins": [
+    "prettier"
+  ],
   "rules": {
     "prettier/prettier": "error",
     "@docusaurus/no-untranslated-text": [

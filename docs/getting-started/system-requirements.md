@@ -13,7 +13,7 @@ The subsequent tutorials are up to date with the following Wire components.
 | ------------------ | ------- |
 | EOSIO Core Version | 2.01.13 |
 | CDT                | 1.7     |
-| CDT                | 1.9.0   |
+| eosio.contracts    | 1.9.0   |
 | WireJS             | 1.0.0   |
 
 ### Supported Operating Systems

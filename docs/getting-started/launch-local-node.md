@@ -77,17 +77,17 @@ CORS is enabled for all (\*) for development only. Never enable unrestricted COR
 
 ### Troubleshooting
 
-After starting `nodeos`, if may see an error message like the one below:
+- #### `Database dirty flag` error
+
+If you see error that looks like the examples below:
 
 ![nodeos-error](/img/errors/nodeos-error.png)
-
-or
 
 ```bash
 Database dirty flag set (likely due to unclean shutdown): replay required
 ```
 
-To fix the error, try and include `--replay-blockchain` or `--hard-replay-blockchain` flag to the startup command.
+Try and include `--replay-blockchain` or `--hard-replay-blockchain` flag to the `nodeos` startup command.
 
 ```bash
 nodeos -e -p eosio \
@@ -100,9 +100,8 @@ nodeos -e -p eosio \
 --filter-on="*" \
 --access-control-allow-origin='*' \
 --contracts-console \
---http-validate-host=false \
---verbose-http-errors >> nodeos.log 2>&1 \
---replay-blockchain
+--http-validate-host=false --replay-blockchain \
+--verbose-http-errors >> nodeos.log 2>&1 &
 ```
 
 If you want to a clean fresh state of the chain, you may want to use `--delete-all-blocks`.
@@ -110,6 +109,8 @@ If you want to a clean fresh state of the chain, you may want to use `--delete-a
 More details on troubleshooting `nodeos` can be found [here](https://developers.eos.io/manuals/eos/v2.0/nodeos/troubleshooting/index).
 
 You could also change `nodeos.log` file's location to whatever directory you want.
+
+If there isn't a process running, use the [startup command](#starting-nodeos).
 
 ### Validating `nodeos`
 
@@ -128,6 +129,8 @@ info  [timestamp] nodeos producer_plugin.cpp:2293 produce_block ] Produced block
 info  [timestamp] nodeos producer_plugin.cpp:2293 produce_block ] Produced block 14bd99c3c3ffd441... #47 at [timestamp] signed by eosio [trxs: 0, lib: 46, confirmed: 0]
 info  [timestamp] nodeos producer_plugin.cpp:2293 produce_block ] Produced block 2e5fb9d0f2dce119... #48 at [timestamp] signed by eosio [trxs: 0, lib: 47, confirmed: 0]
 ```
+
+Verify the `[timestamp]` is a recent one and that you aren't looking at a stale logs.
 
 To exit logs: <kbd>Ctrl</kbd> + <kbd>C</kbd>
 
@@ -148,7 +151,15 @@ From this point forward, you'll be executing commands from your local system.
 
 This step ensures that the RPC API is functioning properly. You can choose one of the following methods:
 
-Use your browser to access the `get_info` endpoint from the `chain_api_plugin`. Simply click http://localhost:8888/v1/chain/get_info.
+#### 3.1. Using `cleos`
+
+```bash
+cleos get info 
+```
+
+#### 3.2. HTTP GET request to `/get_info`
+
+Use your browser to access the `get_info` endpoint from the `chain_api_plugin`. Simply click [http://localhost:8888/v1/chain/get_info](http://localhost:8888/v1/chain/get_info).
 
 ![verifying nodeos running](/img/chain-api-verify-nodeos.png) Alternatively, check the endpoint directly from your terminal using the command:
 

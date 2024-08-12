@@ -55,3 +55,12 @@
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1)
 }
+
+
+:root {
+  --docusaurus-highlighted-code-line-bg: rgb(72, 77, 91);
+}
+
+[data-theme='dark'] {
+  --docusaurus-highlighted-code-line-bg: rgb(217, 211, 211);
+}

@@ -14,9 +14,9 @@ An account is a unique identifier and a requirement to interact with a Wire bloc
 
 ## Account Name
 
-An account name is a human-readable identifier that is stored on the blockchain. Standard account names can only contain the characters .abcdefghijklmnopqrstuvwxyz12345. a-z (lowercase), 1-5 and . (period), must start with a letter or a number; cannot start or end with period. It can be 13 characters and one of them has to be a period.
+An account name is a human-readable identifier that is stored on the blockchain.  Account names can only contain the characters .abcdefghijklmnopqrstuvwxyz12345. a-z (lowercase), 1-5 and . (period), must start with a letter or a number; cannot start or end with period. It can be 13 characters and one of them has to be a period.
 
-The ability to choose a username is granted to T4 users.
+The ability to choose a username is granted to T4 tier.
 
 ---
 

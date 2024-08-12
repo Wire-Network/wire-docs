@@ -17,6 +17,10 @@ function HelloCodeTitle(props) {
 }
 ``` -->
 
+<!-- ```js
+console.log('Every repo must come with a mascot.');
+``` -->
+
 ```bash
 cleos wallet create --to-console
 ```

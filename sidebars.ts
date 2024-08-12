@@ -49,6 +49,23 @@ const sidebars: SidebarsConfig = {
       type: "category",
       link: {
         type: "doc",
+        id: "smart-contract-development/smart-contract-development-intro",
+      },
+      label: "Smart Contract Development",
+      items: [
+        "smart-contract-development/smart-contract-basics",
+        // "smart-contract-development/hello-world-contract",
+        "smart-contract-development/hello-world-contract-short",
+        "smart-contract-development/company-contract",
+        "smart-contract-development/interacting-with-deployed-contract-1",
+        "smart-contract-development/block-explorer",
+      ],
+    },
+
+    {
+      type: "category",
+      link: {
+        type: "doc",
         id: "api-reference/api-reference-intro",
         // keywords: ["setup"],
       },

@@ -34,13 +34,6 @@ cleos create account eosio alice $PUBLIC_KEY
 
 Here is the output of the first command, confirming that the transaction has been broadcast:
 
-<!-- ```bash
-$cleos create account eosio bob $PUBLIC_KEY
-executed transaction: 3f8bad1c58441a4160aa006d65d206db4f62f9769e364cca653deb4466f36aea  200 bytes  313 us
-#         eosio <= eosio::newaccount            {"creator":"eosio","name":"bob","owner":{"threshold":1,"keys":[{"key":"EOS55tFxiJVp1mHa2QeuWSp4Sd9eG...
-warning: transaction executed locally, but may not be confirmed by the network yet         ]
-``` -->
-
 ![creating-account](/img/creating-account.png)
 
 If you encounter errors ensure you are correctly loading environment variables and that your wallet is unlocked.
@@ -72,3 +65,13 @@ For a clear understanding of how EOSIO accounts and their associated public keys
 |  | If the active key is compromised, the owner key can be used to regain control of the account. |
 | **Authorization Hierarchy** | With owner permission, you can change the private key of the active permission. |
 |  | The active permission cannot change the owner key. |
+
+## Troubleshooting
+
+### `[cleos: Failed to connect to nodeos at ](http://127.0.0.1:8888/); is nodeos running?`
+
+Doublecheck if `nodeos` is running; and [restart](./launch-local-node.md#starting-nodeos) the process if needed.
+
+```bash
+pidof nodeos
+```

@@ -21,3 +21,5 @@ yarn-error.log*
 
 
 /src/drafts/*.md
+/src/drafts/*.cpp
+/src/drafts/*.hpp

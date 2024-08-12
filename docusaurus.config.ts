@@ -2,6 +2,28 @@ import { themes as prismThemes } from "prism-react-renderer";
 import type { Config } from "@docusaurus/types";
 import * as Preset from "@docusaurus/preset-classic";
 
+// prism themes
+
+// [
+//   "dracula",
+//   "duotoneDark",
+//   "duotoneLight",
+//   "github",
+//   "jettwaveDark",
+//   "jettwaveLight",
+//   "nightOwl",
+//   "nightOwlLight",
+//   "oceanicNext",
+//   "okaidia",
+//   "oneDark",
+//   "oneLight",
+//   "palenight",
+//   "shadesOfPurple",
+//   "synthwave84",
+//   "ultramin",
+//   "vsDark",
+//   "vsLight",
+// ];
 const config: Config = {
   title: "Wire Docs",
   tagline: "Official Wire Network Documentation",
@@ -192,8 +214,18 @@ const config: Config = {
       copyright: `Copyright © ${new Date().getFullYear()} Wire Network`,
     },
     prism: {
-      theme: prismThemes.palenight,
-      darkTheme: prismThemes.duotoneLight,
+      theme: prismThemes.dracula,
+      darkTheme: prismThemes.jettwaveLight,
+      additionalLanguages: [
+        // "powershell",
+        // "cpp",
+        "php",
+        "bash",
+        // "typescript",
+        // "javascript",
+        // "wasm",
+        // "svet",
+      ],
     },
     algolia: {
       // The application ID provided by Algolia
