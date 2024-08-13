@@ -1,10 +1,10 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 id: hello-world-contract-short
-title: "Hello World Contract"
+title: "Quick Start: Hello World Contract"
 ---
 
-# Hello World Contract
+<!-- # Hello World Contract -->
 
 ## Prerequisites
 
@@ -12,70 +12,97 @@ title: "Hello World Contract"
 - This page assumes you are familiar with [Smart Contract Basics](./smart-contract-basics.md).
 
 
-## Step-by-Step Guide to Using the "Hello World" Smart Contract from an Existing GitHub Repository
+## Steps
 
 ### 1. Clone the Contract Repository
 
 Start by cloning the existing GitHub repository containing the Hello World contract to your local environment:
 
 ```bash
-git clone https://github.com/Wire-Network/guides.git
-cd guids/hello-world-contract
+git clone https://github.com/Wire-Network/guides.git && cd guides/hello-world-contract
 ```
+
+Then open the code into your favorite code editor and inspect the files.
 
 ### 2. Compile the Contract
 
-Compile the Hello World contract into WebAssembly (WASM) format using the EOSIO Contract Development Toolkit (CDT):
+Compile it using the `./build.sh`. This script uses the Wire Contract Development Toolkit (CDT) the Hello World contract into WebAssembly (WASM) format. The script will create a compilation folder `hello/` with the WASM and ABI files.
 
 ```bash
-eosio-cpp -abigen -contract hello -o hello/hello.wasm src/hello.cpp -I include
+./build.sh
 ```
 
-This command also automatically generates the ABI file necessary for interacting with the blockchain.
+Upon successful compilation, you will see a `hello` folder with `hello.abi` and `hello.wasm` files.
 
-### 3. Set Up Your Contract Directory
+![compiled-dir](../../static/img/compiled-dir.png) 
 
-Navigate to your contracts directory and ensure the compiled contract files (`hello.wasm` and `hello.abi`) are correctly placed:
+### 3. Deploy the Contract
+
+Before deploying, ensure you have an account to deploy the contract to. Create an account if necessary and replace `YOUR_PUBLIC_KEY` with your actual public key when you created a wallet(see [Import Keys](../getting-started/create-development-wallet.md#import-keys-into-your-wallet)). Your wallet must be also unlocked before using it(see [Unlock a wallet](../getting-started/create-development-wallet.md#unlock-a-wallet))
+
+
+### 3.1. Create an account using `cleos`
 
 ```bash
-mkdir -p CONTRACTS_DIR/hello
-cp hello/*.wasm hello/*.abi CONTRACTS_DIR/hello/
+cleos create account eosio hello $PUBLIC_KEY -p eosio@active
 ```
 
-Replace `CONTRACTS_DIR` with the path to your contracts directory.
+This command enables the `eosio` system account to create a new account named `hello` on the Wire blockchain. The `-p eosio@active` specifies that the active permission of the `eosio` account is used to authorize the account creation.
 
-### 4. Deploy the Contract
-
-Before deploying, ensure you have an EOSIO account to deploy the contract to. Create an account if necessary:
+### 3.2. Deploy the contract
 
 ```bash
-cleos create account eosio hello YOUR_PUBLIC_KEY -p eosio@active
+./deploy.sh
 ```
 
-Replace `YOUR_PUBLIC_KEY` with your actual public key. Then deploy the compiled contract:
+### 5. Push a Transaction
 
-```bash
-cleos set contract hello CONTRACTS_DIR/hello -p hello@active
-```
-
-### 5. Execute the Contract
-
-Invoke the `hi` action with the contract:
+Invoke the `hi` action within the contract:
 
 ```bash
 cleos push action hello hi '["bob"]' -p bob@active
 ```
 
-This command triggers the `hi` action for the user "bob", and if authorized by "bob", it prints "Hello, bob".
+This command triggers the `hi` action for the user `bob`, and if authorized by `bob`, it prints "Hello, bob".
 
-### 6. Handling Errors
+![bob-says-hi](../../static/img/bob-say-hi.png) 
 
-If there's a mismatch between the authorizing user and the user parameter, the contract will not execute due to the `require_auth` check:
+Repeat the same passing "alice" as data to the action and using the same permissions: 
+
+```bash 
+cleos push action hello hi '["alice"]' -p bob@active
+```
+
+![bob-invoke-with-alice](../../static/img/bob-execute-alice.png) 
+
+### 6. Change the contract code
+
+Next, let's change the contract code by enabling `require_auth()` function and see firsthand how checks and permissions work in contract actions. If there's a mismatch between the authorizing user and the user parameter, the contract will not execute due to the `require_auth` check.
+
+Comment out Line 5 in `hello.cpp`
+
+![require-auth-hw](../../static/img/require-auth-hw.png)
+
+[Recompile](#2-compile-the-contract) and [redeploy](#3-deploy-the-contract) the contract. Then execute:
 
 ```bash
 cleos push action hello hi '["alice"]' -p bob@active
 ```
 
-This will result in an authorization error since "bob" is trying to execute an action that requires "alice"'s permission.
+This will result in an authorization error since `bob` is trying to execute an action that requires `alice`'s permission.
+
+CLI output:
+
+![missing-authority](../../static/img/missing-authority.png) 
 
 ---
+
+
+## Bonus
+
+
+### Inspect the contract on EOS Authority Block Explorer
+
+Feel free to explore your contract on [EOS Authority](./block-explorer.md), which also provides tools to generate ready-to-use cleos commands, making it easier to push transactions and interact with your contracts directly. This is a great way to get hands-on experience and deepen your understanding of smart contracts.
+
+![inspect-hello](../../static/img/be-inspect-hello.png) 

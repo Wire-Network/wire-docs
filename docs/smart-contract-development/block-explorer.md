@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 2
 id: block-explorer
 title: Using EOS Block Explorer
 ---
