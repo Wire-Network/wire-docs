@@ -66,7 +66,9 @@ The `keosd` wallet(s) have been opened, but is still locked.
 cleos wallet unlock
 ```
 
-You will be prompted for your wallet password you saved earlier, paste it and press enter.
+You will be prompted for your wallet password you saved earlier, paste it and press enter. You could also use a one-liner below:
+
+`cleos wallet unlock --password $(cat /path/to/password_file)`
 
 Execute the command below:
 

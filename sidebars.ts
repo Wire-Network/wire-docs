@@ -58,8 +58,8 @@ const sidebars: SidebarsConfig = {
         // "smart-contract-development/hello-world-contract",
         "smart-contract-development/hello-world-contract-short",
         "smart-contract-development/company-contract",
-        "smart-contract-development/interacting-with-deployed-contract-1",
-
+        "smart-contract-development/smart-contracts-cleos",
+        "smart-contract-development/smart-contracts-wirejs",
       ],
     },
 
