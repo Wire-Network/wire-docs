@@ -115,6 +115,7 @@ const config: Config = {
         autoCollapseCategories: true,
       },
     },
+    hideOnScroll: true,
     // Replace with your project's social card
     liveCodeBlock: {
       playgroundPosition: "bottom",
@@ -215,16 +216,16 @@ const config: Config = {
     },
     prism: {
       theme: prismThemes.dracula,
-      darkTheme: prismThemes.jettwaveLight,
+      darkTheme: prismThemes.vsLight,
       additionalLanguages: [
         // "powershell",
         // "cpp",
         "php",
         "bash",
+        "json",
         // "typescript",
         // "javascript",
-        // "wasm",
-        // "svet",
+        // "wasm"
       ],
     },
     algolia: {

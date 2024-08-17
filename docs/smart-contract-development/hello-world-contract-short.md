@@ -34,7 +34,7 @@ Compile it using the `./build.sh`. This script uses the Wire Contract Developmen
 
 Upon successful compilation, you will see a `hello` folder with `hello.abi` and `hello.wasm` files.
 
-![compiled-dir](../../static/img/compiled-dir.png) 
+![compiled-dir](/img/compiled-dir.png) 
 
 ### 3. Deploy the Contract
 
@@ -65,7 +65,7 @@ cleos push action hello hi '["bob"]' -p bob@active
 
 This command triggers the `hi` action for the user `bob`, and if authorized by `bob`, it prints "Hello, bob".
 
-![bob-says-hi](../../static/img/bob-say-hi.png) 
+![bob-says-hi](/img/bob-say-hi.png) 
 
 Repeat the same passing "alice" as data to the action and using the same permissions: 
 
@@ -73,7 +73,7 @@ Repeat the same passing "alice" as data to the action and using the same permiss
 cleos push action hello hi '["alice"]' -p bob@active
 ```
 
-![bob-invoke-with-alice](../../static/img/bob-execute-alice.png) 
+![bob-invoke-with-alice](/img/bob-execute-alice.png) 
 
 ### 6. Change the contract code
 
@@ -81,7 +81,7 @@ Next, let's change the contract code by enabling `require_auth()` function and s
 
 Comment out Line 5 in `hello.cpp`
 
-![require-auth-hw](../../static/img/require-auth-hw.png)
+![require-auth-hw](/img/require-auth-hw.png)
 
 [Recompile](#2-compile-the-contract) and [redeploy](#3-deploy-the-contract) the contract. Then execute:
 
@@ -93,7 +93,7 @@ This will result in an authorization error since `bob` is trying to execute an a
 
 CLI output:
 
-![missing-authority](../../static/img/missing-authority.png) 
+![missing-authority](/img/missing-authority.png) 
 
 ---
 
@@ -105,4 +105,4 @@ CLI output:
 
 Feel free to explore your contract on [EOS Authority](./block-explorer.md), which also provides tools to generate ready-to-use cleos commands, making it easier to push transactions and interact with your contracts directly. This is a great way to get hands-on experience and deepen your understanding of smart contracts.
 
-![inspect-hello](../../static/img/be-inspect-hello.png) 
+![inspect-hello](/img/be-inspect-hello.png) 

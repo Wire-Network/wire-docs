@@ -13,7 +13,7 @@ This page will guide you to creating and developing a simple contract using EOSI
 
 ## Prerequisites
 
-- [Smart Contract Anatomy](./smart-contract-anatomy.md)
+- [Smart Contract Basics](./smart-contract-basics.md)
 
 ## Step-by-Step Guide to Creating a *Company Contract* Smart Contract
 

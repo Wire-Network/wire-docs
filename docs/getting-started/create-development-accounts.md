@@ -20,7 +20,7 @@ In this practical tutorial series, we utilize two user accounts, `bob` and `alic
 
 ### Prerequisites
 
-- **public key** from the key pair you've created in [Create Development Wallet](create-development-wallet/#import-keys-into-your-wallet) tutorial.
+- **public key** from the key pair you've created in [Create Development Wallet](create-development-wallet.md/#import-keys-into-your-wallet) tutorial.
 - Ensure your wallet is [unlocked](create-development-wallet#unlock-a-wallet)
 
 ### Steps

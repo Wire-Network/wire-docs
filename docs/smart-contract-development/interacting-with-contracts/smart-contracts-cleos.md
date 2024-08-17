@@ -1,12 +1,13 @@
 ---
-sidebar_position: 4
+sidebar_position: 2
 id: smart-contracts-cleos
-title: Using cleos
+title: cleos
+description: Anything
 # slug: /smart-contract-development/interacting-with-smart-contracts/smart-contracts-cleos
 ---
 
 
-# Navigating Smart Contract Interactions with `cleos`
+# Smart Contract Interactions using `cleos`
 
 ## Overview
 
@@ -14,8 +15,11 @@ In the article you’ll learn how to execute actions on a contract with the `cle
 
 ## Prerequisites
 
-- [Installation and Development Environment Setup](../getting-started/getting-started-intro.md)
-- [Company contract tutorial](./company-contract.md)
+- [Installation and Development Environment Setup](../../getting-started/getting-started-intro.md)
+- [Company contract tutorial](../company-contract.md)
+
+
+## Steps 
 
 ### Step 1: Insert a record
 
@@ -27,13 +31,12 @@ cleos push action company upsertemp '["jack", "Jack Sparrow", "jack@example.com"
 
 Output: 
 
-![create-record](../../static/img/create-record.png) 
+![create-record](/img/create-record.png) 
 
 
 You could use block explorer to inspect the table and the transactions.
 
-- image 
-- image
+![be-table-check](/img/be-table-check.png) 
 
 ### Step 2: Perfom an update
 
@@ -45,7 +48,7 @@ cleos push action company upsertemp '["jack", "Jack Nicholson", "jack@example.co
 
 Output:
 
-![update-record](../../static/img/update-record.png) 
+![update-record](/img/update-record.png) 
 
 
 Post-Action Check:
@@ -62,9 +65,9 @@ cleos push action company get_all '{}' -p jack@active
 
 Ouput: 
 
-![retrieve-records](../../static/img/retrieve-records.png) 
+![retrieve-records](/img/retrieve-records.png) 
 
-### Step 4
+### Step 4: Attempt unauthorized transaction
 
 ```bash
 cleos push action company upsertemp '["nick", "Nick Fury", "nick@example.com", "active"]' -p jack@active
@@ -73,4 +76,6 @@ cleos push action company upsertemp '["nick", "Nick Fury", "nick@example.com", "
 This should fail since Jack should not be able to add records for other user because the contract enforces proper authorization.
 
 
-![unauthorized](../../static/img/unauthorized.png) 
+![unauthorized](/img/unauthorized.png) 
+
+

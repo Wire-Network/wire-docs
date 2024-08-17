@@ -23,3 +23,17 @@ yarn-error.log*
 /src/drafts/*.md
 /src/drafts/*.cpp
 /src/drafts/*.hpp
+
+
+rename.sh
+rename-dirs.sh
+fix-md-files.sh
+
+
+00-local-single-node-testnet.md 
+20-zipkin-tracer.md
+20-local-multi-node-testnet.md
+
+03-development-environment
+
+.idea/
