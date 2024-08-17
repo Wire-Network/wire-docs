@@ -2,7 +2,7 @@
   // CAREFUL!
   // The following patterns are concatenated, so the group referenced by a back reference is non-obvious!
 
-  var strings = [
+  let strings = [
     // normal string
     /"(?:\\[\s\S]|\$\([^)]+\)|\$(?!\()|`[^`]+`|[^"\\`$])*"/.source,
     /'[^']*'/.source,

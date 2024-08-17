@@ -1,14 +1,12 @@
 ---
 sidebar_position: 3
 id: install-dependencies
+title: Install Dependencies
 ---
 
+## Linux Distributions
 
-# Install Dependencies
-
-## Installation
-
-### Ubuntu(Debian)
+### Ubuntu
 
 ***
 
@@ -50,21 +48,9 @@ To uninstall Wire.CDT:
 sudo apt remove eosio.cdt
 ```
 
-#### Verify Installation
-
-To verify that the installation was successful, run the following command:
-
-```bash
-eosio-cpp --version
-```
-
-The output of this command should look like:
-
-![Verify Installation](/img/video-gifs/verify-installation.gif)
-
 ***
 
-## Troubleshooting
+### Troubleshooting
 
 If you are missing certain dependencies and when trying to install the binaries you are getting an error similar to:
 
@@ -91,13 +77,13 @@ E: Unable to correct problems, you have held broken packages.
 - Download it:
 
 ``` bash
-wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1-1ubuntu2.1\~18.04.20_amd64.deb
+wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1-1ubuntu2.1\~18.04.amd64.deb
 ```
 
 - Install the downloaded package:
 
 ```bash
-sudo dpkg -i libssl1.1_1.1.1-1ubuntu2.1~18.04.20_amd64.deb
+sudo dpkg -i libssl1.1_1.1.1-1ubuntu2.1~18.04.amd64.deb
 ```
 
 Repeat the same for any other packages that appear in the error message.
@@ -108,3 +94,44 @@ sudo dpkg -i libicu60_60.2-3ubuntu3.2_amd64.deb
 ```
 
 After successfully installing all missing packages, attempt to install the binaries again.
+
+
+
+## Mac(Intel)
+
+Before proceeding with the installation of Wire Binaries and Wire.CDT, you need to ensure that Homebrew is installed on your system. To check if Homebrew is already installed, open your terminal and run:
+
+```sh
+brew --version
+```
+
+If Homebrew is not installed on your machine, you can install it by running the following command:
+
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+##### Install Wire Binaries
+```sh
+brew tap eosio/eosio
+brew install eosio
+```
+
+##### Install Wire.CDT
+
+```sh
+brew tap eosio/eosio.cdt
+brew install eosio.cdt
+```
+
+## Verify Installation
+
+To verify that the installation was successful, run the following command:
+
+```bash
+eosio-cpp --version
+```
+
+The output of this command should look like:
+
+![Verify Installation](/img/video-gifs/verify-installation.gif)

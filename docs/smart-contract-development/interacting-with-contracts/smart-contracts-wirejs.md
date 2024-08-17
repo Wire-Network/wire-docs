@@ -1,11 +1,11 @@
 ---
-sidebar_position: 4
+sidebar_position: 2
 id: smart-contracts-wirejs
-title:  Using WireJS
+title: WireJS
 ---
 
 
-# Navigating Smart Contract Interactions with `wirejs`
+# Smart Contract Interactions with `wirejs`
 
 
 ## Overview 

@@ -34,6 +34,8 @@ export default function prismIncludeLanguages(
       require("./bash.js");
     } else if (lang === "shell-session") {
       require("./shell-session.js");
+    } else if (lang === "json") {
+      require("./json.js")
     } else {
       require(`prismjs/components/prism-${lang}.js`);
     }
