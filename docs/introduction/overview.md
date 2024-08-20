@@ -10,7 +10,7 @@ description: Brief introduction of Wire Network and blockchain technology
 
 Wire Network is an innovative blockchain platform tailored for enterprise-grade applications across various industries. It integrates a robust role-based permissions system and secure transaction processing, facilitating widespread adoption of blockchain technology.
 
-Our platform represents a significant shift in the blockchain landscape by being the first to comprehensively address software and hardware layers, upholding open-source principles, and maintaining transparency and integrity. Its core features include the Appointed Proof of Stake (APoS) consensus model and the Universal Polymorphic Address Protocol (UPAP), which enhance blockchain security and scalability.
+Our platform represents a significant shift in the blockchain landscape by being the first to comprehensively address software and hardware layers, upholding open-source principles, and maintaining transparency and integrity. Its core features include the Appointed Proof of Stake (APoS) consensus model and the Universal Polymorphic Address Protocol (UPAP).
 
 Wire Network's interoperability is a game-changer for enterprises. It allows for seamless interactions across various blockchain platforms, eliminating the need for intermediaries. This is made possible by the integration of the Universal Polymorphic Address Protocol (UPAP) and Wire Name Service (WNS) smart contracts, enabling trustless cross-chain communications. This innovation opens up a world of possibilities, enhancing operational flexibility and expanding potential applications for users and enterprises.
 

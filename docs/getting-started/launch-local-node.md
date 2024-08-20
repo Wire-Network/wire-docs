@@ -106,7 +106,7 @@ nodeos -e -p eosio \
 
 If you want to a clean fresh state of the chain, you may want to use `--delete-all-blocks`.
 
-More details on troubleshooting `nodeos` can be found [here](https://developers.eos.io/manuals/eos/v2.0/nodeos/troubleshooting/index).
+More details on troubleshooting `nodeos` can be found [here](../api-reference/tooling/nodeos/troubleshooting.md).
 
 You could also change `nodeos.log` file's location to whatever directory you want.
 
