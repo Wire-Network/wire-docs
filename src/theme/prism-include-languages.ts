@@ -1,7 +1,6 @@
 import siteConfig from "@generated/docusaurus.config";
 
-import type * as PrismNamespace from "prismjs";
-import type { Optional } from "utility-types";
+import * as PrismNamespace from "prismjs";
 
 // export default function prismIncludeLanguages(
 //   PrismObject: typeof PrismNamespace
@@ -14,6 +13,7 @@ export default function prismIncludeLanguages(
   const {
     themeConfig: { prism },
   } = siteConfig;
+
   const { additionalLanguages } = prism as { additionalLanguages: string[] };
 
   console.log(additionalLanguages);
@@ -35,11 +35,11 @@ export default function prismIncludeLanguages(
     } else if (lang === "shell-session") {
       require("./shell-session.js");
     } else if (lang === "json") {
-      require("./json.js")
+      require("./json.js");
     } else {
       require(`prismjs/components/prism-${lang}.js`);
     }
   });
 
-  delete (globalThis as Optional<typeof globalThis, "Prism">).Prism;
+  // delete (globalThis as Optional<typeof globalThis, "Prism">).Prism;
 }

@@ -141,11 +141,11 @@ const config: Config = {
           to: "docs/intro",
         },
         { to: "docs/api-reference", label: "API Reference", position: "left" },
-        {
-          to: "https://www.wire.network/updates.html",
-          label: "News",
-          position: "left",
-        },
+        // {
+        //   to: "https://www.wire.network/updates.html",
+        //   label: "News",
+        //   position: "left",
+        // },
         {
           href: "https://github.com/Wire-Network/wire-docs",
           label: "GitHub",
