@@ -27,7 +27,7 @@ CONTRACT contractname : public contract {
   public:
     using contract::contract;
 
-    ACTION doSomething() {
+    ACTION dosomething() {
     // Action implementation
     }
 };
@@ -185,4 +185,4 @@ Smart contracts primarily consist of:
 - **Actions**: These are the entry points for your contract. Actions are functions that you define to interact with and modify data.
 - **Tables**: These are used to store persistent data within your smart contract on the blockchain.
 
-We’ll explore this topic in greater detail in the following sections.
+We’ll explore these topics in greater detail in the future sections.

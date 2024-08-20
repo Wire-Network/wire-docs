@@ -1,11 +1,10 @@
 ---
 sidebar_position: 2
 id: smart-contracts-cleos
-title: cleos
-description: Anything
+title: Using cleos
+#description: Anything
 # slug: /smart-contract-development/interacting-with-smart-contracts/smart-contracts-cleos
 ---
-
 
 # Smart Contract Interactions using `cleos`
 

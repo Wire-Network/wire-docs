@@ -21,17 +21,17 @@ The basic relationship between these components is illustrated in the following 
 
 ## References
 
-- [nodeos](https://developers.eos.io/manuals/eos/v2.0/nodeos/index)
+- [nodeos](/docs/api-reference/tooling/nodeos/index.md)
 
 <!-- GitHub - siliconswampio/wire-eosio  -->
 
 <!-- `nodeos` is the core Wire node daemon. nodeos handles the blockchain data persistence layer, peer-to-peer networking, and contract code scheduling. For development environments, nodeos enables you to set up a single node blockchain network. It offers a wide range of features through plugins which can be enabled or disabled at start time via the command line parameters or configuration files. -->
 
-- [cleos](https://developers.eos.io/manuals/eos/v2.0/cleos/index)
+- [cleos](/docs/api-reference/tooling/cleos/index.md)
 
 <!-- cleos is a command line tool that interfaces with the REST APIs exposed by nodeos. You can also use cleos to deploy and test Wire smart contracts. -->
 
-- [keosd](https://developers.eos.io/manuals/eos/v2.0/keosd/index)
+- [keosd](/docs/api-reference/tooling/keosd/index.md)
 
 <!-- keosd is a key manager daemon for storing private keys and signing digital messages. keosd provides a secure key storage medium for keys to be encrypted in the associated wallet file. The keosd daemon also defines a secure enclave for signing transaction created by cleos or a third party library. -->
 
