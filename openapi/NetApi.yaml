@@ -197,7 +197,7 @@ paths:
                         "$ref": "#/paths/~1net~1status/post/responses/200/content/application~1json/schema/properties/last_handshake/properties/token"
                       key:
                         type: string
-                        description: Base58 encoded EOSIO public key
+                        description: Base58 encoded SYSIO public key
                         pattern: "^(EOS|PUB_([RK]1|WA)_)[1-9A-HJ-NP-Za-km-z]+$"
                         title: PublicKey
                       time:
@@ -211,7 +211,7 @@ paths:
                         title: Sha256
                       sig:
                         type: string
-                        description: Base58 encoded EOSIO cryptographic signature
+                        description: Base58 encoded SYSIO cryptographic signature
                         pattern: "^SIG_([RK]1|WA)_[1-9A-HJ-NP-Za-km-z]+$"
                         title: Signature
                       p2p_address:

@@ -2,8 +2,7 @@
 openapi: 3.0.0
 info:
   title: Chain API
-  description: "OAS 3.0 Nodeos [chain_api_plugin](https://eosio.github.io/eos/latest/nodeos/plugins/chain_api_plugin/index)
-    API Specification\r"
+  description: "OAS 3.0 Nodeop API Specification\r"
   version: 1.0.0
   license:
     name: MIT
@@ -544,7 +543,7 @@ paths:
                   description: array of signatures required to authorize transaction
                   items:
                     type: string
-                    description: Base58 encoded EOSIO cryptographic signature
+                    description: Base58 encoded SYSIO cryptographic signature
                     pattern: "^SIG_([RK]1|WA)_[1-9A-HJ-NP-Za-km-z]+$"
                     title: Signature
                 compression:
@@ -798,21 +797,21 @@ paths:
                 account_name:
                   anyOf:
                   - type: string
-                    description: String representation of privileged EOSIO name type
+                    description: String representation of privileged SYSIO name type
                     pattern: "^(eosio[\\.][a-z1-5]{1,6})([a-j]{1})?$"
                     title: NamePrivileged
                   - type: string
-                    description: String representation of basic EOSIO name type, must
+                    description: String representation of basic SYSIO name type, must
                       be 12 characters and contain only a-z and 0-5
                     pattern: "^([a-z]{1}[a-z1-5]{11})([a-j]{1})?$"
                     title: NameBasic
                   - type: string
-                    description: String representation of EOSIO bid name type, 1-12
+                    description: String representation of SYSIO bid name type, 1-12
                       characters and only a-z and 0-5 are allowed
                     pattern: "^([a-z1-5]{1,12})([a-j]{1})?$"
                     title: NameBid
                   - type: string
-                    description: String representation of EOSIO name type
+                    description: String representation of SYSIO name type
                     pattern: "^([a-z1-5]{1}[a-z1-5\\.]{0,10}[a-z1-5]{1})([a-j]{1})?$"
                     title: NameCatchAll
                   title: Name
@@ -851,7 +850,7 @@ paths:
                           "$ref": "#/paths/~1get_abi/post/responses/200/content/application~1json/schema/properties/tables/items/properties/type"
                         type:
                           type: string
-                          description: Native and EOSIO types
+                          description: Native and SYSIO types
                           enum:
                           - uint8
                           - uint16
@@ -1009,7 +1008,7 @@ paths:
                 type: array
                 items:
                   type: string
-                  description: A string representation of an EOSIO symbol, composed
+                  description: A string representation of an SYSIO symbol, composed
                     of a float with a precision of 4, and a symbol composed of capital
                     letters between 1-7 letters separated by a space, example `1.0000
                     ABC`.
@@ -1058,7 +1057,7 @@ paths:
                   description: Provide the available keys
                   items:
                     type: string
-                    description: Base58 encoded EOSIO public key
+                    description: Base58 encoded SYSIO public key
                     pattern: "^(EOS|PUB_([RK]1|WA)_)[1-9A-HJ-NP-Za-km-z]+$"
                     title: PublicKey
       responses:

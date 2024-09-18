@@ -23,7 +23,7 @@ Before starting this tutorial, ensure the following software is installed on you
 | npm        | 9.8.1   | Package manager for managing and installing JavaScript libraries.                   | Included with Node.js installation                             |
 | TypeScript | 5.1.6   | Adds static types to JavaScript to enhance developer productivity and code quality. | [Install TypeScript](https://www.npmjs.com/package/typescript) |
 
-You should also install and use NVM(https://github.com/nvm-sh/nvm), to set a specific Node version in your project. 
+You should also install and use [NVM](https://github.com/nvm-sh/nvm), to set a specific Node version in your project. 
 
 Once installed, you can use it like:
 
@@ -119,8 +119,8 @@ const chainService = new ChainService({
 - `endpoint`: Replace **`<rpc-url>`** with `http://localhost:8888` for local development or testing. For production or other networks, use the appropriate RPC URL. (ex: Wire devnet - `https://dev-hyperion.gitgo.app/`)
 - `privateKeys`: Replace **`<your-private-key>`** with your actual private key.(generated in [Create Development Wallet](/docs/getting-started/create-development-wallet.md#create-a-wallet))
 
-:::tip[List your private keys with `cleos`]
-cleos wallet private_keys --password $(cat ./my-secret-pass.txt)
+:::tip[List your private keys with `clio`]
+clio wallet private_keys --password $(cat ./my-secret-pass.txt)
 ::: 
 
 Open up a terminal and run `npm watch` to run TypeScript compilation in watch mode. You should see the compiled `dist` folder.
@@ -232,7 +232,7 @@ Blockchain Info:
   "last_irreversible_block_id": "000aab54316cfeedebd51913d1499646982860db601878114e26a97d68cbc72f",
   "head_block_id": "000aab55275835472e463a1aebc6a312fa7711c91c91b0ca7f5edab8896ad627",
   "head_block_time": "2024-08-19T15:54:13.500",
-  "head_block_producer": "eosio",
+  "head_block_producer": "sysio",
   "virtual_block_cpu_limit": 200000000,
   "virtual_block_net_limit": 1048576000,
   "block_cpu_limit": 200000,

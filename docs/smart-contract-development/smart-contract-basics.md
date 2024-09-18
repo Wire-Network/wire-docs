@@ -21,7 +21,7 @@ Smart contract development on Wire offers significant flexibility regarding how 
 Below is an example of a simple smart contract contained within a single file. This basic setup requires no additional files to compile:
 
 ```cpp title="project/contractname.cpp"
-#include <eosio/eosio.hpp>
+#include <eosio/sysio.hpp>
 
 CONTRACT contractname : public contract {
   public:
@@ -41,7 +41,7 @@ For developers who prefer to organize their code more granularly, splitting the 
 ```cpp title="project/include/contractname.hpp"
 #pragma once
 
-#include <eosio/eosio.hpp>
+#include <eosio/sysio.hpp>
 
 CONTRACT contractname : public contract {
     public:
@@ -57,7 +57,7 @@ The code snippet above are essentially equivalent to:
 #pragma once
 
 // Import built-in classes and utilities
-#include <eosio/eosio.hpp>
+#include <eosio/sysio.hpp>
 
 // Class definition
 class [[eosio::contract]] contractname : public eosio::contract {
@@ -130,7 +130,7 @@ Smart contracts resemble classes in traditional object-oriented programming. Her
 
 
 ```cpp title="project/contractname.cpp"
-#include <eosio/eosio.hpp>
+#include <eosio/sysio.hpp>
 
 CONTRACT contractname : public eosio::contract {
     public:
@@ -142,7 +142,7 @@ CONTRACT contractname : public eosio::contract {
 
 #### CONTRACT Definition
 
-The `CONTRACT` keyword is utilized to inform the compiler that we are defining an EOSIO smart contract. It is followed by the contract's name and the base class from which this contract inherits.
+The `CONTRACT` keyword is utilized to inform the compiler that we are defining an SYSIO smart contract. It is followed by the contract's name and the base class from which this contract inherits.
 
 ```cpp title="project/contractname.cpp"
     CONTRACT contractname : public eosio::contract { 
