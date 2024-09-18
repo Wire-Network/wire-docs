@@ -12,7 +12,7 @@ This article gives brief summary of the concept of account and provides instruct
 
 An **account** on the blockchain holds a set of authorizations and serves to identify a sender or recipient. Its flexible authorization framework allows ownership by individuals or groups ,depending on the configured permissions. An account is required to send or receive a valid transaction on the blockchain.
 
-In this practical tutorial series, we utilize two user accounts, `bob` and `alice`, along with the default eosio account for configuration purposes. Additional accounts are also created for various contracts in the future articles.
+In this practical tutorial series, we utilize two user accounts, `bob` and `alice`, along with the default sysio account for configuration purposes. Additional accounts are also created for various contracts in the future articles.
 
 <!-- # Create accounts -->
 
@@ -25,11 +25,11 @@ In this practical tutorial series, we utilize two user accounts, `bob` and `alic
 
 ### Steps
 
-#### Step 1: Use `cleos` to create test accounts
+#### Step 1: Use `clio` to create test accounts
 
 ```bash
-cleos create account eosio bob $PUBLIC_KEY
-cleos create account eosio alice $PUBLIC_KEY
+clio create account sysio bob $PUBLIC_KEY
+clio create account sysio alice $PUBLIC_KEY
 ```
 
 Here is the output of the first command, confirming that the transaction has been broadcast:
@@ -45,19 +45,19 @@ If you encounter errors ensure you are correctly loading environment variables a
 You can retrieve the account by executing:
 
 ```bash
-cleos get account alice
+clio get account alice
 ```
 
 ![get-account](/img/get-account.png)
 
 ## Quick Account Facts
 
-For a clear understanding of how EOSIO accounts and their associated public keys function, please refer to the table below:
+For a clear understanding of how SYSIO accounts and their associated public keys function, please refer to the table below:
 
 | Label | Details |
 | --- | --- |
 | **Account Identification** | Each account is uniquely identified by its account name, not by its public key. |
-|  | Changing the public key does not alter the ownership of the EOSIO account. |
+|  | Changing the public key does not alter the ownership of the SYSIO account. |
 | **Owner and Active Public Keys** | The account (e.g., `alice`) has both an owner and an active public key. |
 |  | EOSIO’s authorization structure uses separate keys for owner and active permissions for enhanced security. |
 | **Security Practices** | Store the owner key in a cold wallet to minimize exposure. |
@@ -68,10 +68,10 @@ For a clear understanding of how EOSIO accounts and their associated public keys
 
 ## Troubleshooting
 
-### `[cleos: Failed to connect to nodeos at ](http://127.0.0.1:8888/); is nodeos running?`
+### `[clio: Failed to connect to nodeop at ](http://127.0.0.1:8888/); is nodeop running?`
 
-Doublecheck if `nodeos` is running; and [restart](./launch-local-node.md#starting-nodeos) the process if needed.
+Doublecheck if `nodeop` is running; and [restart](./launch-local-node.md#starting-nodeop) the process if needed.
 
 ```bash
-pidof nodeos
+pidof nodeop
 ```

@@ -41,10 +41,10 @@ Upon successful compilation, you will see a `hello` folder with `hello.abi` and 
 Before deploying, ensure you have an account to deploy the contract to. Create an account if necessary and replace `YOUR_PUBLIC_KEY` with your actual public key when you created a wallet(see [Import Keys](../getting-started/create-development-wallet.md#import-keys-into-your-wallet)). Your wallet must be also unlocked before using it(see [Unlock a wallet](../getting-started/create-development-wallet.md#unlock-a-wallet))
 
 
-### 3.1. Create an account using `cleos`
+### 3.1. Create an account using `clio`
 
 ```bash
-cleos create account eosio hello $PUBLIC_KEY -p eosio@active
+clio create account sysio hello $PUBLIC_KEY -p eosio@active
 ```
 
 This command enables the `eosio` system account to create a new account named `hello` on the Wire blockchain. The `-p eosio@active` specifies that the active permission of the `eosio` account is used to authorize the account creation.
@@ -60,7 +60,7 @@ This command enables the `eosio` system account to create a new account named `h
 Invoke the `hi` action within the contract:
 
 ```bash
-cleos push action hello hi '["bob"]' -p bob@active
+clio push action hello hi '["bob"]' -p bob@active
 ```
 
 This command triggers the `hi` action for the user `bob`, and if authorized by `bob`, it prints "Hello, bob".
@@ -70,7 +70,7 @@ This command triggers the `hi` action for the user `bob`, and if authorized by `
 Repeat the same passing "alice" as data to the action and using the same permissions: 
 
 ```bash 
-cleos push action hello hi '["alice"]' -p bob@active
+clio push action hello hi '["alice"]' -p bob@active
 ```
 
 ![bob-invoke-with-alice](/img/bob-execute-alice.png) 
@@ -86,7 +86,7 @@ Comment out Line 5 in `hello.cpp`
 [Recompile](#2-compile-the-contract) and [redeploy](#3-deploy-the-contract) the contract. Then execute:
 
 ```bash
-cleos push action hello hi '["alice"]' -p bob@active
+clio push action hello hi '["alice"]' -p bob@active
 ```
 
 This will result in an authorization error since `bob` is trying to execute an action that requires `alice`'s permission.
@@ -103,6 +103,6 @@ CLI output:
 
 ### Inspect the contract on EOS Authority Block Explorer
 
-Feel free to explore your contract on [EOS Authority](./block-explorer.md), which also provides tools to generate ready-to-use cleos commands, making it easier to push transactions and interact with your contracts directly. This is a great way to get hands-on experience and deepen your understanding of smart contracts.
+Feel free to explore your contract on [EOS Authority](./block-explorer.md), which also provides tools to generate ready-to-use clio commands, making it easier to push transactions and interact with your contracts directly. This is a great way to get hands-on experience and deepen your understanding of smart contracts.
 
 ![inspect-hello](/img/be-inspect-hello.png) 

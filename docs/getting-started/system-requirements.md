@@ -11,10 +11,10 @@ The subsequent tutorials are up to date with the following Wire components.
 
 | Component          | Version |
 | ------------------ | ------- |
-| EOSIO Core Version | 2.01.13 |
-| CDT                | 1.7     |
-| eosio.contracts    | 1.9.0   |
-| WireJS             | 1.0.0   |
+| Wire Sysio Core Version | 3.1.6   |
+| Wire CDT                | 3.1.0   |
+| sysio.contracts    | 3.1.1   |
+| skd-core           | 1.0.0   |
 
 ### Supported Operating Systems
 
@@ -22,7 +22,7 @@ The Wire platform is supported on the following environments:
 
 **Linux Distributions**:
 
-- Ubuntu v22
+- Ubuntu v22 & v20
 
 ## Development Experience
 
@@ -32,7 +32,7 @@ At the moment the most mature toolchain for building applications that compile t
 
 ### Command Line Knowledge
 
-There are a variety of tools provided along with Wire core and CDT packages which requires you to have basic command line knowledge in order to interact with.
+There are a variety of tools provided along with Wire core and CDT packages which requires you to have a basic command line knowledge in order to interact with them.
 
 ### Development Tools
 

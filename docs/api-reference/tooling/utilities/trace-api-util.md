@@ -3,7 +3,7 @@ title: trace_api_util
 link_text: trace_api_util
 ---
 
-`trace_api_util` is a command-line interface (CLI) utility that allows node operators to perform low-level tasks associated with the [Trace API Plugin](../nodeos/plugins/trace-api-plugin.md). `trace_api_util` can perform one of the following operations:
+`trace_api_util` is a command-line interface (CLI) utility that allows node operators to perform low-level tasks associated with the [Trace API Plugin](../nodeop/plugins/trace-api-plugin.md). `trace_api_util` can perform one of the following operations:
 
 * Compress a trace `log` file into the compressed `clog` format.
 

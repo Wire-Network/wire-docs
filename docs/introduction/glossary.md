@@ -20,17 +20,11 @@ The ability to choose a username is granted to T4 tier.
 
 ---
 
-## Account Name Bidding
-
-For non-standard accounts, those under 12 characters, Wire based blockchains provide a system where blockchain users can bid on accounts by submitting the bids via an auction process. Only one account name with the highest bidding price can be auctioned off every 24 hours among all submitted account names, that is, the system considers a bidding to be successful only when the bidding price is the highest among all other account bidding prices submitted.
-
----
 
 ## Action
 
 Functionality exposed by a smart contract that is exercised by passing the correct parameters via an approved transaction to Wire network.
 
-Related: Block
 
 ---
 
@@ -38,7 +32,7 @@ Related: Block
 
 A JSON-based description on how to convert user actions between their JSON and binary representations. The ABI may also describe how to convert the database state to/from JSON. Once you have described your contract via an ABI this allows developers and users to interact with your contract seamlessly via JSON.
 
-Abbreviation: ABI
+**Abbreviation**: ABI
 
 ---
 
@@ -46,37 +40,42 @@ Abbreviation: ABI
 
 On the Wire platform, the authority relates a public key and the authorization factors for an account and an account permission. The authority is a data structure linking account permissions to keys, thresholds, weights, delegated account permissions, and time waits.
 
-Related: Permission, Account, Permission Level, Permission Weight, Permission Threshold
+**Related**: [Permission](#permission), [Account](#account), [Permission Level](#permission-level), [Permission Weight](#permission-weight), [Permission Threshold](#permission-threshold)
 
 ---
+
+## Bancor Relay
+
+Wire adopts a free-market approach to allocating scarce resources such as RAM. The Wire system contract allows users to buy RAM from the system and sell RAM back to the system in exchange for the blockchain's native tokens. This provides liquidity in the RAM market while facilitating price discovery. The less unallocated RAM available to the market maker the higher the market maker prices the remaining RAM. The algorithm used for this market maker is known as a Bancor Relay. A Bancor Relay does not set the price of RAM. It only offers to buy and sell at previously established market rates. Anytime the current market rate is different than the current price offered by the Bancor Relay, traders will buy or sell RAM pushing to closer to the market determined price.
 
 ## Block
 
 A confirmable unit of a blockchain. Each block contains zero or more transactions, as well as a cryptographic connection to all prior blocks. When a block becomes "irreversibly confirmed" it's because a supermajority of block producers have agreed that the given block contains the correct transactions. Once a block is irreversibly confirmed, it becomes a permanent part of the immutable blockchain.
 
-Related
-
-- Action
 
 ## Block Header
 
-A part of the block which holds metadata related to the block. In an Wire block header this includes things like the transaction Merkle root, the action Merkle root, the producer who produced the block, the block id of the previous block, the block id of the current block, and the block timestamp. **Related** Block Merkle Tree
+A part of the block which holds metadata related to the block. In an Wire block header this includes things like the transaction Merkle root, the action Merkle root, the producer who produced the block, the block id of the previous block, the block id of the current block, and the block timestamp.
+
+**Related** [Block Merkle Tree](#merkle-tree)
 
 ## Block Log
 
 The block log is an append-only log of blocks written to disk and contains all the irreversible blocks.
 
-## Block Producer
+## Node Operator
 
-A Block Producer is an identifiable entity composed of one or more individuals that express interest in participating in running an Wire network. By participating it is meant these entities will provide a full node, gather transactions, verify their validity, add them into blocks, and propose and confirm these blocks. A Block producer is generally required to have experience with system administration and security as it is expected that their full-node have constant availability.
+A Block Producer is an identifiable entity composed of one or more individuals that express interest in participating in running an Wire network. By participating it is meant these entities will provide a full node, gather transactions, verify their validity, add them into blocks, and propose and confirm these blocks. A Node Operator is generally required to have experience with system administration and security as it is expected that their full-node have constant availability.
 
-## Block Producer Schedule
+## Node Operator Schedule
 
-The list of block producers who currently have the possibility of being selected to produce the next block. This list changes with every new block. **Related** Block Producer
+The list of block producers who currently have the possibility of being selected to produce the next block. This list changes with every new block. 
+
+**Related** Node Operator
 
 ## Block-Producing Node
 
-A full node running nodeos that is actively producing blocks. A producing node, if voted out, will become a producing node on "standy". Standby producers will produce blocks and will be rewarded proportionally to their vote stake.
+A full node running `nodeop` that is actively producing blocks. A producing node, if voted out, will become a producing node on "standby". Standby operators are synced with the nextwork but they will only start producing blocks and earn rewards if they are selected to be part of the 21 Node Operators.
 
 ## Blockchain Application
 
@@ -88,23 +87,25 @@ In the context of distributed systems, Asyncronous Byzantine Fault Tolerance (aB
 
 ## CPU
 
-CPU is processing power granted to an account by an Wire based blockchain. The amount of CPU an account has is measured in microseconds, and represents the amount of processing time an account has at its disposal when executing its actions. CPU is recalculated after each block is produced, based on the amount of system tokens the account staked for CPU bandwidth in proportion to the amount of total system tokens staked for CPU bandwidth at that time.
+CPU is processing power granted to an account by an Wire based blockchain. The amount of CPU an account has is measured in microseconds, and represents the amount of processing time an account has at its disposal when executing its actions. 
+
+<!-- CPU is recalculated after each block is produced, based on the amount of system tokens the account staked for CPU bandwidth in proportion to the amount of total system tokens staked for CPU bandwidth at that time. -->
 
 ## Chain State
 
 The chain state (or "database" as it is often called) is a memory mapped file, which stores the blockchain state of each block (account details, deferred transactions, transactions, data stored using multi index tables in smart contracts, etc.). Once a block becomes irreversible the chain state is no longer cached.
 
-## Cleos
+## clio
 
-cleos is a command line tool that interfaces with the REST api exposed by nodeos, in other words cleos is the command line tool through which you can interface with an Wire based blockchain; cleos contains documentation for all of its commands. For a list of all commands known to cleos, simply run it with no arguments. cleos = command line + eos
+clio is a command line tool that interfaces with the REST api exposed by nodeop, in other words clio is the command line tool through which you can interface with an Wire based blockchain; clio contains documentation for all of its commands. For a list of all commands known to clio, simply run it with no arguments. clio = command line + eos
 
 ## Confirmed Transaction
 
-On completion of the transaction, a transaction receipt is generated. Receiving a transaction hash does not mean that the transaction has been confirmed, it only means that the node accepted it without error, which also means that there is a high probability other producers will accept it. A transaction is considered confirmed when a nodeos instance has received, processed, and written it to a block on the blockchain, i.e. it is in the head block or an earlier block.
+On completion of the transaction, a transaction receipt is generated. Receiving a transaction hash does not mean that the transaction has been confirmed, it only means that the node accepted it without error, which also means that there is a high probability other producers will accept it. A transaction is considered confirmed when a nodeop instance has received, processed, and written it to a block on the blockchain, i.e. it is in the head block or an earlier block.
 
 ## Core
 
-The core is used to refer to the Wire blockchain native components, e.g. native actions, chain libraries, nodeos daemon, etc. The core is the Wire platform on which Wire based blockchains can be instantiated and tailored by means of deploying smart contracts (including the system smart contracts). Therefore, the system smart contracts are not considered part of the core or native blockchain implementation.
+The core is used to refer to the Wire blockchain native components, e.g. native actions, chain libraries, nodeop daemon, etc. The core is the Wire platform on which Wire based blockchains can be instantiated and tailored by means of deploying smart contracts (including the system smart contracts). Therefore, the system smart contracts are not considered part of the core or native blockchain implementation.
 
 ## Cryptographic Hash
 
@@ -114,17 +115,14 @@ A cryptographic hash function is a hash function which takes an input (or 'messa
 
 In addition to the native permissions, owner and active, an account can possess custom named permissions that are available to further extend account management. Custom permissions are incredibly flexible and address numerous possible use cases when implemented. Custom permissions are arbitrary and impotent until they have been linked to an action.
 
-## Decentralized Autonomous Company
-
-An entity that utilizes a combination of automation and input from stakeholders, normally in the form of votes. They are often governed by code which describes the purpose of the organisation. **Abbreviation** : DAC
 
 ## Deferred Action
 
 Deferred actions are actions sent to a peer action that are scheduled to run, at best, at a later time, at a block producer's discretion. There is no guarantee that a deferred action will be executed. From the perspective of the originating action, i.e., the action that creates the deferred action, it can only determine whether the create request was submitted successfully or whether it failed (if it fails, it will fail immediately). Deferred actions carry the authority of the contract that sends them. A deferred action can also be cancelled by another action.
 
-## Appointed Proof of Stake
+## Appointed Proof of Stake(APoS)
 
-A consensus algorithm initially developed by Daniel Larimer in 2013 for Bitshares. It is sometimes referred to as "Democracy as Proof of Stake" **Abbreviation** : DPoS
+Wire Network's consensus algorithm that builds upon a Delegated Proof of Stake, which was originally developed by Daniel Larimer. APoS addresses DPoS consensus challenges by separating roles and responsibilities of Node Owners from Node Operators,
 
 ## Deserialization
 
@@ -136,7 +134,7 @@ A digital signature is a mathematical scheme for verifying the authenticity of d
 
 ## Dispatcher
 
-Every smart contract must provide an apply action handler. The apply action handler is a function that listens to all incoming actions and performs the desired behavior. In order to respond to a particular action, code is required to identify and respond to specific action requests. apply uses the receiver, code, and action input parameters as filters to map to the desired functions that implement particular actions. To simplify the work for contract developers, Wire provides the Wire_DISPATCH macro, which encapsulates the lower level action mapping details of the apply function, enabling developers to focus on their application implementation.
+Every smart contract must provide an apply action handler. The apply action handler is a function that listens to all incoming actions and performs the desired behavior. In order to respond to a particular action, code is required to identify and respond to specific action requests. apply uses the receiver, code, and action input parameters as filters to map to the desired functions that implement particular actions. 
 
 ## Dispatcher Hooks
 
@@ -150,27 +148,33 @@ A consensus of replicated, shared, and synchronized digital data geographically 
 
 ## Wire Types
 
-Wire source code defines a list of types which ease the developer's work when writing smart contracts, plugins, or when extending the Wire source code. Example types include account_name, permission_name, table_name, action_name, scope_name, weight_type, public_key, etc.
+Wire source code defines a list of types which ease the developer's work when writing smart contracts, plugins, or when extending the Wire source code. Example types include `account_name`, `permission_name`, `table_name`, `action_name`, `scope_name`, `weight_type`, `public_key`, etc.
 
-## Wire.CDT
+## wire cdt
 
 The toolchain to build WebAssembly (WASM) and set of tools to facilitate smart contract development for the Wire platform.
 
 ## Genesis Block
 
-The genesis block is the very first block in the Wire blockchain. The subsequent block added after the genesis block becomes block 1 and continues the sequence. The genesis block lays the foundation for other blocks to be added to form a blockchain. **Related** Block
+The genesis block is the very first block in the Wire blockchain. The subsequent block added after the genesis block becomes block 1 and continues the sequence. The genesis block lays the foundation for other blocks to be added to form a blockchain. 
+
+**Related** [Block](#block)
 
 ## Genesis Node
 
-The genesis node is the first node in the blockchain network. The genesis node is used to perform a set of actions such as creating system accounts, initializing system, and token contracts in order to create a fully-functional blockchain with varying capabilities such as governance, resource allocation, and more. **Synonyms** Single Producer Node
+The genesis node is the first node in the blockchain network. The genesis node is used to perform a set of actions such as creating system accounts, initializing system, and token contracts in order to create a fully-functional blockchain with varying capabilities such as governance, resource allocation, and more. 
+
+*Synonyms* Single Producer Node
 
 ## Governance
 
-Blockchain governance is a lot like other kinds of governance, except that it's underpinned by smart contracts and transparent voting on the blockchain. Governance, the mechanism by which collective decisions are made, of a Wire based blockchain is achieved through 21 active block producers which are appointed by token holders. The 21 active block producers continuously create the blockchain via block creation, secure the blocks by validating them, and reach consensus on the state of the blockchain as a whole. Consensus is reached when 2/3+ active block producers agree on validity of a block , therefore on all transactions contained in it and their order. **Related** Irreversible Block
+Blockchain governance is a lot like other kinds of governance, except that it's underpinned by smart contracts and transparent voting on the blockchain. Governance, the mechanism by which collective decisions are made, of a Wire based blockchain is achieved through 21 active Node Operators which are appointed by token holders. The 21 active Node Operators continuously create the blockchain via block creation, secure the blocks by validating them, and reach consensus on the state of the blockchain as a whole. Consensus is reached when 2/3+ active block producers agree on validity of a block , therefore on all transactions contained in it and their order. 
+
+**Related** [Irreversible Block](#irreversible-block)
 
 ## Head Block
 
-The head block is the last block written to the blockchain, stored in reversible_blocks.
+The head block is the last block written to the blockchain, stored in `reversible_blocks`.
 
 ## Indices
 
@@ -182,43 +186,52 @@ Inline actions request other actions that need to be executed as part of the ori
 
 ## Irreversible Block
 
-Irreversible blocks are blocks that contain confirmed, final transactions. A block is considered irreversible (i.e., immutable) on an Wire-based blockchain when a supermajority, consisting of 2/3rds plus 1 of the currently elected block producers have confirmed the block. **Related** Block
+Irreversible blocks are blocks that contain confirmed, final transactions. A block is considered irreversible (i.e., immutable) on an Wire-based blockchain when a supermajority, consisting of 2/3rds plus 1 of the currently elected block producers have confirmed the block. 
 
-## Keosd
+**Related**: [Block](#block)
 
-keosd is the component that securely stores Wire keys in wallets. keosd = key + eos
+## Kiod
 
-## Larimer
+kiod is the component that securely stores Wire keys in wallets. kiod = key + eos
 
-1/10000 of an WIRE (token) 0.0001 WIRE
 
 ## Merkle Tree
 
-A Merkle tree is a tree in which every leaf node is labelled with the hash of a data block, and every non-leaf node is labelled with the cryptographic hash of the labels of its child nodes. Hash trees allow efficient and secure verification of the contents of large data structures. **Synonyms** Hash tree **Related** Block Header
+A Merkle tree is a tree in which every leaf node is labelled with the hash of a data block, and every non-leaf node is labelled with the cryptographic hash of the labels of its child nodes. Hash trees allow efficient and secure verification of the contents of large data structures. 
+
+*Synonyms* Hash tree
+**Related**: [Block Header](#block-header)
 
 ## Multi-Index
 
-Wire wraps the boost multi-index library to provide in memory data persistence. A subset of the functionality provided by the boost multi- index is provided in the Wire multi-index.
+Wire wraps the [boost multi-index C++](https://www.boost.org/doc/libs/1_75_0/libs/multi_index/doc/index.html) library to provide in memory data persistence. A subset of the functionality provided by the boost multi- index is provided in the Wire multi-index.
 
-## Multiple Index Table
+## Multi Index Table
 
-Multiple Index Tables, are a way to cache state and/or data in RAM for fast access. Multi index tables support create, read, update, and delete (CRUD) operations, something which the blockchain doesn't (it only supports create and read). Multi index tables are stored in Wire RAM and each smart contract using a multi index table reserves a partition of the RAM cache. Access to each partition is controlled using the table name, code, and scope, and can have up to 16 indexes or indices defined. **Synonyms** Multi-Index Tables **Related** Indices
+Multi Index Tables, are a way to cache state and/or data in RAM for fast access. Multi index tables support create, read, update, and delete (CRUD) operations, something which the blockchain doesn't (it only supports create and read). Multi index tables are stored in Wire RAM and each smart contract using a multi index table reserves a partition of the RAM cache. Access to each partition is controlled using the table name, code, and scope, and can have up to 16 indexes or indices defined. 
+
+*Synonyms* Multiple Index Tables **Related** Indices
 
 ## Multisig
 
-Multisig is a short term for multiple signatures. It’s used to describe the case in which one requires more than one account's permission to execute a transaction. Wire provides the system account eosio.msig, which can be used to push onto the blockchain the multisig proposals and their corresponding account's permission required to approve the proposal. Multisig, when used properly, increases the security of an account, the security of a smart contract, and it's also the method by which Block Producers are able to affect changes within an Wire blockchain. **Synonyms** msig multiple signatures
+Multisig is a short term for multiple signatures. It’s used to describe the case in which one requires more than one account's permission to execute a transaction. Wire provides the system account sysio.msig, which can be used to push onto the blockchain the multisig proposals and their corresponding account's permission required to approve the proposal. Multisig, when used properly, increases the security of an account, the security of a smart contract, and it's also the method by which Block Producers are able to affect changes within an Wire blockchain. 
+
+*Synonyms* msig multiple signatures
 
 ## NET
 
 NET is required to store transactions on an Wire based blockchain. The amount of NET an account has is measured in bytes, representing the amount of transaction storage an account has at its disposal when creating a new transaction. NET is recalculated after each block is produced, based on the system tokens staked for NET bandwidth by the account. The amount allocated to an account is proportional with the total system tokens staked for NET by all accounts. Do not confuse NET with RAM, although it is also storage space, NET measures the size of the transactions and not contract state.
 
-## Nodeos
+## Nodeop
 
-nodeos is the core Wire node daemon that can be configured with plugins to run a node. Example uses are block production, dedicated API endpoints, and local development. nodeos = node + eos
+`nodeop` is the core Wire node daemon that can be configured with plugins to run a node. Example uses are block production, dedicated API endpoints, and local development.
+
 
 ## Non-Producing Node
 
-A full node running nodeos that is only watching and verifying for itself each block, and maintaining its own local full copy of the blockchain. A non-producing node that is in the "standby pool" can, through the process of being voted in, become a Producing Node. A producing node, if voted out, will become a non-producing node. For large Wire changes, non-producing nodes are outside the realm of the "standby pool". **Related** Block-Producing Node Guide: Configuring a block-producing node
+A full node running nodeop that is only watching and verifying for itself each block, and maintaining its own local full copy of the blockchain. A non-producing node that is in the "standby pool" can, through the process of being voted in, become a Producing Node. A producing node, if voted out, will become a non-producing node. For large Wire changes, non-producing nodes are outside the realm of the "standby pool".
+
+**Related** Block-Producing Node Guide: Configuring a block-producing node, [Block Producing Node](#block-producing-node)
 
 ## Oracle
 
@@ -226,7 +239,7 @@ An oracle, in the context of blockchains and smart contracts, is an agent that f
 
 ## Packed Transaction
 
-In order to transfer transaction content between nodes faster and to save storage space when storing transaction content in and Wire based blockchain database, the transactions are 'translated' from json into a packed form which is smaller in size. To get the packed version of a transaction one can use the cleos convert command.
+In order to transfer transaction content between nodes faster and to save storage space when storing transaction content in and Wire based blockchain database, the transactions are 'translated' from json into a packed form which is smaller in size. To get the packed version of a transaction one can use the clio convert command.
 
 ## Peer-to-peer
 
@@ -238,7 +251,7 @@ The pending block is the block currently being built by each node. Transactions 
 
 ## Pending Blocks
 
-The pending block is an in memory block containing transactions as they are processed into a block, this will/may eventually become the head block. If this instance of nodeos is the producing node then the pending block will eventually be distributed to other nodeos instances.
+The pending block is an in memory block containing transactions as they are processed into a block, this will/may eventually become the head block. If this instance of nodeop is the producing node then the pending block will eventually be distributed to other nodeop instances.
 
 ## Permission
 
@@ -250,7 +263,7 @@ The sum of permission weights necessary for a signature to be considered valid.
 
 ## Permission Weight
 
-A permission weight is a value given to an account for authorization purposes. This is typically used in the context of a mutli-sig to give one or more accounts more control over a multi-sig than others. **Synonyms** Authorization
+A permission weight is a value given to an account for authorization purposes. This is typically used in the context of a mutli-sig to give one or more accounts more control over a multi-sig than others. *Synonyms* Authorization
 
 **Related** Permission Account
 
@@ -260,7 +273,7 @@ Permissions are arbitrary names used to define the requirements for a transactio
 
 ## Plugin
 
-nodeos plugins are software components that implement features that complement the native Wire blockchain basic implementation. They can be enabled or disabled through the nodeos configuration file or specifying them in the command line that launches the nodeos daemon.
+nodeop plugins are software components that implement features that complement the native Wire blockchain basic implementation. They can be enabled or disabled through the nodeop configuration file or specifying them in the command line that launches the nodeop daemon.
 
 ## Private Key
 
@@ -272,7 +285,7 @@ A private network is a production network, or a test network, to which access is
 
 ## Privileged
 
-Privileged accounts are accounts which can execute transactions while skipping the standard authorization check. To ensure that this is not a security hole, the permission authority over these accounts is granted to the eosio.prods account. An account can be set as privileged by sending the action setpriv to an Wire based blockchain, specifying the account to be set as privileged, and providing the correct permission, or, by using cleos command line utility.
+Privileged accounts are accounts which can execute transactions while skipping the standard authorization check. To ensure that this is not a security hole, the permission authority over these accounts is granted to the sysio.prods account. An account can be set as privileged by sending the action setpriv to an Wire based blockchain, specifying the account to be set as privileged, and providing the correct permission, or, by using `clio` command line utility.
 
 ## Privileged Account
 
@@ -288,19 +301,33 @@ A public network is a production network instantiated with the Wire platform. Fo
 
 ## RAM
 
-RAM is required to store account information such as keys, balances, and contract state on an Wire based blockchain. Because the amount of RAM available to a single computer is limited by Moore’s Law and other technological advances, RAM is fundamentally scarce and must be purchased on a free-market inside an Wire based blockchain. **Related** RAM Market Bancor Relay
+RAM is required to store account information such as keys, balances, and contract state on an Wire based blockchain. Because the amount of RAM available to a single computer is limited by Moore’s Law and other technological advances, RAM is fundamentally scarce and must be purchased on a free-market inside an Wire based blockchain.
+
+ **Related** [Bancor Relay](#bancor-relay)
 
 ## RAM Market
 
-In order to persist data on an Wire based blockchain, a user must first purchase RAM. The Wire RAM market uses the Bancor Relay algorithm in a system smart contract to offer to buy and sell RAM from users at previously established market rates. **Related** Bancor Relay
+In order to persist data on an Wire based blockchain, a user must first purchase RAM. The Wire RAM market uses the Bancor Relay algorithm in a system smart contract to offer to buy and sell RAM from users at previously established market rates.
+
+ **Related** [Bancor Relay](#bancor-relay)
 
 ## REX
 
 The REX (Resource Exchange) is a CPU and Network resource rental market in which holders of the core token of a blockchain can buy and sell slices of the REX pool in the form of REX tokens. Blockchain users can then rent CPU and Network resources from the REX pool.
 
+
+## ROA(Resource Owners Association)
+
+A REX extension.
+
+
+## Updog 🐕
+
+The mechanism/process for exchanging data between chains. It is responsible for block production schedule and verification of Node Operators.
+
 ## Read Mode
 
-An Wire based blockchain allows contract developers to persist state across actions, and consequently transaction, boundaries. For example the sample eosio.token contract keeps balances for all users in the database. Each instance of nodeos keeps the database in memory, so contracts can read and write data quickly. However, at any given time there can be multiple correct ways, called modes, to query that data.
+An Wire based blockchain allows contract developers to persist state across actions, and consequently transaction, boundaries. For example the sample sysio.token contract keeps balances for all users in the database. Each instance of nodeop keeps the database in memory, so contracts can read and write data quickly. However, at any given time there can be multiple correct ways, called modes, to query that data.
 
 ## Retired Action
 
@@ -316,7 +343,7 @@ In the Wire based blockchain context Ricardian Contract is a digital document th
 
 ## SYS
 
-SYS is the blockchain default token name for an Wire based blockchain. Any fork of the EOSIO open source has the option to rename it, through a very simple procedure, to any token name that meets the symbol validation rules.
+SYS is the blockchain default token name for an Wire based blockchain. Any fork of the Wire open source has the option to rename it to any token name that meets the symbol validation rules.
 
 ## Scope
 
@@ -344,7 +371,7 @@ Standard account names can only contain the characters .abcdefghijklmnopqrstuvwx
 
 ## Standby Pool
 
-A set of about 100 full nodes that have expressed the desire to be selected as block producers, and are capable of doing so on demand. Whenever the chain needs to replace an existing BP with a new one, the new one is drawn from the standby pool.
+A set of about 100 full nodes that have expressed the desire to be selected as Node Operators, and are capable of doing so on demand. Whenever the chain needs to replace an existing Node Operator with a new one, the new one is drawn from the standby pool.
 
 ## System
 
@@ -352,11 +379,13 @@ Everything that is part of Wire which is not part of core, is referred to as sys
 
 ## System Contract
 
-The design of the Wire blockchain calls for a number of smart contracts that are run at a privileged permission level in order to support functions such as block producer registration, multi-sig, etc. These smart contracts are referred to as the system contracts and are the following, eosio.bios, eosio.system, eosio.token, eosio.msig and eosio.wrap contracts.
+The design of the Wire blockchain calls for a number of smart contracts that are run at a *privileged* permission level in order to support functions such as node operator registration, multi-sig, etc. These smart contracts are referred to as the system contracts and are the following, sysio.bios, sysio.system, sysio.token, sysio.msig and sysio.wrap contracts.
 
 ## Tables
 
-Tables on an Wire-based blockchain are achieved via Multiple Index Table. **Related** Multiple Index Table
+Tables on an Wire-based blockchain are achieved via Multiple Index Table. 
+
+**Related** [Multiple Index Table](#multi-index-table)
 
 ## Test Network
 
@@ -376,7 +405,7 @@ Transaction trace is a log of all the actions that took place as a result of an 
 
 ## Unconfirmed Transaction
 
-A transaction is considered unconfirmed as long as no nodeos instance has received, processed, and written it to a block on the blockchain, i.e. it is not in the head block or a block earlier than the head block.
+A transaction is considered unconfirmed as long as no nodeop instance has received, processed, and written it to a block on the blockchain, i.e. it is not in the head block or a block earlier than the head block.
 
 ## Wait
 
@@ -390,8 +419,13 @@ Wallets are clients that store keys that may or may not be associated with the p
 
 An encoding for a private EDSA key. Wire uses the same version, checksum, and encoding scheme as the Bitcoin WIF addresses and should be compatible with existing libraries.
 
-example of a WIF Private Key: 5HpHagT65TZzG1PH3CSu63k8DbpvD8s5ip4nEB3kEsreAbuatmU **Abbreviation** : WIF
+Example of a WIF Private Key: `5HpHagT65TZzG1PH3CSu63k8DbpvD8s5ip4nEB3kEsreAbuatmU`
+
+**Abbreviation** : WIF
 
 ## WebAssembly
 
-The Wire based blockchains execute user-generated applications and code using WebAssembly. WASM is an emerging web standard with widespread support of Google, Microsoft, Apple, and others. At the moment the most mature toolchain for building applications that compile to WASM is clang/llvm with their C/C++ compiler. For best compatibility, it is recommended that you use the Wire toolchain to generate WASM. **Synonyms** Web-Assembly Machine **Abbreviation** : Wasm
+The Wire based blockchains execute user-generated applications and code using WebAssembly. WASM is an emerging web standard with widespread support of Google, Microsoft, Apple, and others. At the moment the most mature toolchain for building applications that compile to WASM is clang/llvm with their C/C++ compiler. For best compatibility, it is recommended that you use the Wire toolchain to generate WASM. 
+
+**Synonyms** Web-Assembly Machine 
+**Abbreviation** : Wasm

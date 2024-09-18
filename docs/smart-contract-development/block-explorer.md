@@ -9,7 +9,7 @@ title: Using EOS Block Explorer
 
 A block explorer is an online application that enables individuals to interact with and examine information stored on the blockchain. Such tools provide a straightforward interface for users to view transaction histories, account balances, and additional relevant data on a blockchain. Block explorers catalog and display all transactions on a specific network.
 
-As we develop and refine our code, we'll regularly use the EOS Authority Block Explorer. This tool will be invaluable for monitoring our transactions and observing the real-time effects of our interactions with the blockchain, as well as get copy-ready `cleos` commands and inspect data in our tables.
+As we develop and refine our code, we'll regularly use the EOS Authority Block Explorer. This tool will be invaluable for monitoring our transactions and observing the real-time effects of our interactions with the blockchain, as well as get copy-ready `clio` commands and inspect data in our tables.
 
 ### Using EOS Authority Block Explorer
 

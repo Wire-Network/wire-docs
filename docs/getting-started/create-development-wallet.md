@@ -5,7 +5,7 @@ id: create-development-wallet
 
 # Create Development Wallet
 
-Wallets store public-private key pairs, which are needed for signing operations performed on the blockchain. They can be accessed through the use of `cleos` command line tool.
+Wallets store public-private key pairs, which are needed for signing operations performed on the blockchain. They can be accessed through the use of `clio` command line tool.
 
 ## Create a Wallet
 
@@ -22,13 +22,13 @@ console.log('Every repo must come with a mascot.');
 ``` -->
 
 ```bash
-cleos wallet create --to-console
+clio wallet create --to-console
 ```
 
 For production environments, it is safer to use the `--file` option to avoid having your wallet password recorded in your bash history:
 
 ```bash
-cleos wallet create --file my-secret-pass.txt
+clio wallet create --file my-secret-pass.txt
 ```
 
 In both cases, ensure you save the password securely, as it will be needed later in the tutorial.
@@ -37,16 +37,16 @@ In both cases, ensure you save the password securely, as it will be needed later
 
 ## Open the Wallet
 
-Wallets are closed by default when starting a `keosd` instance, to begin, run the following
+Wallets are closed by default when starting a `kiod` instance, to begin, run the following
 
 ```bash
-cleos wallet open
+clio wallet open
 ```
 
 Run the following to return a list of wallets.
 
 ```bash
-cleos wallet list
+clio wallet list
 ```
 
 and it will return
@@ -60,20 +60,20 @@ Wallets:
 
 ## Unlock a Wallet
 
-The `keosd` wallet(s) have been opened, but is still locked.
+The `kiod` wallet(s) have been opened, but is still locked.
 
 ```bash
-cleos wallet unlock
+clio wallet unlock
 ```
 
 You will be prompted for your wallet password you saved earlier, paste it and press enter. You could also use a one-liner below:
 
-`cleos wallet unlock --password $(cat /path/to/password_file)`
+`clio wallet unlock --password $(cat /path/to/password_file)`
 
 Execute the command below:
 
 ```bash
-cleos wallet list
+clio wallet list
 ```
 
 This should output the following result:
@@ -89,10 +89,10 @@ The asterisk (\*) next to the name means that the wallet is currently unlocked.
 
 ## Import keys into your wallet​
 
-Generate a private key, `cleos` has a helper function for this, just run the following.
+Generate a private key, `clio` has a helper function for this, just run the following.
 
 ```bash
-cleos wallet create_key
+clio wallet create_key
 ```
 
 It will return something like:
@@ -116,10 +116,10 @@ You could set it as environment variable:
 Every new Wire chain has a default system user called `eosio`. This account is used to setup the chain by loading system contracts that dictate the governance and consensus of the Wire chain. Every new Wire chain comes with a development key, and this key is the same. Load this key to sign transactions on behalf of the system user `eosio`.
 
 ```bash
-cleos wallet import
+clio wallet import
 ```
 
-You'll be prompted for a private key, enter the eosio development key provided below
+You'll be prompted for a private key, enter the sysio development key provided below
 
 ```bash
 5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3

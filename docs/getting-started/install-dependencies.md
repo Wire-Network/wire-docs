@@ -37,7 +37,7 @@ sudo apt remove eosio
 Download and install the Wire.CDT using the following command:
 
 ```bash
-wget https://github.com/siliconswampio/wire-eosio-cdt/releases/download/v1.7.0/eosio.cdt_1.7.0-1_amd64.deb && sudo apt install ./eosio.cdt_1.7.0-1_amd64.deb
+wget https://github.com/siliconswampio/wire-eosio-cdt/releases/download/v1.7.0/sysio.cdt_1.7.0-1_amd64.deb && sudo apt install ./sysio.cdt_1.7.0-1_amd64.deb
 ```
 
 ##### Uninstall Wire.CDT
@@ -45,7 +45,7 @@ wget https://github.com/siliconswampio/wire-eosio-cdt/releases/download/v1.7.0/e
 To uninstall Wire.CDT:
 
 ```bash
-sudo apt remove eosio.cdt
+sudo apt remove sysio.cdt
 ```
 
 ***
@@ -65,7 +65,7 @@ distribution that some required packages have not yet been created
 or been moved out of Incoming.
 The following information may help to resolve the situation:
 The following packages have unmet dependencies:
- eosio : Depends: libssl1.1 but it is not installable
+ sysio : Depends: libssl1.1 but it is not installable
          Depends: libicu60 but it is not installable
 E: Unable to correct problems, you have held broken packages.
 ```
@@ -120,8 +120,8 @@ brew install eosio
 ##### Install Wire.CDT
 
 ```sh
-brew tap eosio/eosio.cdt
-brew install eosio.cdt
+brew tap eosio/sysio.cdt
+brew install sysio.cdt
 ```
 
 ## Verify Installation
@@ -129,7 +129,7 @@ brew install eosio.cdt
 To verify that the installation was successful, run the following command:
 
 ```bash
-eosio-cpp --version
+cdt-cpp --version
 ```
 
 The output of this command should look like:

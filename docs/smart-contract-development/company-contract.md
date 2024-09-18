@@ -9,7 +9,7 @@ title: Create Company Contract
 
 ## Overview
 
-This page will guide you to creating and developing a simple contract using EOSIO CDT and C++ language. While prior knowledge of C++ is not necessary for this tutorial, we encourage you to familiarize yourself with the basics of C++ to enhance your understanding.
+This page will guide you to creating and developing a simple contract using SYSIO CDT and C++ language. While prior knowledge of C++ is not necessary for this tutorial, we encourage you to familiarize yourself with the basics of C++ to enhance your understanding.
 
 ## Prerequisites
 
@@ -33,12 +33,12 @@ In C++, splitting class declarations and definitions into separate header (.hpp)
 
 2.1. Define contract interfaces in `company-contract.hpp`
 
-- The `eosio/eosio.hpp` header file contains necessary classes and built-in utility functions for contract development.
+- The `eosio/sysio.hpp` header file contains necessary classes and built-in utility functions for contract development.
 
 ```cpp title="/your-contracts-workspace/company-contract/company-contract.hpp"
 #pragma once
 
-#include <eosio/eosio.hpp>
+#include <eosio/sysio.hpp>
 #include <string>
 
 using namespace eosio;
@@ -87,11 +87,10 @@ public:
 :::tip[LEARN]
 The short syntax in C++ contracts, such as those used in the Wire blockchain framework, is possible due to the language’s support for preprocessor's directive like `#define`. This directive is a preprocessor command that creates *macros*, serving as symbolic names or aliases for code fragments. Before compilation, the preprocessor scans the source code and replaces these macros with their defined sequences. Essentially, `#define` allows developers to define constants, create function-like macros, or insert code snippets, improving readability and maintainability by eliminating repetitive code segments.
 
-<!-- TODO: add link here -->
-Source code:
+[Source code](https://github.com/Wire-Network/wire-cdt/blob/main/libraries/sysiolib/contracts/sysio/contract.hpp#L18)
 
-```cpp title=wire-eosio-cdt/libraries/eosiolib/contracts/eosio/contract.hpp
-#define CONTRACT class [[eosio::contract]]
+```cpp title=wire-cdt/libraries/sysiolib/contracts/sysio/contract.hpp
+#define CONTRACT class [[sysio::contract]]
 ```
 
 :::
@@ -101,7 +100,7 @@ Source code:
 
 Within the employees contract class, let's add a struct named `employee` to represent the table that holds individual employee records. We will define it with several fields:
 
- • `user`: The EOSIO name of the employee, which will serve as the primary key for the table. It uniquely identifies each employee record.
+ • `user`: The SYSIO name of the employee, which will serve as the primary key for the table. It uniquely identifies each employee record.
 
  • `name`: A string that stores the full name of the employee.
 
@@ -197,14 +196,14 @@ void company::getallemp() {
 
 ### 4\. Compile the Contract
 
-Compile your contract into WebAssembly (WASM) format using the EOSIO Contract Development Toolkit (CDT). This command also generates the ABI file in the `company` folder.
+Compile your contract into WebAssembly (WASM) format using the SYSIO Contract Development Toolkit (CDT). This command also generates the ABI file in the `company` folder.
 
 ```bash
-eosio-cpp -abigen -contract company -o company/company.wasm src/company.cpp -I include
+cdt-cpp -abigen -contract company -o company/company.wasm src/company.cpp -I include
 ```
 
 <!-- ```bash title="/your-contracts-workspace"
-eosio-cpp -abigen -R ./ricardian -contract company-contract -o company-contract/company-contract.wasm src/company-contract.cpp -I include
+cdt-cpp -abigen -R ./ricardian -contract company-contract -o company-contract/company-contract.wasm src/company-contract.cpp -I include
 ``` -->
 
 ### 5\. Deploy the Contract
@@ -228,14 +227,14 @@ export PUBLIC_KEY=key-value
 ```
 
 ```bash
-cleos create account eosio company $PUBLIC_KEY -p eosio@active
+clio create account sysio company $PUBLIC_KEY -p eosio@active
 ```
 
 #### Deploy the compiled contract
 
 ```bash
                   [account] [WASM dir]  [permission level] 
-cleos set contract company  company -p  company@active
+clio set contract company  company -p  company@active
 ```
 
 The smart contract should now be live on your local blockchain. You can inspect it via EOS Block Explorer.

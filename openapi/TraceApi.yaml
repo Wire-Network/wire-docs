@@ -82,22 +82,22 @@ paths:
                         title: EmptyString
                       - anyOf:
                         - type: string
-                          description: String representation of privileged EOSIO name
+                          description: String representation of privileged SYSIO name
                             type
                           pattern: "^(eosio[\\.][a-z1-5]{1,6})([a-j]{1})?$"
                           title: NamePrivileged
                         - type: string
-                          description: String representation of basic EOSIO name type,
+                          description: String representation of basic SYSIO name type,
                             must be 12 characters and contain only a-z and 0-5
                           pattern: "^([a-z]{1}[a-z1-5]{11})([a-j]{1})?$"
                           title: NameBasic
                         - type: string
-                          description: String representation of EOSIO bid name type,
+                          description: String representation of SYSIO bid name type,
                             1-12 characters and only a-z and 0-5 are allowed
                           pattern: "^([a-z1-5]{1,12})([a-j]{1})?$"
                           title: NameBid
                         - type: string
-                          description: String representation of EOSIO name type
+                          description: String representation of SYSIO name type
                           pattern: "^([a-z1-5]{1}[a-z1-5\\.]{0,10}[a-z1-5]{1})([a-j]{1})?$"
                           title: NameCatchAll
                         title: Name
@@ -241,7 +241,7 @@ paths:
                             type: array
                             items:
                               type: string
-                              description: Base58 encoded EOSIO cryptographic signature
+                              description: Base58 encoded SYSIO cryptographic signature
                               pattern: "^SIG_([RK]1|WA)_[1-9A-HJ-NP-Za-km-z]+$"
                               title: Signature
                           transaction_header:
