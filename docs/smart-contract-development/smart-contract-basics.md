@@ -18,10 +18,11 @@ C++ is the primary language for developing smart contracts on the Wire blockchai
 Smart contract development on Wire offers significant flexibility regarding how you structure your project. You can opt for a single monolithic `.cpp` file or divide your code across multiple files. For more complex projects, a build system like CMake can be used to manage the project components effectively.
 
 #### Single File Example
+
 Below is an example of a simple smart contract contained within a single file. This basic setup requires no additional files to compile:
 
 ```cpp title="project/contractname.cpp"
-#include <eosio/sysio.hpp>
+#include <sysio/sysio.hpp>
 
 CONTRACT contractname : public contract {
   public:
@@ -38,10 +39,11 @@ CONTRACT contractname : public contract {
 For developers who prefer to organize their code more granularly, splitting the project into multiple files is also an option.
 
 **Header File (contractname.hpp):**
+
 ```cpp title="project/include/contractname.hpp"
 #pragma once
 
-#include <eosio/sysio.hpp>
+#include <sysio/sysio.hpp>
 
 CONTRACT contractname : public contract {
     public:
@@ -51,34 +53,34 @@ CONTRACT contractname : public contract {
 }
 ```
 
-The code snippet above are essentially equivalent to: 
+The code snippet above are essentially equivalent to:
 
 ```cpp title="project/include/contractname.hpp"
 #pragma once
 
 // Import built-in classes and utilities
-#include <eosio/sysio.hpp>
+#include <sysio/sysio.hpp>
 
 // Class definition
-class [[eosio::contract]] contractname : public eosio::contract {
+class [[sysio::contract]] contractname : public sysio::contract {
 public:
     using contract::contract;
 
-    [[eosio::action]]
+    [[sysio::action]]
     void dosomething();
 };
 ```
 
-
 **Source File (contractname.cpp):**
+
 ```cpp title="project/src/contractname.cpp"
 void contractname::dosomething() {
     // Actual function implementation goes here
 }
 ```
 
-
 ### Header vs. Source Files
+
 In C++, code is typically split into header files (`.hpp` or `.h`) and source files (`.cpp`), especially when projects get large. This helps with code organization and readibility.
 
 - **Header files** are used to declare functions, classes, structs, and other types.
@@ -91,6 +93,7 @@ When compiling your project, you will need to tell the compiler where to find yo
 Generally, you will want to put your header files in a directory called `include/`, and your source files in a directory called `src/`.
 
 **Directory Structure Example:**
+
 ```
 project/
   include/
@@ -123,16 +126,14 @@ This directory stores *Ricardian contracts*, which are written in human-readable
 ***
 &nbsp;
 
-
 # Basic Contract Structure
 
 Smart contracts resemble classes in traditional object-oriented programming. Here's a basic overview of how you structure a smart contract.
 
-
 ```cpp title="project/contractname.cpp"
-#include <eosio/sysio.hpp>
+#include <sysio/sysio.hpp>
 
-CONTRACT contractname : public eosio::contract {
+CONTRACT contractname : public sysio::contract {
     public:
         using contract::contract;  // Inherit constructor
 };
@@ -145,12 +146,13 @@ CONTRACT contractname : public eosio::contract {
 The `CONTRACT` keyword is utilized to inform the compiler that we are defining an SYSIO smart contract. It is followed by the contract's name and the base class from which this contract inherits.
 
 ```cpp title="project/contractname.cpp"
-    CONTRACT contractname : public eosio::contract { 
+    CONTRACT contractname : public sysio::contract { 
         // Contract code here
     };
 ```
 
 **Good to Know:**
+
 - It's a common practice to keep the contract name the same as the `.cpp` file name. Some build systems enforce this, and errors related to discrepancies can be obscure.
 
 #### Access Modifiers
@@ -160,8 +162,6 @@ Access modifiers in C++ define the scope of accessibility for elements within yo
 - `public`: Elements are visible and accessible from any part of the program, as well as by other programs that interact with the contract.
 - `private`: Accessibility is restricted solely to the contract itself.
 - `protected`: This modifier allows visibility of elements to the contract and any inheriting contracts.
-
-
 
 ```cpp
 public:
@@ -174,9 +174,7 @@ private:
 
 Access modifiers in C++ do not control the external accessibility of the contract's elements like actions and tables, which are always publicly accessible outside your contract.
 
-::: 
-
-
+:::
 
 ## Primary Elements of Smart Contracts
 

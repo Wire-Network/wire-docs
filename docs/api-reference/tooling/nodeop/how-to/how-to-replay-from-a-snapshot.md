@@ -9,13 +9,13 @@ location          | name                       |  action                        
 data/snapshots    | `<head block id in hex>.bin` | place the snapshot file you want to replay here   |
 data/             | *                          | remove                                            |
 
-You can use `snapshots-dir = "snapshots" ` in the configuration file or using the `--snapshots-dir` command line option, to specify the where to find the the snapshot to replay, use `--snapshot` to specify the name of the snapshot to replay.
+You can use `snapshots-dir = "snapshots"` in the configuration file or using the `--snapshots-dir` command line option, to specify the where to find the the snapshot to replay, use `--snapshot` to specify the name of the snapshot to replay.
 
 ```sh
 nodeop --snapshot yoursnapshot.name \
-  --plugin eosio::producer_plugin  \
-  --plugin eosio::chain_api_plugin \
-  --plugin eosio::http_plugin      \
+  --plugin sysio::producer_plugin  \
+  --plugin sysio::chain_api_plugin \
+  --plugin sysio::http_plugin      \
   >> nodeop.log 2>&1 &
 ```
 

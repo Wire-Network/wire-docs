@@ -9,46 +9,52 @@ clio get account [OPTIONS] name [core-symbol]
 ```
 
 **Where**
+
 * [OPTIONS] = See Options in [Command Usage](#command-usage) section below.
 
 **Note**: The arguments and options enclosed in square brackets are optional.
 
 ## Description
+
 Retrieve an account from the blockchain
 
 ## Command Usage
+
 The following information shows the different positional arguments and options you can use with the `clio create key` command:
 
-### Positionals:
+### Positionals
+
 - `name` _TEXT_ - The name of the account to retrieve
-- `core-symbol` _TEXT_ - The expected core symbol of the chain you are querying - OPTIONAL
+* `core-symbol` _TEXT_ - The expected core symbol of the chain you are querying - OPTIONAL
 
 ### Options
+
 - `-h,--help` Print this help message and exit
-- `-j,--json` - Output in JSON format
+* `-j,--json` - Output in JSON format
 
 ## Requirements
+
 * Install the currently supported version of `clio.`
 
 :::note
 
-| The `clio` tool is bundled with the Wire software. [Installing Wire core](/docs/getting-started/install-dependencies.md) will install the `clio` and `kiod` command line tools. 
+| The `clio` tool is bundled with the Wire software. [Installing Wire core](/docs/getting-started/install-dependencies.md) will install the `clio` and `kiod` command line tools.
 
 :::
 
-
 ## Examples
 
-1. Get formatted data for user `eosio`
+1. Get formatted data for user `sysio`
 
 ```shell
-clio get account eosio
+clio get account sysio
 ```
 
 **Where**
-`eosio` = The name of the account.
+`sysio` = The name of the account.
 
 **Example Output**
+
 ```console
 privileged: true
 permissions: 
@@ -72,11 +78,12 @@ producers:     <not voted>
 
 ---
 
-1. Get JSON data for user **eosio**
+1. Get JSON data for user **sysio**
 
 ```sh
 clio get account sysio --json
 ```
+
 **Example Output**
 
 ```json

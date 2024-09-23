@@ -6,7 +6,7 @@ The SYSIO platform stores blockchain information in various data structures at v
 
 ## Blockchain State and Storage
 
-Every `nodeop` instance creates some internal files to store the blockchain state. These files reside in the `~/eosio/nodeop/data` installation directory and their purpose is described below:
+Every `nodeop` instance creates some internal files to store the blockchain state. These files reside in the `~/sysio/nodeop/data` installation directory and their purpose is described below:
 
 * The `blocks.log` is an append only log of blocks written to disk and contains all the irreversible blocks. These blocks contain final, confirmed transactions.
 * `reversible_blocks` is a memory mapped file and contains blocks that have been written to the blockchain but have not yet become irreversible. These blocks contain valid pushed transactions that still await confirmation to become final via the consensus protocol. The head block is the last block written to the blockchain, stored in `reversible_blocks`.
@@ -21,10 +21,9 @@ Every `nodeop` instance creates some internal files to store the blockchain stat
 * Chainbase
 * RocksDB
 
-Chainbase is a proprietary in-memory transactional database, built by Block.one, which uses memory mapped files for persistence. 
+Chainbase is a proprietary in-memory transactional database, built by Block.one, which uses memory mapped files for persistence.
 
 RocksDB is an open source persistent key value store. Storing state in memory is fast, however limited by the amount of available RAM. RocksDB utilises low latency storage such as flash drives and high-speed disk drives to persist data and memory caches for fast data access. For some deployments, RocksDB may be a better state store. See [the RocksDB website](https://rocksdb.org/) for more information.
-
 
 ## SYSIO Interfaces
 
@@ -38,10 +37,10 @@ The `nodeop` service provides query access to the chain database via the HTTP [R
 
 The `nodeop` service can be run in different "read" modes. These modes control how the node operates and how it processes blocks and transactions:
 
-- `speculative`: this includes the side effects of confirmed and unconfirmed transactions.
-- `head`: this only includes the side effects of confirmed transactions, this mode processes unconfirmed transactions but does not include them.
-- `read-only`: this mode is deprecated. Similar functionality can be achieved by combining options: `read-mode = head`, `p2p-accept-transactions = false`, `api-accept-transactions = false`. When these options are set, the local database will contain state changes made by transactions in the chain up to the head block. Also, transactions received via the P2P network are not relayed and transactions cannot be pushed via the chain API.
-- `irreversible`: this mode also includes confirmed transactions only up to those included in the last irreversible block.
+* `speculative`: this includes the side effects of confirmed and unconfirmed transactions.
+* `head`: this only includes the side effects of confirmed transactions, this mode processes unconfirmed transactions but does not include them.
+* `read-only`: this mode is deprecated. Similar functionality can be achieved by combining options: `read-mode = head`, `p2p-accept-transactions = false`, `api-accept-transactions = false`. When these options are set, the local database will contain state changes made by transactions in the chain up to the head block. Also, transactions received via the P2P network are not relayed and transactions cannot be pushed via the chain API.
+* `irreversible`: this mode also includes confirmed transactions only up to those included in the last irreversible block.
 
 A transaction is considered confirmed when a `nodeop` instance has received, processed, and written it to a block on the blockchain, i.e. it is in the head block or an earlier block.
 
@@ -51,7 +50,7 @@ Clients such as `clio` and the RPC API, will see database state as of the curren
 
 Speculative mode is low latency but fragile, there is no guarantee that the transactions reflected in the state will be included in the chain OR that they will reflected in the same order the state implies.  
 
-This mode features the lowest latency, but is the least consistent. 
+This mode features the lowest latency, but is the least consistent.
 
 In speculative mode `nodeop` is able to execute transactions which have TaPoS (Transaction as Proof of Stake) pointing to any valid block in a fork considered to be the best fork by this node.
 
@@ -72,10 +71,10 @@ Clients such as `clio` and the RPC API will see database state as of the current
 
 ### Irreversible Mode
 
-When `nodeop` is configured to be in irreversible read mode, it will still track the most up-to-date blocks in the fork database, but the state will lag behind the current best head block, sometimes referred to as the fork DB head, to always reflect the state of the last irreversible block. 
+When `nodeop` is configured to be in irreversible read mode, it will still track the most up-to-date blocks in the fork database, but the state will lag behind the current best head block, sometimes referred to as the fork DB head, to always reflect the state of the last irreversible block.
 
 Clients such as `clio` and the RPC API will see database state as of the current head block of the chain. It **will not** include changes made by transactions known to this node but not included in the chain, such as unconfirmed transactions.
 
 ## How To Specify the Read Mode
 
-The mode in which `nodeop` is run can be specified using the `--read-mode` option from the `eosio::chain_plugin`.
+The mode in which `nodeop` is run can be specified using the `--read-mode` option from the `sysio::chain_plugin`.

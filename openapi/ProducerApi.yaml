@@ -7,9 +7,9 @@ info:
     name: MIT
     url: https://opensource.org/licenses/MIT
   contact:
-    url: https://eos.io
+    url: https://wire.network
 tags:
-- name: eosio
+- name: sysio
 servers:
 - url: "{protocol}://{host}:{port}/v1/"
   variables:
@@ -199,7 +199,7 @@ paths:
                   anyOf:
                   - type: string
                     description: String representation of privileged SYSIO name type
-                    pattern: "^(eosio[\\.][a-z1-5]{1,6})([a-j]{1})?$"
+                    pattern: "^(sysio[\\.][a-z1-5]{1,6})([a-j]{1})?$"
                     title: NamePrivileged
                   - type: string
                     description: String representation of basic SYSIO name type, must

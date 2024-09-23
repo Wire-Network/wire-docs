@@ -1,10 +1,11 @@
 ---
-title: Cleos
+title: Clio
 ---
 
 Documentation for all `clio` main commands
 
 ## Commands
+
 - [version](./version/index.md) - Retrieve version information
 - [create](./create/index.md) - Create various items, on and off the blockchain
 - [convert](./convert/index.md) - Pack and unpack transactions
@@ -18,6 +19,5 @@ Documentation for all `clio` main commands
 - [push](./push/index.md) - Push arbitrary transactions to the blockchain
 - [multisig](./multisig/index.md) - Multisig contract commands
 - [system](./system/index.md) - Send `sysio.system` contract action to the blockchain.
-
 
 <!-- - []() - Wrap contract commands -->

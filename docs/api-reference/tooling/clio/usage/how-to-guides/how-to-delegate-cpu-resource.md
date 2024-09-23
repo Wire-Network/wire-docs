@@ -10,7 +10,7 @@ Make sure you meet the following requirements:
 * Install the currently supported version of `clio`.
 
 :::info[Note]
-| The `clio` tool and `kiod` are bundled with the Wire software. [Installing Wire core](/docs/getting-started/install-dependencies.md) will install the `clio` and `kiod` command line tools. 
+| The `clio` tool and `kiod` are bundled with the Wire software. [Installing Wire core](/docs/getting-started/install-dependencies.md) will install the `clio` and `kiod` command line tools.
 :::
 
 * Ensure the reference system contracts from [`sysio.contracts`](https://github.com/Wire-Network/wire-system-contracts) repository is deployed and used to manage system resources.
@@ -39,9 +39,10 @@ Some examples are provided below:
 ```sh
 clio system delegatebw bob alice "0 SYS" "0.01 SYS"
 ```
+
 ```json
 executed transaction: 5487afafd67bf459a20fcc2dbc5d0c2f0d1f10e33123eaaa07088046fd18e3ae  192 bytes  503 us
-#         sysio <= eosio::delegatebw            {"from":"bob","receiver":"alice","stake_net_quantity":"0.0000 SYS","stake_cpu_quantity":"0.0100 SYS"...
+#         sysio <= sysio::delegatebw            {"from":"bob","receiver":"alice","stake_net_quantity":"0.0000 SYS","stake_cpu_quantity":"0.0100 SYS"...
 #   sysio.token <= sysio.token::transfer        {"from":"bob","to":"sysio.stake","quantity":"0.0010 SYS","memo":"stake bandwidth"}
 #  bob <= sysio.token::transfer        {"from":"bob","to":"sysio.stake","quantity":"0.0010 SYS","memo":"stake bandwidth"}
 #   sysio.stake <= sysio.token::transfer        {"from":"bob","to":"sysio.stake","quantity":"0.0010 SYS","memo":"stake bandwidth"}

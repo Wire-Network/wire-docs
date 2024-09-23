@@ -6,12 +6,13 @@ The `login_plugin` supports the concept of applications authenticating with the 
 
 ```console
 # config.ini
-plugin = eosio::login_plugin
+plugin = sysio::login_plugin
 [options]
 ```
+
 ```sh
 # command-line
-nodeop ... --plugin eosio::login_plugin [options]
+nodeop ... --plugin sysio::login_plugin [options]
 ```
 
 ## Options
@@ -19,7 +20,7 @@ nodeop ... --plugin eosio::login_plugin [options]
 These can be specified from both the `nodeop` command-line or the `config.ini` file:
 
 ```console
-Config Options for eosio::login_plugin:
+Config Options for sysio::login_plugin:
   --max-login-requests arg (=1000000)   The maximum number of pending login 
                                         requests
   --max-login-timeout arg (=60)         The maximum timeout for pending login 
@@ -35,13 +36,14 @@ Config Options for eosio::login_plugin:
 
 ```console
 # config.ini
-plugin = eosio::chain_plugin
+plugin = sysio::chain_plugin
 [options]
-plugin = eosio::http_plugin 
+plugin = sysio::http_plugin 
 [options]
 ```
+
 ```sh
 # command-line
-nodeop ... --plugin eosio::chain_plugin [options]  \
-           --plugin eosio::http_plugin [options]
+nodeop ... --plugin sysio::chain_plugin [options]  \
+           --plugin sysio::http_plugin [options]
 ```

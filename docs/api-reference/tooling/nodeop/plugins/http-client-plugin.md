@@ -6,13 +6,14 @@ The `http_client_plugin`  is an internal utility plugin, providing the `producer
 
 ```console
 # config.ini
-plugin = eosio::http_client_plugin
+plugin = sysio::http_client_plugin
 https-client-root-cert = "path/to/my/certificate.pem"
 https-client-validate-peers = 1
 ```
+
 ```sh
 # command-line
-nodeop ... --plugin eosio::http_client_plugin  \
+nodeop ... --plugin sysio::http_client_plugin  \
            --https-client-root-cert "path/to/my/certificate.pem"  \
            --https-client-validate-peers 1
 ```
@@ -22,7 +23,7 @@ nodeop ... --plugin eosio::http_client_plugin  \
 These can be specified from both the `nodeop` command-line or the `config.ini` file:
 
 ```console
-Config Options for eosio::http_client_plugin:
+Config Options for sysio::http_client_plugin:
   --https-client-root-cert arg          PEM encoded trusted root certificate 
                                         (or path to file containing one) used 
                                         to validate any TLS connections made.  

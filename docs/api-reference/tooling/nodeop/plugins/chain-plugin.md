@@ -6,12 +6,13 @@ The `chain_plugin` is a core plugin required to process and aggregate chain data
 
 ```console
 # config.ini
-plugin = eosio::chain_plugin
+plugin = sysio::chain_plugin
 [options]
 ```
+
 ```sh
 # command-line
-nodeop ... --plugin eosio::chain_plugin [operations] [options]
+nodeop ... --plugin sysio::chain_plugin [operations] [options]
 ```
 
 ## Operations
@@ -19,7 +20,7 @@ nodeop ... --plugin eosio::chain_plugin [operations] [options]
 These can only be specified from the `nodeop` command-line:
 
 ```console
-Command Line Options for eosio::chain_plugin:
+Command Line Options for sysio::chain_plugin:
 
   --genesis-json arg                    File to read Genesis State from
   --genesis-timestamp arg               override the initial timestamp in the 
@@ -67,7 +68,7 @@ Command Line Options for eosio::chain_plugin:
 These can be specified from both the `nodeop` command-line or the `config.ini` file:
 
 ```console
-Config Options for eosio::chain_plugin:
+Config Options for sysio::chain_plugin:
 
   --blocks-dir arg (="blocks"))          the location of the blocks directory 
                                         (absolute path or relative to 

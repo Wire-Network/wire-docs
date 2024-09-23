@@ -14,16 +14,18 @@ if `resource-monitor-not-shutdown-on-threshold-exceeded` is not set,
 until space usage goes under the threshold.
 
 `resource_monitor_plugin` is always loaded.
+
 ## Usage
 
 ```console
 # config.ini
-plugin = eosio::resource_monitor_plugin
+plugin = sysio::resource_monitor_plugin
 [options]
 ```
+
 ```sh
 # command-line
-nodeop ... --plugin eosio::resource_monitor_plugin [options]
+nodeop ... --plugin sysio::resource_monitor_plugin [options]
 ```
 
 ## Configuration Options
@@ -31,7 +33,7 @@ nodeop ... --plugin eosio::resource_monitor_plugin [options]
 These can be specified from both the `nodeop` command-line or the `config.ini` file:
 
 ```console
-Config Options for eosio::resource_monitor_plugin:
+Config Options for sysio::resource_monitor_plugin:
 
   --resource-monitor-interval-seconds arg (=2))
                                         Time in seconds between two consecutive checks
