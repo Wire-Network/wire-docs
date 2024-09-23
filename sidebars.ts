@@ -86,7 +86,7 @@ const sidebars: SidebarsConfig = {
       type: "category",
       link: {
         type: "generated-index",
-        description: `Source Acknowledgment: The content in the following sections has been sourced from the official EOSIO GitHub repositories - https://github.com/EOSIO/eos, https://github.com/EOSIO/cdt, https://github.com/EOSIO/eosio.contracts. This material is utilized under the terms of its open source license.`,
+        description: `Source Acknowledgment: The content in the following sections has been sourced from the official EOSIO GitHub repositories - https://github.com/EOSIO/eos, https://github.com/EOSIO/cdt, https://github.com/EOSIO/sysio.contracts. This material is utilized under the terms of its open source license.`,
         // id: "api-reference/api-reference-intro",
         keywords: ["tooling", "reference", "cdt", "core"],
       },
@@ -492,11 +492,11 @@ const sidebars: SidebarsConfig = {
             "api-reference/system-contracts/build-and-deploy",
             "api-reference/system-contracts/guides/how-to-buy-ram",
             "api-reference/system-contracts/guides/how-to-create-issue-and-transfer-a-token",
-            "api-reference/system-contracts/guides/how-to-sign-a-multisig-transaction-with-eosio.msig",
+            "api-reference/system-contracts/guides/how-to-sign-a-multisig-transaction-with-sysio.msig",
             "api-reference/system-contracts/guides/how-to-stake",
-            "api-reference/system-contracts/guides/how-to-use-eosio.wrap",
+            "api-reference/system-contracts/guides/how-to-use-sysio.wrap",
             "api-reference/system-contracts/guides/how-to-vote",
-            "api-reference/system-contracts/guides/upgrading-the-eosio.system-contract",
+            "api-reference/system-contracts/guides/upgrading-the-sysio.system-contract",
           ],
         },
         {

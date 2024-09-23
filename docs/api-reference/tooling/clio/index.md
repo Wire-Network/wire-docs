@@ -10,11 +10,11 @@ title: clio
 
 `clio` is distributed as part of the [Wire software suite](https://github.com/Wire-Network/wire-sysio/blob/master/README.md). To install `clio` just visit the [Install Dependemcies](/docs/getting-started/install-dependencies.md) section.
 
-## Using Cleos
+## Using Clio
 
-To use `clio`, you need the end point (IP address and port number) of a running `nodeop` instance. Also, the `nodeop` instance must be configured to load the `eosio::chain_api_plugin` when launched. This allows `nodeop` to respond to the RPC requests coming from `clio`.
+To use `clio`, you need the end point (IP address and port number) of a running `nodeop` instance. Also, the `nodeop` instance must be configured to load the `sysio::chain_api_plugin` when launched. This allows `nodeop` to respond to the RPC requests coming from `clio`.
 
-### Cleos Commands
+### Clio Commands
 
 For a list of all `clio` commands, run:
 
@@ -30,7 +30,7 @@ Options:
   -h,--help                   Print this help message and exit
   -u,--url TEXT=http://127.0.0.1:8888/
                               the http/https URL where nodeop is running
-  --wallet-url TEXT=unix:///Users/username/eosio-wallet/kiod.sock
+  --wallet-url TEXT=unix:///Users/username/sysio-wallet/kiod.sock
                               the http/https URL where kiod is running
   -r,--header                 pass specific HTTP header; repeat this option to pass multiple headers
   -n,--no-verify              don't verify peer certificate when using HTTPS
@@ -56,7 +56,7 @@ Subcommands:
   system                      Send sysio.system contract action to the blockchain.
 ```
 
-### Cleos Subcommands
+### Clio Subcommands
 
 To get help with any particular subcommand, run `clio SUBCOMMAND --help`. For instance:
 

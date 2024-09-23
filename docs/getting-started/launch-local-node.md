@@ -51,12 +51,12 @@ To start `nodeop`, run:
 
 ```bash
 nodeop -e -p sysio \
---plugin eosio::producer_plugin \
---plugin eosio::producer_api_plugin \
---plugin eosio::chain_api_plugin \
---plugin eosio::http_plugin \
---plugin eosio::history_plugin \
---plugin eosio::history_api_plugin \
+--plugin sysio::producer_plugin \
+--plugin sysio::producer_api_plugin \
+--plugin sysio::chain_api_plugin \
+--plugin sysio::http_plugin \
+--plugin sysio::history_plugin \
+--plugin sysio::history_api_plugin \
 --filter-on="*" \
 --access-control-allow-origin='*' \
 --contracts-console \
@@ -91,12 +91,12 @@ Try and include `--replay-blockchain` or `--hard-replay-blockchain` flag to the 
 
 ```bash
 nodeop -e -p sysio \
---plugin eosio::producer_plugin \
---plugin eosio::producer_api_plugin \
---plugin eosio::chain_api_plugin \
---plugin eosio::http_plugin \
---plugin eosio::history_plugin \
---plugin eosio::history_api_plugin \
+--plugin sysio::producer_plugin \
+--plugin sysio::producer_api_plugin \
+--plugin sysio::chain_api_plugin \
+--plugin sysio::http_plugin \
+--plugin sysio::history_plugin \
+--plugin sysio::history_api_plugin \
 --filter-on="*" \
 --access-control-allow-origin='*' \
 --contracts-console \

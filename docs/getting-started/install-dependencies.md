@@ -17,7 +17,7 @@ title: Install Dependencies
 Download and install the Wire binaries using the following commands:
 
 ```bash
-wget https://github.com/siliconswampio/wire-eosio/releases/download/v2.0.13/eosio_2.0.13-1_amd64.deb && sudo apt install ./eosio_2.0.13-1_amd64.deb
+wget https://github.com/siliconswampio/wire-sysio/releases/download/v2.0.13/sysio_2.0.13-1_amd64.deb && sudo apt install ./sysio_2.0.13-1_amd64.deb
 ```
 
 ##### Uninstall Wire Binaries
@@ -25,7 +25,7 @@ wget https://github.com/siliconswampio/wire-eosio/releases/download/v2.0.13/eosi
 To uninstall the Wire binaries:
 
 ```bash
-sudo apt remove eosio
+sudo apt remove sysio
 ```
 
 ***
@@ -37,7 +37,7 @@ sudo apt remove eosio
 Download and install the Wire.CDT using the following command:
 
 ```bash
-wget https://github.com/siliconswampio/wire-eosio-cdt/releases/download/v1.7.0/sysio.cdt_1.7.0-1_amd64.deb && sudo apt install ./sysio.cdt_1.7.0-1_amd64.deb
+wget https://github.com/siliconswampio/wire-sysio-cdt/releases/download/v1.7.0/sysio.cdt_1.7.0-1_amd64.deb && sudo apt install ./sysio.cdt_1.7.0-1_amd64.deb
 ```
 
 ##### Uninstall Wire.CDT
@@ -58,7 +58,7 @@ If you are missing certain dependencies and when trying to install the binaries 
 Reading package lists... Done
 Building dependency tree... Done
 Reading state information... Done
-Note, selecting 'eosio' instead of './eosio_2.0.13-1_amd64.deb'
+Note, selecting 'sysio' instead of './sysio_2.0.13-1_amd64.deb'
 Some packages could not be installed. This may mean that you have
 requested an impossible situation or if you are using the unstable
 distribution that some required packages have not yet been created
@@ -95,8 +95,6 @@ sudo dpkg -i libicu60_60.2-3ubuntu3.2_amd64.deb
 
 After successfully installing all missing packages, attempt to install the binaries again.
 
-
-
 ## Mac(Intel)
 
 Before proceeding with the installation of Wire Binaries and Wire.CDT, you need to ensure that Homebrew is installed on your system. To check if Homebrew is already installed, open your terminal and run:
@@ -112,15 +110,16 @@ If Homebrew is not installed on your machine, you can install it by running the 
 ```
 
 ##### Install Wire Binaries
+
 ```sh
-brew tap eosio/eosio
-brew install eosio
+brew tap sysio/sysio
+brew install sysio
 ```
 
 ##### Install Wire.CDT
 
 ```sh
-brew tap eosio/sysio.cdt
+brew tap sysio/sysio.cdt
 brew install sysio.cdt
 ```
 

@@ -1,6 +1,7 @@
 :::warning
 | The `history_plugin` is deprecated and will no longer be maintained. Please use the [`state_history_plugin`](state-history-plugin.md) or the [`trace_api_plugin`](trace-api-plugin.md) instead.
 :::
+
 ## Description
 
 The `history_plugin` provides a cache layer to obtain historical data about the blockchain objects. It depends on [`chain_plugin`](chain-plugin.md) for the data.
@@ -9,12 +10,13 @@ The `history_plugin` provides a cache layer to obtain historical data about the 
 
 ```console
 # config.ini
-plugin = eosio::history_plugin
+plugin = sysio::history_plugin
 [options]
 ```
+
 ```sh
 # command-line
-nodeop ... --plugin eosio::history_plugin [options]
+nodeop ... --plugin sysio::history_plugin [options]
 ```
 
 ## Options
@@ -22,7 +24,7 @@ nodeop ... --plugin eosio::history_plugin [options]
 These can be specified from both the `nodeop` command-line or the `config.ini` file:
 
 ```console
-Config Options for eosio::history_plugin:
+Config Options for sysio::history_plugin:
   -f [ --filter-on ] arg                Track actions which match 
                                         receiver:action:actor. Actor may be 
                                         blank to include all. Action and Actor 

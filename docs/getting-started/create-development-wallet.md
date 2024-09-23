@@ -9,7 +9,7 @@ Wallets store public-private key pairs, which are needed for signing operations 
 
 ## Create a Wallet
 
-To create a wallet using Cleos, you can either print the password to the console or save it in a specific file. For simplicity and recommended **only for development**, use the `--to-console` option:
+To create a wallet using Clio, you can either print the password to the console or save it in a specific file. For simplicity and recommended **only for development**, use the `--to-console` option:
 
 <!-- ```jsx title="/src/components/HelloCodeTitle.js"
 function HelloCodeTitle(props) {
@@ -113,7 +113,7 @@ You could set it as environment variable:
 
 ## Import the Development Key​
 
-Every new Wire chain has a default system user called `eosio`. This account is used to setup the chain by loading system contracts that dictate the governance and consensus of the Wire chain. Every new Wire chain comes with a development key, and this key is the same. Load this key to sign transactions on behalf of the system user `eosio`.
+Every new Wire chain has a default system user called `sysio`. This account is used to setup the chain by loading system contracts that dictate the governance and consensus of the Wire chain. Every new Wire chain comes with a development key, and this key is the same. Load this key to sign transactions on behalf of the system user `sysio`.
 
 ```bash
 clio wallet import

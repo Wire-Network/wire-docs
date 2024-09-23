@@ -7,6 +7,7 @@ id: table
 Retrieves the contents of a database table
 
 ## Positionals
+
 `account` _TEXT_ - The account who owns the table where the smart contract was deployed
 
 `scope` _TEXT_ - The scope within the contract in which the table is found
@@ -14,6 +15,7 @@ Retrieves the contents of a database table
 `table` _TEXT_ - The name of the table as specified by the contract abi
 
 ## Options
+
 `-l,--limit` _UINT_ - The maximum number of rows to return
 
 `-k,--key` _TEXT_ - (Deprecated) The name of the key to index by as defined by the abi, defaults to primary key
@@ -35,11 +37,13 @@ Retrieves the contents of a database table
 `--show-payer` - Show RAM payer
 
 ## Example
-Get the data from the accounts table for the sysio.token contract, for user eosio,
+
+Get the data from the accounts table for the sysio.token contract, for user sysio,
 
 ```sh
 clio get table sysio.token sysio accounts
 ```
+
 ```json
 {
   "rows": [{

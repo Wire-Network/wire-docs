@@ -17,12 +17,13 @@ Therefore, one crucial goal of the `trace_api_plugin` is to improve the maintena
 
 ```console
 # config.ini
-plugin = eosio::trace_api_plugin
+plugin = sysio::trace_api_plugin
 [options]
 ```
+
 ```sh
 # command-line
-nodeop ... --plugin eosio::trace_api_plugin [options]
+nodeop ... --plugin sysio::trace_api_plugin [options]
 ```
 
 ## Configuration Options
@@ -30,7 +31,7 @@ nodeop ... --plugin eosio::trace_api_plugin [options]
 These can be specified from both the `nodeop` command-line or the `config.ini` file:
 
 ```console
-Config Options for eosio::trace_api_plugin:
+Config Options for sysio::trace_api_plugin:
 
   --trace-dir arg (="traces")           the location of the trace directory 
                                         (absolute path or relative to 
@@ -88,15 +89,16 @@ The following plugins are loaded with default settings if not specified on the c
 
 ```console
 # config.ini
-plugin = eosio::chain_plugin
+plugin = sysio::chain_plugin
 [options]
-plugin = eosio::http_plugin 
+plugin = sysio::http_plugin 
 [options]
 ```
+
 ```sh
 # command-line
-nodeop ... --plugin eosio::chain_plugin [options]  \
-           --plugin eosio::http_plugin [options]
+nodeop ... --plugin sysio::chain_plugin [options]  \
+           --plugin sysio::http_plugin [options]
 ```
 
 ## Configuration Example
@@ -105,8 +107,8 @@ Here is a `nodeop` configuration example for the `trace_api_plugin` when tracing
 
 ```sh
 nodeop --data-dir data_dir --config-dir config_dir --trace-dir traces_dir
---plugin eosio::trace_api_plugin 
---trace-rpc-abi=eosio=abis/sysio.abi 
+--plugin sysio::trace_api_plugin 
+--trace-rpc-abi=sysio=abis/sysio.abi 
 --trace-rpc-abi=sysio.token=abis/sysio.token.abi 
 --trace-rpc-abi=sysio.msig=abis/sysio.msig.abi 
 --trace-rpc-abi=sysio.wrap=abis/sysio.wrap.abi
@@ -120,8 +122,8 @@ This section provides an overview of *slices*, the *trace log* contents, and the
 
 In the context of the `trace_api_plugin`, a *slice* is defined as a collection of all relevant trace data between a given starting block height (inclusive) and a given ending block height (exclusive). For instance, a slice from 0 to 10,000 is a collection of all blocks with block numbers greater than or equal to 0 and less than 10,000. The trace directory contains a collection of slices. Each slice consists of a *trace data* log file and a *trace index* metadata log file:
 
-  *  `trace_<S>-<E>.log`
-  *  `trace_index_<S>-<E>.log`
+* `trace_<S>-<E>.log`
+* `trace_index_<S>-<E>.log`
 
 where `<S>` and `<E>` are the starting and ending block numbers for the slice padded with leading 0's to a stride. For instance if the start block is 5, the last is 15, and the stride is 10, then the resulting `<S>` is `0000000005` and `<E>` is `0000000015`.
 
@@ -129,8 +131,8 @@ where `<S>` and `<E>` are the starting and ending block numbers for the slice pa
 
 The trace data log is an append only log that stores the actual binary serialized block data. The contents include the transaction and action trace data needed to service the RPC requests augmented by the per-action ABIs. Two block types are supported:
   
-  * `block_trace_v0`
-  * `block_trace_v1`
+* `block_trace_v0`
+* `block_trace_v1`
 
 The data log begins with a basic header that includes versioning information about the data stored in the log. `block_trace_v0` includes the block ID, block number, previous block ID, the production timestamp, the producer that signed the block, and the actual trace data. `block_trace_v1` adds both merkle root hashes for the list of transactions and the list of actions included in the block as well as the production schedule count since genesis.
 
@@ -140,8 +142,8 @@ The log may include blocks that have been forked out of the blockchain as part o
 
 The trace index log or metadata log is an append only log that stores a sequence of binary-serialized types. Currently two types are supported:
 
-  * `block_entry_v0`
-  * `lib_entry_v0`
+* `block_entry_v0`
+* `lib_entry_v0`
 
 The index log begins with a basic header that includes versioning information about the data stored in the log. `block_entry_v0` includes the block ID and block number with an offset to the location of that block within the data log. This entry is used to locate the offsets of both `block_trace_v0` and `block_trace_v1` blocks. `lib_entry_v0` includes an entry for the latest known LIB. The reader module uses the LIB information for reporting to users an irreversible status.
 
@@ -167,7 +169,7 @@ One of the main design goals of the `trace_api_plugin` is to minimize the manual
 
 ### Removal of log files
 
-To allow the removal of previous trace log files created by the `trace_api_plugin`, you can use the following option: 
+To allow the removal of previous trace log files created by the `trace_api_plugin`, you can use the following option:
 
 ```sh
   --trace-minimum-irreversible-history-blocks N (=-1) 

@@ -14,10 +14,10 @@ The `wallet_api_plugin` exposes functionality from the [`wallet_plugin`](wallet-
 
 ```sh
 # config.ini
-plugin = eosio::wallet_api_plugin
+plugin = sysio::wallet_api_plugin
 
 # command-line
-kiod ... --plugin eosio::wallet_api_plugin
+kiod ... --plugin sysio::wallet_api_plugin
 ```
 
 ## Options
@@ -35,12 +35,12 @@ The following plugins are loaded with default settings if not specified on the c
 
 ```sh
 # config.ini
-plugin = eosio::wallet_plugin
+plugin = sysio::wallet_plugin
 [options]
-plugin = eosio::http_plugin
+plugin = sysio::http_plugin
 [options]
 
 # command-line
-kiod ... --plugin eosio::wallet_plugin [options]  \
-           --plugin eosio::http_plugin [options]
+kiod ... --plugin sysio::wallet_plugin [options]  \
+           --plugin sysio::http_plugin [options]
 ```

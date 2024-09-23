@@ -1,4 +1,5 @@
 ## Description
+
 The `net_api_plugin` exposes functionality from the `net_plugin` to the RPC API interface managed by the `http_plugin`. Node operators can use the `net_api_plugin` to manage the p2p connections of an active node.
 
 The `net_api_plugin` provides four RPC API endpoints:
@@ -17,11 +18,12 @@ See [Net API Reference Documentation](https://developers.eos.io/manuals/eos/late
 
 ```console
 # config.ini
-plugin = eosio::net_api_plugin
+plugin = sysio::net_api_plugin
 ```
+
 ```sh
 # command-line
-nodeop ... --plugin eosio::net_api_plugin
+nodeop ... --plugin sysio::net_api_plugin
 ```
 
 ## Options
@@ -37,13 +39,14 @@ None
 
 ```console
 # config.ini
-plugin = eosio::net_plugin
+plugin = sysio::net_plugin
 [options]
-plugin = eosio::http_plugin
+plugin = sysio::http_plugin
 [options]
 ```
+
 ```sh
 # command-line
-nodeop ... --plugin eosio::net_plugin [options]  \
-           --plugin eosio::http_plugin [options]
+nodeop ... --plugin sysio::net_plugin [options]  \
+           --plugin sysio::http_plugin [options]
 ```

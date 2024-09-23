@@ -6,11 +6,12 @@ The `producer_api_plugin` exposes a number of endpoints for the [`producer_plugi
 
 ```console
 # config.ini
-plugin = eosio::producer_api_plugin
+plugin = sysio::producer_api_plugin
 ```
+
 ```sh
 # nodeop startup params
-nodeop ... --plugin eosio::producer_api_plugin
+nodeop ... --plugin sysio::producer_api_plugin
 ```
 
 ## Options
@@ -27,16 +28,17 @@ None
 
 ```console
 # config.ini
-plugin = eosio::producer_plugin
+plugin = sysio::producer_plugin
 [options]
-plugin = eosio::chain_plugin
+plugin = sysio::chain_plugin
 [options]
-plugin = eosio::http_plugin
+plugin = sysio::http_plugin
 [options]
 ```
+
 ```sh
 # command-line
-nodeop ... --plugin eosio::producer_plugin [options]  \
-           --plugin eosio::chain_plugin [operations] [options]  \
-           --plugin eosio::http_plugin [options]
+nodeop ... --plugin sysio::producer_plugin [options]  \
+           --plugin sysio::chain_plugin [operations] [options]  \
+           --plugin sysio::http_plugin [options]
 ```

@@ -1,10 +1,8 @@
----
-content_title: cdt-cpp tool
----
+# cdt-cpp
 
 To manually compile the source code, use `cdt-cpp` and `cdt-ld` as if it were __clang__ and __lld__. All the includes and options specific to Wire-Sysio and CDT are baked in.
 
-```
+```sh
 USAGE: cdt-cpp [options] <input file> ...
 
 OPTIONS:

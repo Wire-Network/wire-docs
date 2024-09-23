@@ -24,12 +24,12 @@ The four actions listed above are used by the following `clio` commands (matchin
 
 ```console
 # config.ini
-plugin = eosio::history_api_plugin
+plugin = sysio::history_api_plugin
 ```
 
 ```sh
 # command-line
-nodeop ... --plugin eosio::history_api_plugin
+nodeop ... --plugin sysio::history_api_plugin
 ```
 
 ## Options
@@ -46,16 +46,17 @@ None
 
 ```console
 # config.ini
-plugin = eosio::history_plugin
+plugin = sysio::history_plugin
 [options]
-plugin = eosio::chain_plugin
+plugin = sysio::chain_plugin
 [options]
-plugin = eosio::http_plugin
+plugin = sysio::http_plugin
 [options]
 ```
+
 ```sh
 # command-line
-nodeop ... --plugin eosio::history_plugin [options]  \
-           --plugin eosio::chain_plugin [operations] [options]  \
-           --plugin eosio::http_plugin [options]
+nodeop ... --plugin sysio::history_plugin [options]  \
+           --plugin sysio::chain_plugin [operations] [options]  \
+           --plugin sysio::http_plugin [options]
 ```

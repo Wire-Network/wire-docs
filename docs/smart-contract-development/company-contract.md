@@ -33,15 +33,15 @@ In C++, splitting class declarations and definitions into separate header (.hpp)
 
 2.1. Define contract interfaces in `company-contract.hpp`
 
-- The `eosio/sysio.hpp` header file contains necessary classes and built-in utility functions for contract development.
+- The `sysio/sysio.hpp` header file contains necessary classes and built-in utility functions for contract development.
 
 ```cpp title="/your-contracts-workspace/company-contract/company-contract.hpp"
 #pragma once
 
-#include <eosio/sysio.hpp>
+#include <sysio/sysio.hpp>
 #include <string>
 
-using namespace eosio;
+using namespace sysio;
 ```
 
 ***
@@ -54,9 +54,9 @@ You can use either the simplified or the long syntax for defining contracts. In 
 #pragma once
 
 #include <company-contract.hpp>
-#include <eosio/print.hpp>
+#include <sysio/print.hpp>
 
-using namespace eosio;
+using namespace sysio;
 
 // highlight-start
 // Using short syntax for structs
@@ -73,7 +73,7 @@ CONTRACT company : public contract {
 
 ```cpp
 // Using long syntax for structs
-class [[eosio::contract("employees")]] employees : public contract {
+class [[sysio::contract("employees")]] employees : public contract {
 public:
     using contract::contract;  // Inherits the base contract constructor.
 
@@ -115,9 +115,9 @@ The multi_index container named `employee_index` is defined to manage the storag
 #pragma once
 
 #include <company-contract.hpp>
-#include <eosio/print.hpp>
+#include <sysio/print.hpp>
 
-using namespace eosio;
+using namespace sysio;
 
 CONTRACT company : public contract {
     public:
@@ -135,7 +135,7 @@ CONTRACT company : public contract {
             uint64_t primary_key() const { return user.value; }
         };
         // Type definition for the multi-index table handling employee records.
-        using employee_index = eosio::multi_index<"employees"_n, employee>;
+        using employee_index = sysio::multi_index<"employees"_n, employee>;
     // highlight-end
 };
 ```
@@ -227,7 +227,7 @@ export PUBLIC_KEY=key-value
 ```
 
 ```bash
-clio create account sysio company $PUBLIC_KEY -p eosio@active
+clio create account sysio company $PUBLIC_KEY -p sysio@active
 ```
 
 #### Deploy the compiled contract

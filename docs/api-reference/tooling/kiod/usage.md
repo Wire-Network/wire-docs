@@ -3,7 +3,7 @@ title: Usage
 ---
 
 :::tip[Recommended Usage]
-| For most users, the easiest way to use `kiod` is to have `clio` launch it automatically. Wallet files will be created in the default directory (`~/eosio-wallet`).
+| For most users, the easiest way to use `kiod` is to have `clio` launch it automatically. Wallet files will be created in the default directory (`~/sysio-wallet`).
 :::
 
 ## Launching kiod manually
@@ -14,7 +14,7 @@ title: Usage
 kiod
 ```
 
-By default, `kiod` creates the folder `~/eosio-wallet` and populates it with a basic `config.ini` file.  The location of the config file can be specified on the command line using the `--config-dir` argument.  The configuration file contains the HTTP server endpoint for incoming HTTP connections and other parameters for cross-origin resource sharing.
+By default, `kiod` creates the folder `~/sysio-wallet` and populates it with a basic `config.ini` file.  The location of the config file can be specified on the command line using the `--config-dir` argument.  The configuration file contains the HTTP server endpoint for incoming HTTP connections and other parameters for cross-origin resource sharing.
 
 :::info[Wallet Location]
 | The location of the wallet data folder can be specified on the command line with the `--data-dir` option.
@@ -28,7 +28,6 @@ By default, `kiod` is set to lock your wallet after 15 minutes of inactivity. Th
 
 The most effective way to stop `kiod` is to find the kiod process and send a SIGTERM signal to it.
 
-
 ```sh
 pidof kiod
 ```
@@ -36,6 +35,7 @@ pidof kiod
 ```sh
 kill -9 <processId>
 ```
+
 ## Other options
 
 For a list of all commands known to `kiod`, simply run it with no arguments:
@@ -47,7 +47,7 @@ kiod --help
 ```console
 Application Options:
 
-Config Options for eosio::http_plugin:
+Config Options for sysio::http_plugin:
   --unix-socket-path arg (=kiod.sock)  The filename (relative to data-dir) to
                                         create a unix socket for HTTP RPC; set
                                         blank to disable.
@@ -91,7 +91,7 @@ Config Options for eosio::http_plugin:
   --http-threads arg (=2)               Number of worker threads in http thread
                                         pool
 
-Config Options for eosio::wallet_plugin:
+Config Options for sysio::wallet_plugin:
   --wallet-dir arg (=".")               The path of the wallet files (absolute
                                         path or relative to application data
                                         dir)

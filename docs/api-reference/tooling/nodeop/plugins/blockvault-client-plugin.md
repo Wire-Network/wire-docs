@@ -17,12 +17,13 @@ To facilitate these guarantees, Block Vault allows `nodeop` to run in a redundan
 
 ```console
 # config.ini
-plugin = eosio::blockvault_client_plugin
+plugin = sysio::blockvault_client_plugin
 [options]
 ```
+
 ```sh
 # command-line
-nodeop ... --plugin eosio::blockvault_client_plugin [options]
+nodeop ... --plugin sysio::blockvault_client_plugin [options]
 ```
 
 ## Configuration Options
@@ -30,7 +31,7 @@ nodeop ... --plugin eosio::blockvault_client_plugin [options]
 These can be specified from both the `nodeop` command-line or the `config.ini` file:
 
 ```console
-Config Options for eosio::blockvault_client_plugin:
+Config Options for sysio::blockvault_client_plugin:
 
   --block-vault-backend arg             the uri for block vault backend. 
                                         Currently, only PostgreSQL is 
@@ -48,14 +49,14 @@ Config Options for eosio::blockvault_client_plugin:
 To use `blockvault_client_plugin`, the `nodeop` service must be configured as a producer with the `--block-vault-backend` option:
 
 ```sh
-nodeop --plugin eosio::producer_plugin --producer-name myproducer --plugin eosio::blockvault_client_plugin --block-vault-backend postgresql://user:password@mycompany.com
+nodeop --plugin sysio::producer_plugin --producer-name myproducer --plugin sysio::blockvault_client_plugin --block-vault-backend postgresql://user:password@mycompany.com
 ```
 
 For production deployments, it is recommend to use the `PGPASSWORD` environment variable to configure the password, instead of embedding the password in the URI.
 
 ```sh
 export PGPASSWORD=password
-nodeop --plugin eosio::producer_plugin --producer-name myproducer --plugin eosio::blockvault_client_plugin --block-vault-backend postgresql://user@mycompany.com
+nodeop --plugin sysio::producer_plugin --producer-name myproducer --plugin sysio::blockvault_client_plugin --block-vault-backend postgresql://user@mycompany.com
 ```
 
 ## Software Dependencies
@@ -82,7 +83,7 @@ We recommend to use `docker`:
 docker run  -p 5432:5432 -e POSTGRES_PASSWORD=password -d postgres
 ```
 
-### Running PostgreSQL for Production 
+### Running PostgreSQL for Production
 
 We recommend to deploy `PostgreSQL` with HA (high availability) mode and synchronous replication strategy.
 
@@ -106,13 +107,13 @@ Block Vault is exclusively responsible for providing guarantees against double-p
 
 Cluster nodes interact with the Block Vault through the following messages:
 
-[//]: # (* [`async_propose_constructed_block&#40;&#41;`]&#40;../../../classeosio_1_1blockvault_1_1block__vault__interface#function-async_propose_constructed_block&#41;)
+[//]: # (* [`async_propose_constructed_block&#40;&#41;`]&#40;../../../classsysio_1_1blockvault_1_1block__vault__interface#function-async_propose_constructed_block&#41;)
 
-[//]: # (* [`async_append_external_block&#40;&#41;`]&#40;../../../classeosio_1_1blockvault_1_1block__vault__interface#function-async_append_external_block&#41;)
+[//]: # (* [`async_append_external_block&#40;&#41;`]&#40;../../../classsysio_1_1blockvault_1_1block__vault__interface#function-async_append_external_block&#41;)
 
-[//]: # (* [`propose_snapshot&#40;&#41;`]&#40;../../../classeosio_1_1blockvault_1_1block__vault__interface#function-propose_snapshot&#41;)
+[//]: # (* [`propose_snapshot&#40;&#41;`]&#40;../../../classsysio_1_1blockvault_1_1block__vault__interface#function-propose_snapshot&#41;)
 
-[//]: # (* [`sync&#40;&#41;`]&#40;../../../classeosio_1_1blockvault_1_1block__vault__interface#function-sync&#41;)
+[//]: # (* [`sync&#40;&#41;`]&#40;../../../classsysio_1_1blockvault_1_1block__vault__interface#function-sync&#41;)
 
 [//]: # ()
-[//]: # (For more information visit the [block_vault_interface]&#40;../../../classeosio_1_1blockvault_1_1block__vault__interface&#41; C++ reference.)
+[//]: # (For more information visit the [block_vault_interface]&#40;../../../classsysio_1_1blockvault_1_1block__vault__interface&#41; C++ reference.)

@@ -11,11 +11,12 @@ The `producer_plugin` loads functionality required for a node to produce blocks.
 
 ```console
 # config.ini
-plugin = eosio::producer_plugin [options]
+plugin = sysio::producer_plugin [options]
 ```
+
 ```sh
 # nodeop startup params
-nodeop ... -- plugin eosio::producer_plugin [options]
+nodeop ... -- plugin sysio::producer_plugin [options]
 ```
 
 ## Options
@@ -23,7 +24,7 @@ nodeop ... -- plugin eosio::producer_plugin [options]
 These can be specified from both the `nodeop` command-line or the `config.ini` file:
 
 ```console
-Config Options for eosio::producer_plugin:
+Config Options for sysio::producer_plugin:
 
   -e [ --enable-stale-production ]      Enable block production, even if the 
                                         chain is stale.
@@ -145,20 +146,20 @@ The option below sets the ratio between the incoming transaction and the deferre
   --incoming-defer-ratio arg (=1)       
 ```
 
-By default value of `1`, the `producer` plugin processes one incoming transaction per deferred transaction. When `arg` sets to `10`, the `producer` plugin processes 10 incoming transactions per deferred transaction. 
+By default value of `1`, the `producer` plugin processes one incoming transaction per deferred transaction. When `arg` sets to `10`, the `producer` plugin processes 10 incoming transactions per deferred transaction.
 
 If the `arg` is set to a sufficiently large number, the plugin always processes the incoming transaction first until the queue of the incoming transactions is empty. Respectively, if the `arg` is 0, the `producer` plugin processes the deferred transactions queue first.
-
 
 ### Load Dependency Examples
 
 ```console
 # config.ini
-plugin = eosio::chain_plugin [operations] [options]
+plugin = sysio::chain_plugin [operations] [options]
 ```
+
 ```sh
 # command-line
-nodeop ... --plugin eosio::chain_plugin [operations] [options]
+nodeop ... --plugin sysio::chain_plugin [operations] [options]
 ```
 
 For details about how blocks are produced please read the following [block producing explainer](block-producing-explained.md).

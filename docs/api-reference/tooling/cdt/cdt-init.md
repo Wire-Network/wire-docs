@@ -1,18 +1,17 @@
----
-content_title: cdt-init tool
----
+# cdt-init
 
 This tool is used to generate a skeleton smart contract and directory structure.
 To generate a new smart contract project you can either generate a "bare" project (no CMake) or the default is to generate a CMake project.
 
 Example:
+
 ```bash
-$ cdt-init --path=\destination\path\where\to\generate\project\ --project=hello_contract_folder
+cdt-init --path=\destination\path\where\to\generate\project\ --project=hello_contract_folder
 ```
 
 This will generate a project folder `hello_contract_folder` in the path `\destination\path\where\to\generate\project\` containing the skeleton smart contract and directory structure.
 
-```
+```sh
 USAGE: cdt-init [options]
 
 OPTIONS:

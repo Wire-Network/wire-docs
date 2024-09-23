@@ -18,8 +18,8 @@ You can use `blocks-dir = "blocks"` in the `config.ini` file, or use the `--bloc
 
 ```sh
 nodeop --replay-blockchain \
-  --plugin eosio::producer_plugin  \
-  --plugin eosio::chain_api_plugin \
-  --plugin eosio::http_plugin      \
+  --plugin sysio::producer_plugin  \
+  --plugin sysio::chain_api_plugin \
+  --plugin sysio::http_plugin      \
   >> nodeop.log 2>&1 &
 ```

@@ -20,10 +20,9 @@ c = billed_cpu_in_block = minimum(m, w - a)
 
 n = network tcp/ip latency
 
-<!-- peer validation for similar hardware/eosio-version/config will be <= m -->
+<!-- peer validation for similar hardware/sysio-version/config will be <= m -->
 
 **Let's consider for exemplification the following four BPs and their network topology as depicted in below diagram**
-
 
 ```dot-svg
 #p2p_local_chain_prunning.dot - local chain prunning

@@ -11,12 +11,13 @@ For more information, check the [txn_test_gen_plugin/README.md](https://example.
 
 ```console
 # config.ini
-plugin = eosio::txn_test_gen_plugin
+plugin = sysio::txn_test_gen_plugin
 [options]
 ```
+
 ```sh
 # command-line
-nodeop ... --plugin eosio::txn_test_gen_plugin [options]
+nodeop ... --plugin sysio::txn_test_gen_plugin [options]
 ```
 
 ## Options
@@ -24,7 +25,7 @@ nodeop ... --plugin eosio::txn_test_gen_plugin [options]
 These can be specified from both the `nodeop` command-line or the `config.ini` file:
 
 ```console
-Config Options for eosio::txn_test_gen_plugin:
+Config Options for sysio::txn_test_gen_plugin:
   --txn-reference-block-lag arg (=0)    Lag in number of blocks from the head 
                                         block when selecting the reference 
                                         block for transactions (-1 means Last 

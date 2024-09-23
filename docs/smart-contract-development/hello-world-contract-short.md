@@ -11,7 +11,6 @@ title: "Quick Start: Hello World Contract"
 - [Installation and Development Environment Setup](../getting-started/getting-started-intro.md).
 - This page assumes you are familiar with [Smart Contract Basics](./smart-contract-basics.md).
 
-
 ## Steps
 
 ### 1. Clone the Contract Repository
@@ -34,20 +33,19 @@ Compile it using the `./build.sh`. This script uses the Wire Contract Developmen
 
 Upon successful compilation, you will see a `hello` folder with `hello.abi` and `hello.wasm` files.
 
-![compiled-dir](/img/compiled-dir.png) 
+![compiled-dir](/img/compiled-dir.png)
 
 ### 3. Deploy the Contract
 
 Before deploying, ensure you have an account to deploy the contract to. Create an account if necessary and replace `YOUR_PUBLIC_KEY` with your actual public key when you created a wallet(see [Import Keys](../getting-started/create-development-wallet.md#import-keys-into-your-wallet)). Your wallet must be also unlocked before using it(see [Unlock a wallet](../getting-started/create-development-wallet.md#unlock-a-wallet))
 
-
 ### 3.1. Create an account using `clio`
 
 ```bash
-clio create account sysio hello $PUBLIC_KEY -p eosio@active
+clio create account sysio hello $PUBLIC_KEY -p sysio@active
 ```
 
-This command enables the `eosio` system account to create a new account named `hello` on the Wire blockchain. The `-p eosio@active` specifies that the active permission of the `eosio` account is used to authorize the account creation.
+This command enables the `sysio` system account to create a new account named `hello` on the Wire blockchain. The `-p sysio@active` specifies that the active permission of the `sysio` account is used to authorize the account creation.
 
 ### 3.2. Deploy the contract
 
@@ -65,15 +63,15 @@ clio push action hello hi '["bob"]' -p bob@active
 
 This command triggers the `hi` action for the user `bob`, and if authorized by `bob`, it prints "Hello, bob".
 
-![bob-says-hi](/img/bob-say-hi.png) 
+![bob-says-hi](/img/bob-say-hi.png)
 
-Repeat the same passing "alice" as data to the action and using the same permissions: 
+Repeat the same passing "alice" as data to the action and using the same permissions:
 
-```bash 
+```bash
 clio push action hello hi '["alice"]' -p bob@active
 ```
 
-![bob-invoke-with-alice](/img/bob-execute-alice.png) 
+![bob-invoke-with-alice](/img/bob-execute-alice.png)
 
 ### 6. Change the contract code
 
@@ -93,16 +91,14 @@ This will result in an authorization error since `bob` is trying to execute an a
 
 CLI output:
 
-![missing-authority](/img/missing-authority.png) 
+![missing-authority](/img/missing-authority.png)
 
 ---
 
-
 ## Bonus
-
 
 ### Inspect the contract on EOS Authority Block Explorer
 
 Feel free to explore your contract on [EOS Authority](./block-explorer.md), which also provides tools to generate ready-to-use clio commands, making it easier to push transactions and interact with your contracts directly. This is a great way to get hands-on experience and deepen your understanding of smart contracts.
 
-![inspect-hello](/img/be-inspect-hello.png) 
+![inspect-hello](/img/be-inspect-hello.png)

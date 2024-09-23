@@ -1,17 +1,17 @@
----
-content_title: cdt-abidiff tool
----
+# cdt-abidiff
 
-The cdt-abidiff tool is used to diff two ABI files to flag and output differences.
+The `cdt-abidiff` tool is used to diff two ABI files to flag and output differences.
 To report differences with ```cdt-abidiff```, you only need to pass the two ABI file names as command line arguments.
 
 Example:
+
 ```bash
-$ cdt-abidiff hello.abi old_hello.abi
+cdt-abidiff hello.abi old_hello.abi
 ```
 
 This will generate dump the report output to the console.
-```
+
+```sh
 OVERVIEW: cdt-abidiff
 USAGE: cdt-abidiff [options] <input file1> ... <input file2> ...
 

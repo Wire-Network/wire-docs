@@ -6,14 +6,15 @@ The `http_plugin` is a core plugin supported by both `nodeop` and `kiod`. The pl
 
 ```console
 # config.ini
-plugin = eosio::http_plugin
+plugin = sysio::http_plugin
 [options]
 ```
+
 ```sh
 # command-line
-nodeop ... --plugin eosio::http_plugin [options]
+nodeop ... --plugin sysio::http_plugin [options]
  (or))
-kiod ... --plugin eosio::http_plugin [options]
+kiod ... --plugin sysio::http_plugin [options]
 ```
 
 ## Options
@@ -21,7 +22,7 @@ kiod ... --plugin eosio::http_plugin [options]
 These can be specified from both the command-line or the `config.ini` file:
 
 ```console
-Config Options for eosio::http_plugin:
+Config Options for sysio::http_plugin:
 
   --unix-socket-path arg                The filename (relative to data-dir)) to 
                                         create a unix socket for HTTP RPC; set 
