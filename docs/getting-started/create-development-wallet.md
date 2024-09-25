@@ -1,31 +1,24 @@
 ---
 sidebar_position: 2
 id: create-development-wallet
+title: Create Development Wallet
 ---
 
-# Create Development Wallet
+## Overview
 
-Wallets store public-private key pairs, which are needed for signing operations performed on the blockchain. They can be accessed through the use of `clio` command line tool.
+Wallets store public-private key pairs, which are needed for signing operations performed on the blockchain. They can be accessed through the use of `clio` command line tool. This section explains how to create, manage, and unlock wallets using the `clio` CLI, including generating and importing keys into wallets. For more information on `clio` commands and usage, refer to [clios's CLI Reference](../api-reference/tooling/clio/command-reference/index.md).
+
+<!-- ## Prerequisites -->
 
 ## Create a Wallet
 
-To create a wallet using Clio, you can either print the password to the console or save it in a specific file. For simplicity and recommended **only for development**, use the `--to-console` option:
-
-<!-- ```jsx title="/src/components/HelloCodeTitle.js"
-function HelloCodeTitle(props) {
-  return <h1>Hello, {props.name}</h1>;
-}
-``` -->
-
-<!-- ```js
-console.log('Every repo must come with a mascot.');
-``` -->
+To create a wallet using `clio`, you can either print the password to the console or save it in a specific file. For simplicity and recommended **only for development**, use the `--to-console` option:
 
 ```bash
 clio wallet create --to-console
 ```
 
-For production environments, it is safer to use the `--file` option to avoid having your wallet password recorded in your bash history:
+For production environments, it is safer to use the `--file` option to avoid having your wallet password recorded in your bash history.
 
 ```bash
 clio wallet create --file my-secret-pass.txt
@@ -33,7 +26,7 @@ clio wallet create --file my-secret-pass.txt
 
 In both cases, ensure you save the password securely, as it will be needed later in the tutorial.
 
-> **Note the location of the password. You will need it later**.
+> **Note the location of `my-secret-pass.txt`. You will need it later**.
 
 ## Open the Wallet
 
@@ -85,20 +78,20 @@ Wallets:
 ]
 ```
 
-The asterisk (\*) next to the name means that the wallet is currently unlocked.
+The asterisk (\*) next to the name means that the wallet is currently *unlocked*.
 
 ## Import keys into your wallet​
 
-Generate a private key, `clio` has a helper function for this, just run the following.
+To generating a key pair directly within the wallet, you could use `clio wallet create_key` command.
 
 ```bash
 clio wallet create_key
 ```
 
-It will return something like:
+Output:
 
 ```bash
-Created new private key with a public key of: "EOS8PEJ5FM42xLpHK...X6PymQu97KrGDJQY5Y"
+Created new private key with a public key of: "SYS8PEJ5FM42xLpHK...X6PymQu97KrGDJQY5Y"
 ```
 
 :::warning[IMPORTANT]
@@ -113,13 +106,13 @@ You could set it as environment variable:
 
 ## Import the Development Key​
 
-Every new Wire chain has a default system user called `sysio`. This account is used to setup the chain by loading system contracts that dictate the governance and consensus of the Wire chain. Every new Wire chain comes with a development key, and this key is the same. Load this key to sign transactions on behalf of the system user `sysio`.
+Every new Wire chain has a default system user called `sysio`. This account is used to setup the chain by deploying system contracts that handle essential functions related to resource management, governance and consensus of the chain. Every new Wire chain also comes with a development key, and this key is the same and it is used to sign transactions on behalf of the `sysio` user.
 
 ```bash
 clio wallet import
 ```
 
-You'll be prompted for a private key, enter the sysio development key provided below
+You'll be prompted for a private key, enter the `sysio` development key provided below:
 
 ```bash
 5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
@@ -127,4 +120,6 @@ You'll be prompted for a private key, enter the sysio development key provided b
 
 :::danger[WARNING]
 
-**Never use the development key for a production account!** Doing so will most certainly result in the loss of access to your account, this private key is publicly known.
+**Never use the development key for a production account!** Doing so will most certainly result in the loss of access to your account.
+
+:::

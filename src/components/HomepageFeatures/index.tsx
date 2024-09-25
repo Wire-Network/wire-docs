@@ -22,7 +22,7 @@ const FeatureList: FeatureItem[] = [
   {
     title: "API Reference",
     // Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
-    link: "/docs/api-reference",
+    link: "/docs/api-reference/quick-reference",
     description: (
       <>Check out our comprehensive documentation for APIs and SDKs.</>
     ),
@@ -30,7 +30,7 @@ const FeatureList: FeatureItem[] = [
   {
     title: "Glossary",
     // Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
-    link: "/docs/glossary",
+    link: "/docs/introduction/glossary",
     description: (
       <>Get familiar with common blockchain and Wire specific terminology.</>
     ),

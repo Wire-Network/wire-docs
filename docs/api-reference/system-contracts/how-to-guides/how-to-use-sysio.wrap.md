@@ -1,4 +1,4 @@
-# sysio.wrap
+# How to use sysio.wrap
 
 ## 1. Installing the sysio.wrap contract
 

@@ -119,7 +119,7 @@ Now you have instantiated the `testtab` as a multi-index table which has a prima
 | A full example project demonstrating the instantiation and usage of multi-index table can be found [here](https://github.com/Wire-Network/cdt/blob/main/examples/multi_index_example).
 
 [[warning | Do not add a secondary index to an existing table]]
-| Adding a secondary index to an existing multi-index table it will have unpredictable outcome. Consult the [Data design and migration](../best-practices/data-design-and-migration) documentation for more details.
+| Adding a secondary index to an existing multi-index table it will have unpredictable outcome. Consult the [Data design and migration](../../best-practices/data-design-and-migration.md) documentation for more details.
 
 ## Summary
 

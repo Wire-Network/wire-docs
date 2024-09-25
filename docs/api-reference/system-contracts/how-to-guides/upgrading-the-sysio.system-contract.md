@@ -1,6 +1,6 @@
-## Upgrading the system contract
+# How to upgrade the system contract
 
-### Indirect method using sysio.msig contract
+## Indirect method using sysio.msig contract
 
 Clio currently provides tools to propose an action with the sysio.msig contract, but it does not provide an easy interface to propose a custom transaction.
 
@@ -12,7 +12,7 @@ The disadvantage of the sysio.msig method is that it requires the proposer to ha
 
 For now, it is recommended to use the direct method to upgrade the system contract.
 
-### Direct method (avoids using sysio.msig contract)
+## Direct method (avoids using sysio.msig contract)
 
 Each of the top 21 block producers should do the following:
 

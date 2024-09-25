@@ -2,11 +2,11 @@
 id: pack-transaction
 ---
 
-
+# pack-transaction
 
 ## Description
 
-From plain signed json to packed form
+This command is used to convert transaction from a plain signed JSON to it binary(packed) representation.
 
 ## Positional arguments
 
@@ -18,7 +18,6 @@ From plain signed json to packed form
 - `--pack-action-data` - Pack all action data within transaction, needs interaction with `nodeop`
 
 ## Usage
-
 
 ```sh
 clio convert pack_transaction '{

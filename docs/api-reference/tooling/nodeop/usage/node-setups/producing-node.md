@@ -19,16 +19,16 @@ This section describes how to set up a producing node within the SYSIO network. 
 
 Please follow the steps below to set up a producing node:
 
-* [Goal](#goal)
-* [Before you begin](#before-you-begin)
-* [Steps](#steps)
-  * [1. Register your account as a producer](#1-register-your-account-as-a-producer)
-  * [2. Set Producer Name](#2-set-producer-name)
-  * [3. Set the Producer's signature-provider](#3-set-the-producers-signature-provider)
-    * [Using a Key:](#using-a-key)
-    * [Using Keosd:](#using-kiod)
-  * [4. Define a peers list](#4-define-a-peers-list)
-  * [5. Load the Required Plugins](#5-load-the-required-plugins)
+- [Goal](#goal)
+- [Before you begin](#before-you-begin)
+- [Steps](#steps)
+  - [1. Register your account as a producer](#1-register-your-account-as-a-producer)
+  - [2. Set Producer Name](#2-set-producer-name)
+  - [3. Set the Producer's signature-provider](#3-set-the-producers-signature-provider)
+    - [Using a Key](#using-a-key)
+    - [Using Kiod](#using-kiod)
+  - [4. Define a peers list](#4-define-a-peers-list)
+  - [5. Load the Required Plugins](#5-load-the-required-plugins)
 
 ### 1. Register your account as a producer
 
@@ -70,7 +70,7 @@ signature-provider = PUBLIC_SIGNING_KEY=KEY:PRIVATE_SIGNING_KEY
 //signature-provider = EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV=KEY:5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
 ```
 
-#### Using Keosd
+#### Using Kiod
 
 You can also use `kiod` instead of hard-defining keys.
 

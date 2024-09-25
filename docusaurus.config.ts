@@ -40,8 +40,9 @@ const config: Config = {
   organizationName: "Wire-Network",
   projectName: "wire-docs",
 
-  onBrokenLinks: "warn",
-  onBrokenMarkdownLinks: "warn",
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "throw",
+  trailingSlash: false,
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -134,13 +135,19 @@ const config: Config = {
       },
       items: [
         {
+          label: "Developers Portal",
           type: "docSidebar",
           sidebarId: "contentSidebar",
           position: "left",
-          label: "Developers Portal",
-          to: "docs/intro",
+          // to: "docs/introduction/overview",
         },
-        { to: "docs/api-reference", label: "API Reference", position: "left" },
+        {
+          label: "API Reference",
+          type: "docSidebar",
+          sidebarId: "apiReferenceSidebar",
+          position: "left",
+          // to: "./docs/api-reference/quick-reference",
+        },
         // {
         //   to: "https://www.wire.network/updates.html",
         //   label: "News",
@@ -154,21 +161,20 @@ const config: Config = {
       ],
     },
     footer: {
-      // logo: {
-      //   alt: 'Wire Network Logo',
-      //   src: 'img/wire-network-logo.png',
-      //   // href: 'https://wire.network',
-      //   width: 160,
-      //   height: 51,
-      // },
+      logo: {
+        alt: "Wire Network Logo",
+        src: "img/wire-network-logo.png",
+        href: "https://wire.network",
+        width: 80,
+        height: 51,
+      },
       style: "dark",
       links: [
         {
-          title: "Docs",
           items: [
             {
-              label: "Tutorial",
-              to: "/docs",
+              label: "GitHub",
+              to: "https://github.com/Wire-Network",
             },
           ],
         },

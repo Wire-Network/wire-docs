@@ -63,4 +63,4 @@ clio get transaction_id clio get transaction_id  "{\"expiration\":\"2020-09-15T1
 9144d5b2f5cf3d9e7a74613e04ce27fd902866f9127acb7f3907ffbbfd90746a
 ```
 
-![clio-get-trx-id](/img/clio-get-tran-id.png)
+![clio-get-trx-id](../../../../../../static/img/clio-get-tran-id.png)

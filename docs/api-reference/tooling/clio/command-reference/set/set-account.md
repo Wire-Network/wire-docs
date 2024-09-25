@@ -5,7 +5,7 @@ title: set account
 
 ## Command
 
-```
+```sh
 clio set account permission [OPTIONS] account permission [authority] [parent]
 ```
 
@@ -29,14 +29,16 @@ The following information shows the different positionals and options you can us
 
 ### Positionals
 
-- `account` _TEXT_ REQUIRED The account to set/delete a permission authority for
+* `account` _TEXT_ REQUIRED The account to set/delete a permission authority for
+
 * `permission` _TEXT_ REQUIRED The permission name to set/delete an authority for
 * `authority` _TEXT_ [delete] NULL, [create/update] public key, JSON string or filename defining the authority, [code] contract name
 * `parent` _TEXT_ [create] The permission name of this parents permission, defaults to 'active'
 
 ### Options
 
-- `-h,--help` Print this help message and exit
+* `-h,--help` Print this help message and exit
+
 * `--add-code` [code] Add 'sysio.code' permission to specified permission authority
 * `--remove-code` [code] Remove 'sysio.code' permission from specified permission authority
 * `-x`,`--expiration` Set the time in seconds before a transaction expires, defaults to 30s

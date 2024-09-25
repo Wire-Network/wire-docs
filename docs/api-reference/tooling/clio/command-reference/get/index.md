@@ -8,6 +8,7 @@ title: get
 Retrieves various items and information from the blockchain
 
 ## Subcommands
+
 - [info](./info.md) - Get current blockchain information
 - [block](./block.md) - Retrieve a full block from the blockchain
 - [account](./account.md) - Retrieve an account from the blockchain

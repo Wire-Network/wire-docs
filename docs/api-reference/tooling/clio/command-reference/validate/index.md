@@ -1,4 +1,5 @@
 ## Description
+
 Validate transactions
 
 ## Commands
@@ -11,4 +12,5 @@ Options:
 ```
 
 ## Subcommands
-- [signatures](validate-signatures) - Validate signatures and recover public keys
+
+- [signatures](validate-signatures.md) - Validate signatures and recover public keys

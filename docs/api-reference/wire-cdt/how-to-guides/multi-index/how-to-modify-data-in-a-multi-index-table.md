@@ -11,7 +11,7 @@ This guide provides instructions to modify data in a multi-index table.
 See the following code reference:
 
 * The [`multi-index`](http://example/com) class.
-* The [`multi-index::modify(...)`](../../group__multiindex/#function-modify) method.
+* The [`multi-index::modify(...)`](http://example/com) method.
 
 ## Before you begin
 
@@ -42,7 +42,7 @@ Optionally, for ease of use add the action wrapper definition as well.
 
 ### 2. Find The User You Want To Modify
 
-Use the multi-index [`find(...)`](../../group__multiindex#function-find) method to locate the user object you want to modify. The targeted user is searched based on its account name.
+Use the multi-index [`find(...)`](http://example.com) method to locate the user object you want to modify. The targeted user is searched based on its account name.
 
 ```cpp
 [[sysio::action]] void multi_index_example::mod( name user, uint32_t value ) {
@@ -52,7 +52,7 @@ Use the multi-index [`find(...)`](../../group__multiindex#function-find) method 
 
 ### 3. Yield Error If User Not Found
 
-If the `user` object you want to update is not found then raise an error message by using the [`sysio::check`](../../namespacesysio/#function-check-17) method.
+If the `user` object you want to update is not found then raise an error message by using the [`sysio::check`](http://example.com) method.
 
 ```diff
 [[sysio::action]] void multi_index_example::mod( name user, uint32_t value ) {
@@ -63,7 +63,7 @@ If the `user` object you want to update is not found then raise an error message
 
 ### 4. Update The User If Found
 
-If the `user` object you want to update is found, the [`sysio::check`](../../namespacesysio/#function-check-17) method will do nothing and the iterator `itr` will be pointing at the object which you want to update. Use the [`multi-index::modify(...)`](../../group__multiindex/#function-modify) method to update the user object `datum` data member with the `value` parameter.
+If the `user` object you want to update is found, the [`sysio::check`](http://example.com) method will do nothing and the iterator `itr` will be pointing at the object which you want to update. Use the [`multi-index::modify(...)`](http://example.com) method to update the user object `datum` data member with the `value` parameter.
 
 ```diff
 [[sysio::action]] void multi_index_example::mod( name user, uint32_t value ) {

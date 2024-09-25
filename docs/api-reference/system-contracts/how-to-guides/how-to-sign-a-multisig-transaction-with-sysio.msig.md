@@ -1,27 +1,44 @@
 # `sysio.msig` examples
 
-## Clio usage example for issuing tokens
+## Multisig proposal
 
 ### Prerequisites
 
-- sysio.token contract installed to sysio.token account, sysio.msig contract installed on sysio.msig account which is a priviliged account.
-- account 'treasury' is the issuer of SYS token.
-- account 'tester' exists.
-- keys to accounts 'treasury' and 'tester' imported into local wallet, the wallet is unlocked.
+- `sysio.token` contract deployed to `sysio.token` account, and `sysio.msig` contract deployed to the privileged `sysio.msig` account.
+- account `treasury`(the issuer in our case) and `tester` accounts created.
+- keys to `treasury` and `tester` accounts have been imported into local wallet and the wallet is unlocked.
 
-### One user creates a proposal
+### Steps
 
-````sh
-$ clio multisig propose test '[{"actor": "treasury", "permission": "active"}]' '[{"actor": "treasury", "permission": "active"}]' sysio.token issue '{"to": "tester", "quantity": "1000.0000 SYS", "memo": ""}' -p tester
+***
 
+#### Step 1 - `tester` account creates a proposal
+
+```sh
+clio multisig propose test '[{"actor": "treasury", "permission": "active"}]' '[{"actor": "treasury", "permission": "active"}]' sysio.token issue '{"to": "tester", "quantity": "1000.0000 SYS", "memo": ""}' -p tester
+```
+
+**Explantion:**
+
+- `tester` creates a multisig proposal named *test*.
+- The proposal requests `treasury`s approval.
+- The proposed transaction is to issue 1,000.0000 SYS to `tester` from the `sysio.token` contract.
+
+**Expected output:**
+
+```sh
 executed transaction: e26f3a3a7cba524a7b15a0b6c77c7daa73d3ba9bf84e83f9c2cdf27fcb183d61  336 bytes  107520 cycles
 #    sysio.msig <= sysio.msig::propose          {"proposer":"tester","proposal_name":"test","requested":[{"actor":"treasury","permission":"active"}]...
-````
+```
 
-#### Another user reviews the transaction
+***
 
-````sh
-$ clio multisig review tester test
+#### Step 2 - `treasury` reviews the proposal
+
+```sh
+clio multisig review tester test
+
+Ouput: 
 {
   "proposal_name": "test",
   "requested_approvals": [{
@@ -58,43 +75,58 @@ $ clio multisig review tester test
     ]
   }
 }
-````
+```
 
-#### And then approves it
+***
 
-````sh
-$ clio multisig approve tester test '{"actor": "treasury", "permission": "active"}' -p treasury
+#### Step 3 - `treasury` approves the proposal
 
+```sh
+clio multisig approve tester test '{"actor": "treasury", "permission": "active"}' -p treasury
+```
+
+**Expected output**
+
+```sh
 executed transaction: 475970a4b0016368d0503d1ce01577376f91f5a5ba63dd4353683bd95101b88d  256 bytes  108544 cycles
 #    sysio.msig <= sysio.msig::approve          {"proposer":"tester","proposal_name":"test","level":{"actor":"treasury","permission":"active"}}
-````
+```
 
-#### First user initiates execution
+***
 
-````sh
+#### Step 4 -  `tester`  initiates execution
+
+```sh
 $ clio multisig exec tester test -p tester
 
 executed transaction: 64e5eaceb77362694055f572ae35876111e87b637a55250de315b1b55e56d6c2  248 bytes  109568 cycles
 #    sysio.msig <= sysio.msig::exec             {"proposer":"tester","proposal_name":"test","executer":"tester"}
-````
+```
 
-### Clio usage example for transferring tokens
+***
 
-#### Prerequisites
+## Transferring a token
 
-- sysio.token contract installed to sysio.token account, sysio.msig contract installed on sysio.msig account which is a priviliged account.
-- account 'treasury' has at least 1.1000 SYS token balance.
-- account 'tester' exists.
-- keys to accounts 'treasury' and 'tester' imported into local wallet, the wallet is unlocked.
+### Prerequisites
 
-#### One user creates a proposal
+- `sysio.token` contract deployed to `sysio.token` account, and `sysio.msig` contract deployed to the privileged `sysio.msig` account.
+- account `treasury`(the issuer in our case) and `tester` accounts created. `treasury` has at least 1.1000 SYS token balance
+- keys to `treasury` and `tester` accounts have been imported into local wallet and the wallet is unlocked.
 
-````sh
-$ clio multisig propose test '[{"actor": "treasury", "permission": "active"}]' '[{"actor": "treasury", "permission": "active"}]' sysio.token transfer '{"from": "treasury", "to": "tester", "quantity": "1.0000 SYS", "memo": ""}' -p tester
+### Steps
 
+#### `tester` creates a proposal
+
+```sh
+clio multisig propose test '[{"actor": "treasury", "permission": "active"}]' '[{"actor": "treasury", "permission": "active"}]' sysio.token transfer '{"from": "treasury", "to": "tester", "quantity": "1.0000 SYS", "memo": ""}' -p tester
+```
+
+**Expected output**
+
+```sh
 executed transaction: e26f3a3a7cba524a7b15a0b6c77c7daa73d3ba9bf84e83f9c2cdf27fcb183d61  336 bytes  107520 cycles
 #    sysio.msig <= sysio.msig::propose          {"proposer":"tester","proposal_name":"test","requested":[{"actor":"treasury","permission":"active"}]...
-````
+```
 
 #### Another user reviews the transaction
 

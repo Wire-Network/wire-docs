@@ -1,7 +1,7 @@
 
 ## Overview
 
-The `trace_api_plugin` provides a consumer-focused long-term API for retrieving retired actions and related metadata from a specified block. The plugin stores serialized block trace data to the filesystem for later retrieval via HTTP RPC requests. For detailed information about the definition of this application programming interface see the [Trace API reference](docs/api-reference/trace-api).
+The `trace_api_plugin` provides a consumer-focused long-term API for retrieving retired actions and related metadata from a specified block. The plugin stores serialized block trace data to the filesystem for later retrieval via HTTP RPC requests. For detailed information about the definition of this application programming interface see the [Trace API reference](../../../../../openapi/TraceApi.yaml).
 
 ## Purpose
 

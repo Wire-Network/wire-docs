@@ -1,21 +1,26 @@
 ---
 sidebar_position: 5
 id: launch-local-node
+toc_max_heading_level: 5
+toc_min_heading_level: 2
 ---
 
 # Launching Local Node
 
-This section explains how to run `nodeop` and `kiod`.
+This section explains launching a local node by starting up the `nodeop` and `kiod` services.
+
+## Prerequisites
+
+- You have successfully installed Wire Sysio and Wire CDT on your computer **without** using the `wire-cli` automation script. The steps below are only relevant if you followed the [Binary Installation](./install-dependencies.md#binary-installation) instructions.
 
 ## Starting `kiod`
 
-Typically a user would just create a wallet first and in doing so it would start up `kiod`.
+Typically a user would just create a wallet **first** and in doing so it would start up [kiod](../introduction/glossary.md#kiod).
 
-If for some reason `kiod` isn't running, use the command `kiod` to restart.
-
-You should see some output that looks like this:
+You can use `kiod` command to start and restart the process.
 
 ```bash
+kiod
 info  2024-05-29T13:48:18.634 kiod     wallet_plugin.cpp:38          plugin_initialize    ] initializing wallet plugin
 info  2024-05-29T13:48:18.635 kiod     wallet_api_plugin.cpp:69      plugin_startup       ] starting wallet_api_plugin
 info  2024-05-29T13:48:18.635 kiod     http_plugin.cpp:927           add_handler          ] add api url: /v1/wallet/create
@@ -35,15 +40,29 @@ info  2024-05-29T13:48:18.635 kiod     http_plugin.cpp:927           add_handler
 info  2024-05-29T13:48:18.636 kiod     http_plugin.cpp:927           add_handler          ] add api url: /v1/node/get_supported_apis
 ```
 
+Verify that `kiod` is running by:
+
+```sh
+pidof kiod
+```
+
 ### Troubleshooting
 
 If you encounter a message similar to the one below:
 
-![kiod-startup-error](/img/errors/kiod-start-error.png)
+```sh
+info  2024-09-25T13:51:58.918 kiod      wallet_plugin.cpp:38          plugin_initialize    ] initializing wallet plugin
+warn  2024-09-25T13:51:58.918 kiod      wallet_plugin.cpp:65          plugin_initialize    ] 3120000 wallet_exception: Wallet exception
+Failed to lock access to wallet directory; is another kiod running?
+    {}
+    kiod  wallet_manager.cpp:304 initialize_lock
+
+Failed to initialize
+```
 
 This is because another instance of `kiod` process might be running in the background.
 
-Kill all instances: `pkill kiod`. Then rerun `kiod`
+Kill all instances: `pkill kiod` and the restart it.
 
 ## Starting `nodeop`
 
@@ -55,12 +74,10 @@ nodeop -e -p sysio \
 --plugin sysio::producer_api_plugin \
 --plugin sysio::chain_api_plugin \
 --plugin sysio::http_plugin \
---plugin sysio::history_plugin \
---plugin sysio::history_api_plugin \
---filter-on="*" \
+--plugin sysio::state_history_plugin \
 --access-control-allow-origin='*' \
 --contracts-console \
---http-validate-host=false \
+--http-validate-host=false --disable-replay-opts \
 --verbose-http-errors >> nodeop.log 2>&1 &
 ```
 
@@ -81,7 +98,15 @@ CORS is enabled for all (\*) for development only. Never enable unrestricted COR
 
 If you see error that looks like the examples below:
 
-![nodeop-error](/img/errors/nodeop-error.png)
+```sh
+info  timestamp nodeop    chain_plugin.cpp:461          operator()           ] Support for builtin protocol feature 'GET_SENDER' (with digest of 'f0af56d2c5a48d60a4a5b5c903edfb7db3a736a94ed589d0b797df33ff9d3e1d') is enabled with preactivation required
+info  timestamp nodeop    chain_plugin.cpp:955          plugin_initialize    ] Starting fresh blockchain state using genesis state extracted from blocks.log.
+warn  timestamp nodeop    chain_plugin.cpp:1237         plugin_initialize    ] 13 N5boost10wrapexceptISt12system_errorEE: Database dirty flag set
+rethrow Database dirty flag set: 
+    {"what":"Database dirty flag set"}
+    nodeop  chain_plugin.cpp:1237 plugin_initialize
+error timestamp nodeop    main.cpp:153                  main                 ] database dirty flag set (likely due to unclean shutdown): replay required
+```
 
 ```bash
 Database dirty flag set (likely due to unclean shutdown): replay required
@@ -95,12 +120,10 @@ nodeop -e -p sysio \
 --plugin sysio::producer_api_plugin \
 --plugin sysio::chain_api_plugin \
 --plugin sysio::http_plugin \
---plugin sysio::history_plugin \
---plugin sysio::history_api_plugin \
---filter-on="*" \
+--plugin sysio::state_history_plugin \
 --access-control-allow-origin='*' \
 --contracts-console \
---http-validate-host=false --replay-blockchain \
+--http-validate-host=false --replay-blockchain --disable-replay-opts \
 --verbose-http-errors >> nodeop.log 2>&1 &
 ```
 
@@ -161,11 +184,43 @@ clio get info
 
 Use your browser to access the `get_info` endpoint from the `chain_api_plugin`. Simply click [http://localhost:8888/v1/chain/get_info](http://localhost:8888/v1/chain/get_info).
 
-![verifying nodeop running](/img/chain-api-verify-nodeop.png) Alternatively, check the endpoint directly from your terminal using the command:
+import BrowserWindow from '@site/src/components/BrowserWindow';
 
-`curl http://localhost:8888/v1/chain/get_info`
+<BrowserWindow url="http://localhost:8888/v1/chain/get_info">
+     ```json
+       {
+            "server_version": "1dd2fd86",
+            "chain_id": "8a34ec7df1b8cd06ff4a8abbaa7cc50300823350cadc59ab296cb00d104d2b8f",
+            "head_block_num": 1769,
+            "last_irreversible_block_num": 1768,
+            "last_irreversible_block_id": "000006e810b62ae346aa0066d7e3d5fe152285692c4d15dc742e1733b61eb27b",
+            "head_block_id": "000006e931c346d88fc5cb63ce025bfd5f0843656761ac074b35c1c941684f64",
+            "head_block_time": "2024-09-25T15:43:18.000",
+            "head_block_producer": "sysio",
+            "virtual_block_cpu_limit": 1170419,
+            "virtual_block_net_limit": 6146775,
+            "block_cpu_limit": 200000,
+            "block_net_limit": 1048576,
+            "server_version_string": "v3.1.6",
+            "fork_db_head_block_num": 1769,
+            "fork_db_head_block_id": "000006e931c346d88fc5cb63ce025bfd5f0843656761ac074b35c1c941684f64",
+            "server_full_version_string": "v3.1.6-1dd2fd862c04c1b49df6b2314eb1a621d0301c9f",
+            "total_cpu_weight": 0,
+            "total_net_weight": 0,
+            "earliest_available_block_num": 1,
+            "last_irreversible_block_time": "<timestamp>"
+        }
+   ```
+ </BrowserWindow>
 
-![Curl request verifying nodeop running](/img/curl-request-verify-nodeop.png)
+
+
+Alternatively, check the endpoint directly from your terminal using the command:
+
+```sh
+curl http://localhost:8888/v1/chain/get_info | jq .
+```
+
 
 ---
 
