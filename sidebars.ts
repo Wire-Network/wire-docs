@@ -17,8 +17,6 @@ const sidebars: SidebarsConfig = {
   // But you can create a sidebar manually
 
   contentSidebar: [
-    // "introduction",
-    // "overview",
     {
       type: "category",
       link: {
@@ -81,33 +79,31 @@ const sidebars: SidebarsConfig = {
         },
       ],
     },
+  ],
 
+  apiReferenceSidebar: [
     {
       type: "category",
       link: {
-        type: "generated-index",
-        description: `Source Acknowledgment: The content in the following sections has been sourced from the official EOSIO GitHub repositories - https://github.com/EOSIO/eos, https://github.com/EOSIO/cdt, https://github.com/EOSIO/sysio.contracts. This material is utilized under the terms of its open source license.`,
-        // id: "api-reference/api-reference-intro",
-        keywords: ["tooling", "reference", "cdt", "core"],
+        type: "doc",
+        id: "api-reference/quick-reference",
       },
-      collapsed: true,
-      label: "API Reference",
+      collapsible: false,
+      label: "Quick Reference",
+      items: [],
+    },
+    {
+      type: "category",
+      link: {
+        // type: "generated-index",
+        type: "doc",
+        id: "api-reference/tooling/index",
+        // id: "api-reference/api-reference-intro",
+        // keywords: ["tooling", "reference", "cdt", "core"],
+      },
+      collapsed: false,
+      label: "Tooling",
       items: [
-        {
-          type: "category",
-          label: "cdt",
-          link: {
-            type: "doc",
-            id: "api-reference/tooling/cdt/index",
-          },
-          items: [
-            "api-reference/tooling/cdt/cdt-init",
-            "api-reference/tooling/cdt/cdt-ld",
-            "api-reference/tooling/cdt/cdt-abidiff",
-            "api-reference/tooling/cdt/cdt-cc",
-            "api-reference/tooling/cdt/cdt-cpp",
-          ],
-        },
         {
           type: "category",
           label: "clio",
@@ -330,7 +326,6 @@ const sidebars: SidebarsConfig = {
                     "api-reference/tooling/clio/command-reference/wallet/create",
                     "api-reference/tooling/clio/command-reference/wallet/create-key",
                     "api-reference/tooling/clio/command-reference/wallet/import",
-                    "api-reference/tooling/clio/command-reference/wallet/index",
                     "api-reference/tooling/clio/command-reference/wallet/keys",
                     "api-reference/tooling/clio/command-reference/wallet/list",
                     "api-reference/tooling/clio/command-reference/wallet/lock",
@@ -482,6 +477,21 @@ const sidebars: SidebarsConfig = {
         // TODO: category docs need renamind and edits
         {
           type: "category",
+          label: "Wire CDT",
+          link: {
+            type: "doc",
+            id: "api-reference/tooling/cdt/index",
+          },
+          items: [
+            "api-reference/tooling/cdt/cdt-init",
+            "api-reference/tooling/cdt/cdt-ld",
+            "api-reference/tooling/cdt/cdt-abidiff",
+            "api-reference/tooling/cdt/cdt-cc",
+            "api-reference/tooling/cdt/cdt-cpp",
+          ],
+        },
+        {
+          type: "category",
           link: {
             type: "doc",
             id: "api-reference/system-contracts/index",
@@ -490,13 +500,13 @@ const sidebars: SidebarsConfig = {
           label: "System Contracts",
           items: [
             "api-reference/system-contracts/build-and-deploy",
-            "api-reference/system-contracts/guides/how-to-buy-ram",
-            "api-reference/system-contracts/guides/how-to-create-issue-and-transfer-a-token",
-            "api-reference/system-contracts/guides/how-to-sign-a-multisig-transaction-with-sysio.msig",
-            "api-reference/system-contracts/guides/how-to-stake",
-            "api-reference/system-contracts/guides/how-to-use-sysio.wrap",
-            "api-reference/system-contracts/guides/how-to-vote",
-            "api-reference/system-contracts/guides/upgrading-the-sysio.system-contract",
+            "api-reference/system-contracts/how-to-guides/how-to-buy-ram",
+            "api-reference/system-contracts/how-to-guides/how-to-create-issue-and-transfer-a-token",
+            "api-reference/system-contracts/how-to-guides/how-to-stake",
+            "api-reference/system-contracts/how-to-guides/how-to-vote",
+            "api-reference/system-contracts/how-to-guides/upgrading-the-sysio.system-contract",
+            "api-reference/system-contracts/how-to-guides/how-to-use-sysio.wrap",
+            "api-reference/system-contracts/how-to-guides/how-to-sign-a-multisig-transaction-with-sysio.msig",
           ],
         },
         {

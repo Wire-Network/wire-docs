@@ -11,8 +11,8 @@ This guide provides instructions to to delete data from a multi-index table.
 See the following code reference:
 
 * The [`multi-index`](http://example/com) class.
-* The [`multi-index::find(...)`](../../group__multiindex#function-find) method.
-* The [`multi-index::erase(...)`](../../group__multiindex/#function-erase) method.
+* The [`multi-index::find(...)`](http://example.com) method.
+* The [`multi-index::erase(...)`](http://example.com) method.
 
 ## Before you begin
 
@@ -27,7 +27,7 @@ Complete the following steps to implement a `del` action which deletes an user o
 
 ### 1. Find The User You Want To Delete
 
-Use the multi-index [`find(...)`](../../group__multiindex#function-find) method to locate the user object you want to delete. The targeted user is searched based on its account name.
+Use the multi-index [`find(...)`](http://example.com) method to locate the user object you want to delete. The targeted user is searched based on its account name.
 
 ```cpp
 [[sysio::action]] void multi_index_example::del( name user ) {
@@ -38,7 +38,7 @@ Use the multi-index [`find(...)`](../../group__multiindex#function-find) method 
 
 ### 2. Delete The User If Found
 
-Check to see if the user exists and use [`erase`(...)](../../group__multiindex/#function-erase) method to delete the row from table. Otherwise print an informational message and return.
+Check to see if the user exists and use [`erase`(...)](http://example.com) method to delete the row from table. Otherwise print an informational message and return.
 
 ```diff
 [[sysio::action]] void multi_index_example::del( name user ) {

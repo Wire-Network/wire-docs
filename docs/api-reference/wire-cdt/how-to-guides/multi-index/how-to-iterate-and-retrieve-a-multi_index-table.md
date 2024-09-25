@@ -11,7 +11,7 @@ This guide provides instructions to iterate and retrieve data from a multi-index
 See the following code reference:
 
 * The [`multi-index`](http://example/com) class.
-* The [`multi-index::find(...)`](../../group__multiindex#function-find) method.
+* The [`multi-index::find(...)`](http://example.com) method.
 
 ## Before you begin
 

@@ -2,51 +2,121 @@
 sidebar_position: 3
 id: install-dependencies
 title: Install Dependencies
+toc_max_heading_level: 5
+toc_min_heading_level: 2
 ---
 
 ## Linux Distributions
 
 ### Ubuntu
 
-***
+Currently supported versions:
 
-#### Wire Binaries
+- Ubuntu 22.04 Jammy
 
-##### Install Wire Binaries
-
-Download and install the Wire binaries using the following commands:
-
-```bash
-wget https://github.com/siliconswampio/wire-sysio/releases/download/v2.0.13/sysio_2.0.13-1_amd64.deb && sudo apt install ./sysio_2.0.13-1_amd64.deb
-```
-
-##### Uninstall Wire Binaries
-
-To uninstall the Wire binaries:
-
-```bash
-sudo apt remove sysio
-```
+- Ubuntu 20.04 Focal
 
 ***
 
-#### Wire.CDT
+#### Installation via `wire-cli`
 
-##### Install Wire.CDT
+The quickest way to install Wire Sysio and Wire CDT softare is by using the [wire-cli](https://github.com/Wire-Network/wire-install?tab=readme-ov-file#genesis-node-setup). Refer to the installation instructions outlined in the README.md.
 
-Download and install the Wire.CDT using the following command:
+#### Binary Installation
 
-```bash
-wget https://github.com/siliconswampio/wire-sysio-cdt/releases/download/v1.7.0/sysio.cdt_1.7.0-1_amd64.deb && sudo apt install ./sysio.cdt_1.7.0-1_amd64.deb
+If you’d prefer to install the binaries yourself, follow along with the instructions provided below.
+
+##### Install Wire Sysio
+
+You can download Wire Sysio software from the [Official releases page](https://github.com/Wire-Network/wire-sysio/releases) or check the [Release tags page](https://github.com/Wire-Network/wire-sysio/tags) to download a specific version of Wire Sysio.
+
+Once you have a `*.deb` file, you can install it by running:
+
+```sh
+sudo apt install ./wire-sysio-*.deb
 ```
 
-##### Uninstall Wire.CDT
+##### Verify installation
 
-To uninstall Wire.CDT:
+```sh
+nodeop --full-version
+```
+
+You should see a semantic version string followed by a commit hash with no errors. For example:
+
+```console
+v3.1.6-8f6875608efc9aceab9218360822bba3bc664cfb
+```
+
+:::info
+Wire Sysio executables are located at `/usr/local/bin`.
+:::
+***
+
+##### Install Wire CDT
+
+You can download Wire Sysio software from the [Official releases page](https://github.com/Wire-Network/wire-cdt/releases) or check the [Release tags page](https://github.com/Wire-Network/wire-cdt/tags) to download a specific version of Wire CDT.
+
+Once you have a `*.deb` file, you can install it by running:
+
+```sh
+sudo apt install ./wire-cdt-*.deb
+```
+
+##### Verify installation
+
+```sh
+which cdt-cpp
+
+Expected Output -> /usr/bin/cdt-cpp
+```
+
+or
+
+```sh
+cdt-cpp --version
+
+Expected Output -> cdt-cpp version 3.1.0
+```
+
+:::info
+Wire CDT is located at `/usr/opt` with symlinks to each of its executable in `/usr/bin`. You can list the contents using `ls -la usr/opt/cdt/<version>/bin`.
+:::
+
+&nbsp;
+
+***
+
+#### Removing Wire Sysio and Wire CDT
+
+##### Uninstall Wire Sysio
+
+To uninstall it, run:
+
+```sh
+sudo apt remove wire-sysio
+```
+
+If uninstalling has failed or if didn't remove all core components, you can manually delete them with the following command:
+
+```sh
+sudo rm -rf /usr/local/bin/clio /usr/local/bin/kiod /usr/local/bin/nodeop /usr/local/bin/sysio-blocklog /usr/local/bin/trace_api_util /root/sysio-wallet
+```
+
+:::danger
+The uninstall command above will also remove the **default wallet** installed with Wire Sysio. To keep any imported keys, make sure to back them up before proceeding with deletion.
+:::
+***
+
+##### Uninstall Wire CDT
+
+To uninstall Wire.CDT, run:
 
 ```bash
-sudo apt remove sysio.cdt
+sudo apt remove cdt
 ```
+
+&nbsp;
 
 ***
 
@@ -72,7 +142,7 @@ E: Unable to correct problems, you have held broken packages.
 
 - Try and resolve it by looking for exact dependencies at Index of /ubuntu/pool/main/o/openssl
 
-- Find the exact version of libssl , in this case libssl1.1
+- Find the exact version of `libssl` , in this case `libssl1.1`
 
 - Download it:
 
@@ -94,43 +164,3 @@ sudo dpkg -i libicu60_60.2-3ubuntu3.2_amd64.deb
 ```
 
 After successfully installing all missing packages, attempt to install the binaries again.
-
-## Mac(Intel)
-
-Before proceeding with the installation of Wire Binaries and Wire.CDT, you need to ensure that Homebrew is installed on your system. To check if Homebrew is already installed, open your terminal and run:
-
-```sh
-brew --version
-```
-
-If Homebrew is not installed on your machine, you can install it by running the following command:
-
-```
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-
-##### Install Wire Binaries
-
-```sh
-brew tap sysio/sysio
-brew install sysio
-```
-
-##### Install Wire.CDT
-
-```sh
-brew tap sysio/sysio.cdt
-brew install sysio.cdt
-```
-
-## Verify Installation
-
-To verify that the installation was successful, run the following command:
-
-```bash
-cdt-cpp --version
-```
-
-The output of this command should look like:
-
-![Verify Installation](/img/video-gifs/verify-installation.gif)

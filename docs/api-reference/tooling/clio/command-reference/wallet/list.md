@@ -3,20 +3,20 @@
 Lists opened wallets, * = unlocked
 
 ## Positionals
+
 None
 
 ## Options
+
 None
 
 ## Usage
-
 
 ```sh
 clio wallet list
 ```
 
 ## Outputs
-
 
 ```console
 Wallets:

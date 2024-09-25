@@ -10,7 +10,7 @@ Make sure to meet the following requirements:
 * Install the currently supported version of `clio`.
 
 :::info[Note]
-| The `clio` tool and `kiod` are bundled with the Wire software. [Installing Wire core](/docs/getting-started/install-dependencies.md) will install the `clio` and `kiod` command line tools. 
+| The `clio` tool and `kiod` are bundled with the Wire software. [Installing Wire core](/docs/getting-started/install-dependencies.md) will install the `clio` and `kiod` command line tools.
 :::
 
 * Understand what a [block](/docs/introduction/glossary.md#block) is and its role in the blockchain.
@@ -37,6 +37,7 @@ Some examples are provided below:
 ```sh
 clio -u https://api.testnet.eos.io get block 48351112
 ```
+
 ```json
 {
   "timestamp": "2021-01-28T17:58:59.500",
@@ -62,6 +63,7 @@ clio -u https://api.testnet.eos.io get block 48351112
 ```sh
 clio -u https://api.testnet.eos.io get block 02e1c7888a92206573ae38d00e09366c7ba7bc54cd8b7996506f7d2a619c43ba
 ```
+
 ```json
 {
   "timestamp": "2021-01-28T17:58:59.500",
@@ -87,6 +89,7 @@ clio -u https://api.testnet.eos.io get block 02e1c7888a92206573ae38d00e09366c7ba
 ```sh
 clio get block --info 1
 ```
+
 ```json
 {
   "block_num": 1,

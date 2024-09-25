@@ -6,12 +6,11 @@ id: schedule
 
 Retrieve the producer schedule.
 
-
 ## Options
+
 - `-h` - --help                   Print this help message and exit.
 
 - `-j`- --json                   Output in JSON format.
-
 
 ## Example
 
@@ -19,7 +18,7 @@ Retrieve the producer schedule.
 clio get schedule
 ```
 
-This command simply returns the current producer schedule. 
+This command simply returns the current producer schedule.
 
 ```console
 active schedule version 0

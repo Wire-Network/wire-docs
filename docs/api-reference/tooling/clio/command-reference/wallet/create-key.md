@@ -1,3 +1,8 @@
+---
+id: create-key
+title: create_key
+---
+
 ## Description
 
 Creates a key pair within the wallet so that you don't need to manually import it like you would with `clio create key`. By default, this will create a key with the type \"favored\" by the wallet, which is a K1 key. But this command also lets you create a key in R1 format.

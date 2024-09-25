@@ -23,7 +23,7 @@ Navigate the sections below to configure and use `nodeop`.
 - [Logging](./logging/index.md) - Logging config/usage, loggers, appenders, logging levels.
 - [Concepts](./concepts/index.md) - `nodeop` concepts, explainers, implementation aspects.
 - [Troubleshooting](./troubleshooting.md) - Common `nodeop` troubleshooting questions.
-- 
+
 ## Setup
 
 A local or remote SYSIO access node running `nodeop` is required for a client application or smart contract to interact with the blockchain.

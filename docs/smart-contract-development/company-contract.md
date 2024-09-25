@@ -220,7 +220,7 @@ In Wire ecosystem, deploying a smart contract requires an account; an account ca
 
 #### Retrieve public key
 
-Before proceeding, make sure you have the public key available from the key pair that was created when setting up your wallet. If you haven’t yet created a wallet or a key pair, you can do so by following the instructions in the [Create Development Wallet](../getting-started/create-development-wallet.md) section.
+Before proceeding, make sure you have the public key available from the key pair that was created when setting up your wallet. If you haven’t yet created a wallet or a key pair, you can do so by following the instructions [here](../getting-started/create-development-wallet.md).
 
 ```bash
 export PUBLIC_KEY=key-value

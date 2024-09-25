@@ -1,45 +1,42 @@
 # How to create, issue and transfer a token
 
-## Step 1: Obtain Contract Source
+## Prerequisites
 
-Navigate to your contracts directory.
+- You have `clio` installed on your machine and you have unlocked your wallet.
 
-```sh
-cd CONTRACTS_DIR
-```
+## Steps
 
-Pull the source
+### Step 1: Clone `wire-system-contracts` repo
 
-```text
-git clone https://github.com/EOSIO/sysio.contracts --branch master --single-branch
-```
+Navigate to a directory of your choice and pull the source code.
 
 ```sh
-cd sysio.contracts/contracts/sysio.token
+git clone https://github.com/Wire-Network/wire-system-contracts --branch master --single-branch
 ```
 
-## Step 2: Create Account for Contract
+```sh
+cd CONTRACTS_DIR/wire-system-contracts/contracts/sysio.token
+```
 
-[[info]]
-| You may have to unlock your wallet first!
+### Step 2: Create Account for Contract
 
 ```sh
 clio create account sysio sysio.token EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
 ```
 
-## Step 3: Compile the Contract
+### Step 3: Compile the Contract
 
 ```sh
-sysio-cpp -I include -o sysio.token.wasm src/sysio.token.cpp --abigen
+cdt-cpp -I include -o sysio.token.wasm src/sysio.token.cpp --abigen
 ```
 
-## Step 4: Deploy the Token Contract
+### Step 4: Deploy the Token Contract
 
 ```sh
 clio set contract sysio.token CONTRACTS_DIR/sysio.contracts/contracts/sysio.token --abi sysio.token.abi -p sysio.token@active
 ```
 
-Result should look similar to the one below:
+**Expected output:**
 
 ```sh
 Reading WASM from ...
@@ -50,43 +47,38 @@ executed transaction: 69c68b1bd5d61a0cc146b11e89e11f02527f24e4b240731c4003ad1dc0
 warning: transaction executed locally, but may not be confirmed by the network yet         ]
 ```
 
-## Step 5: Create the Token
+### Step 5: Create the Token
 
 ```sh
 clio push action sysio.token create '[ "sysio", "1000000000.0000 SYS"]' -p sysio.token@active
 ```
 
-Result should look similar to the one below:
-
-```sh
-executed transaction: 0e49a421f6e75f4c5e09dd738a02d3f51bd18a0cf31894f68d335cd70d9c0e12  120 bytes  1000 cycles
-#   sysio.token <= sysio.token::create          {"issuer":"sysio","maximum_supply":"1000000000.0000 SYS"}
-```
-
-An alternate approach uses named arguments:
+Below is an alternate approach uses named arguments:
 
 ```sh
 clio push action sysio.token create '{"issuer":"sysio", "maximum_supply":"1000000000.0000 SYS"}' -p sysio.token@active
 ```
 
-Result should look similar to the one below:
+:::info
+This command creates a new token `SYS` with a precision of 4 decimals and a maximum supply of 1000000000.0000 SYS. This action requires authorization from the `sysio.token` contract, which is why we include the `-p sysio.token@active` flag to provide the necessary permission.
+:::
+
+#### Expected output
 
 ```sh
 executed transaction: 0e49a421f6e75f4c5e09dd738a02d3f51bd18a0cf31894f68d335cd70d9c0e12  120 bytes  1000 cycles
 #   sysio.token <= sysio.token::create          {"issuer":"sysio","maximum_supply":"1000000000.0000 SYS"}
 ```
 
-This command created a new token `SYS` with a precision of 4 decimals and a maximum supply of 1000000000.0000 SYS.  To create this token requires the permission of the `sysio.token` contract. For this reason, `-p sysio.token@active` was passed to authorize the request.
+### Step 6: Issue Tokens
 
-## Step 6: Issue Tokens
-
-The issuer can issue new tokens to the issuer account in our case `sysio`.
+The issuer can issue new tokens to the issuer account, in our case - `sysio`.
 
 ```sh
 clio push action sysio.token issue '[ "sysio", "100.0000 SYS", "memo" ]' -p sysio@active
 ```
 
-Result should look similar to the one below:
+#### Expected output
 
 ```sh
 executed transaction: a26b29d66044ad95edf0fc04bad3073e99718bc26d27f3c006589adedb717936  128 bytes  337 us
@@ -94,15 +86,15 @@ executed transaction: a26b29d66044ad95edf0fc04bad3073e99718bc26d27f3c006589adedb
 warning: transaction executed locally, but may not be confirmed by the network yet         ]
 ```
 
-## Step 7: Transfer Tokens
+### Step 7: Transfer Tokens
 
-Now that account `sysio` has been issued tokens, transfer some of them to account `bob`.
+Now let's transfer some of `sysio`'s tokens to `bob`'s account.
 
 ```sh
 clio push action sysio.token transfer '[ "sysio", "bob", "25.0000 SYS", "m" ]' -p sysio@active
 ```
 
-Result should look similar to the one below:
+#### Expected output
 
 ```sh
 executed transaction: 60d334850151cb95c35fe31ce2e8b536b51441c5fd4c3f2fea98edcc6d69f39d  128 bytes  497 us
@@ -112,25 +104,25 @@ executed transaction: 60d334850151cb95c35fe31ce2e8b536b51441c5fd4c3f2fea98edcc6d
 warning: transaction executed locally, but may not be confirmed by the network yet         ]
 ```
 
-Now check if "bob" got the tokens using [clio get currency balance](https://developers.eos.io/sysio-clio/reference#currency-balance)
+Verify that `bob` received the tokens using [clio get currency balance](../../tooling/clio/command-reference/get/currency-balance.md)
 
 ```sh
 clio get currency balance sysio.token bob SYS
 ```
 
-Result:
+**Expected output:**
 
 ```text
 25.00 SYS
 ```
 
-Check "sysio's" balance, notice that tokens were deducted from the account
+Check `sysio`'s balance and verify that tokens were indeed deducted from the account's balance.
 
 ```sh
 clio get currency balance sysio.token sysio SYS
 ```
 
-Result:
+**Expected output:**
 
 ```text
 75.00 SYS

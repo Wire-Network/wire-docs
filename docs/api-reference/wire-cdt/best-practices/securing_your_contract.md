@@ -10,10 +10,10 @@ The following are basic recommendations which can be the foundation for securing
 
 The following methods are available in the `Antelope` library and they can be used to implemented authorization checks in your smart contracts:
 
-- [`has_auth`](../group__action/#function-has_auth)
-- [`require_auth`](../group__action/#function-require_auth)
-- [`require_auth2`](../how-to-guides/authorization/how_to_restrict_access_to_an_action_by_user/#3-using-require_auth2)
-- [`require_recipient`](../group__action/#function-require_recipient)
+- [`has_auth`](https://example.com)
+- [`require_auth`](https://example.com)
+- [`require_auth2`](https://example.com)
+- [`require_recipient`](https://example.com)
 
 ### 2. Resource Management
 

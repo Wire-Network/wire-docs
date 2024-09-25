@@ -8,8 +8,8 @@ info:
     url: https://opensource.org/licenses/MIT
   contact:
     url: https://wire.network
-tags:
-- name: sysio
+# tags:
+# - name: sysio
 servers:
 - url: "{protocol}://{host}:{port}/v1/"
   variables:

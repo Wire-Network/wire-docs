@@ -1,6 +1,6 @@
-<!-- ---
-content_title: Data design and migration
---- -->
+---
+id: data-design-and-migration
+---
 
 Antelope based blockchains allow developers to easily update their smart contract code. However, a few things need to be considered when it comes to data updates and/or migration. The multi-index table API is one of the mechanisms (Key-Value API being the other) for storing and updating blockchain state. The multi-index table API creates and uses data structures in RAM. Once created and deployed on the blockchain there are limitations if you want to update these structures. Below you will find a few approaches to your smart contract data design, updates to this design, and for data migration.
 

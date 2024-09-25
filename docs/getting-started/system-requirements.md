@@ -57,4 +57,4 @@ The resources mentioned above are developed, offered, and maintained _by third p
 - Write your first contract
 - Compilation and ABI
 - Contracts deployment
-- Utilizing block explorer EOS Authority
+- Utilizing a block explorer
