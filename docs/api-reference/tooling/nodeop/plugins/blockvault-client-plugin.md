@@ -5,7 +5,7 @@ The `blockvault_client_plugin` enables blockchain administrators to implement in
 
 ## Goals
 
-Block Vault is a clustered component within an SYSIO network architecture that enables replicated durable storage with strong consistency guarantees for the input required by a redundant cluster of nodes. In particular, Block Vault achieves the following guarantees for any cluster node running `nodeop` configured as a Block Vault client in producing mode:
+Block Vault is a clustered component within a Wire network architecture that enables replicated durable storage with strong consistency guarantees for the input required by a redundant cluster of nodes. In particular, Block Vault achieves the following guarantees for any cluster node running `nodeop` configured as a Block Vault client in producing mode:
 
 * Guarantee against double-production of blocks
 * Guarantee against finality violation

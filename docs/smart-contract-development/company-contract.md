@@ -2,6 +2,8 @@
 sidebar_position: 3
 id: company-contract
 title: Create Company Contract
+toc_max_heading_level: 5
+toc_min_heading_level: 2
 ---
 
 
@@ -9,7 +11,7 @@ title: Create Company Contract
 
 ## Overview
 
-This page will guide you to creating and developing a simple contract using SYSIO CDT and C++ language. While prior knowledge of C++ is not necessary for this tutorial, we encourage you to familiarize yourself with the basics of C++ to enhance your understanding.
+This page will guide you to creating and developing a simple contract using Wire CDT and C++ language. While prior knowledge of C++ is not necessary for this tutorial, we encourage you to familiarize yourself with the basics of C++ to enhance your understanding.
 
 ## Prerequisites
 
@@ -22,7 +24,7 @@ This page will guide you to creating and developing a simple contract using SYSI
 Navigate to a directory of your choice and create a new subdirectory for your contract, along with its content `include/` and `src/`.
 
 ```bash title="/your-contracts-workspace"
-mkdir company-contract && cd company-contract && mkdir include src company && touch include/company-contract.hpp src/company-contract.cpp
+mkdir company-contract && cd company-contract && mkdir include src company && touch include/company.hpp src/company.cpp
 ```
 
 Open `company-contract` in your preferred text editor to begin coding.
@@ -31,11 +33,11 @@ Open `company-contract` in your preferred text editor to begin coding.
 
 In C++, splitting class declarations and definitions into separate header (.hpp) and source  (.cpp) files is a common practice that promotes better code organization, readability, and compile time-efficiency. This approach helps segregating interface from implementation; as well hiding the implementation details from other parts of the program and exposing only what is necessary. For the purposes of this and future tutorials, we will stick to that approach.
 
-2.1. Define contract interfaces in `company-contract.hpp`
+2.1. Define contract interfaces in `company.hpp`
 
 - The `sysio/sysio.hpp` header file contains necessary classes and built-in utility functions for contract development.
 
-```cpp title="/your-contracts-workspace/company-contract/company-contract.hpp"
+```cpp title="/your-contracts-workspace/company-contract/company.hpp"
 #pragma once
 
 #include <sysio/sysio.hpp>
@@ -46,15 +48,15 @@ using namespace sysio;
 
 ***
 
-### 2.1. Define the `employees` contract class
+#### 2.1. Define the `employees` contract class
 
-You can use either the simplified or the long syntax for defining contracts. In this tutorial we will be using primarily the short syntax for better readability.
+You can use either the simplified or the long syntax for defining contracts. In this tutorial we will be using primarily the short syntax for better readability. We would also define two actions `upsertemp()` and `getallemp()`.
 
-```cpp title="/your-contracts-workspace/company-contract/company-contract.cpp"
+```cpp title="/your-contracts-workspace/company-contract/company.hpp"
 #pragma once
 
-#include <company-contract.hpp>
-#include <sysio/print.hpp>
+#include <sysio/sysio.hpp>
+#include <string>
 
 using namespace sysio;
 
@@ -63,6 +65,12 @@ using namespace sysio;
 CONTRACT company : public contract {
     public:
         using contract::contract;
+
+    // Action to upsert (insert or update) an employee record
+    ACTION upsertemp(name user, const std::string& name, const std::string& email, const std::string& status);
+
+    // Action to retrieve and print all employee records
+    ACTION getallemp();
 }
 // highlight-end
 ```
@@ -96,11 +104,11 @@ The short syntax in C++ contracts, such as those used in the Wire blockchain fra
 :::
 ***
 
-### 2.2. Define the Employee Struct and Multi-Index Table
+#### 2.2. Define the Employee Struct and Multi-Index Table
 
 Within the employees contract class, let's add a struct named `employee` to represent the table that holds individual employee records. We will define it with several fields:
 
- • `user`: The SYSIO name of the employee, which will serve as the primary key for the table. It uniquely identifies each employee record.
+ • `user`: The name of the employee, which will serve as the primary key for the table. It uniquely identifies each employee record.
 
  • `name`: A string that stores the full name of the employee.
 
@@ -111,17 +119,23 @@ Within the employees contract class, let's add a struct named `employee` to repr
 The `primary_key()` function within the struct returns the `user.value`, which is the numeric representation of the user.
 The multi_index container named `employee_index` is defined to manage the storage of these records. It allows for efficient storing, updating, and querying of employee data based on the primary key.
 
-```cpp title="/your-contracts-workspace/company-contract/company-contract.hpp"
+```cpp title="/your-contracts-workspace/company-contract/company.hpp"
 #pragma once
 
-#include <company-contract.hpp>
-#include <sysio/print.hpp>
+#include <sysio/sysio.hpp>
+#include <string>
 
 using namespace sysio;
 
 CONTRACT company : public contract {
     public:
         using contract::contract;
+
+    // Action to upsert (insert or update) an employee record
+    ACTION upsertemp(name user, const std::string& name, const std::string& email, const std::string& status);
+
+    // Action to retrieve and print all employee records
+    ACTION getallemp();
 
     // highlight-start
     private:
@@ -142,11 +156,12 @@ CONTRACT company : public contract {
 
 Next let's define the implementation for the actions `upsertemp` and `getallemp`.
 
-### 2.3. Defining the `upsertemp()` action
+#### 2.3. Defining the `upsertemp()` action
 
 `upsertemp`  will be used for upserting an employee record. Refer to the comments within the code for more explanation of what each line/block do.
 
-```cpp title="/your-contracts-workspace/company-contract/company-contract.hpp"
+```cpp title="/your-contracts-workspace/company-contract/company.cpp"
+#include <sysio/print.hpp>
 #include <company.hpp>
 
 
@@ -181,11 +196,11 @@ void company::upsertemp(name user, const std::string& name, const std::string& e
 }
 ```
 
-### 2.4. Defining the `getall()` action
+#### 2.4. Defining the `getall()` action
 
 The action below will retrieve all employee records from the employees multi-index table.
 
-```cpp title="/your-contracts-workspace/company-contract/company-contract.cpp"
+```cpp title="/your-contracts-workspace/company-contract/company.cpp"
 void company::getallemp() {
     employee_index emp_table(get_self(), get_self().value);
     for (auto itr = emp_table.begin(); itr != emp_table.end(); itr++) {
@@ -194,9 +209,9 @@ void company::getallemp() {
 }
 ```
 
-### 4\. Compile the Contract
+### 3\. Compile the Contract
 
-Compile your contract into WebAssembly (WASM) format using the SYSIO Contract Development Toolkit (CDT). This command also generates the ABI file in the `company` folder.
+Compile your contract into WebAssembly (WASM) format using the Wire Contract Development Toolkit (CDT). This command also generates the ABI file in the `company` folder.
 
 ```bash
 cdt-cpp -abigen -contract company -o company/company.wasm src/company.cpp -I include
@@ -206,7 +221,7 @@ cdt-cpp -abigen -contract company -o company/company.wasm src/company.cpp -I inc
 cdt-cpp -abigen -R ./ricardian -contract company-contract -o company-contract/company-contract.wasm src/company-contract.cpp -I include
 ``` -->
 
-### 5\. Deploy the Contract
+### 4\. Deploy the Contract
 
 Before deploying, ensure you have an open wallet and account to deploy the contract to.  
 
@@ -218,23 +233,23 @@ In Wire ecosystem, deploying a smart contract requires an account; an account ca
 
 ***
 
-#### Retrieve public key
+#### 4.1 Retrieve public key
 
 Before proceeding, make sure you have the public key available from the key pair that was created when setting up your wallet. If you haven’t yet created a wallet or a key pair, you can do so by following the instructions [here](../getting-started/create-development-wallet.md).
 
 ```bash
-export PUBLIC_KEY=key-value
+export PUBLIC_KEY=<public-key-value>
 ```
 
 ```bash
 clio create account sysio company $PUBLIC_KEY -p sysio@active
 ```
 
-#### Deploy the compiled contract
+#### 4.2 Deploy the compiled contract
 
 ```bash
                   [account] [WASM dir]  [permission level] 
 clio set contract company  company -p  company@active
 ```
 
-The smart contract should now be live on your local blockchain. You can inspect it via EOS Block Explorer.
+The smart contract should now be live on your local blockchain. You can inspect through [Block Explorer](https://eosauthority.com/).

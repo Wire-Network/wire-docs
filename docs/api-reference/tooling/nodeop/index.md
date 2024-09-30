@@ -4,7 +4,7 @@ title: Nodeop
 
 ## Introduction
 
-`nodeop` is the core service daemon that runs on every SYSIO node. It can be configured to process smart contracts, validate transactions, produce blocks containing valid transactions, and confirm blocks to record them on the blockchain.
+`nodeop` is the core service daemon that runs on every Wire node. It can be configured to process smart contracts, validate transactions, produce blocks containing valid transactions, and confirm blocks to record them on the blockchain.
 
 ## Installation
 

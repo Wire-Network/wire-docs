@@ -1,6 +1,5 @@
 ---
-title: SYSIO Utilities
-link_text: SYSIO Utilities
+title: Utilities
 ---
 
 This section contains documentation for additional utilities that complement or extend `nodeop` and potentially other Wire software:

@@ -1,6 +1,6 @@
 ## Goal
 
-Deploy an SYSIO contract
+Deploy a contract
 
 ## Before you begin
 

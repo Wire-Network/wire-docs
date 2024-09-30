@@ -14,7 +14,7 @@ Make sure to meet the following requirements:
 :::
 
 * Understand what a [block](/docs/introduction/glossary.md#block) is and its role in the blockchain.
-* Understand the [block lifecycle](http://example.com) in the SYSIO consensus protocol.
+* Understand the [block lifecycle](http://example.com) in the Wire consensus protocol.
 
 ## Steps
 

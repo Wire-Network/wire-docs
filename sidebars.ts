@@ -384,6 +384,7 @@ const sidebars: SidebarsConfig = {
           },
           items: [
             "api-reference/tooling/nodeop/nodeop-apis",
+            "api-reference/tooling/nodeop/nodeop-cli",
             {
               type: "category",
               label: "Concepts",

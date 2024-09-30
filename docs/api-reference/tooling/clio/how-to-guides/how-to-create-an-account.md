@@ -11,7 +11,7 @@ Create a new Wire blockchain account
 :::
 
 * Acquire functional understanding of the following:
-  * [SYSIO Accounts and Permissions](http://example.com)
+  * [Accounts and Permissions](http://example.com)
   * Asymmetric cryptography (public and private keypair)
 
 * Created an Owner and an Active key pair
@@ -29,7 +29,7 @@ Where:
 
 [creator account name] = name of the existing account that authorizes the creation of a new account
 
-[new account name] = The name of the new account account adhering to SYSIO account naming conventions
+[new account name] = The name of the new account account adhering to the account naming conventions
 
 [OwnerKey] = The owner permissions linked to the ownership of the account
 

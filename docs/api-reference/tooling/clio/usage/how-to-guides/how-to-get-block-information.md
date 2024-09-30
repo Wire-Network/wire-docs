@@ -14,7 +14,7 @@ Make sure to meet the following requirements:
 :::
 
 * Understand what a [block](https://developers.eos.io/welcome/v2.1/glossary/index/#block) is and its role in the blockchain.
-* Understand the [block lifecycle](https://developers.eos.io/welcome/v2.1/protocol-guides/consensus_protocol/#5-block-lifecycle) in the SYSIO consensus protocol.
+* Understand the [block lifecycle](https://developers.eos.io/welcome/v2.1/protocol-guides/consensus_protocol/#5-block-lifecycle) in the Wire's consensus protocol.
 
 ## Steps
 

@@ -2,8 +2,7 @@
 sidebar_position: 2
 id: smart-contracts-clio
 title: Using clio
-description: Clio reference
-# slug: /smart-contract-development/interacting-with-smart-contracts/smart-contracts-clio
+description: Using clio to push transactions to a contract
 ---
 
 # Smart Contract Interactions using `clio`
@@ -14,11 +13,16 @@ In the article you’ll learn how to execute actions on a contract with the `cli
 
 ## Prerequisites
 
-- [Installation and Development Environment Setup](../../getting-started/getting-started-intro.md)
+- [Installation and Development Environment Setup](../../getting-started/install-dependencies#binary-installation)
 - [Company contract tutorial](../company-contract.md)
+- Two new accounts `jack` and `nick`
 
+```sh
+clio create account sysio jack $PUBLIC_KEY -p sysio@active 
+clio create account sysio nick $PUBLIC_KEY -p sysio@active
+```
 
-## Steps 
+## Steps
 
 ### Step 1: Insert a record
 
@@ -28,18 +32,17 @@ First, let’s have Jack insert or update his own record.
 clio push action company upsertemp '["jack", "Jack Sparrow", "jack@example.com", "active"]' -p jack@active
 ```
 
-Output: 
+Output:
 
-![create-record](/img/create-record.png) 
-
+![create-record](/img/clio-create-record.png)
 
 You could use block explorer to inspect the table and the transactions.
 
-![be-table-check](/img/be-table-check.png) 
+![be-table-check](/img/be-table-check.png)
 
 ### Step 2: Perfom an update
 
-Next, we update Jack’s record, 
+Next, we update Jack’s record,
 
 ```bash
 clio push action company upsertemp '["jack", "Jack Nicholson", "jack@example.com", "active"]' -p jack@active
@@ -47,8 +50,7 @@ clio push action company upsertemp '["jack", "Jack Nicholson", "jack@example.com
 
 Output:
 
-![update-record](/img/update-record.png) 
-
+![update-record](/img/clio-update-record.png)
 
 Post-Action Check:
 
@@ -58,13 +60,12 @@ Post-Action Check:
 ### Step 3: Retrieve all users
 
 ```bash
-clio push action company get_all '{}' -p jack@active
+clio push action company getallemp '{}' -p jack@active
 ```
 
+Ouput:
 
-Ouput: 
-
-![retrieve-records](/img/retrieve-records.png) 
+![retrieve-records](/img/get-all.png)
 
 ### Step 4: Attempt unauthorized transaction
 
@@ -72,9 +73,12 @@ Ouput:
 clio push action company upsertemp '["nick", "Nick Fury", "nick@example.com", "active"]' -p jack@active
 ```
 
-This should fail since Jack should not be able to add records for other user because the contract enforces proper authorization.
+This should fail since Jack should not be able to add records for other users because the contract enforces proper authorization via `require_auth()`.
 
+![unauthorized](/img/unauthorized.png)
 
-![unauthorized](/img/unauthorized.png) 
+To insert Nick's record execute the following command:
 
-
+```bash
+clio push action company upsertemp '["nick", "Nick Fury", "nick@example.com", "active"]' -p nick@active
+```

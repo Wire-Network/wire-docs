@@ -30,7 +30,7 @@ Command Line Options for sysio::chain_plugin:
 
 Start `nodeop` with `--shared-memory-size-mb 1024`. A 1 GB shared memory file allows approximately half a million transactions.
 
-### What version of SYSIO am I running/connecting to?
+### What version of Wire Sysio am I running/connecting to?
 
 If defaults can be used, then `clio get info` will output a block that contains a field called `server_version`.  If your `nodeop` is not using the defaults, then you need to know the URL of the `nodeop`. In that case, use the following with your `nodeop` URL:
 

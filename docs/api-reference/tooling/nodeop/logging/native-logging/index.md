@@ -7,7 +7,7 @@ Logging for `nodeop` is controlled by the `logging.json` file. CLI options can b
 
 ## Appenders
 
-The logging library built into SYSIO supports two appender types:
+The logging library built into Wire Sysio supports two appender types:
 
 - [Appenders](#appenders)
   - [Console](#console)
@@ -77,7 +77,7 @@ Example:
 
 ## Loggers
 
-The logging library built into SYSIO currently supports the following loggers:
+The logging library built into Wire Sysio currently supports the following loggers:
 
 - `default` - the default logger, always enabled.
 - `net_plugin_impl` - detailed logging for the net plugin.

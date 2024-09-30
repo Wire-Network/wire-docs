@@ -48,20 +48,19 @@ You can retrieve the account by executing:
 clio get account alice
 ```
 
-![get-account](/img/get-account.png)
+![get-account](/img/clio-get-account.png)
 
 ## Quick Account Facts
 
-For a clear understanding of how SYSIO accounts and their associated public keys function, please refer to the table below:
+For a clear understanding of how Wire accounts and their associated public keys function, please refer to the table below:
 
 | Label                            | Details                                                                                                    |
 |----------------------------------|------------------------------------------------------------------------------------------------------------|
 | **Account Identification**       | Each account is uniquely identified by its account name, not by its public key.                            |
-|                                  | Changing the public key does not alter the ownership of the SYSIO account.                                 |
+|                                  | Changing the public key does not alter the ownership of the `sysio` account.                                 |
 | **Owner and Active Public Keys** | The account (e.g., `alice`) has both an owner and an active public key.                                    |
-|                                  | SYSIO’s authorization structure uses separate keys for owner and active permissions for enhanced security. |
+|                                  | `sysio`’s authorization structure uses separate keys for owner and active permissions for enhanced security. |
 | **Security Practices**           | Store the owner key in a cold wallet to minimize exposure.                                                 |
-|                                  | Use the active key for daily operations.                                                                   |
 |                                  | If the active key is compromised, the owner key can be used to regain control of the account.              |
 | **Authorization Hierarchy**      | With owner permission, you can change the private key of the active permission.                            |
 |                                  | The active permission cannot change the owner key.                                                         |

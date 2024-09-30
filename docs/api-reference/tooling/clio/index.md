@@ -4,7 +4,7 @@ title: clio
 
 ## Introduction
 
-`clio` is a command line tool that interfaces with the REST API exposed by `nodeop`. Developers can also use `clio` to deploy and test SYSIO smart contracts.
+`clio` is a command line tool that interfaces with the REST API exposed by `nodeop`. Developers can also use `clio` to deploy and test Wire smart contracts.
 
 ## Installation
 
@@ -23,7 +23,7 @@ clio --help
 ```
 
 ```console
-Command Line Interface to SYSIO Client
+Command Line Interface
 Usage: clio [OPTIONS] SUBCOMMAND
 
 Options:

@@ -1,6 +1,6 @@
 ## Goal
 
-Deploy an SYSIO contract
+Deploy a smart contract
 
 ## Before you begin
 

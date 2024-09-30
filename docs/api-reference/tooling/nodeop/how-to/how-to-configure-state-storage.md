@@ -8,7 +8,7 @@ This how-to describes configuration of the Nodeop `backing store`. `Nodeop` can 
 
 ## Prerequisites
 
-Version 2.1 or above of the SYSIO development environment.
+Version 2.1 or above of the development environment.
 
 ## Parameter Definitions
 
