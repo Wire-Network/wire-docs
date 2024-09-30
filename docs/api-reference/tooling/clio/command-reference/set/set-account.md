@@ -63,7 +63,7 @@ The following information shows the different positionals and options you can us
 | The `clio` tool is bundled with the Wire software. [Installing Wire core](/docs/getting-started/install-dependencies.md) will install the `clio` and `kiod` command line tools.
 :::
 
-* You have an SYSIO account and access to the account's private key.
+* You have a `sysio` account and access to the account's private key.
 
 ## Examples
 

@@ -7,7 +7,7 @@ title: Prune context-free data
 This how-to procedure showcases the steps to prune context-free data (CFD) from a transaction. The process involves launching the [`sysio-blocklog`](../../utilities/sysio-blocklog.md) utility with the `--prune-transactions` option, the transaction ID(s) that contain(s) the context-free data, and additional options as specified below.
 
 <!-- [[caution | Data Pruning on Public Chains]]
-| Pruning transaction data is not suitable for public Wire blockchains, unless previously agreed upon through SYSIO consensus by a supermajority of producers. Even if a producing node on a public SYSIO network prunes context-free data from a transaction, only their node would be affected. The integrity of the blockchain would not be compromised. -->
+| Pruning transaction data is not suitable for public Wire blockchains, unless previously agreed upon through Wire's consensus by a supermajority of producers. Even if a producing node on a public network prunes context-free data from a transaction, only their node would be affected. The integrity of the blockchain would not be compromised. -->
 
 ## Prerequisites
 

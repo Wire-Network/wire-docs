@@ -6,7 +6,7 @@ title: Create Development Wallet
 
 ## Overview
 
-Wallets store public-private key pairs, which are needed for signing operations performed on the blockchain. They can be accessed through the use of `clio` command line tool. This section explains how to create, manage, and unlock wallets using the `clio` CLI, including generating and importing keys into wallets. For more information on `clio` commands and usage, refer to [clios's CLI Reference](../api-reference/tooling/clio/command-reference/index.md).
+Wallets store public-private key pairs, which are needed for signing operations performed on the blockchain. They can be accessed through the use of `clio` command line tool. This section explains how to create, manage, and unlock wallets using the `clio` CLI, including generating and importing keys into wallets. For more information on `clio` commands and usage, refer to [clio's CLI Reference](../api-reference/tooling/clio/command-reference/index.md).
 
 <!-- ## Prerequisites -->
 

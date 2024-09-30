@@ -2,7 +2,7 @@
 title: Storage and Read Modes
 ---
 
-The SYSIO platform stores blockchain information in various data structures at various stages of a transaction's lifecycle. Some of these are described below. The producing node is the `nodeop` instance run by the block producer who is currently creating blocks for the blockchain (which changes every 6 seconds, producing 12 blocks in sequence before switching to another producer).
+The Wire platform stores blockchain information in various data structures at various stages of a transaction's lifecycle. Some of these are described below. The producing node is the `nodeop` instance run by the block producer who is currently creating blocks for the blockchain (which changes every 6 seconds, producing 12 blocks in sequence before switching to another producer).
 
 ## Blockchain State and Storage
 
@@ -16,7 +16,7 @@ Every `nodeop` instance creates some internal files to store the blockchain stat
 
 ### Configurable state storage
 
-`Nodeop` stores the transaction history and current state. The transaction history is stored in the `blocks.log` file on disk. Current state, which is changed by the execution of transactions, is currently stored using chainbase or RocksDB (as of SYSIO 2.1). SYSIO 2.1 introduces configurable state storage and currently supports these backing stores:
+`Nodeop` stores the transaction history and current state. The transaction history is stored in the `blocks.log` file on disk. Current state, which is changed by the execution of transactions, is currently stored using chainbase or RocksDB. Wire Sysio introduces configurable state storage and currently supports these backing stores:
 
 * Chainbase
 * RocksDB
@@ -25,10 +25,10 @@ Chainbase is a proprietary in-memory transactional database, built by Block.one,
 
 RocksDB is an open source persistent key value store. Storing state in memory is fast, however limited by the amount of available RAM. RocksDB utilises low latency storage such as flash drives and high-speed disk drives to persist data and memory caches for fast data access. For some deployments, RocksDB may be a better state store. See [the RocksDB website](https://rocksdb.org/) for more information.
 
-## SYSIO Interfaces
+## Wire Sysio Interfaces
 
 <!-- https://developers.eos.io/manuals/sysio.cdt/latest/files - check link -->
-SYSIO provides a set of [services](http://example.com) and [interfaces](http://example.com) that enable contract developers to persist state across action, and consequently transaction, boundaries. Contracts may use these services and interfaces for various purposes. For example, `sysio.token` contract keeps balances for all users in the `chain database`. Each instance of `nodeop` maintains the `chain database` in an efficient data store, so contracts can read and write data with ease.
+Wire provides a set of [services](http://example.com) and [interfaces](http://example.com) that enable contract developers to persist state across action, and consequently transaction, boundaries. Contracts may use these services and interfaces for various purposes. For example, `sysio.token` contract keeps balances for all users in the `chain database`. Each instance of `nodeop` maintains the `chain database` in an efficient data store, so contracts can read and write data with ease.
 
 ### Nodeop RPC API
 

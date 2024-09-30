@@ -100,7 +100,13 @@ sudo apt remove wire-sysio
 If uninstalling has failed or if didn't remove all core components, you can manually delete them with the following command:
 
 ```sh
-sudo rm -rf /usr/local/bin/clio /usr/local/bin/kiod /usr/local/bin/nodeop /usr/local/bin/sysio-blocklog /usr/local/bin/trace_api_util /root/sysio-wallet
+sudo rm -rf /usr/local/bin/clio \
+/usr/local/bin/kiod \
+/usr/local/bin/nodeop \
+/usr/local/bin/sysio-blocklog \
+/usr/local/bin/trace_api_util \
+.local/share/sysio \
+~/sysio-wallet
 ```
 
 :::danger
@@ -110,7 +116,7 @@ The uninstall command above will also remove the **default wallet** installed wi
 
 ##### Uninstall Wire CDT
 
-To uninstall Wire.CDT, run:
+To uninstall Wire CDT, run:
 
 ```bash
 sudo apt remove cdt
@@ -128,7 +134,7 @@ If you are missing certain dependencies and when trying to install the binaries 
 Reading package lists... Done
 Building dependency tree... Done
 Reading state information... Done
-Note, selecting 'sysio' instead of './sysio_2.0.13-1_amd64.deb'
+Note, selecting 'wire-sysio' instead of './wire-sysio-3.1.6_amd64.deb'
 Some packages could not be installed. This may mean that you have
 requested an impossible situation or if you are using the unstable
 distribution that some required packages have not yet been created

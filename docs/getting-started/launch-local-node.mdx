@@ -78,15 +78,16 @@ nodeop -e -p sysio \
 --access-control-allow-origin='*' \
 --contracts-console \
 --http-validate-host=false --disable-replay-opts \
---verbose-http-errors >> nodeop.log 2>&1 &
+--verbose-http-errors >> ~/nodeop.log 2>&1 &
 ```
 
 Command breakdown:
 
 - starts `nodeop` with essential plugins;
 - configures the server address;
-- enables CORS without restrictions (\*) and includes development logging;
-- activates contract debugging and logging.
+- enables CORS without restrictions (\*) and includes development logging; logs will be saved to `~/nodeop.log`;
+
+For more information on `nodeop` flags, see `nodeop --help` or the output of this command [here](../api-reference/tooling/nodeop/nodeop-cli.md).
 
 :::info[NOTE]
 CORS is enabled for all (\*) for development only. Never enable unrestricted CORS on publicly accessible nodes!
@@ -124,7 +125,7 @@ nodeop -e -p sysio \
 --access-control-allow-origin='*' \
 --contracts-console \
 --http-validate-host=false --replay-blockchain --disable-replay-opts \
---verbose-http-errors >> nodeop.log 2>&1 &
+--verbose-http-errors >> ~/nodeop.log 2>&1 &
 ```
 
 If you want to a clean fresh state of the chain, you may want to use `--delete-all-blocks`.
@@ -140,7 +141,7 @@ If there isn't a process running, use the [startup command](#starting-nodeop).
 Check that `nodeop` is producing blocks. Run the following command:
 
 ```bash
-tail -f nodeop.log
+tail -f ~/nodeop.log
 ```
 
 You should see some output in the console similar to:

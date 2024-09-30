@@ -4,7 +4,7 @@ title: Third-Party Logging And Tracing Integration
 
 ## Overview
 
-To stay informed about the overall and detailed performance of your EOSIO-based blockchain node(s), you can make use of the telemetry tools available. SYSIO offers integration with two such telemetry tools:
+To stay informed about the overall and detailed performance of your Wire-based blockchain node(s), you can make use of the telemetry tools available. Wire Sysio offers integration with two such telemetry tools:
 
 * [Deep-mind logger](deep-mind-logger.md)
 <!-- * Zipkin tracer -->

@@ -16,7 +16,7 @@ Make sure you meet the following requirements:
 :::
 
 * You have access to a Wire blockchain and the `sysio.system` reference contract from [`sysio.contracts`](https://example.com) repository is deployed and used to manage system resources.
-* You have an SYSIO account and access to the account's private key.
+* You have a `sysio` account and access to the account's private key.
 * You have sufficient [tokens allocated](./how-to-transfer-an-sysio-token.md) to your account.
 
 ## Reference

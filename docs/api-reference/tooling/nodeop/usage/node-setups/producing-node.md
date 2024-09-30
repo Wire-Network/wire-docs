@@ -8,7 +8,7 @@ title: Producing Node Setup
 
 ## Goal
 
-This section describes how to set up a producing node within the SYSIO network. A producing node, as its name implies, is a node that is configured to produce blocks in an `EOSIO` based blockchain. This functionality if provided through the `producer_plugin` as well as other [Nodeop Plugins](../../plugins/index.md).
+This section describes how to set up a producing node within the network. A producing node, as its name implies, is a node that is configured to produce blocks in an Wire-based blockchain. This functionality if provided through the `producer_plugin` as well as other [Nodeop Plugins](../../plugins/index.md).
 
 ## Before you begin
 
@@ -55,7 +55,7 @@ You will need to set the private key for your producer. The public key should ha
 
 `signature-provider` is defined with a 3-field tuple:
 
-* `public-key` - A valid SYSIO public key in form of a string.
+* `public-key` - A valid public key in form of a string.
 * `provider-spec` - It's a string formatted like `<provider-type>:<data>`
 * `provider-type` - KEY or KEOSD
 

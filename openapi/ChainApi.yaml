@@ -1008,7 +1008,7 @@ paths:
                 type: array
                 items:
                   type: string
-                  description: A string representation of an SYSIO symbol, composed
+                  description: A string representation of a Wire symbol, composed
                     of a float with a precision of 4, and a symbol composed of capital
                     letters between 1-7 letters separated by a space, example `1.0000
                     ABC`.

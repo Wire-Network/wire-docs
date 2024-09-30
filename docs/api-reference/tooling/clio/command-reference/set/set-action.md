@@ -58,7 +58,7 @@ The following information shows the different positionals and options you can us
 :::
 
 * You have access to an Wire blockchain.
-* You have an SYSIO account and access to the account's private key.
+* You have a `sysio` account and access to the account's private key.
 
 ## Examples
 

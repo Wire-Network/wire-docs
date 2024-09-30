@@ -9,7 +9,7 @@ The `Deep-mind logger` is part of the `dfuse` [platform](https://dfuse.io/) whic
 
 ### How To Enable Deep-mind Logger
 
-SYSIO integrates the `nodeop` core service daemon with `deep-mind logger`. To benefit from full `deep-mind` logging functionality you must start your `nodeop` instance with the flag `--deep-mind`. After the start you can observe in the `nodeop` console output the informative details outputs created by the `deep-mind` logger. They distinguish themselves from the default `nodeop` output lines because they start with the `DMLOG` keyword.
+Wire Sysio integrates the `nodeop` core service daemon with `deep-mind logger`. To benefit from full `deep-mind` logging functionality you must start your `nodeop` instance with the flag `--deep-mind`. After the start you can observe in the `nodeop` console output the informative details outputs created by the `deep-mind` logger. They distinguish themselves from the default `nodeop` output lines because they start with the `DMLOG` keyword.
 
 Examples of `deep-mind` log lines as you would see them in the `nodeop` output console:
 

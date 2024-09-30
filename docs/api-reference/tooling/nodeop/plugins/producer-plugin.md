@@ -46,12 +46,12 @@ Config Options for sysio::producer_plugin:
                                         instead) Tuple of [public key, WIF 
                                         private key] (may specify multiple 
                                         times)
-  --signature-provider arg (=EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV=KEY:5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3)
+  --signature-provider arg (=SYS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV=KEY:5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3)
                                         Key=Value pairs in the form 
                                         <public-key>=<provider-spec>
                                         Where:
                                            <public-key>    is a string form of 
-                                                           a vaild SYSIO public
+                                                           a vaild public
                                                            key
                                         
                                            <provider-spec> is a string in the 
@@ -61,7 +61,7 @@ Config Options for sysio::producer_plugin:
                                            <provider-type> is KEY, KEOSD, or SE
                                         
                                            KEY:<data>      is a string form of 
-                                                           a valid SYSIO 
+                                                           a valid  
                                                            private key which 
                                                            maps to the provided
                                                            public key

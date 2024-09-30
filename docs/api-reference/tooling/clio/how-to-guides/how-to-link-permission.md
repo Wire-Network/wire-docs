@@ -16,7 +16,7 @@ Make sure you meet the following requirements:
 
 :::
 
-* You have an SYSIO account and access to the account's `active` private key.
+* You have a `sysio` account and access to the account's `active` private key.
 * You have created a custom permission. See [clio set account permission](../command-reference/set/set-account.md).
 
 ## Command Reference
