@@ -8,16 +8,16 @@ This guide provides instructions to iterate and retrieve data from a multi-index
 
 ## Reference
 
-See the following code reference:
+Relevant classes and methods:
 
-* The [`multi-index`](http://example/com) class.
-* The [`multi-index::find(...)`](http://example.com) method.
+* The `multi-index` class.
+* The `multi-index::find(...)` method.
 
 ## Before you begin
 
 Make sure you have the following prerequisites in place:
 
-* An Antelope development environment, for details consult the [Get Started Guide](https://docs.eosnetwork.com/docs/latest/getting-started/),
+* A Wire development environment, for details consult the [Get Started Guide](https://docs.eosnetwork.com/docs/latest/getting-started/),
 * A multi-index `testab` table instance which stores `user` objects indexed by the primary key which is of type `sysio::name`. Consult the section [How to instantiate a multi-index table](./how-to-instantiate-a-multi-index-table) to learn how to set it up.
 
 ## Procedure
@@ -138,8 +138,9 @@ __multi_index_example.cpp__
 }
 ```
 
-[[info | Full example location]]
+:::info
 | A full example project demonstrating the instantiation and usage of multi-index table can be found [here](https://github.com/Wire-Network/cdt/blob/main/examples/multi_index_example).
+:::
 
 ## Summary
 

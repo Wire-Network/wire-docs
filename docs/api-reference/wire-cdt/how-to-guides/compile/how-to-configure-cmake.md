@@ -14,11 +14,11 @@ This guide provides instructions how to configure CMake.
 
 The following steps show:
 
-- [Overview](#overview)
-- [Before you begin](#before-you-begin)
-- [Procedure](#procedure)
-  - [Automatic generation of CMake configuration](#automatic-generation-of-cmake-configuration)
-  - [Manual generation of CMake configuration](#manual-generation-of-cmake-configuration)
+* [Overview](#overview)
+* [Before you begin](#before-you-begin)
+* [Procedure](#procedure)
+  * [Automatic generation of CMake configuration](#automatic-generation-of-cmake-configuration)
+  * [Manual generation of CMake configuration](#manual-generation-of-cmake-configuration)
 
 ### Automatic generation of CMake configuration
 

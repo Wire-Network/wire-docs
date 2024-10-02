@@ -11,7 +11,7 @@ Create a new Wire blockchain account
 :::
 
 * Acquire functional understanding of the following:
-  * [Accounts and Permissions](http://example.com)
+  * Accounts and Permissions
   * Asymmetric cryptography (public and private keypair)
 
 * Created an Owner and an Active key pair

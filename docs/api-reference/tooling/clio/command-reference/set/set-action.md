@@ -21,13 +21,32 @@ clio set action permission [OPTIONS] account code type requirement.
 
 Set parameters dealing with account permissions
 
-## Command Usage
+## Synopsis
 
-The following information shows the different positionals and options you can use with the `clio set action permission` command:
+```sh
+clio set action permission
+  account <TEXT>                   # REQUIRED: The account to set/delete a permission authority
+  code <TEXT>                      # REQUIRED: The account that owns the code for the action
+  type <TEXT>                      # REQUIRED: The type of the action
+  requirement <TEXT>               # REQUIRED: [delete] NULL, [set/update] The permission name required for executing the action
+  [-h, --help]                     # Print this help message and exit
+  [-x, --expiration  <UINT>]       # Set the expiration time in seconds before a transaction expires (default: 30s)
+  [-f, --force-unique]             # Force the transaction to be unique (consumes extra bandwidth)
+  [-s, --skip-sign]                # Skip signing the transaction with unlocked wallet keys
+  [-j, --json]                     # Print the result in JSON format
+  [--json-file <TEXT>]             # Save result in JSON format to a file
+  [-d, --dont-broadcast]           # Do not broadcast the transaction (print to stdout instead)
+  [--return-packed]                # Used with --dont-broadcast to get the packed transaction
+  [-r, --ref-block <TEXT>]         # Set the reference block number or block ID for TAPOS
+  [--use-old-rpc]                  # Use the old RPC push_transaction instead of the new RPC send_transaction
+  [-p, --permission <TEXT>]        # Authorize with account@permission (default: 'account@active')
+  [--max-cpu-usage-ms <UINT>]      # Set the upper limit on CPU usage in milliseconds (default: no limit)
+  [--max-net-usage <UINT>]         # Set the upper limit on network usage in bytes (default: no limit)
+  [--delay-sec <UINT>]             # Set delay in seconds (default: 0s)
+```
+<!-- ### Positionals
 
-### Positionals
-
-* `account` _TEXT_ REQUIRED The account to set/delete a permission authority
+* `account` _TEXT_ <span style={{color: 'red'}}>REQUIRED</span> The account to set/delete a permission authority
 * `code` _TEXT_ REQUIRED The account that owns the code for the action
 * `type` _TEXT_ REQUIRED The type of the action
 * `requirement` _TEXT_ REQUIRED [delete] NULL, [set/update] The permission name require for executing the given action
@@ -47,14 +66,14 @@ The following information shows the different positionals and options you can us
 * `-p`,`--permission` _TEXT_ An account and permission level to authorize, as in 'account@permission' (defaults to 'account@active')
 * `--max-cpu-usage-ms` _UINT_ Set an upper limit on the milliseconds of cpu usage budget, for the execution of the transaction (defaults to 0 which means no limit)
 * `--max-net-usage` _UINT_ Set an upper limit on the net usage budget, in bytes, for the transaction (defaults to 0 which means no limit)
-* `--delay-sec` _UINT_ Set the delay_sec seconds, defaults to 0s
+* `--delay-sec` _UINT_ Set the delay_sec seconds, defaults to 0s -->
 
 ## Requirements
 
 * Install the currently supported version of `clio`.
 
 :::note
-| The `clio` tool is bundled with the Wire software. [Installing Wire core](/docs/getting-started/install-dependencies.md) will install the `clio` and `kiod` command line tools.
+| The `clio` tool is bundled with the Wire software. [Installing Wire Sysio](/docs/getting-started/install-dependencies.md) will install the `clio` and `kiod` command line tools.
 :::
 
 * You have access to an Wire blockchain.

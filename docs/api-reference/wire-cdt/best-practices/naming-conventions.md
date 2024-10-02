@@ -1,5 +1,7 @@
 
-When implementing Antelope smart contracts and when storing data in an Antelope blockchain, it is important to follow the established Antelope conventions for naming accounts, actions, tables, etc.
+# Naming Conventions
+
+When implementing Wire smart contracts and when storing data in an Antelope blockchain, it is important to follow the established Antelope conventions for naming accounts, actions, tables, etc.
 
 ## Antelope names
 
@@ -31,7 +33,7 @@ When implementing Antelope smart contracts and when storing data in an Antelope 
 
 The figure below showcases a 12 character string formatted into a 64-bit unsigned integer. Note: the 13th char, if any, contains 2<sup>4</sup> = 16 cases per 1 digit (char): 1 (`.`) + 5 (`1-5`) + 10 (`a-j`).
 
-![](naming-conventions-format.png "Antelope name format")
+![naming-conventions-format](naming-conventions-format.png)
 
 ## Encoding and decoding
 

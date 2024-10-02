@@ -6,12 +6,12 @@ This how-to guide provides instructions on how to stake resources, NET and/or CP
 
 * Install the currently supported version of `clio`.
 
-* Ensure the [reference system contracts](http://example.com) are deployed and used to manage system resources.
+* Ensure the [wire system contracts](https://github.com/Wire-Network/wire-system-contracts) are deployed and used to manage system resources.
 
 * Understand the following:
   * What an [account](/docs/introduction/glossary.md#account) is.
-  * What [NET bandwidth](/docs/introduction/glossary.md#cpu) is.
-  * What [CPU bandwidth](/docs/introduction/glossary.md#net) is.
+  * What [NET bandwidth](/docs/introduction/glossary.md#net) is.
+  * What [CPU bandwidth](/docs/introduction/glossary.md#cpu) is.
   * The [`delegatebw` clio sub-command](../command-reference/system/system-delegatebw.md).
 
 ## Command Reference

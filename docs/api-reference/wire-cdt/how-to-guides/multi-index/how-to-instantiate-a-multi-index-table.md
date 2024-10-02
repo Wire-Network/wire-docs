@@ -16,7 +16,7 @@ See the following code reference:
 
 Make sure you have the following prerequisites in place:
 
-* An Antelope development environment, for details consult the [Get Started Guide](https://docs.eosnetwork.com/docs/latest/getting-started/),
+* A Wire development environment, for details consult the [Get Started Guide](https://docs.eosnetwork.com/docs/latest/getting-started/),
 
 ## Procedure
 
@@ -68,12 +68,13 @@ Add the definition of the primary index for the multi-index table. The primary i
   };
 ```
 
-[[info | Additional indexes information]]
+:::info
 | Other, secondary, indexes if they will be defined can have duplicates. You can have up to 16 additional indexes and the field types can be uint64_t, uint128_t, uint256_t, double or long double.
+:::
 
 ### 4. Define A Multi-Index Type Alias
 
-For ease of use, define a type alias `test_table_t` based on the `sysio::multi_index` template type, parametarized with a random name `"testtaba"` and the `test_table` data structure. The names must adhere to `Antelope` account name restrictions.
+For ease of use, define a type alias `test_table_t` based on the `sysio::multi_index` template type, parametarized with a random name `"testtaba"` and the `test_table` data structure. The names must adhere to the existing account name restrictions.
 
 ```diff
   // the data structure which defines each row of the table
@@ -172,8 +173,9 @@ class [[sysio::contract]] multi_index_example : public contract {
 };
 ```
 
-[[info | Full example location]]
+:::info
 | A full example project demonstrating the instantiation and usage of multi-index table can be found [here](https://github.com/Wire-Network/cdt/blob/main/examples/multi_index_example).
+:::
 
 ## Summary
 

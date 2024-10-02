@@ -10,8 +10,9 @@ ABI files can be generated using the `cdt-cpp` utility provided by CDT. However,
 
 The Application Binary Interface (ABI) is a JSON-based description on how to convert user actions between their JSON and Binary representations. The ABI also describes how to convert the database state to/from JSON. Once you have described your contract via an ABI then developers and users will be able to interact with your contract seamlessly via JSON.
 
-[[warning | Security Note]]
+::: warning
 | ABI can be bypassed when executing transactions. Messages and actions passed to a contract do not have to conform to the ABI. The ABI is a guide, not a gatekeeper.
+:::
 
 ## Create an ABI File
 
@@ -34,8 +35,9 @@ Start with an empty ABI, for exemplification we will work based on the `sysio.to
 
 An ABI enables any client or interface to interpret and even generate a GUI for your contract. For this to work consistently, describe the custom types that are used as a parameter in any public action or struct that needs to be described in the ABI.
 
-[[info | Built-in Types]]
-| Antelope implements a number of custom built-ins. Built-in types don't need to be described in an ABI file. If you would like to familiarize yourself with Antelope's built-ins, they are defined [here](https://github.com/AntelopeIO/wire_sysio/blob/6817911900a088c60f91563995cf482d6b380b2d/libraries/chain/abi_serializer.cpp#L88-L129)
+::: info
+| Wire implements a number of custom built-ins.
+:::
 
 ```json
 {
@@ -178,7 +180,7 @@ The following structs are implicit in that a struct was never explicitly defined
 }
 ```
 
-### [close](http://docs.eosnetwork.com/system-contracts/latest/reference/Classes/classsysio_1_1token#function-close)
+### close
 
 ```json
 {
@@ -201,7 +203,7 @@ The following structs are implicit in that a struct was never explicitly defined
 
 These structs are explicitly defined, as they are a requirement to instantiate a multi-index table. Describing them is no different than defining the implicit structs as demonstrated above.
 
-### [account](https://github.com/AntelopeIO/reference-contracts/blob/main/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L120)
+### [account](https://github.com/Wire-Network/wire-system-contracts/blob/master/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L120)
 
 ```json
 {
@@ -228,13 +230,13 @@ An action's JSON object definition looks like the following:
 }
 ```
 
-Describe the actions of the `sysio.token` contract by aggregating all the public functions described in the `sysio.token` contract's [header file](https://github.com/AntelopeIO/reference-contracts/blob/main/contracts/sysio.token/include/sysio.token/sysio.token.hpp).
+Describe the actions of the `sysio.token` contract by aggregating all the public functions described in the `sysio.token` contract's [header file](https://github.com/Wire-Network/wire-system-contracts/blob/master/contracts/sysio.token/include/sysio.token/sysio.token.hpp).
 
 Then describe each action's *type* according to its previously described struct. In most situations, the function name and the struct name will be equal, but are not required to be equal.
 
 Below is a list of actions that link to their source code with example JSON provided for how each action would be described.
 
-## [create](https://github.com/AntelopeIO/reference-contracts/blob/main/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L35-L37)
+## [create](https://github.com/Wire-Network/wire-system-contracts/blob/master/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L35-L37)
 
 ```json
 {
@@ -244,7 +246,7 @@ Below is a list of actions that link to their source code with example JSON prov
 }
 ```
 
-## [issue](https://github.com/AntelopeIO/reference-contracts/blob/main/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L45-L46)
+## [issue](https://github.com/Wire-Network/wire-system-contracts/blob/master/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L45-L46)
 
 ```json
 {
@@ -254,7 +256,7 @@ Below is a list of actions that link to their source code with example JSON prov
 }
 ```
 
-## [retire](https://github.com/AntelopeIO/reference-contracts/blob/main/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L55-L56)
+## [retire](https://github.com/Wire-Network/wire-system-contracts/blob/master/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L55-L56)
 
 ```json
 {
@@ -264,7 +266,7 @@ Below is a list of actions that link to their source code with example JSON prov
 }
 ```
 
-## [transfer](https://github.com/AntelopeIO/reference-contracts/blob/main/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L67-L71)
+## [transfer](https://github.com/Wire-Network/wire-system-contracts/blob/master/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L67-L71)
 
 ```json
 {
@@ -274,7 +276,7 @@ Below is a list of actions that link to their source code with example JSON prov
 }
 ```
 
-## [close](https://github.com/AntelopeIO/reference-contracts/blob/main/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L96-L97)
+## [close](https://github.com/Wire-Network/wire-system-contracts/blob/master/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L96-L97)
 
 ```json
 {
@@ -298,9 +300,9 @@ Describe the tables. Here's a table's JSON object definition:
 }
 ```
 
-The sysio.token contract instantiates two tables, [accounts](https://github.com/AntelopeIO/reference-contracts/blob/main/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L134) and [stat](https://github.com/AntelopeIO/reference-contracts/blob/main/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L135).
+The sysio.token contract instantiates two tables, [accounts](https://github.com/Wire-Network/wire-system-contracts/blob/master/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L134) and [stat](https://github.com/Wire-Network/wire-system-contracts/blob/master/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L135).
 
-The `accounts` table is an i64 index, based on the [`account` struct](https://github.com/AntelopeIO/reference-contracts/blob/main/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L120-L124), has a [`uint64` as it's primary key](https://github.com/AntelopeIO/reference-contracts/blob/main/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L123)
+The `accounts` table is an i64 index, based on the [`account` struct](https://github.com/Wire-Network/wire-system-contracts/blob/master/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L120-L124), has a [`uint64` as it's primary key](https://github.com/Wire-Network/wire-system-contracts/blob/master/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L123)
 
 Here's how the accounts table would be described in the ABI
 
@@ -314,7 +316,7 @@ Here's how the accounts table would be described in the ABI
 }
 ```
 
-The `stat` table is an i64 index, based on the [`currency_stats` struct](https://github.com/AntelopeIO/reference-contracts/blob/main/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L126-L132), has a [`uint64` as it's primary key](https://github.com/AntelopeIO/reference-contracts/blob/main/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L131)
+The `stat` table is an i64 index, based on the [`currency_stats` struct](https://github.com/Wire-Network/wire-system-contracts/blob/master/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L126-L132), has a [`uint64` as it's primary key](https://github.com/Wire-Network/wire-system-contracts/blob/master/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L131)
 
 Here's how the stat table would be described in the ABI
 

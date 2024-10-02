@@ -3,9 +3,7 @@
 
 The `txn_test_gen_plugin` is used for transaction test purposes.
 
-:::info[For More Information]
-For more information, check the [txn_test_gen_plugin/README.md](https://example.com) on the EOSIO/eos repository.
-:::
+<!-- TODO: add reference for txn_test_gen_plugin -->
 
 ## Usage
 

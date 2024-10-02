@@ -35,8 +35,9 @@ Option (=default) | Description
 `--prune-transactions` | Prune the context free data and signatures from specified transactions of specified block-num
 `-h [ --help ]` | Print this help message and exit
 
-## Remarks
+## Notes
 
 When `sysio-blocklog` is launched, the utility attempts to perform the specified operation, then yields the following possible outcomes:
+
 * If successful, the selected operation is performed and the utility terminates with a zero error code (no error).
 * If unsuccessful, the utility outputs an error to `stderr` and terminates with a non-zero error code (indicating an error).

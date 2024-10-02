@@ -1,6 +1,4 @@
-<!-- ---
-content_title: How to define a singleton
---- -->
+# Define secondary index
 
 ## Overview
 
@@ -10,13 +8,13 @@ This guide provides instructions to define a singleton.
 
 See the following code reference:
 
-* The [`singleton`](http://example.com) class.
+* The `singleton` class.
 
 ## Before you begin
 
 Make sure you have the following prerequisites in place:
 
-* An Antelope development environment, for details consult the [Get Started Guide](http://example.com),
+* A Wire development environment, for details consult the [Getting Starter guide](../../../../getting-started/getting-started-intro.md),
 
 ## Procedure
 
@@ -45,7 +43,7 @@ Define the data structure for the multi-index table:
 
 ### 3. Define A Singleton Type Alias
 
-For ease of use, define a type alias `singleton_type` based on the `sysio::singleton` template type, parametarized with a random name `"testtable"` and the `testtable` data structure. The names must adhere to `Antelope` account name restrictions.
+For ease of use, define a type alias `singleton_type` based on the `sysio::singleton` template type, parametarized with a random name `"testtable"` and the `testtable` data structure. The names must adhere to the existing account name restrictions.
 
    ```diff
    struct [[sysio::table]] testtable {
@@ -145,8 +143,9 @@ __singleton_example.cpp__
 }
 ```
 
-[[info | Full example location]]
+:::info
 | A full example project demonstrating the instantiation and usage of singleton can be found [here](https://github.com/Wire-Network/cdt/blob/main/examples/multi_index_example).
+:::
 
 ## Summary
 

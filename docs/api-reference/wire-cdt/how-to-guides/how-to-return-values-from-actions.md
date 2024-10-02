@@ -1,7 +1,3 @@
-<!-- ---
-content_title: How-To Return Values From Action
---- -->
-
 ## Overview
 
 This how-to demonstrates how a smart contract developer implements return values from an action.
@@ -12,7 +8,7 @@ In order to accomplish this, use the `return` statement and pass the desired ret
 
 Make sure you have the following prerequisites in place:
 
-* Setup Wire development environrmen, for details consult the [Get Started Guide](/docs/getting-started/install-dependencies.md).
+* Setup Wire development environrment, for details consult the [Get Started Guide](/docs/getting-started/install-dependencies.md).
 * A smart contract, let’s call it `smrtcontract`, which builds without error.
 * An action, let’s call it `checkwithrv`, from which you want to return a value of a user defined type `action_response`.
 
@@ -64,16 +60,17 @@ action_response smrtcontract::checkwithrv( name nm ) {
 }
 ```
 
-For a complete example of a smart contract that implements an action which returns a value see the [hello example contract](https://github.com/Wire-Network/cdt/blob/main/examples/hello).
+For a complete example of a smart contract that implements an action which returns a value see the [hello example contract](https://github.com/Wire-Network/guides/hello-world-contract).
 
 ## Next Steps
 
-* Compile the smart contract and deploy it to the Antelope testnet or any Antelope based blockchain.
+* Compile the smart contract and deploy it to the Wire testnet or any Wire-based blockchain.
 * Use the `clio` command to send the `checkwithrv` action to the smart contract and observe the returned value in the `clio` output.
 * Use other means (e.g. programmatically) to send the  `checkwithrv` action to the smart contract and observe the returned value in the action trace.
 
-[[info | Returned values from actions availability]]
+:::info
 The action return values are only available to clients sending the action via the RPC API. Currently, there is no support for an inline action to be able to use the return value, because inline actions don't execute synchronously.
+:::
 
 ## Summary
 

@@ -6,10 +6,10 @@ To generate a new smart contract project you can either generate a "bare" projec
 Example:
 
 ```bash
-cdt-init --path=\destination\path\where\to\generate\project\ --project=hello_contract_folder
+cdt-init --path=path/to/project/location --project=hello_contract_folder
 ```
 
-This will generate a project folder `hello_contract_folder` in the path `\destination\path\where\to\generate\project\` containing the skeleton smart contract and directory structure.
+This will generate a project folder `hello_contract_folder` in the path `path/to/project/location` containing the skeleton smart contract and directory structure.
 
 ```sh
 USAGE: cdt-init [options]

@@ -1,6 +1,3 @@
-<!-- ---
-content_title: Troubleshooting
---- -->
 
 ## When sending an action to the blockchain you get the error below
 
@@ -74,11 +71,7 @@ assertion failure with message: singleton does not exist
 pending console output: 
 ```
 
-__Possible solution__: It is possible that you changed the table name? That is the first, of `sysio::name` type, parameter which you passed to the `sysio::template` type alias definition. Or did you change the table structure definition at all? If you need to change the table structure definition there are some limitations and a couple of ways to do it which are explained in the [Data Design and Migration](./best-practices/data-design-and-migration.md) section.
-
 ## You successfully re-deployed the contract code, but when you query the table you get the fields of the row values swapped, that is, it appears the values stored in table rows are the same only that they are swapped between fields/columns
-
-__Possible solution__: It is possible that you changed the order of the fields the table struct definition? If you change the order of the table struct definition, if the swapped fields have the same type you will see the data in the fields correctly, however if the types of the fields are different the results could be of something undefined. If you need to change the table structure definition there are some limitations and a couple of ways to do it which are explained in the [Data Design and Migration](./best-practices/data-design-and-migration.md) section.
 
 ## You successfully re-deployed the contract code, but when you query the table you get a parse error, like the one below, or the returned data seems to be garbage
 
@@ -87,15 +80,13 @@ error 2019-09-26T07:05:54.825 thread-0  main.cpp:3449                 main      
 Couldn't parse type_name
 ```
 
-__Possible solution__: It is possible that you changed the type of the fields for the table struct definition? If you need to change the table structure definition there are some limitations and a couple of ways to do it which are explained in the [Data Design and Migration](./best-practices/data-design-and-migration.md) section.
-
 ## cdt-cpp process never completes
 
 __Possible solution__: make sure you have at least 2 cores on the host that executes the cdt-cpp (e.g. docker container, VM, local sub-system)
 
 ## You can not find the `now()` time function, or the result of the `current_time_point` functions are not what you expected them to be
 
-__Possible solution__: The `now()` function has been replaced by `current_time_point().sec_since_epoch()`, it returns the time in microseconds from 1970 of the `current block` as a time_point. There's also available `current_block_time()` which returns the time in microseconds from 1970 of the `current block` as a `block_timestamp`. Be aware that for time base functions, the assumption is when you call something like `now()` or `current_time()` you will get the exact now/current time, however that is not the case with Antelope, you get __the block time__, and only ever get __the block time__ from the available `sec_since_epoch()` or `current_block_time()` no matter how many times you call it.
+__Possible solution__: The `now()` function has been replaced by `current_time_point().sec_since_epoch()`, it returns the time in microseconds from 1970 of the `current block` as a time_point. There's also available `current_block_time()` which returns the time in microseconds from 1970 of the `current block` as a `block_timestamp`. Be aware that for time base functions, the assumption is when you call something like `now()` or `current_time()` you will get the exact now/current time, however that is not the case with Wire, you get __the block time__, and only ever get __the block time__ from the available `sec_since_epoch()` or `current_block_time()` no matter how many times you call it.
 
 ## You successfully re-deployed the contract code, but when you broadcast one of the contracts methods to the blockchain you get below error message
 
@@ -133,7 +124,7 @@ The below code will print all lines of the iteration separated by `'|'` char.
 
 ## Print statements from smart contract code are not shown in the `expected order`
 
-__Possible solution__: The key point here is the `expected order` and what you think it should be. Although the Antelope is single threaded, when looking at your smart contract action code implementation, which let's say it has a series of `print` (either `print_f` or `printf`) statements, they might not necessarily be outputted in the order the `apparent` code workflow is. One example is when inline transactions are sent from your smart contract action code, and you expect to see the `print` statements from within the inline action code outputted before the `print` statements made after the inline action `send` statement. For better exemplification let's look at the code below:
+__Possible solution__: The key point here is the `expected order` and what you think it should be. When looking at your smart contract action code implementation, which let's say it has a series of `print` (either `print_f` or `printf`) statements, they might not necessarily be outputted in the order the `apparent` code workflow is. One example is when inline transactions are sent from your smart contract action code, and you expect to see the `print` statements from within the inline action code outputted before the `print` statements made after the inline action `send` statement. For better exemplification let's look at the code below:
 
 ```cpp
 [[sysio::action]] void multi_index_example::mod( name user, uint64_t n ) {

@@ -10,7 +10,8 @@ Query infomation of an account
 | The `clio` tool is bundled with the Wire software. [Installing Wire core](/docs/getting-started/install-dependencies.md) will install the `clio` and `kiod` command line tools.
 :::
 
-* Acquire functional understanding of [Accounts and Permissions](http://example.com)
+<!-- TODO add references to article about Accounts and Permissions -->
+* Understanding Accounts and Permissions
 
 ## Steps
 
