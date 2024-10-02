@@ -10,15 +10,16 @@ This guide provides instructions to to delete data from a multi-index table.
 
 See the following code reference:
 
-* The [`multi-index`](http://example/com) class.
-* The [`multi-index::find(...)`](http://example.com) method.
-* The [`multi-index::erase(...)`](http://example.com) method.
+<!-- Add references to classes -->
+* The `multi-index` class.
+* The `multi-index::find(...)` method.
+* The `multi-index::erase(...)` method.
 
 ## Before you begin
 
 Make sure you have the following prerequisites in place:
 
-* An Antelope development environment, for details consult the [Get Started Guide](https://docs.eosnetwork.com/docs/latest/getting-started/),
+* A Wire development environment, for details consult the [Get Started Guide](../../../../getting-started/getting-started-intro.md),
 * A multi-index `testab` table instance which stores `user` objects indexed by the primary key which is of type `sysio::name`. Consult the section [How to instantiate a multi-index table](./how-to-instantiate-a-multi-index-table.md) to learn how to set it up.
 
 ## Procedure
@@ -27,7 +28,7 @@ Complete the following steps to implement a `del` action which deletes an user o
 
 ### 1. Find The User You Want To Delete
 
-Use the multi-index [`find(...)`](http://example.com) method to locate the user object you want to delete. The targeted user is searched based on its account name.
+Use the multi-index `find(...)` method to locate the user object you want to delete. The targeted user is searched based on its account name.
 
 ```cpp
 [[sysio::action]] void multi_index_example::del( name user ) {
@@ -38,7 +39,7 @@ Use the multi-index [`find(...)`](http://example.com) method to locate the user 
 
 ### 2. Delete The User If Found
 
-Check to see if the user exists and use [`erase`(...)](http://example.com) method to delete the row from table. Otherwise print an informational message and return.
+Check to see if the user exists and use `erase`(...) method to delete the row from table. Otherwise print an informational message and return.
 
 ```diff
 [[sysio::action]] void multi_index_example::del( name user ) {
@@ -53,8 +54,9 @@ Check to see if the user exists and use [`erase`(...)](http://example.com) metho
 }
 ```
 
-[[info | Full example location]]
-| A full example project demonstrating the instantiation and usage of multi-index table can be found [here](https://github.com/Wire-Network/cdt/blob/main/examples/multi_index_example).
+:::info
+| A full example project demonstrating the instantiation and usage of multi-index table can be found [here](https://github.com/Wire-Network/cdt/blob/master/examples/multi_index_example).
+:::
 
 ## Summary
 

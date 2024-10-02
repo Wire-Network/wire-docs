@@ -1,23 +1,14 @@
-<!-- ---
-content_title: How to create and use action wrappers
-link_text: "How to create and use action wrappers"
---- -->
+# Action Wrappers
 
 ## Overview
 
 This guide provides instructions to create and use an action wrapper in a smart contract.
 
-## Code Reference
-
-See the following code reference guide for action wrapper:
-
-* [sysio::action_wrapper](http://example.com).
-
 ## Before you begin
 
 Make sure you have the following prerequisites in place:
 
-* An Antelope development environment, for details consult the [Get Started Guide](http://example.com).
+* A Wire development environment, for details consult the [Getting Started guide](../../../getting-started/getting-started-intro.md).
 * A smart contract named `multi_index_example`, defined in file `multi_index_example.hpp`.
 * An action `mod` which modifies the integer value `n` stored for row with key `user`.
 
@@ -35,16 +26,16 @@ class [[sysio::contract]] multi_index_example : public contract {
 
 Complete the following steps to create and use `mod_action` action wrapper for the existing `mod` action in the smart contract:
 
-- [Overview](#overview)
-- [Code Reference](#code-reference)
-- [Before you begin](#before-you-begin)
-- [Procedure](#procedure)
-  - [1. Define The Action Wrapper](#1-define-the-action-wrapper)
-  - [2. Use The Action Wrapper](#2-use-the-action-wrapper)
-    - [2.1. Include Header File](#21-include-header-file)
-    - [2.2. Instantiate The Action Wrapper](#22-instantiate-the-action-wrapper)
-    - [2.3. Send The Action Using The Action Wrapper](#23-send-the-action-using-the-action-wrapper)
-- [Summary](#summary)
+- [Action Wrappers](#action-wrappers)
+  - [Overview](#overview)
+  - [Before you begin](#before-you-begin)
+  - [Procedure](#procedure)
+    - [1. Define The Action Wrapper](#1-define-the-action-wrapper)
+    - [2. Use The Action Wrapper](#2-use-the-action-wrapper)
+      - [2.1. Include Header File](#21-include-header-file)
+      - [2.2. Instantiate The Action Wrapper](#22-instantiate-the-action-wrapper)
+      - [2.3. Send The Action Using The Action Wrapper](#23-send-the-action-using-the-action-wrapper)
+  - [Summary](#summary)
 
 ### 1. Define The Action Wrapper
 

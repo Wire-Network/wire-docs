@@ -25,7 +25,7 @@ This procedure restores an existing snapshot with full history, so the node can 
 
 4. Do not stop `nodeop` until it has received at least 1 block from the network, or it won't be able to restart.
 
-## Remarks
+## Notes
 
 If `nodeop` fails to receive blocks from the network, then try the above using `net_api_plugin`. Use `clio net disconnect` and `clio net connect` to reconnect nodes which timed out.
 

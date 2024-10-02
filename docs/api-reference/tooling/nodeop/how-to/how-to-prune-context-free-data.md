@@ -359,13 +359,14 @@ After retrieving the transaction a second time, the pruned transaction looks as 
 }
 ```
 
-### Remarks
+### Notes
 
 Notice the following modified fields within the pruned transaction:
-   * The `prunable_data["prunable_data"][0]` field is 1.
-   * The `signatures` field now contains an empty array.
-   * The `context_free_data` field contains an empty array.
-   * The `packed_context_free_data` field is removed.
+
+* The `prunable_data["prunable_data"][0]` field is 1.
+* The `signatures` field now contains an empty array.
+* The `context_free_data` field contains an empty array.
+* The `packed_context_free_data` field is removed.
 
 ## Next Steps
 

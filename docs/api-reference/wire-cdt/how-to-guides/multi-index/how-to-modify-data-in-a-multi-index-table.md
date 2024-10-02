@@ -17,7 +17,7 @@ See the following code reference:
 
 Make sure you have the following prerequisites in place:
 
-* An Antelope development environment, for details consult the [Get Started Guide](https://docs.eosnetwork.com/docs/latest/getting-started/),
+* A Wire development environment, for details consult the [Get Started Guide](https://docs.eosnetwork.com/docs/latest/getting-started/),
 * A multi-index `testab` table instance which stores `user` objects indexed by the primary key which is of type `sysio::name`. Consult the section [How to instantiate a multi-index table](./how-to-instantiate-a-multi-index-table) to learn how to set it up.
 
 ## Procedure
@@ -42,7 +42,7 @@ Optionally, for ease of use add the action wrapper definition as well.
 
 ### 2. Find The User You Want To Modify
 
-Use the multi-index [`find(...)`](http://example.com) method to locate the user object you want to modify. The targeted user is searched based on its account name.
+Use the multi-index `find(...)` method to locate the user object you want to modify. The targeted user is searched based on its account name.
 
 ```cpp
 [[sysio::action]] void multi_index_example::mod( name user, uint32_t value ) {
@@ -52,7 +52,7 @@ Use the multi-index [`find(...)`](http://example.com) method to locate the user 
 
 ### 3. Yield Error If User Not Found
 
-If the `user` object you want to update is not found then raise an error message by using the [`sysio::check`](http://example.com) method.
+If the `user` object you want to update is not found then raise an error message by using the `sysio::check` method.
 
 ```diff
 [[sysio::action]] void multi_index_example::mod( name user, uint32_t value ) {
@@ -63,7 +63,8 @@ If the `user` object you want to update is not found then raise an error message
 
 ### 4. Update The User If Found
 
-If the `user` object you want to update is found, the [`sysio::check`](http://example.com) method will do nothing and the iterator `itr` will be pointing at the object which you want to update. Use the [`multi-index::modify(...)`](http://example.com) method to update the user object `datum` data member with the `value` parameter.
+<!-- TODO add references to classes -->
+If the `user` object you want to update is found, the `sysio::check` method will do nothing and the iterator `itr` will be pointing at the object which you want to update. Use the `multi-index::modify(...)` method to update the user object `datum` data member with the `value` parameter.
 
 ```diff
 [[sysio::action]] void multi_index_example::mod( name user, uint32_t value ) {
@@ -79,8 +80,9 @@ If the `user` object you want to update is found, the [`sysio::check`](http://ex
 
 Now you have implemented a new action `mod`. Call `mod` to update the `datum` data member for the user object identified by the `user` name parameter.
 
-[[info | Full example location]]
+:::info
 | A full example project demonstrating the instantiation and usage of multi-index table can be found [here](https://github.com/Wire-Network/cdt/blob/main/examples/multi_index_example).
+:::
 
 ## Summary
 

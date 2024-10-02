@@ -25,13 +25,15 @@ The following information shows the different positionals and options you can us
 
 ### Positionals
 
-- `payer` _TEXT_ - The account paying for RAM
+* `payer` _TEXT_ - The account paying for RAM
+
 * `receiver` _TEXT_ - The account receiving bought RAM
 * `amount` _TEXT_ - The amount of EOS to pay for RAM
 
 ### Options
 
-- `-h,--help` - Print this help message and exit
+* `-h,--help` - Print this help message and exit
+
 * `-k,--kbytes` - Buyram in number of kibibytes (KiB)
 * `-b,--bytes` - Buyram in number of bytes
 * `-x,--expiration` _TEXT_ - Set the time in seconds before a transaction expires, defaults to 30s
@@ -49,5 +51,3 @@ The following information shows the different positionals and options you can us
 * `--delay-sec` _UINT_ - Set the delay_sec seconds, defaults to 0s
 
 ## Requirements
-
-For the prerequisites to run this command see the Before you Begin section of [How to Buy Ram](../../usage/how-to-guides/how-to-buy-ram.md)  

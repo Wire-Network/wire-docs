@@ -2,7 +2,7 @@
 
 ## Goal
 
-Buy ram from an account using `clio system buyram`.
+Buy ram from an account using [`clio system buyram`](../../tooling/clio/command-reference/system/system-buyram.md).
 
 ## Prerequisites
 

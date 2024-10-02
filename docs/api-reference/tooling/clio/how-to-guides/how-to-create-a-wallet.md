@@ -10,12 +10,12 @@ Make sure you meet the following requirements:
 * Familiarize with the other [`clio wallet`](../command-reference/wallet/index.md) commands.
 * Install the currently supported version of `clio`.
 
-:::info 
-| The `clio` tool and `kiod` are bundled with the Wire software. [Installing Wire core](/docs/getting-started/install-dependencies.md) will install the `clio` and `kiod` command line tools. 
+:::info
+| The `clio` tool and `kiod` are bundled with the Wire software. [Installing Wire core](/docs/getting-started/install-dependencies.md) will install the `clio` and `kiod` command line tools.
 :::
 
 * Understand what an [account](/docs/introduction/glossary.md#account) is and its role in the blockchain.
-* Understand [Accounts and Permissions](http://example.com) in the protocol documents.
+* Understand Accounts and Permissions in the protocol documents.
 * Understand what a [public](/docs/introduction/glossary.md#public-key) and [private](/docs/introduction/glossary.md#private-key) key pair is.
 
 ## Steps
@@ -39,6 +39,7 @@ Some examples are provided below:
 ```sh
 clio wallet create -f default_wallet.pwd
 ```
+
 ```console
 Creating wallet: default
 Save password to use in the future to unlock this wallet.
@@ -53,6 +54,7 @@ saving password to default_wallet.pwd
 ```sh
 clio wallet create -n my_wallet -f my_wallet.pwd
 ```
+
 ```console
 Creating wallet: my_wallet
 Save password to use in the future to unlock this wallet.

@@ -10,7 +10,7 @@ label: 'Nodeop'
 
 ## Installation
 
-`nodeop` is distributed as part of the [Wire Network software suite](https://example.com). To install `nodeop`, visit the [Wire software Installation](https://example.com) section.
+`nodeop` is distributed as part of the [Wire Network software suite](http://github.com/Wire-Network/wire-sysio). To install `nodeop`, visit the [Wire software Installation](https://github.com/Wire-Network/wire-sysio#installation) section.
 
 ## Explore
 

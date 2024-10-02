@@ -1,6 +1,4 @@
-<!-- ---
-content_title: How to define a primary index
---- -->
+# Define primary index
 
 ## Overview
 
@@ -10,13 +8,13 @@ This guide provides instructions to define a primary index for a multi-index tab
 
 See the following code reference:
 
-* The [`multi-index`](http://example/com) class.
+* The `multi-index` class.
 
 ## Before you begin
 
 Make sure you have the following prerequisites in place:
 
-* An Antelope development environment, for details consult the [Get Started Guide](https://docs.eosnetwork.com/docs/latest/getting-started/),
+* A Wire development environment, for details consult the [Get Started Guide](https://docs.eosnetwork.com/docs/latest/getting-started/),
 
 ## Procedure
 
@@ -68,7 +66,7 @@ Add the definition of the primary index for the multi-index table. The primary i
     };
   ```
 
-[[info | Secondary indexes information]]
+:::info
 | Secondary indexes may be defined which are not unique. There can be up to 16 secondary indexes. Secondary indices support the following types:
 
 * uint64_t
@@ -77,9 +75,11 @@ Add the definition of the primary index for the multi-index table. The primary i
 * double
 * long double
 
+:::
+
 ### 4. Define A Multi-Index Type Alias
 
-For ease of use, define a type alias `test_table_t` based on the `sysio::multi_index` template type, parametarized with a random name `"testtaba"` and the `test_table` data structure. The names must adhere to `Antelope` account name restrictions.
+For ease of use, define a type alias `test_table_t` based on the `sysio::multi_index` template type, parametarized with a random name `"testtaba"` and the `test_table` data structure. The names must adhere to the existing account name restrictions.
 
   ```diff
     // the data structure which defines each row of the table
@@ -116,8 +116,9 @@ Declare the `testtab` multi-index table as a data member of type `test_table_t`.
 
 Now you have instantiated a multi-index table, and assigned to `testtab` variable, which has a primary index defined for its `test_primary` data member.
 
-[[info | Full example location]]
+:::info
 | A full example project demonstrating the instantiation and usage of multi-index table can be found [here](https://github.com/Wire-Network/cdt/blob/main/examples/multi_index_example).
+:::
 
 ## Summary
 

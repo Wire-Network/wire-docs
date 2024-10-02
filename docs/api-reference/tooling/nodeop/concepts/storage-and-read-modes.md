@@ -28,7 +28,8 @@ RocksDB is an open source persistent key value store. Storing state in memory is
 ## Wire Sysio Interfaces
 
 <!-- https://developers.eos.io/manuals/sysio.cdt/latest/files - check link -->
-Wire provides a set of [services](http://example.com) and [interfaces](http://example.com) that enable contract developers to persist state across action, and consequently transaction, boundaries. Contracts may use these services and interfaces for various purposes. For example, `sysio.token` contract keeps balances for all users in the `chain database`. Each instance of `nodeop` maintains the `chain database` in an efficient data store, so contracts can read and write data with ease.
+<!-- !TODO add references for interfaces and services -->
+Wire provides a set of services and interfaces that enable contract developers to persist state across action, and consequently transaction, boundaries. Contracts may use these services and interfaces for various purposes. For example, `sysio.token` contract keeps balances for all users in the `chain database`. Each instance of `nodeop` maintains the `chain database` in an efficient data store, so contracts can read and write data with ease.
 
 ### Nodeop RPC API
 

@@ -13,8 +13,10 @@ Make sure to meet the following requirements:
 | The `clio` tool and `kiod` are bundled with the Wire software. [Installing Wire core](/docs/getting-started/install-dependencies.md) will install the `clio` and `kiod` command line tools.
 :::
 
+<!-- TODO: add reference for block lifecycle -->
+
 * Understand what a [block](/docs/introduction/glossary.md#block) is and its role in the blockchain.
-* Understand the [block lifecycle](http://example.com) in the Wire consensus protocol.
+* Understand the block lifecycle
 
 ## Steps
 

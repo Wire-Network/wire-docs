@@ -22,12 +22,12 @@ title: 'Quick API Reference'
 
 ## Smart Contract Action References
 
-- sysio.system: Contract defines the structures and actions needed for blockchain's core functionality
+- **sysio.system**: Contract defines the structures and actions needed for blockchain's core functionality.
 
-- sysio.token: Contract defines the structures and actions that allow users to create, issue, and manage tokens on sysio based blockchains
+- **sysio.token**: Contract defines the structures and actions that allow users to create, issue, and manage tokens on sysio based blockchains
 
-- sysio.msig: Contract defines the structures and actions needed to manage the proposals and approvals on blockchain
+- **sysio.msig**: Contract defines the structures and actions needed to manage the proposals and approvals on blockchain
 
-- sysio.wrap: Contract simplifies Block Producer superuser actions by making them more readable and easier to audit
+- **sysio.wrap**: Contract simplifies Block Producer superuser actions by making them more readable and easier to audit
 
-- sysio.bios: Contract defines the structures and actions needed for blockchain's basic core functionality
+- **sysio.bios**: Contract defines the structures and actions needed for blockchain's basic core functionality

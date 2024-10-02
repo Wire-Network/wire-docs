@@ -5,7 +5,7 @@ link_text: ABI variants
 
 ABI variants give the flexibility of using more than one type for a defined variable or data member.
 
-In Antelope, the variants use the standard template library `variant` which was introduced in C++ 17. An instance of `std::variant` at any given time either holds a value of one of its alternative types, or in the case of error - no value. Because of this trait, variants can be used to build the multi-index table structure with flexibility. Used in conjunction with ABI extensions, it allows for modification of the structure of an existing multi-index table, a.k.a. table.
+In Wire, the variants use the standard template library `variant` which was introduced in C++ 17. An instance of `std::variant` at any given time either holds a value of one of its alternative types, or in the case of error - no value. Because of this trait, variants can be used to build the multi-index table structure with flexibility. Used in conjunction with ABI extensions, it allows for modification of the structure of an existing multi-index table, a.k.a. table.
 
 ## Use variant when building the multi-index table the first time
 
@@ -15,7 +15,7 @@ To define a `variant` for your table structure one example is shown below
   std::variant<int8_t, uint16_t, uint32_t> variant_field;
 ```
 
-This defines `variant` which can hold three different types, one at a time though. 
+This defines `variant` which can hold three different types, one at a time though.
 So the contract interface could look like this:
 
 ```diff
@@ -107,7 +107,8 @@ Now you can deploy the contract and it will be backwards compatible with the pre
 ## Use variant when changing an already deployed multi-index table
 
 ### Preconditions
-- It is assumed you deployed the contract defined in [this section](../how-to-guides/multi-index/how-to-instantiate-a-multi-index-table.md) and now you are going to change its table structure. 
+
+- It is assumed you deployed the contract defined in [this section](../how-to-guides/multi-index/how-to-instantiate-a-multi-index-table.md) and now you are going to change its table structure.
 
 To change the existing table structure, you will use the `std::variant` in conjunction with ABI extensions; you can read a tutorial on abi extensions [here](./binary-extension.md). You will add another field to the table called `variant_field` which can store either of the following data `int8_t`, `int16_t`, and `int32_t`. You can do it by adding below data member to the table structure:
 
@@ -154,5 +155,6 @@ class [[sysio::contract]] multi_index_example : public contract {
 };
 ```
 
-[[warning | Not recommended warning]]
+:::warning
 | Be aware, it is not recommend to use `sysio::binary_extension` inside variant definition, this can lead to data corruption unless one is very careful in understanding how these two templates work and how the ABI gets generated!
+:::

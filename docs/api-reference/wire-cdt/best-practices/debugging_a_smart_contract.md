@@ -1,8 +1,5 @@
-<!-- ---
-content_title: Debugging a smart contract
---- -->
 
-In order to be able to debug your smart contract, you will need to setup a local `nodeop` node. This local `nodeop` node can be run as separate private testnet or as an extension of a public testnet.  This local node also needs to be run with the contracts-console option on, either `--contracts-console` via the command line or `contracts-console = true` via the `config.ini` file and/or by setting up logging on your running node and checking the output logs. 
+In order to be able to debug your smart contract, you will need to setup a local `nodeop` node. This local `nodeop` node can be run as separate private testnet or as an extension of a public testnet.  This local node also needs to be run with the contracts-console option on, either `--contracts-console` via the command line or `contracts-console = true` via the `config.ini` file and/or by setting up logging on your running node and checking the output logs.
 
 See below for details on logging.
 
@@ -10,7 +7,7 @@ When you are creating your smart contract for the first time, it is recommended 
 
 The concept is the same, so for the following guide, debugging on the private testnet will be covered.
 
-If you haven't set up your own local nodeop, follow the [DUNE setup guide](https://github.com/AntelopeIO/DUNE#readme). By default, your local nodeop will just run in a private testnet unless you modify the config.ini file to connect with public testnet (or official testnet) nodes.
+If you haven't set up your own local `nodeop`, follow the [Setup guide](https://github.com/Wire-Network/wire-sysio#installation). By default, your local nodeop will just run in a private testnet unless you modify the config.ini file to connect with public testnet (or official testnet) nodes.
 
 # Method
 
@@ -19,25 +16,28 @@ The main method used to debug smart contract is **Caveman Debugging**. Printing 
 # Print
 
 Print C API supports the following data type that you can print:
+
 - prints - a null terminated char array (string)
 - prints_l - any char array (string) with given size
 - printi - 64-bit signed integer
-- printui - 64-bit unsigned integer 
+- printui - 64-bit unsigned integer
 - printi128 - 128-bit signed integer
 - printui128 - 128-bit unsigned integer
 - printsf - single-precision floating point number
 - printdf - double encoded as 64-bit unsigned integer
 - printqf - quadruple encoded as 64-bit unsigned integer
 - printn - 64 bit names as base32 encoded string
-- printhex - hex given binary of data and its size 
+- printhex - hex given binary of data and its size
 
 The Print C++ API wraps some of the above C API by overriding the print() function, so the user doesn't need to determine which specific print function to use. Print C++ API supports:
+
 - a null terminated char array (string)
 - integer (128-bit unsigned, 64-bit unsigned, 32-bit unsigned, signed, unsigned)
 - base32 string encoded as 64-bit unsigned integer
 - struct that has print() method
 
 # Example
+
 Here's an example contract for debugging
 
 ## debug.hpp
@@ -54,6 +54,7 @@ namespace debug {
     };
 }
 ```
+
 ## debug.cpp
 
 ```cpp
@@ -80,6 +81,7 @@ extern "C" {
     }
 } // extern "C"
 ```
+
 ## debug.abi
 
 ```json
@@ -101,17 +103,18 @@ extern "C" {
   ]
 }
 ```
+
 Deploy it and push an action to it. It is assumed you have a `debug` account created and have its key in your wallet.
 
 ```bash
-$ cdt-cpp -abigen debug.cpp -o debug.wasm
-$ clio set contract debug CONTRACT_DIR/debug -p youraccount@active
-$ clio push action debug foo '{"from":"inita", "to":"initb", "amount":10}' --scope debug
+cdt-cpp -abigen debug.cpp -o debug.wasm
+clio set contract debug CONTRACT_DIR/debug -p youraccount@active
+clio push action debug foo '{"from":"inita", "to":"initb", "amount":10}' --scope debug
 ```
 
 When you check your local `nodeop` node log, you will see the following lines after the above message is sent.
 
-```
+```console
 Code is debug
 Action is foo
 Amount is smaller than 100

@@ -8,17 +8,17 @@ This guide provides instructions to insert data into a multi-index table.
 
 ## Reference
 
-See the following code reference:
+Relevant classes and methods:
 
-* The [`multi-index`](http://example/com) class.
-* The [`multi-index::find(...)`](http://example.com) method.
-* The [`multi-index::emplace(...)`](http://example.com) method.
+* The `multi-index` class.
+* The `multi-index::find(...)` method.
+* The `multi-index::emplace(...)` method.
 
 ## Before you begin
 
 Make sure you have the following prerequisites in place:
 
-* An Antelope development environment, for details consult the [Get Started Guide](https://docs.eosnetwork.com/docs/latest/getting-started/),
+* A Wire development environment, for details consult the [Get Started Guide](https://docs.eosnetwork.com/docs/latest/getting-started/),
 * A multi-index `testab` table instance which stores `user` objects indexed by the primary key which is of type `sysio::name`. Consult the section [How to instantiate a multi-index table](./how-to-instantiate-a-multi-index-table.md) to learn how to set it up.
 
 ## Procedure
@@ -38,7 +38,7 @@ Use of the multi-index table iterator to find out if the user object already exi
 
 ### 2. Insert The User If Not Found In Table
 
-Use the [`emplace`](http://example.com) method to make the insertion if the user object is not already in the multi-index table. Otherwise print an informational message.
+Use the `emplace` method to make the insertion if the user object is not already in the multi-index table. Otherwise print an informational message.
 
 ```diff
 [[sysio::action]] void multi_index_example::set( name user ) {
@@ -58,8 +58,9 @@ Use the [`emplace`](http://example.com) method to make the insertion if the user
 }
 ```
 
-[[info | Full example location]]
+:::info
 | A full example project demonstrating the instantiation and usage of multi-index table can be found [here](https://github.com/Wire-Network/cdt/blob/main/examples/multi_index_example).
+:::
 
 ## Summary
 
