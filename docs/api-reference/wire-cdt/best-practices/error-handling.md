@@ -1,6 +1,6 @@
 # Error handling
 
-Contracts can use `uint64_t` error codes as an alternative (and shorter) means of signaling error conditions, as opposed to string error messages. However, Antelope and CDT reserve certain ranges of the `uint64_t` value space for their own purposes. Contract developers must be aware of the following ranges and restrictions:
+Contracts can use `uint64_t` error codes as an alternative (and shorter) means of signaling error conditions, as opposed to string error messages. However, Wire Sysio and CDT reserve certain ranges of the `uint64_t` value space for their own purposes. Contract developers must be aware of the following ranges and restrictions:
 
 1. $0 - 4,999,999,999,999,999,999$:  
 Available for contract developers to assign error codes specific to their contracts.

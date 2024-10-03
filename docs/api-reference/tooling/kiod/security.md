@@ -1,5 +1,5 @@
 ---
-title: Keosd Security
+title: Kiod Security
 ---
 
 ### How does `kiod` Locking/Unlocking works and what are the security implications?

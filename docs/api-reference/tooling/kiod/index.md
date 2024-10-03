@@ -1,5 +1,5 @@
 ---
-title: Keosd
+title: Kiod
 ---
 
 ## Introduction

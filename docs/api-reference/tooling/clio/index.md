@@ -8,7 +8,7 @@ title: clio
 
 ## Installation
 
-`clio` is distributed as part of the [Wire software suite](https://github.com/Wire-Network/wire-sysio/blob/master/README.md). To install `clio` just visit the [Install Dependemcies](/docs/getting-started/install-dependencies.md) section.
+`clio` is distributed as part of the [Wire software suite](https://github.com/Wire-Network/wire-sysio/blob/master/README.md). To install `clio` just visit the [Install Dependencies](/docs/getting-started/install-dependencies.md) section.
 
 ## Using Clio
 

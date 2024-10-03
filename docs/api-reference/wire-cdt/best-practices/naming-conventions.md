@@ -1,9 +1,9 @@
 
 # Naming Conventions
 
-When implementing Wire smart contracts and when storing data in an Antelope blockchain, it is important to follow the established Antelope conventions for naming accounts, actions, tables, etc.
+When implementing Wire smart contracts and when storing data in a Wire blockchain, it is important to follow the established conventions for naming accounts, actions, tables, etc.
 
-## Antelope names
+## Names
 
 * Applies to all Antelope encoded names (accounts, actions, tables, etc.)
 * Encoded as a 64-bit unsigned integer (`uint64_t`) on the blockchain.

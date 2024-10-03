@@ -26,16 +26,16 @@ class [[sysio::contract]] multi_index_example : public contract {
 
 Complete the following steps to create and use `mod_action` action wrapper for the existing `mod` action in the smart contract:
 
-- [Action Wrappers](#action-wrappers)
-  - [Overview](#overview)
-  - [Before you begin](#before-you-begin)
-  - [Procedure](#procedure)
-    - [1. Define The Action Wrapper](#1-define-the-action-wrapper)
-    - [2. Use The Action Wrapper](#2-use-the-action-wrapper)
-      - [2.1. Include Header File](#21-include-header-file)
-      - [2.2. Instantiate The Action Wrapper](#22-instantiate-the-action-wrapper)
-      - [2.3. Send The Action Using The Action Wrapper](#23-send-the-action-using-the-action-wrapper)
-  - [Summary](#summary)
+* Action Wrappers
+  * [Overview](#overview)
+  * [Before you begin](#before-you-begin)
+  * [Procedure](#procedure)
+    * [1. Define The Action Wrapper](#1-define-the-action-wrapper)
+    * [2. Use The Action Wrapper](#2-use-the-action-wrapper)
+      * [2.1. Include Header File](#21-include-header-file)
+      * [2.2. Instantiate The Action Wrapper](#22-instantiate-the-action-wrapper)
+      * [2.3. Send The Action Using The Action Wrapper](#23-send-the-action-using-the-action-wrapper)
+  * [Summary](#summary)
 
 ### 1. Define The Action Wrapper
 

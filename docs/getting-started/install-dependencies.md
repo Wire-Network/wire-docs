@@ -4,6 +4,14 @@ id: install-dependencies
 title: Install Dependencies
 toc_max_heading_level: 5
 toc_min_heading_level: 2
+tags:
+  - installation 
+  - dev setup
+  - wire-sysio
+  - wire-cdt
+  - nodeop
+  - clio
+  - kiod
 ---
 
 ## Linux Distributions

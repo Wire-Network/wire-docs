@@ -1,6 +1,6 @@
 # Nodeop RPC APIs
 
-### Nodeop `2.0.13`
+## Nodeop `3.1.6`
 
 **Nodeop** APIs:
 

@@ -10,7 +10,23 @@ The `sysio.msig` contract facilitates the management of multi-signature proposal
 
 Below is a diagram describing the flow of operations:
 
-![msig-flow](../../../../static/img/msig-flow.png)
+```mermaid
+sequenceDiagram
+  actor User
+  participant sysio.msig contract
+  participant Blockchain
+  participant Approving Accounts
+  User->>sysio.msig contract: 1.Create transaction.json file <br /> 2.Submit proposal<br/>with required permissions
+  sysio.msig contract->>Blockchain: Store proposal on blockchain
+  loop Each Approving Account
+    Approving Accounts->>Blockchain: Review proposal
+    Approving Accounts->>Blockchain: Approve proposal
+  end
+  Blockchain-->>sysio.msig contract: Approved
+    sysio.msig contract-->>Blockchain: 1.Validate transaction has not expired <br/> 2. Validate that it is not canceled <br /> Validate it has been signed by all the persmissions in the initial proposal's required permissions list
+  sysio.msig contract-->>User: Grant permission to execute transaction
+  User->>Blockchain: Execute transaction
+```
 
 ## Actions
 

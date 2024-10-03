@@ -57,7 +57,7 @@ You will need to set the private key for your producer. The public key should ha
 
 * `public-key` - A valid public key in form of a string.
 * `provider-spec` - It's a string formatted like `<provider-type>:<data>`
-* `provider-type` - KEY or KEOSD
+* `provider-type` - KEY or KIOD
 
 #### Using a Key
 
@@ -77,10 +77,10 @@ You can also use `kiod` instead of hard-defining keys.
 ```console
 # config.ini:
 
-signature-provider = KEOSD:<data>   
+signature-provider = KIOD:<data>   
 
 //Example
-//EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV=KEOSD:https://127.0.0.1:88888
+//EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV=KIOD:https://127.0.0.1:88888
 ```
 
 ### 4. Define a peers list
