@@ -37,3 +37,5 @@ fix-md-files.sh
 03-development-environment
 
 .idea/
+.vscode
+build/
