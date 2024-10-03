@@ -1,11 +1,12 @@
 ---
-title: Keosd Troubleshooting
+title: Kiod Troubleshooting
 ---
 
 
-# Common errors 
+# Common errors
 
 ---
+
 ### **Error**: `Failed to lock access to wallet directory; is another kiod running"?`
 
 Since `clio` may auto-launch an instance of `kiod`, it is possible to end up with multiple instances of `kiod` running. That can cause unexpected behavior or the error message above.

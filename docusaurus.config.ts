@@ -50,27 +50,23 @@ const config: Config = {
     defaultLocale: "en",
     locales: ["en"],
   },
-
+  themes: ["@docusaurus/theme-mermaid"],
+  markdown: {
+    mermaid: true,
+  },
   presets: [
     [
       "classic",
       {
         docs: {
           sidebarPath: "./sidebars.ts",
-          // Remove this to remove the "edit this page" links.
           editUrl: "https://github.com/Wire-Network/wire-docs",
-          // breadcrumbs: false,
         },
         blog: false,
         sitemap: {
           changefreq: "weekly",
           priority: 0.5,
-          ignorePatterns: [
-            "/tags/**",
-            "/index-off",
-            "/markdown-page",
-            "/my-react-page",
-          ],
+          ignorePatterns: ["/tags/**", "/index-off", "/markdown-page"],
           filename: "sitemap.xml",
         },
         theme: {
@@ -137,14 +133,12 @@ const config: Config = {
           type: "docSidebar",
           sidebarId: "contentSidebar",
           position: "left",
-          // to: "docs/introduction/overview",
         },
         {
           label: "API Reference",
           type: "docSidebar",
           sidebarId: "apiReferenceSidebar",
           position: "left",
-          // to: "./docs/api-reference/quick-reference",
         },
         // {
         //   to: "https://www.wire.network/updates.html",
@@ -154,6 +148,7 @@ const config: Config = {
         {
           href: "https://github.com/Wire-Network/wire-docs",
           label: "GitHub",
+          // html: `<img src="img/github.png" style="width: 30px; height: 30px;" />`,
           position: "right",
         },
       ],
@@ -162,7 +157,7 @@ const config: Config = {
       logo: {
         alt: "Wire Network Logo",
         src: "img/wire-network-logo.png",
-        href: "https://wire.network",
+        href: "https://wire.foundation/favicon.ico",
         width: 80,
         height: 51,
       },
@@ -202,25 +197,12 @@ const config: Config = {
             },
           ],
         },
-        // {
-        //   title: 'More',
-        //   items: [
-        //     {
-        //       label: 'Blog',
-        //       to: '/blog',
-        //     },
-        //     {
-        //       label: 'GitHub',
-        //       href: 'https://github.com/facebook/docusaurus',
-        //     },
-        //   ],
-        // },
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Wire Network`,
     },
     prism: {
       theme: prismThemes.dracula,
-      darkTheme: prismThemes.vsLight,
+      darkTheme: prismThemes.palenight,
       additionalLanguages: [
         // "powershell",
         // "cpp",
@@ -243,12 +225,6 @@ const config: Config = {
       // contextualSearch: true,
       // Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
       // externalUrlRegex: "external\\.com|domain\\.com",
-      // Optional: Replace parts of the item URLs from Algolia. Useful when using the same search index for multiple deployments using a different baseUrl. You can use regexp or string in the `from` param. For example: localhost:3000 vs myCompany.com/docs
-      // replaceSearchResultPathname: {
-      //   from: "https://docs.wire.network/",
-      //   to: "http://localhost:3000/",
-      // },
-
       // Optional: Algolia search parameters
       // searchParameters: {},
       // // Optional: path for sarch page that enabled by default (`false` to disable it)

@@ -2,6 +2,12 @@
 sidebar_position: 1
 id: getting-started-intro
 sidebar_label: Getting Started
+tags:
+  - wire-sysio
+  - wire-cdt
+  - nodeop
+  - clio
+  - kiod
 ---
 
 # Basic Components
@@ -17,21 +23,21 @@ Wire Network blockchain platform comes with various components and tooling. See 
 
 The basic relationship between these components is illustrated in the following diagram:
 
-![Core components diagram](/img/core-components-diagram.png)
+```mermaid
+flowchart LR
+    A[["Smart Contract Code"]] --> B(("CDT"))
+    B --> C["clio"]
+    C --> D["nodeop"]
+    C --> E["kiod"]
+    E --> C
+    D --> F[("Wire Blockchain")]
+```
 
 ## Reference
 
 - [nodeop](/docs/api-reference/tooling/nodeop/index.md)
-
-<!-- `nodeop` is the core Wire node daemon. nodeop handles the blockchain data persistence layer, peer-to-peer networking, and contract code scheduling. For development environments, nodeop enables you to set up a single node blockchain network. It offers a wide range of features through plugins which can be enabled or disabled at start time via the command line parameters or configuration files. -->
-
 - [clio](/docs/api-reference/tooling/clio/index.md)
-
-<!-- clio is a command line tool that interfaces with the REST APIs exposed by nodeop. You can also use clio to deploy and test Wire smart contracts. -->
-
 - [kiod](/docs/api-reference/tooling/kiod/index.md)
-
-<!-- kiod is a key manager daemon for storing private keys and signing digital messages. kiod provides a secure key storage medium for keys to be encrypted in the associated wallet file. The kiod daemon also defines a secure enclave for signing transaction created by clio or a third party library. -->
 
 :::info[NOTE]
 

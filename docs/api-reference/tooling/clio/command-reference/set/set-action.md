@@ -9,7 +9,7 @@ clio set action permission [OPTIONS] account code type requirement.
 
 **Where**
 
-* [OPTIONS] = See Options in  [Command Usage](#command-usage) section below.
+* [OPTIONS] = See Options in  [Command Usage](#synopsis) section below.
 * account = The account to set/delete a permission authority for.
 * code = The account that owns the code for the action.
 * type =  The name of the action, note permissions must be set per action.

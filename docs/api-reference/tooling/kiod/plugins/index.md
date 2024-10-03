@@ -1,5 +1,5 @@
 ---
-title: Keosd Plugins
+title: Kiod Plugins
 ---
 
 ## Overview

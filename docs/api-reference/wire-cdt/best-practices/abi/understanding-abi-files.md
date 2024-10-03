@@ -515,7 +515,7 @@ When describing a vector in your ABI file, simply append the type with `[]`, so 
 
 It's a rarely used property worth mentioning. You can use **base** ABI struct property to reference another struct for inheritance, as long as that struct is also described in the same ABI file. Base will do nothing or potentially throw an error if your smart contract logic does not support inheritance.
 
-You can see an example of base in use in the system contract [source code](https://github.com/AntelopeIO/reference-contracts/blob/9d9401e1bd937406b4e2c4f2fd234f22a2d6e3bc/contracts/sysio.system/include/sysio.system/sysio.system.hpp#L141).
+You can see an example of base in use in the system contract [source code](https://github.com/W/blob/9d9401e1bd937406b4e2c4f2fd234f22a2d6e3bc/contracts/sysio.system/include/sysio.system/sysio.system.hpp#L141).
 
 The corresponsing ABI definition would look like this:
 
