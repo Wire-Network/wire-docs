@@ -27,10 +27,10 @@ import * as Preset from "@docusaurus/preset-classic";
 const config: Config = {
   title: "Wire Docs",
   tagline: "Official Wire Network Documentation",
-  favicon: "img/favicon.ico",
+  favicon: "https://wire.foundation/favicon.ico",
 
   // Set the production url of your site here
-  url: "https://Wire-Network.github.io",
+  url: "https://docs.wire.network",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
@@ -120,12 +120,12 @@ const config: Config = {
       disableSwitch: false,
       respectPrefersColorScheme: false,
     },
-    image: "img/wire-network-logo.png",
+    image: "https://wire.foundation/favicon.ico",
     navbar: {
       title: "Wire Docs",
       logo: {
         alt: "Wire Network",
-        src: "img/wire-network-logo.png",
+        src: "https://wire.foundation/favicon.ico",
       },
       items: [
         {
@@ -156,8 +156,7 @@ const config: Config = {
     footer: {
       logo: {
         alt: "Wire Network Logo",
-        src: "img/wire-network-logo.png",
-        href: "https://wire.foundation/favicon.ico",
+        src: "https://wire.foundation/favicon.ico",
         width: 80,
         height: 51,
       },
@@ -220,7 +219,7 @@ const config: Config = {
       // Public API key: it is safe to commit it
       apiKey: "d63efc4f24c3834793e915a5a4838d07",
       indexName: "wire",
-      contextualSearch: true,
+      contextualSearch: false,
       // Optional: see doc section below
       // contextualSearch: true,
       // Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.

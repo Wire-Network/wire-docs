@@ -10,24 +10,21 @@ title: 'Quick API Reference'
 
 **Nodeop** APIs:
 
-- [Chain API](/docs/api-reference/chain-api): Provides access to the blockchain information and interaction with the blockchain
-- [Producer API](/docs/api-reference/producer-api): Provides access to a producer node
-- [Net API](/docs/api-reference/net-api): Provides access to the blockchain's network
-- [DB Size API](/docs/api-reference/db-size-api): Provides access to the blockchain's database
-- [Trace API](/docs/api-reference/trace-api): Provides access to retired actions and related metadata from a specified block
+- [Chain API](/docs/api-reference/chain-api)
+- [Producer API](/docs/api-reference/producer-api)
+- [Net API](/docs/api-reference/net-api)
+- [DB Size API](/docs/api-reference/db-size-api)
+- [Trace API](/docs/api-reference/trace-api)
 
 ## SDK API References
 
-- [SDK Core](https://Wire-Network.github.io/sdk-core/): SDK Core API Reference
+- [SDK Core](https://Wire-Network.github.io/sdk-core/)
 
 ## Smart Contract Action References
 
-- **sysio.system**: Contract defines the structures and actions needed for blockchain's core functionality.
-
-- **sysio.token**: Contract defines the structures and actions that allow users to create, issue, and manage tokens on sysio based blockchains
-
-- **sysio.msig**: Contract defines the structures and actions needed to manage the proposals and approvals on blockchain
-
-- **sysio.wrap**: Contract simplifies Block Producer superuser actions by making them more readable and easier to audit
-
-- **sysio.bios**: Contract defines the structures and actions needed for blockchain's basic core functionality
+- [**sysio.system**](./system-contracts/contracts/sysio.system.md)
+- [**sysio.token**](./system-contracts/contracts/sysio.token.md)
+- [**sysio.msig**](./system-contracts/contracts/sysio.msig.md)
+- [**sysio.wrap**](./system-contracts/contracts/sysio.wrap.md)
+- [**sysio.bios**](./system-contracts/contracts/sysio.bios.md)
+- [**sysio.boot**](./system-contracts/contracts/sysio.bios.md)

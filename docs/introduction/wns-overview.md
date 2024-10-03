@@ -37,7 +37,7 @@ In practical terms, a settlement contract linked to the hub can interface with m
 
 ## Security Principles
 
-The security framework of WNS is robust, relying on multiple checks and balances to prevent malicious activities. Key features are the use of standard cryptographic proofs to verify transactions, implementation of UTXO model to track transaction outputs; as well utilizing a completely independent sub-chain to aid with the transaction verification process. This sub-chain, also knowns as S-chain(stands for *settlement*) includes only the relevant transactions and data needed for the target chain, allowing for more fast and efficient processing.
+The security framework of WNS is robust, relying on multiple checks and balances to prevent malicious activities. Key features are the use of standard cryptographic proofs to verify transactions, implementation of UTXO model to track transaction outputs; as well utilizing a completely independent sub-chain to aid with the transaction verification process. This sub-chain, also knowns as S-chain(stands for *settlement*) includes only the relevant transactions and data needed for the target chain, allowing for fast and efficient processing.
 
 ### UTXO
 
