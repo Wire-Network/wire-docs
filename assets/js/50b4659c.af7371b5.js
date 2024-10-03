@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkwire_docs=self.webpackChunkwire_docs||[]).push([[6105],{17807:e=>{e.exports=JSON.parse('{"categoryGeneratedIndex":{"title":"Wire Basics","slug":"/category/wire-basics","permalink":"/wire-docs/docs/category/wire-basics","sidebar":"contentSidebar","navigation":{"next":{"title":"Overview","permalink":"/wire-docs/docs/introduction/overview"}}}}')}}]);
