@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwire_docs=self.webpackChunkwire_docs||[]).push([[151],{92514:s=>{s.exports=JSON.parse('{"tag":{"label":"terminology","permalink":"/docs/tags/terminology","allTagsPath":"/docs/tags","count":1,"items":[{"id":"introduction/glossary","title":"Glossary","description":"Key Terminology","permalink":"/docs/introduction/glossary"}],"unlisted":false}}')}}]);
