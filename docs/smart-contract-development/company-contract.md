@@ -2,8 +2,6 @@
 sidebar_position: 3
 id: company-contract
 title: Create Company Contract
-toc_max_heading_level: 5
-toc_min_heading_level: 2
 ---
 
 

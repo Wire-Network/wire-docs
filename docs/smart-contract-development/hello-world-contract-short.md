@@ -2,8 +2,6 @@
 sidebar_position: 3
 id: hello-world-contract-short
 title: "Quick Start: Hello World Contract"
-toc_max_heading_level: 5
-toc_min_heading_level: 2
 ---
 
 <!-- # Hello World Contract -->

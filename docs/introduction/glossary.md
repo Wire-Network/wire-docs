@@ -38,7 +38,13 @@ A JSON-based description on how to convert user actions between their JSON and b
 
 On the Wire platform, the authority relates a public key and the authorization factors for an account and an account permission. The authority is a data structure linking account permissions to keys, thresholds, weights, delegated account permissions, and time waits.
 
-**Related**: [Permission](#permission), [Account](#account), [Permission Level](#permission-level), [Permission Weight](#permission-weight), [Permission Threshold](#permission-threshold)
+**Related**:
+
+- [Permission](#permission)
+- [Account](#account)
+- [Permission Level](#permission-level)
+- [Permission Weight](#permission-weight)
+- [Permission Threshold](#permission-threshold)
 
 ---
 
@@ -68,7 +74,7 @@ A Node Operator Producer is an identifiable entity composed of one or more indiv
 
 The list of block producers who currently have the possibility of being selected to produce the next block. This list changes with every new block.
 
-**Related** Node Operator
+**Related** [Node Operator](#node-operator)
 
 ## Block-Producing Node
 
@@ -80,13 +86,11 @@ A blockchain application is a software application that has integrated a blockch
 
 ## Byzantine Fault Tolerance
 
-In the context of distributed systems, Asyncronous Byzantine Fault Tolerance (aBFT) is the ability of a distributed computer network to function as desired and correctly reach a sufficient consensus despite malicious components (nodes) of the system failing or propagating incorrect information to other peers. In an Wire based blockchain BFT is achieved using a combination of Appointed Proof of Stake, the last irreversible block, and the fact that a producer cannot sign two blocks with the same block number. **Related** Irreversible Block Delegated Proof of Stake
+In the context of distributed systems, Asyncronous Byzantine Fault Tolerance (aBFT) is the ability of a distributed computer network to function as desired and correctly reach a sufficient consensus despite malicious components (nodes) of the system failing or propagating incorrect information to other peers. In an Wire based blockchain aBFT is achieved using a combination of Appointed Proof of Stake, the last irreversible block, and the fact that a producer cannot sign two blocks with the same block number.
 
 ## CPU
 
 CPU is processing power granted to an account by an Wire based blockchain. The amount of CPU an account has is measured in microseconds, and represents the amount of processing time an account has at its disposal when executing its actions.
-
-<!-- CPU is recalculated after each block is produced, based on the amount of system tokens the account staked for CPU bandwidth in proportion to the amount of total system tokens staked for CPU bandwidth at that time. -->
 
 ## Chain State
 
@@ -146,7 +150,7 @@ A consensus of replicated, shared, and synchronized digital data geographically 
 
 Wire source code defines a list of types which ease the developer's work when writing smart contracts, plugins, or when extending the Wire source code. Example types include `account_name`, `permission_name`, `table_name`, `action_name`, `scope_name`, `weight_type`, `public_key`, etc.
 
-## wire cdt
+## Wire CDT
 
 The toolchain to build WebAssembly (WASM) and set of tools to facilitate smart contract development for the Wire platform.
 
@@ -205,7 +209,9 @@ Wire wraps the [boost multi-index C++](https://www.boost.org/doc/libs/1_75_0/lib
 
 Multi Index Tables, are a way to cache state and/or data in RAM for fast access. Multi index tables support create, read, update, and delete (CRUD) operations, something which the blockchain doesn't (it only supports create and read). Multi index tables are stored in Wire RAM and each smart contract using a multi index table reserves a partition of the RAM cache. Access to each partition is controlled using the table name, code, and scope, and can have up to 16 indexes or indices defined.
 
-*Synonyms* Multiple Index Tables **Related** Indices
+*Synonyms* Multiple Index Tables
+
+**Related** [Indices](#indices)
 
 ## Multisig
 
@@ -225,7 +231,7 @@ NET is required to store transactions on an Wire based blockchain. The amount of
 
 A full node running nodeop that is only watching and verifying for itself each block, and maintaining its own local full copy of the blockchain. A non-producing node that is in the "standby pool" can, through the process of being voted in, become a Producing Node. A producing node, if voted out, will become a non-producing node. For large Wire changes, non-producing nodes are outside the realm of the "standby pool".
 
-**Related** Block-Producing Node Guide: Configuring a block-producing node, [Block Producing Node](#block-producing-node)
+**Related** [Block Producing Node](#block-producing-node)
 
 ## Oracle
 
@@ -257,9 +263,9 @@ The sum of permission weights necessary for a signature to be considered valid.
 
 ## Permission Weight
 
-A permission weight is a value given to an account for authorization purposes. This is typically used in the context of a mutli-sig to give one or more accounts more control over a multi-sig than others. *Synonyms* Authorization
+A permission weight is a value given to an account for authorization purposes. This is typically used in the context of a mutli-sig to give one or more accounts more control over a multi-sig than others.
 
-**Related** Permission Account
+*Synonyms* Authorization
 
 ## Permission level
 
@@ -283,7 +289,9 @@ Privileged accounts are accounts which can execute transactions while skipping t
 
 ## Privileged Account
 
-At the genesis of an Wire based blockchain, there is only one account present, Wire which is the main system account. **Related** Account
+At the genesis of an Wire based blockchain, there is only one account present, Wire which is the main system account.
+
+**Related** [Account](#account)
 
 ## Public Key
 
@@ -327,7 +335,9 @@ An action within a validated transaction, that is, an action whose transaction w
 
 ## Reversible Block
 
-Any block on an Wire based blockchain with a block number greater than the last irreversible block. Reversible blocks are blocks that are not currently guaranteed to be on the blockchain. **Related** Irreversible Block
+Any block on an Wire based blockchain with a block number greater than the last irreversible block. Reversible blocks are blocks that are not currently guaranteed to be on the blockchain.
+
+**Related** [Irreversible Block](#irreversible-block)
 
 ## Ricardian Contract
 

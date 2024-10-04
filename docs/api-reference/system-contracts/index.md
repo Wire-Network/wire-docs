@@ -34,7 +34,7 @@ RAM is the memory (space, storage) where the blockchain stores data. If your con
 
 ### CPU
 
-CPU is processing power, the amount of CPU an account has is measured in microseconds, it is referred to as "cpu bandwidth" on the clio get account command output and represents the amount of processing time an account has at its disposal when pushing actions to a contract.
+CPU is processing power, the amount of CPU an account has is measured in microseconds, it is referred to as "cpu bandwidth" on the [`clio get account`](../tooling/clio/command-reference/get/account.md) command output and represents the amount of processing time an account has at its disposal when pushing actions to a contract.
 
 ### NET
 
@@ -42,13 +42,20 @@ As CPU and RAM, NET is also a very important resource in Wire-based blockchains.
 
 ## System contracts defined in [wire-system-contracts](https://github.com/Wire-Network/wire-system-contracts)
 
-1. [sysio.bios](#sysiobios-system-contract)
-2. [sysio.system](#sysiosystem-system-contract)
-3. [sysio.msig](#sysiomsig-system-contract)
-4. [sysio.token](#sysiotoken-system-contract)
-5. [sysio.wrap](#sysiowrap-system-contract)
+- [About System Contracts](#about-system-contracts)
+  - [Concepts](#concepts)
+    - [System contracts, system accounts, priviledged accounts](#system-contracts-system-accounts-priviledged-accounts)
+    - [RAM](#ram)
+    - [CPU](#cpu)
+    - [NET](#net)
+  - [System contracts defined in wire-system-contracts](#system-contracts-defined-in-wire-system-contracts)
+    - [`sysio.bios` contract](#sysiobios-contract)
+    - [`sysio.system` contract](#sysiosystem-contract)
+    - [`sysio.msig` contract](#sysiomsig-contract)
+    - [`sysio.token` contract](#sysiotoken-contract)
+    - [`sysio.wrap` contract](#sysiowrap-contract)
 
-### sysio.bios system contract
+### `sysio.bios` contract
 
 The `sysio.bios` is a minimalist system contract because it only supplies the actions that are absolutely critical to bootstrap a chain and nothing more. This allows for a chain agnostic approach to bootstrapping a chain.
 
@@ -77,7 +84,7 @@ Below are listed the actions which are declared in the `sysio.bios` contract, ma
 |onerror|Called every time an error occurs while a transaction was processed.|
 |setcode|Allows for update of the contract code of an account.|
 
-### sysio.system system contract
+### `sysio.system` contract
 
 The `sysio.system` contract is another smart contract that Block.one provides an implementation for as a sample system contract.  It is a version of `sysio.bios` only this time it is not minimalist, it contains more elaborated structures, classes, methods, and actions needed for an Wire based blockchain core functionality:
 
@@ -138,7 +145,7 @@ The actions implemented and publicly exposed by the `sysio.system` system contra
 |onblock|This special action is triggered when a block is applied by the given producer and cannot be generated from any other source.|
 |claimrewards|Claim block producing and vote rewards for block producer identified by an account.|
 
-### sysio.msig system contract
+### `sysio.msig` contract
 
 The `sysio.msig` allows for the creation of proposed transactions which require authorization from a list of accounts, approval of the proposed transactions by those accounts required to approve it, and finally, it also allows the execution of the approved transactions on the blockchain.
 
@@ -153,7 +160,7 @@ These are the actions implemented and publicly exposed by the `sysio.msig` contr
 |exec|Allows an account to execute a proposal.|
 |invalidate|Invalidate proposal.|
 
-### sysio.token system contract
+### `sysio.token` contract
 
 The `sysio.token` contract defines the structures and actions that allow users to create, issue, and manage tokens for Wire-based blockchains.
 
@@ -168,7 +175,7 @@ These are the public actions the `sysio.token` contract is implementing:
 |transfer|Allows an account to transfer to another account the specified token quantity. One account is debited and the other is credited with the specified token quantity.|
 |retire|This action is the opposite for `create` action.  If all validations succeed, it debits the specified amount of tokens from the total balance.|
 
-### sysio.wrap system contract
+### `sysio.wrap` contract
 
 The `sysio.wrap` system contract allows node owners to bypass authorization checks or run privileged actions with 15/21 producer approval.
 

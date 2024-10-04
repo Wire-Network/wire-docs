@@ -2,8 +2,6 @@
 sidebar_position: 3
 id: install-dependencies
 title: Install Dependencies
-toc_max_heading_level: 5
-toc_min_heading_level: 2
 tags:
   - installation 
   - dev setup

@@ -37,12 +37,10 @@ const sidebars: SidebarsConfig = {
       link: {
         type: "doc",
         id: "getting-started/getting-started-intro",
-        // keywords: ["setup"],
       },
       collapsed: false,
       label: "Getting Started",
       items: [
-        // "getting-started/getting-started", // Main page (can be omitted if it's linked above)
         "getting-started/install-dependencies",
         "getting-started/launch-local-node",
         "getting-started/system-requirements",
@@ -95,11 +93,8 @@ const sidebars: SidebarsConfig = {
     {
       type: "category",
       link: {
-        // type: "generated-index",
         type: "doc",
         id: "api-reference/tooling/index",
-        // id: "api-reference/api-reference-intro",
-        // keywords: ["tooling", "reference", "cdt", "core"],
       },
       collapsed: false,
       label: "Tooling",
@@ -343,7 +338,7 @@ const sidebars: SidebarsConfig = {
               type: "category",
               label: "how to",
               items: [
-                "api-reference/tooling/clio/how-to-guides/how-to-submit-a-transaction",
+                "api-reference/tooling/clio/guides/how-to-submit-a-transaction",
               ],
             },
           ],
@@ -470,12 +465,9 @@ const sidebars: SidebarsConfig = {
                 "api-reference/tooling/nodeop/how-to/how-to-restore-snapshot-with-full-history",
               ],
             },
-            // "api-reference/tooling/nodeop/rpc-apis",
             "api-reference/tooling/nodeop/troubleshooting",
-            // "api-reference/tooling/nodeop/usage",
           ],
         },
-        // TODO: category docs need renamind and edits
         {
           type: "category",
           label: "Wire CDT",

@@ -24,6 +24,7 @@ import * as Preset from "@docusaurus/preset-classic";
 //   "vsDark",
 //   "vsLight",
 // ];
+
 const config: Config = {
   title: "Wire Docs",
   tagline: "Official Wire Network Documentation",
@@ -31,12 +32,8 @@ const config: Config = {
 
   // Set the production url of your site here
   url: "https://docs.wire.network",
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
   plugins: ["@docusaurus/theme-live-codeblock"],
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
   organizationName: "Wire-Network",
   projectName: "wire-docs",
   deploymentBranch: "gh-pages",
@@ -60,13 +57,18 @@ const config: Config = {
       {
         docs: {
           sidebarPath: "./sidebars.ts",
-          editUrl: "https://github.com/Wire-Network/wire-docs",
+          editUrl: "https://github.com/Wire-Network/wire-docs/edit/master",
         },
         blog: false,
         sitemap: {
           changefreq: "weekly",
           priority: 0.5,
-          ignorePatterns: ["/tags/**", "/index-off", "/markdown-page"],
+          ignorePatterns: [
+            "/tags/**",
+            "/index-off",
+            "/markdown-page",
+            "/docs/api-reference/tooling/clio/how-to-guides",
+          ],
           filename: "sitemap.xml",
         },
         theme: {
@@ -102,8 +104,11 @@ const config: Config = {
       },
     ],
   ],
-
   themeConfig: {
+    tableOfContents: {
+      minHeadingLevel: 2,
+      maxHeadingLevel: 6,
+    },
     docs: {
       sidebar: {
         hideable: true,
@@ -111,7 +116,6 @@ const config: Config = {
       },
     },
     hideOnScroll: true,
-    // Replace with your project's social card
     liveCodeBlock: {
       playgroundPosition: "bottom",
     },
@@ -146,7 +150,7 @@ const config: Config = {
         //   position: "left",
         // },
         {
-          href: "https://github.com/Wire-Network/wire-docs",
+          href: "https://github.com/Wire-Network",
           label: "GitHub",
           // html: `<img src="img/github.png" style="width: 30px; height: 30px;" />`,
           position: "right",
@@ -158,18 +162,10 @@ const config: Config = {
         alt: "Wire Network Logo",
         src: "https://wire.foundation/favicon.ico",
         width: 80,
-        height: 51,
+        height: 80,
       },
       style: "dark",
       links: [
-        {
-          items: [
-            {
-              label: "GitHub",
-              to: "https://github.com/Wire-Network",
-            },
-          ],
-        },
         {
           title: "Social",
           items: [
@@ -202,34 +198,13 @@ const config: Config = {
     prism: {
       theme: prismThemes.dracula,
       darkTheme: prismThemes.palenight,
-      additionalLanguages: [
-        // "powershell",
-        // "cpp",
-        "php",
-        "bash",
-        "json",
-        // "typescript",
-        // "javascript",
-        // "wasm"
-      ],
+      additionalLanguages: ["php", "bash", "json"],
     },
     algolia: {
-      // The application ID provided by Algolia
       appId: "17BRJEIISS",
-      // Public API key: it is safe to commit it
       apiKey: "d63efc4f24c3834793e915a5a4838d07",
       indexName: "wire",
       contextualSearch: false,
-      // Optional: see doc section below
-      // contextualSearch: true,
-      // Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
-      // externalUrlRegex: "external\\.com|domain\\.com",
-      // Optional: Algolia search parameters
-      // searchParameters: {},
-      // // Optional: path for sarch page that enabled by default (`false` to disable it)
-      // searchPagePath: "search",
-      // // Optional: whether the insights feature is enabled or not on Docsearch (`false` by default)
-      // insights: false,
     },
   } satisfies Preset.ThemeConfig,
 };

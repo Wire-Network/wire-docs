@@ -2,9 +2,6 @@
 sidebar_position: 2
 id: smart-contracts-wirejs
 title: Using SDK Core
-toc_max_heading_level: 5
-toc_min_heading_level: 2
-
 ---
 
 # Smart Contract Interactions with `sdk-core` JS library
