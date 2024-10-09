@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /**
  * Any CSS included here will be global. The classic template
  * bundles Infima by default. Infima is a CSS framework designed to
@@ -39,12 +43,11 @@
   --ifm-color-primary-lighter: #6c9cff;
   --ifm-color-primary-lightest: #9cbcff;
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1)
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
-
 /* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
+[data-theme="dark"] {
   --ifm-color-primary: #3d7cff;
   --ifm-color-primary-dark: #1d67ff;
   --ifm-color-primary-darker: #0e5cff;
@@ -53,50 +56,48 @@
   --ifm-color-primary-lighter: #6c9cff;
   --ifm-color-primary-lightest: #9cbcff;
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1)
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
-
 
 :root {
   --docusaurus-highlighted-code-line-bg: rgb(72, 77, 91);
 }
 
-[data-theme='dark'] {
+[data-theme="dark"] {
   --docusaurus-highlighted-code-line-bg: rgb(89, 85, 85);
 }
 
-
 /* Style for JSON keys (properties) */
 .token.key {
-  color: #56b6c2; 
+  color: #56b6c2;
 }
 
 /* Style for JSON strings (values) */
 .token.value {
-  color: #98c379 !important; 
+  color: #98c379 !important;
 }
 
 /* Style for JSON numbers */
 .token.number {
-  color: #d19a66; 
+  color: #d19a66;
 }
 
 /* Style for JSON booleans (true, false) */
 .token.boolean {
-  color: #e06c75; 
+  color: #e06c75;
 }
 
 /* Style for JSON null */
 .token.null-value {
-  color: #61afef; 
+  color: #61afef;
 }
 
 /* Style for punctuation (like brackets and commas) */
 .token.punctuation {
-  color: #abb2bf; 
+  color: #abb2bf;
 }
 
 /* Style for operator (colon) */
 .token.operator {
-  color: #56b6c2; 
+  color: #56b6c2;
 }
