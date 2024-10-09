@@ -8,36 +8,33 @@ slug: /introduction/wns-overview
 
 ## Introduction
 
-Blockchain interoperability is the ability different blockchains to communicate and exchange data while maintaing decentralization. With the growing number of blockchain networks and projects launched in the last decade, each with diverse protocols and architechture, and adding the lack of standardization for cross-chain communication,the dream of one-solution-fits-all remains elusive. Many companies in the blockchain landscape have attempted to create different solutions, like traditional bridges and variations of those, side-chains, parachains, messaging protocols and many others.
+Blockchain interoperability refers to the ability of different blockchain networks to communicate and exchange data while maintaining decentralization. With the proliferation of diverse blockchain projects over the past decade—each employing unique protocols and architectures—the challenge of seamless cross-chain interoperability has become increasingly complex. The lack of standardization in this domain has made the vision of a universal solution elusive. Various organizations have attempted to address interoperability through methods such as traditional bridges, side-chains, parachains, messaging protocols, and other innovations.
 
-Solutions like Chainlink, Layer 0, Wormhole, Polkadot, Cosmos differ from one another, but have one thing in common - they are gateways for potential security vulnerabilities and/or decentralization is compromised by relying on a 3rd party entity for cross-chain transactions. Bridges or oracles or combination of those have been and most likely are always going to be the prime target for malicious activities, due to their flawed architechture. Dependence on centralized components also affects security - centralized points that can be attacked or compromised, as evidenced by various security breaches throughout the years. Moreover, such models drift away from the decentralized ideal and transperancy of the trasaction system even further.
+While these solutions offer different approaches, they often share common drawbacks. Many introduce potential security vulnerabilities and may compromise decentralization by relying on third-party entities for cross-chain transactions. Bridges and oracles, for example, have been prime targets for malicious activities due to architectural flaws that create centralized points of failure. Dependence on centralized components not only poses security risks but also diverges from the decentralized ideals that underpin blockchain technology. Such models can also diminish transparency within transaction systems.
 
-Additionally due to the heterogenous nature of blockchain technology, there is the persistent issue of those solutions' compatibility with new and existing networks; they are inherently limited by the number of chains that they can support.
+Moreover, the heterogeneous nature of blockchain technology presents ongoing compatibility issues with both new and existing networks. Many interoperability solutions are inherently limited by the number of chains they can support, restricting their effectiveness in a rapidly evolving ecosystem.
 
-In its core, Wire Name Service(WNS) is a collection of multiple settlement layers spaning across supported blockchains, collectively forming Wire's *universal transaction layer*.
+At its core, Wire Network is designed to overcome these challenges. Wire Name Service (WNS), when combined with the Wire layer-1 settlement layer and the Universal Polymorphic Address Protocol, collectively forms to create a *Universal Transaction Layer* (UTL).
 
-WNS aims to achieve true interoperability through efficient, low-cost, and high-throughput transactions while maintaining high security and operational integrity. This article explores the details of WNS’s architecture and processes.
+This article explores the architecture and processes of Wire Network and WNS, detailing how it addresses the inherent challenges of blockchain interoperability and sets a new standard for seamless cross-chain transactions.
 
 ## Design
 
-WNS's design is a hub-and-spoke model(see diagram below). This design enables transactions between different blockchain networks through a central hub, providing a seamless, secure and cost-efficient way for assets to move between chains.
+The UTL's design is a hub-and-spoke model (see diagram below). This design enables transactions between different blockchain networks through a universal hub, providing a seamless, secure and cost-efficient way for environment for assets to interact & move between chains.
 
 ![wns-design](../../static/img/wns-design.png)
 
 ## Settlement Layer
 
-The settlement layer is the backbone transaction system of Wire Network, responsible for managing the flow of assets into, within, and out of the network.
-It is comprised of native settlement and target chain('escrow' or 'bucket') contracts, each with distinct functions at the different stages of an asset’s lifecycle.
-Settlement layer may exist for different asset types and subsets of assets on the target blockchain. These contracts are designed to be chain-agnostic, offering several significant advantages:
+Wire's layer-1 blockchain operates as the settlement layer for Wire Network. It is the backbone of the system, responsible for tracking the flow of assets into, within, and out of the network.
 
-- **Scalability** Settlement layer's structure can be replicated and adapted to any EVM-based or EOS-based blockchains.
-- **User Experience** Users can perform cross-chain transactions without needing to understand or interact with the underlying mechanics and complexities of each blockchain.
+The settlement layer leverages high-performance blockchain technology to ensure rapid transaction speeds and substantial throughput, essential for supporting enterprise-grade applications and high-frequency trading. It utilizes the settle.wns smart contracts to maintain a comprehensive ledger of all assets deposited into the UTL and their ownership details. These contracts update ownership records with each transaction, ensuring transparency, security, and immutability of the transaction history.
 
-In practical terms, a settlement contract linked to the hub can interface with multiple chains through interactions with escrow contract(s) deployed on the origin chains. When assets enter the hub in the form of wrapped tokens, transactions can occur within the network itself (i.e., the hub), without actually leaving the origin chain.
+WNS is comprised of native settlement and target chain ('escrow' or 'bucket') contracts, each with distinct functions at the different stages of an asset’s lifecycle.
 
 ## Security Principles
 
-The security framework of WNS is robust, relying on multiple checks and balances to prevent malicious activities. Key features are the use of standard cryptographic proofs to verify transactions, implementation of UTXO model to track transaction outputs; as well utilizing a completely independent sub-chain to aid with the transaction verification process. This sub-chain, also knowns as S-chain(stands for *settlement*) includes only the relevant transactions and data needed for the target chain, allowing for fast and efficient processing.
+The security framework of WNS is robust, relying on multiple checks and balances to prevent malicious activities. Key features are the use of standard cryptographic proofs to verify transactions, implementation of UTXO model to track transaction outputs; as well utilizing a completely independent sub-chain to aid with the transaction verification process. This sub-chain, also knowns as S-chain (stands for *settlement*) includes only the relevant transactions and data needed for the target chain, allowing for fast and efficient processing.
 
 ### UTXO
 
@@ -55,8 +52,3 @@ The transaction consumes these UTXOs fully, creating two new outputs:
 2. A new UTXO of 2 USDC for Bob, which is the leftover or “change” from the original UTXOs.
 
 After the transaction, Bob now holds a new UTXO of 2 USDC, and Alice has a new UTXO of 15 USDC.
-
-**Read more about:**
-
-- [Deposits](./deposits.md)
-- [Transaction lifecycle explained](./wns-trx-flow.md)
