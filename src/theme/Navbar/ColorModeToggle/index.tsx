@@ -15,17 +15,17 @@ export default function NavbarColorModeToggle({
   }
 
   const handleToggleMode = (
-    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
     setColorMode(colorMode === "dark" ? "light" : "dark");
   };
 
   return (
-    <a
+    <button
       onClick={handleToggleMode}
       className="grid h-8 w-8 cursor-pointer place-items-center rounded-full text-darkest hover:bg-darkest/[.1] dark:text-white dark:hover:bg-white/[.1]">
       {colorMode === "dark" ? <SunIcon size={24} /> : <MoonIcon size={24} />}
-    </a>
+    </button>
   );
 }

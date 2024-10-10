@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Sora:wght@100..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -35,6 +38,9 @@
 } */
 
 :root {
+  --font-body: "Montserrat", sans-serif;
+  --font-heading: "Sora", sans-serif;
+
   --ifm-color-primary: #3d7cff;
   --ifm-color-primary-dark: #1d67ff;
   --ifm-color-primary-darker: #0e5cff;

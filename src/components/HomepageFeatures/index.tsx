@@ -1,11 +1,8 @@
 import clsx from "clsx";
-import Heading from "@theme/Heading";
-import styles from "./styles.module.css";
 import Link from "@docusaurus/Link";
 
 type FeatureItem = {
   title: string;
-  // Svg: React.ComponentType<React.ComponentProps<'svg'>>;
   description: JSX.Element;
   link: string;
 };
@@ -58,86 +55,34 @@ const FeatureList: FeatureItem[] = [
   // },
 ];
 
-// function Feature({title, description}: FeatureItem) {
-//   return (
-//     <div className={clsx('col col--5 card padding--md margin-sm')}>
-
-//       {/* <div className="text--center">
-//         <Svg className={styles.featureSvg} role="img" />
-//       </div> */}
-//       <div className="text--center padding-horiz--md">
-
-//         <Heading as="h3">{title}</Heading>
-//         <p>{description}</p>
-//         <div className={styles.buttons}>
-//           <Link
-//             className="button button--secondary button--lg"
-//             to="/docs">
-//             Get started
-//           </Link>
-//         </div>
-//       </div>
-
-//     </div>
-//   );
-// }
-
 function Feature({ title, description, link }: FeatureItem) {
   return (
-    <div className={clsx("col col--4")}>
-      <div className="card-demo">
-        <div className="card text--center">
-          <div className="card__header">
-            <h3>{title}</h3>
-          </div>
-          <div className="card__body">
-            <p className="card-content">{description}</p>
-          </div>
-          <div className="card__footer">
-            <Link className="button button--secondary button--lg" to={link}>
-              {title}
-            </Link>
-          </div>
-          {/* <div className={styles.buttons}>
-            <Link
-              className="button button--secondary button--lg button--block"
-              to={link}>
-              {title}
-            </Link>
-          </div> */}
-        </div>
+    <div className="text--center col-span-12 flex flex-col gap-y-2 rounded-lg border border-darkest/[.05] p-8 shadow-lg lg:col-span-4 dark:bg-white/[.05] dark:shadow-none">
+      <div className="text-xl font-bold">
+        <h3>{title}</h3>
       </div>
-      {/* <div className="card-demo text--center">
-  <div className="card">
-    <div className="card__header">
-      <h3>Lorem Ipsum</h3>
-    </div>
-    <div className="card__body">
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Quis ipsum
-        suspendisse ultrices gravida.
-      </p>
-    </div>
-    <div className="card__footer">
-      <button className="button button--secondary button--block">See All</button>
-    </div>
-  </div>
-</div> */}
+      <div className="text-balance">
+        <p className="text-balance">{description}</p>
+      </div>
+      <div className="mt-6 flex shrink-0 grow basis-1 flex-row items-end justify-center">
+        <Link
+          to={link}
+          className="font-body relative gap-2 rounded-lg border-none bg-button-gradient px-8 py-3 text-base font-medium tracking-wide text-white no-underline outline-none transition-[background-position] duration-300 ease-in-out before:absolute before:inset-0 before:h-full before:w-full before:rounded-lg before:border-2 before:border-white/[.25] before:bg-transparent hover:bg-button-gradient-end hover:text-white hover:no-underline md:w-max">
+          {title}
+        </Link>
+      </div>
     </div>
   );
 }
 
 export default function HomepageFeatures(): JSX.Element {
   return (
-    <section className={styles.features}>
-      <div className="container">
-        <div className="row">
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
-          ))}
-        </div>
+    <div className="container py-12">
+      <div className="grid grid-cols-12 gap-x-4 gap-y-6">
+        {FeatureList.map((props, idx) => (
+          <Feature key={idx} {...props} />
+        ))}
       </div>
-    </section>
+    </div>
   );
 }

@@ -10,7 +10,6 @@ import SearchBar from "@theme/SearchBar";
 import NavbarMobileSidebarToggle from "@theme/Navbar/MobileSidebar/Toggle";
 import NavbarLogo from "../Logo";
 import NavbarSearch from "@theme/Navbar/Search";
-
 import styles from "./styles.module.css";
 import { GithubLogo } from "@site/src/components/logos/socials/github";
 

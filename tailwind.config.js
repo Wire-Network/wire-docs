@@ -29,6 +29,10 @@ const config = {
       headerBg: "rgba(0,0,0, var(--header-opacity))",
     },
     extend: {
+      fontFamily: {
+        body: ["var(--font-body)", "sans"],
+        heading: ["var(--font-heading)", "sans"],
+      },
       animation: {
         "fade-in": "fade-in",
         "fade-out": "fade-out",
@@ -102,6 +106,8 @@ const config = {
         "button-gradient-end": "100% 0%",
       },
       backgroundImage: {
+        "contact-gradient":
+          "linear-gradient(to bottom right, #6a36ff 30%, #AC5FE6 100%)",
         "masthead-gradient":
           "linear-gradient(to bottom, #000000 30%, #0c1a34 100%)",
         "masthead-shadow":

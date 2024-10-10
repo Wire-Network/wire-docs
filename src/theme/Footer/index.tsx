@@ -35,19 +35,20 @@ function Footer(): JSX.Element | null {
             </h6>
             <ul className="flex flex-col gap-4">
               <li>
-                <a
-                  target="_blank"
+                <Link
+                  to="/docs/category/wire-basics"
                   className="transiton font-body cursor-pointer text-base text-white duration-150 hover:text-purple-light"
                   href="https://wire.network/#about">
-                  About
-                </a>
+                  Developer Portal
+                </Link>
               </li>
               <li>
-                <a
+                <Link
+                  to="/docs/api-reference/quick-reference"
                   className="transiton font-body cursor-pointer text-base text-white duration-150 hover:text-purple-light"
                   href="mailto:docs@wire.network">
-                  Contact Us
-                </a>
+                  API Reference
+                </Link>
               </li>
             </ul>
           </div>
