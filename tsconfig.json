@@ -3,6 +3,10 @@
   "extends": "@docusaurus/tsconfig",
   "compilerOptions": {
     "baseUrl": ".",
-    "outDir": "dist"
+    "outDir": "dist",
+    "paths": {
+      "@theme/*": ["src/theme/*"],
+      "@site/*": ["./*"]
+    }
   }
 }

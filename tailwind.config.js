@@ -6,7 +6,7 @@ import twTypography from "@tailwindcss/typography";
 
 /** @type {import('tailwindcss').Config} */
 const config = {
-  darkMode: "class",
+  darkMode: ["selector", '[data-theme="dark"]'],
   content: ["./src/**/*.{jsx,tsx,html}"],
   theme: {
     colors: {
