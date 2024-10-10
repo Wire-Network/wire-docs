@@ -150,12 +150,6 @@ const config: Config = {
         //   label: "News",
         //   position: "left",
         // },
-        {
-          href: "https://github.com/Wire-Network",
-          label: "GitHub",
-          // html: `<img src="img/github.png" style="width: 30px; height: 30px;" />`,
-          position: "right",
-        },
       ],
     },
     footer: {
