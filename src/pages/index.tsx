@@ -30,7 +30,7 @@ function ContactBanner() {
         </p>
         <p>
           Feel free to email your input to us at{" "}
-          <a className="underline" href="mailto:docs@wire.network">
+          <a className="text-white underline" href="mailto:docs@wire.network">
             docs@wire.network
           </a>
         </p>
