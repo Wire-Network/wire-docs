@@ -41,7 +41,7 @@ export default function Layout(props: Props): JSX.Element {
       <div
         id={SkipToContentFallbackId}
         className={clsx(
-          "bg-white dark:bg-darkest",
+          "bg-white pt-[60px] dark:bg-darkest",
           ThemeClassNames.wrapper.main,
           styles.mainWrapper,
           wrapperClassName

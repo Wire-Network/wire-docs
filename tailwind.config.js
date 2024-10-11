@@ -1,11 +1,13 @@
-const { fontFamily } = require("tailwindcss/defaultTheme");
-
 import twAspectRatio from "@tailwindcss/aspect-ratio";
 import twContainerQueries from "@tailwindcss/container-queries";
 import twTypography from "@tailwindcss/typography";
 
 /** @type {import('tailwindcss').Config} */
 const config = {
+  corePlugins: {
+    corePlugins: { preflight: false },
+    container: false,
+  },
   darkMode: ["selector", '[data-theme="dark"]'],
   content: ["./src/**/*.{jsx,tsx,html}"],
   theme: {
