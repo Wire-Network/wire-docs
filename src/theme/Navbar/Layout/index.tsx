@@ -36,7 +36,7 @@ export default function NavbarLayout({ children }: Props): JSX.Element {
         description: "The ARIA label for the main navigation",
       })}
       className={clsx(
-        "navbar z-50 bg-white dark:border-b dark:border-[var(--ifm-toc-border-color)] dark:bg-darkest",
+        "navbar fixed top-0 z-50 w-full bg-white dark:border-b dark:border-[var(--ifm-toc-border-color)] dark:bg-darkest",
         hideOnScroll && [
           styles.navbarHideable,
           !isNavbarVisible && styles.navbarHidden,
