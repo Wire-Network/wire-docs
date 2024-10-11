@@ -67,7 +67,7 @@ function Feature({ title, description, link }: FeatureItem) {
       <div className="mt-6 flex shrink-0 grow basis-1 flex-row items-end justify-center">
         <Link
           to={link}
-          className="font-body relative gap-2 rounded-lg border-none bg-button-gradient px-8 py-3 text-base font-medium tracking-wide text-white no-underline outline-none transition-[background-position] duration-300 ease-in-out before:absolute before:inset-0 before:h-full before:w-full before:rounded-lg before:border-2 before:border-white/[.25] before:bg-transparent hover:bg-button-gradient-end hover:text-white hover:no-underline md:w-max">
+          className="relative gap-2 rounded-lg border-none bg-button-gradient px-8 py-3 font-body text-base font-medium tracking-wide text-white no-underline outline-none transition-[background-position] duration-300 ease-in-out before:absolute before:inset-0 before:h-full before:w-full before:rounded-lg before:border-2 before:border-white/[.25] before:bg-transparent hover:bg-button-gradient-end hover:text-white hover:no-underline md:w-max">
           {title}
         </Link>
       </div>
