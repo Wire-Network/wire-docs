@@ -22,8 +22,8 @@ function HomepageHeader() {
 
 function ContactBanner() {
   return (
-    <div className="bg-contact-gradient flex w-full flex-col justify-center bg-white py-10">
-      <div className="font-body text-md container text-center font-medium text-white">
+    <div className="flex w-full flex-col justify-center bg-white bg-contact-gradient py-10">
+      <div className="text-md container text-center font-body font-medium text-white">
         <p>
           We welcome the community&apos;s suggestions to help improve our
           documentation.

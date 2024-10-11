@@ -1,3 +1,5 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable @docusaurus/no-untranslated-text */
 import React from "react";
 
 import Link from "@docusaurus/Link";
