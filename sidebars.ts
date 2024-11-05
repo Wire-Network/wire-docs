@@ -27,8 +27,8 @@ const sidebars: SidebarsConfig = {
       items: [
         "introduction/overview",
         "introduction/wns-overview",
-        // "introduction/wns-trx-flow",
-        // "introduction/deposits",
+        "introduction/wns-trx-flow",
+        "introduction/deposits",
         "introduction/glossary",
       ],
     },
@@ -58,6 +58,7 @@ const sidebars: SidebarsConfig = {
       collapsed: false,
       items: [
         "smart-contract-development/smart-contract-basics",
+        "smart-contract-development/accounts-permissions",
         "smart-contract-development/block-explorer",
         "smart-contract-development/hello-world-contract-short",
         "smart-contract-development/company-contract",
