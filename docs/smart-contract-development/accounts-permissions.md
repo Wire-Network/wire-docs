@@ -68,9 +68,9 @@ The potential actors who may execute the action are specified by either **public
 
 #### Authority Threshold
 
-Authorization over a given action is determined by satisfying all explicit authorizations specified in the action instance. Those are in turn individually satisfied by evaluating each "factor" (account, public key, wait) for satisfaction (potentially recursively) and summing the weights of those that are satisfied. If the sum equals or exceeds the weight threshold, the action is authorized.
+Authorization over a given action is determined by satisfying all explicit authorizations specified in the action instance. Those are in turn individually satisfied by evaluating each *factor* (account, public key, wait) for satisfaction and summing the weights of those that are satisfied. If the sum equals or exceeds the weight threshold, the action is authorized.
 
-#### Authority Example
+**Example:**
 
 The authority table for `jack`'s `release-code` named permission is shown in the diagram below. In order to authorize an action under that permission, a threshold of 2 must be reached. 
 
