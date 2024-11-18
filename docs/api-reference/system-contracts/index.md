@@ -19,7 +19,7 @@ Not all system accounts contain a system contract, but each system account has i
 |sysio.wrap|Yes|It contains the `sysio.wrap` contract.|Simplifies block producer superuser actions by making them more readable and easier to audit.|
 |sysio.token|No|It contains the `sysio.token` contract.|Defines the structures and actions allowing users to create, issue, and manage tokens on Wire based blockchains.|
 |sysio.names|No|No|The account which is holding funds from namespace auctions.|
-<!-- |sysio.bpay|No|No|The account that pays the block producers for producing blocks. It assigns 0.25% of the inflation based on the amount of blocks a block producer created in the last 24 hours.| -->
+|sysio.bpay|No|No|The account that pays the block producers for producing blocks. It assigns 0.25% of the inflation based on the amount of blocks a block producer created in the last 24 hours.|
 |sysio.prods|No|No|The account representing the union of all current active block producers permissions.|
 |sysio.ram|No|No|The account that keeps track of the SYS balances based on users actions of buying or selling RAM.|
 |sysio.ramfee|No|No|The account that keeps track of the fees collected from users RAM trading actions: 0.5% from the value of each trade goes into this account.|
