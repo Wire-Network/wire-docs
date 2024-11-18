@@ -27,8 +27,8 @@ const sidebars: SidebarsConfig = {
       items: [
         "introduction/overview",
         "introduction/wns-overview",
-        // "introduction/wns-trx-flow",
-        // "introduction/deposits",
+        "introduction/wns-trx-flow",
+        "introduction/deposits",
         "introduction/glossary",
       ],
     },
@@ -57,7 +57,21 @@ const sidebars: SidebarsConfig = {
       label: "Smart Contract Development",
       collapsed: false,
       items: [
-        "smart-contract-development/smart-contract-basics",
+        "smart-contract-development/accounts-permissions",
+        {
+          type: "category",
+          label: "Smart Contract Basics",
+          link: {
+            type: "doc",
+            id: "smart-contract-development/smart-contract-basics",
+          },
+          collapsed: false,
+          items: [
+            "smart-contract-development/types",
+            "smart-contract-development/actions",
+            "smart-contract-development/state-data",
+          ],
+        },
         "smart-contract-development/block-explorer",
         "smart-contract-development/hello-world-contract-short",
         "smart-contract-development/company-contract",
