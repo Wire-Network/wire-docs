@@ -27,8 +27,8 @@ const sidebars: SidebarsConfig = {
       items: [
         "introduction/overview",
         "introduction/wns-overview",
-        "introduction/wns-trx-flow",
-        "introduction/deposits",
+        // "introduction/wns-trx-flow",
+        // "introduction/deposits",
         "introduction/glossary",
       ],
     },
