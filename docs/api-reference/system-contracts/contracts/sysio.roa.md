@@ -21,7 +21,7 @@ Permissions: `roa@active`
 
 ### `addpolicy`
 
-Adds a row to [`policies`](#policies) scoped to Node Owner, checks if Node Owner has enough `SYS` and updates [`reslimit`](#reslimit) respectively.
+Adds a row to [`policies`](#policies) scoped to Node Owner, checks if Node Owner has enough `SYS` and updates [`reslimit`](#reslimit) respectively. If a row exists, it increments weights; else add a row for `owner`.
 
 | Parameter Name | Type       | Description        |
 |----------------|------------|--------------------|
