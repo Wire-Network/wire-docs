@@ -1,8 +1,11 @@
-## Goal
+---
+id: how-to-create-a-wallet
+---
 
-Create a wallet using `kiod`.
 
-## Before you begin
+# Create a Wallet
+
+## Prerequisites
 
 Make sure you meet the following requirements:
 
@@ -15,47 +18,41 @@ Make sure you meet the following requirements:
 :::
 
 * Understand what an [account](/docs/introduction/glossary.md#account) is and its role in the blockchain.
-* Understand Accounts and Permissions in the protocol documents.
+* Understand [Accounts and Permissions](/docs/smart-contract-development/accounts-permissions.md) in the protocol documents.
 * Understand what a [public](/docs/introduction/glossary.md#public-key) and [private](/docs/introduction/glossary.md#private-key) key pair is.
 
-## Steps
+## Command
 
-Perform the step below:
-
-Create a default or named wallet and save the wallet password to a file:
+To create `default` or a named wallet and save the wallet password to a file, you can run:
 
 ```sh
 clio wallet create [-n named_wallet] -f <file_to_save_pwd>
 ```
 
-Where `file_to_save_pwd` is the name of the file to write the wallet password to and `named_wallet` is an optional parameter to assign a name to the wallet.
+### Create a `default` wallet
 
-Some examples are provided below:
+Create a `default` wallet and save the password to the file `default_wallet.pwd`:
 
-* Create a default wallet and save the password to the file `default_wallet.pwd`:
-
-**Example Output**
+#### Example Output
 
 ```sh
 clio wallet create -f default_wallet.pwd
-```
 
-```console
 Creating wallet: default
 Save password to use in the future to unlock this wallet.
 Without password imported keys will not be retrievable.
 saving password to default_wallet.pwd
 ```
 
+### Create a named wallet
+
 * Create a named wallet `my_wallet` and save the password to the file `my_wallet.pwd`:
 
-**Example Output**
+#### Example Output
 
 ```sh
 clio wallet create -n my_wallet -f my_wallet.pwd
-```
 
-```console
 Creating wallet: my_wallet
 Save password to use in the future to unlock this wallet.
 Without password imported keys will not be retrievable.

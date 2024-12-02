@@ -2,41 +2,40 @@
 title: net status
 ---
 
+## Description
+
+Returns the status of a connected peer. This command allows a node operator to check the status of a node's connected peer.
 
 ## Command
+
 ```sh
 clio net status [OPTIONS] host
 ```
 
-**Where:**
-* [OPTIONS] = See **Options** in the [**Command Usage**](#command-usage) section below.
-* host = The hostname:port to query status of connection
-
 **Note:** The arguments and options enclosed in square brackets are optional.
 
-## Description
-Returns the status of a connected peer. This command allows a node operator to check the status of a node's connected peer.
-
-## Command Usage
-The following information shows the different positionals and options you can use with the `clio net status` command:
-
 ### Positionals
+
 * `host` _TEXT_ REQUIRED - The hostname:port to query status of connection
 
 ### Options
+
 * `-h,--help` - Print this help message and exit
 
-## Requirements
-Make sure you meet the following requirements:
+## Usage
+
+### Prerequisites
 
 * Install the currently supported version of `clio`.
+
 :::note
 | The `clio` tool is bundled with the Wire software. [Installing Wire core](/docs/getting-started/install-dependencies.md) will install the `clio` and `kiod` command line tools.
 :::
 
 * You have access to a producing node instance with the [`net_api_plugin`](../../../nodeop/plugins/net-api-plugin.md) loaded.
 
-## Examples
+### Example
+
 The following examples demonstrate how to use the `clio net status` command:
 
 * List the status of a connected peer listening at p2p address `localhost:9001` for a local node listening at http address `http://127.0.0.1:8002`:
@@ -44,7 +43,9 @@ The following examples demonstrate how to use the `clio net status` command:
 ```sh
 clio -u http://127.0.0.1:8002 net status localhost:9001
 ```
+
 **Output:**
+
 ```json
 {
   "peer": "localhost:9001",
@@ -70,4 +71,4 @@ clio -u http://127.0.0.1:8002 net status localhost:9001
 }
 ```
 
-**Note:** The `last_handshake` field contains the chain state of the specified peer as of the last handshake message with the node. For more information read the [Handshake Message](https://developers.eos.io/welcome/latest/protocol/network_peer_protocol#421-handshake-message) in the *Network Peer Protocol* document.
+**Note:** The `last_handshake` field contains the chain state of the specified peer as of the last handshake message with the node. For more information read the [Handshake Message](https://developers.eos.io/welcome/latest/protocol/network_peer_protocol#421-handshake-message) in the _Network Peer Protocol_ document.

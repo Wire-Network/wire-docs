@@ -1,5 +1,5 @@
 ---
-title: How to Submit a Transaction
+title: Submit a Transaction
 ---
 
 ## Overview
@@ -10,28 +10,17 @@ This how-to guide provides instructions on how to submit, or push, a transaction
 
 * Install the currently supported version of `clio`
 
-<!-- TODO references -->
 * Understand the following:
   * What a [transaction](/docs/introduction/glossary.md#transaction) is.
   * How to generate a valid transaction JSON.
-    * Consult [clio push transaction](../command-reference/push/push-transaction.md) reference, and pay attention to option `-d` and `-j`.
-    * Consult [push transaction](../../../../../openapi/ChainApi.yaml#operation/push_transactions) endpoint for chain api plug-in, and pay attention to the payload definition.
+    * Consult [clio push transaction](../command-reference/push/push-transaction.md) reference, see options `-d` and `-j`.
+    * Consult [push transaction](../../../../../openapi/ChainApi.yaml#operation/push_transactions) endpoint for chain_api plugin and refer to the required payload.
 
-<!-- [](../../../../../openapi/ChainApi.yaml) -->
-
-## Procedure
-
-The following steps show how to:
-
-- [Overview](#overview)
-- [Prerequisites](#prerequisites)
-- [Procedure](#procedure)
-  - [1. Create the transaction as JSON snippet](#1-create-the-transaction-as-json-snippet)
-  - [2. Send the transaction](#2-send-the-transaction)
+## Steps
 
 ### 1. Create the transaction as JSON snippet
 
-You can create the JSON snippet defining the transaction in two ways:
+You can create the JSON defining the transaction in two ways:
 
 * Create a JSON snippet which contains a valid transaction and uses hex format for `data` field.
 
@@ -87,7 +76,7 @@ You can create the JSON snippet defining the transaction in two ways:
         "from": "han",
         "to": "sysio",
         "quantity": "0.0001 SYS",
-        "memo": "m"
+        "memo": "memo"
       }
     }
   ],
@@ -109,5 +98,5 @@ clio push transaction TRX_FILE.json
 * Alternatively, you can send the transaction using the JSON content directly:
 
 ```sh
-clio push transaction '{"expiration": "2019-08-01T07:15:49", "ref_block_num": 34881,"ref_block_prefix": 2972818865,"max_net_usage_words": 0,"max_cpu_usage_ms": 0,"delay_sec": 0,"context_free_actions": [],"actions": [{"account": "sysio.token","name": "transfer","authorization": [{"actor": "han","permission": "active"}],"data": {"from": "han","to": "sysio","quantity": "0.0001 SYS","memo": "m"}}],"transaction_extensions": [],"context_free_data": []}'
+clio push transaction '{"expiration": "2019-08-01T07:15:49", "ref_block_num": 34881,"ref_block_prefix": 2972818865,"max_net_usage_words": 0,"max_cpu_usage_ms": 0,"delay_sec": 0,"context_free_actions": [],"actions": [{"account": "sysio.token","name": "transfer","authorization": [{"actor": "han","permission": "active"}],"data": {"from": "han","to": "sysio","quantity": "0.0001 SYS","memo": "memo"}}],"transaction_extensions": [],"context_free_data": []}'
 ```

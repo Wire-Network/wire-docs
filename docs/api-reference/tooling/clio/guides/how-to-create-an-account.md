@@ -1,8 +1,8 @@
-## Goal
+# Create an Account
 
-Create a new Wire blockchain account
+In a Wire Blockchain, creating a new account is a priviledge reserved for existing account holders, who have sufficient system resources to submit a transaction and who have control over `sysio` account, which is typically the case on a local blockchain.
 
-## Before you begin
+## Prerequisites
 
 * Install the currently supported version of `clio`
 
@@ -10,12 +10,10 @@ Create a new Wire blockchain account
 | The `clio` tool is bundled with the Wire software. [Installing Wire Core](/docs/getting-started/install-dependencies.md) will also install the clio tool.
 :::
 
-* Acquire functional understanding of the following:
-  * Accounts and Permissions
-  * Asymmetric cryptography (public and private keypair)
-
-* Created an Owner and an Active key pair
-* [Import a private key](../how-to-guides/how-to-import-a-key.md) to the wallet which can authorize on behalf of a creator account
+* [Accounts and Permissions](/docs/smart-contract-development/accounts-permissions.md)
+* Understand [public](../../../../introduction/glossary.md#public-key) and [private key](../../../../introduction/glossary.md#private-key)
+* Created an Owner and an Active key pair. See how to create a key pairs [here](./how-to-create-key-pairs.md)
+* [Import a private key](../guides/how-to-import-a-key.md) to the wallet which can authorize on behalf of a creator account
 
 ## Steps
 

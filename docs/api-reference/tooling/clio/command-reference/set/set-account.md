@@ -51,7 +51,7 @@ The following information shows the different positionals and options you can us
 * `-r`,`--ref-block` _TEXT_ Set the reference block num or block id used for TAPOS (Transaction as Proof-of-Stake)
 * `--use-old-rpc` Use old RPC push_transaction, rather than new RPC send_transaction
 * `-p`,`--permission` _TEXT_ An account and permission level to authorize, as in 'account@permission' (defaults to 'account@active')
-* `--max-cpu-usage-ms` _UINT_ Set an upper limit on the milliseconds of cpu usage budget, for the execution of the transaction (defaults to 0 which means no limit)
+* `--max-cpu-usage-ms` _UINT_ Set an upper limit on the milliseconds of CPU usage budget, for the execution of the transaction (defaults to 0 which means no limit)
 * `--max-net-usage` _UINT_ Set an upper limit on the net usage budget, in bytes, for the transaction (defaults to 0 which means no limit)
 * `--delay-sec` _UINT_ Set the delay_sec seconds, defaults to 0s
 
@@ -126,7 +126,9 @@ clio set account permission alice customp EOS58wmANoBtT7RdPgMRCGDb37tcCQswfwVpj6
 ```shell
 executed transaction: 69c5297571ce3503edb9a1fd8a2f2a5cc1805ad19197a8751ca09093487c3cf8  160 bytes  134 us
 #         sysio <= sysio::updateauth            {"account":"alice","permission":"customp","parent":"active","auth":{"threshold":1,"keys":[{"key":"EOS...```
+```
 
-## See Also
-- [Accounts and Permissions](https://developers.eos.io/welcome/v2.1/protocol/accounts_and_permissions) protocol document.
-- [Creating and Linking Custom Permissions](https://developers.eos.io/welcome/v2.1/smart-contract-guides/linking-custom-permission) tutorial.
+## Resources
+
+* [Accounts and Permissions](/docs/smart-contract-development/accounts-permissions.md) protocol document.
+<!-- * [Creating and Linking Custom Permissions](https://developers.eos.io/welcome/v2.1/smart-contract-guides/linking-custom-permission) tutorial. -->

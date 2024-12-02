@@ -4,22 +4,29 @@ title: currency stats
 ---
 
 ## Description
+
 Retrieve the stats of for a given currency.
 
 ## Positionals
-`contract` _TEXT_  - The contract that operates the currency
 
-`symbol` _TEXT_ - The symbol for the currency if the contract operates multiple currencies
+- `contract` _TEXT_  - The contract that operates the currency
+
+- `symbol` _TEXT_ - The symbol for the currency if the contract operates multiple currencies
 
 ## Options
-There are no options for this subcommand
+
+- `-h,--help`                  Print this help message and exit
+
+- `-j,--json`                  Output in JSON format
 
 ## Example
-Get stats of the SYS token from the sysio.token contract. 
+
+Get stats of the SYS token from the `sysio.token` contract.
 
 ```sh
 clio get currency stats sysio.token SYS
 ```
+
 ```json
 {
   "SYS": {

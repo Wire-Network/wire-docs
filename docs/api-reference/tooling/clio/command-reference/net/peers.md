@@ -2,31 +2,29 @@
 title: net peers
 ---
 
+## Description
+
+Returns a list with the status of all peer connections. This command allows a node operator to check the status of a node's peer connections.
 
 ## Command
+
 ```sh
 clio net peers [OPTIONS]
 ```
 
-**Where:**
-* [OPTIONS] = See **Options** in the [**Command Usage**](#command-usage) section below.
-
 **Note:** The arguments and options enclosed in square brackets are optional.
 
-## Description
-Returns a list with the status of all peer connections. This command allows a node operator to check the status of a node's peer connections.
-
-## Command Usage
-The following information shows the different positionals and options you can use with the `clio net peers` command:
-
 ### Positionals
+
 * `host` _TEXT_ REQUIRED - The hostname:port to disconnect from
 
 ### Options
+
 * `-h,--help` - Print this help message and exit
 
-## Requirements
-Make sure you meet the following requirements:
+## Usage
+
+### Prerequisites
 
 * Install the currently supported version of `clio`.
   :::note
@@ -35,7 +33,8 @@ Make sure you meet the following requirements:
 
 * You have access to a producing node instance with the [`net_api_plugin`](../../../nodeop/plugins/net-api-plugin.md) loaded.
 
-## Examples
+### Example
+
 The following examples demonstrate how to use the `clio net peers` command:
 
 * List the status of all peer connections for a local node listening at http address `http://127.0.0.1:8001`:
@@ -43,7 +42,9 @@ The following examples demonstrate how to use the `clio net peers` command:
 ```sh
 clio -u http://127.0.0.1:8001 net peers
 ```
+
 **Output:**
+
 ```json
 [{
     "peer": "",
@@ -116,4 +117,4 @@ clio -u http://127.0.0.1:8001 net peers
 ]
 ```
 
-**Note:** The `last_handshake` field contains the chain state of each connected peer as of the last handshake message with the node. For more information read the [Handshake Message](https://developers.eos.io/welcome/latest/protocol/network_peer_protocol#421-handshake-message) in the *Network Peer Protocol* document.
+**Note:** The `last_handshake` field contains the chain state of each connected peer as of the last handshake message with the node. For more information read the [Handshake Message](https://developers.eos.io/welcome/latest/protocol/network_peer_protocol#421-handshake-message) in the _Network Peer Protocol_ document.

@@ -4,13 +4,15 @@ title: set contract
 ---
 
 ## Description
+
 Creates or updates the contract on an account.
 
-
 ## Positionals
+
  `account` _TEXT_ - The account to publish a contract for
   `wast-file`  _TEXT_ - The file containing the contract WAST or WASM
   `abi-file`  _TEXT_ - The ABI for the contract
+
 ## Options
 
 `-h,--help` Print this help message and exit
@@ -35,18 +37,20 @@ Creates or updates the contract on an account.
 
 `-p,--permission`  _TEXT_ - An account and permission level to authorize, as in 'account@permission' (defaults to 'account@active')
 
-`--max-cpu-usage-ms` _UINT_ - set an upper limit on the milliseconds of cpu usage budget, for the execution of the transaction (defaults to 0 which means no limit)
+`--max-cpu-usage-ms` _UINT_ - set an upper limit on the milliseconds of CPU usage budget, for the execution of the transaction (defaults to 0 which means no limit)
 
 `--max-net-usage` _UINT_ - set an upper limit on the net usage budget, in bytes, for the transaction (defaults to 0 which means no limit)
 
 `--delay-sec` _UINT_ - set the delay_sec seconds, defaults to 0s
 
 ## Example
-Here we deploy the standard currency contract. 
+
+Here we deploy the standard currency contract.
 
 ```sh
 clio set contract currency ../../../contracts/currency/currency.wast ../../../contracts/currency/currency.abi
 ```
+
 This will output something similar to...
 
 ```console
@@ -54,6 +58,7 @@ Reading WAST...
 Assembling WASM...
 Publishing contract...
 ```
+
 ```json
 {
   "transaction_id": "9990306e13f630a9c5436a5a0b6fb8fe2c7f3da2f342b4898a39c4a2c17dcdb3",

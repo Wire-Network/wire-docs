@@ -1,18 +1,24 @@
-## Goal
+---
+id: how-to-config-a-multisig
+---
 
-Setup an account that require multiple signatures for signning a transaction
+# Config a Multisig Account
 
-## Before you begin
+## Overview
+
+Setup an account that require multiple signatures for signing a transaction.
+
+## Prerequisites
 
 * You have an account
 
-* You have enough resoruces allocated to execute the transaction
+* You have enough resources allocated to execute the transaction
 
 * Install the currently supported version of `clio`
 
 * Understand the following:
-  * What is an account
-  * What is a transaction
+  * What is an [account](/docs/introduction/glossary.md#account)
+  * What is a [transaction](/docs/introduction/glossary.md#transaction)
 
 ## Steps
 

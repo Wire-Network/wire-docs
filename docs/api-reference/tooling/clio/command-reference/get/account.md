@@ -2,64 +2,45 @@
 id: account
 ---
 
+## Description
+
+Retrieve an account from the blockchain.
+
 ## Command
 
 ```bash
 clio get account [OPTIONS] name [core-symbol]
 ```
 
-**Where**
-
-* [OPTIONS] = See Options in [Command Usage](#command-usage) section below.
-
 **Note**: The arguments and options enclosed in square brackets are optional.
-
-## Description
-
-Retrieve an account from the blockchain
-
-## Command Usage
-
-The following information shows the different positional arguments and options you can use with the `clio create key` command:
 
 ### Positionals
 
-- `name` _TEXT_ - The name of the account to retrieve
-* `core-symbol` _TEXT_ - The expected core symbol of the chain you are querying - OPTIONAL
+* `name` _TEXT_ - The name of the account to retrieve
+
+* `core-symbol`(_optional_) _TEXT_ - The expected core symbol of the chain you are querying
 
 ### Options
 
-- `-h,--help` Print this help message and exit
+* `-h,--help` Print this help message and exit
+
 * `-j,--json` - Output in JSON format
-
-## Requirements
-
-* Install the currently supported version of `clio.`
-
-:::note
-
-| The `clio` tool is bundled with the Wire software. [Installing Wire core](/docs/getting-started/install-dependencies.md) will install the `clio` and `kiod` command line tools.
-
-:::
 
 ## Examples
 
-1. Get formatted data for user `sysio`
+1. Retrieve info for `sysio` account
 
 ```shell
 clio get account sysio
 ```
-
-**Where**
-`sysio` = The name of the account.
 
 **Example Output**
 
 ```console
 privileged: true
 permissions: 
-     owner     1:    1 EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
-        active     1:    1 EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+     owner     1:    1 SYS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+        active     1:    1 SYS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
 memory: 
      quota:        -1 bytes  used:      1.22 Mb   
 
@@ -78,7 +59,7 @@ producers:     <not voted>
 
 ---
 
-1. Get JSON data for user **sysio**
+1. Get JSON data for `sysio` account
 
 ```sh
 clio get account sysio --json
@@ -112,7 +93,7 @@ clio get account sysio --json
       "required_auth": {
         "threshold": 1,
         "keys": [{
-            "key": "EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+            "key": "SYS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
             "weight": 1
           }
         ],
@@ -125,7 +106,7 @@ clio get account sysio --json
       "required_auth": {
         "threshold": 1,
         "keys": [{
-            "key": "EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+            "key": "SYS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
             "weight": 1
           }
         ],
@@ -150,6 +131,3 @@ clio get account sysio --json
   }
 }
 ```
-
-<!-- ## See Also
-- [Accounts and Permissions](https://developers.eos.io/welcome/v2.1/protocol/accounts_and_permissions) protocol document. -->
