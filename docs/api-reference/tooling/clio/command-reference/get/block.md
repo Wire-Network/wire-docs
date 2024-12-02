@@ -3,21 +3,28 @@ id: block
 ---
 
 ## Description
+
 Retrieves a full block from the blockchain
 
 ## Positionals
+
 - `block` _TEXT_ - The number **or** ID of the block to retrieve
+
 ## Options
+
 - `--header-state` - Get block header state from fork database instead
 - `--info` - Get block info from the blockchain by block num only
+
 ## Example
 
-### Get the full block:
+### Get the full block
 
 ```sh
 clio get block 1
 ```
+
 or
+
 ```sh
 clio get block 0000000130d70e94e0022fd2fa035cabb9e542c34ea27f572ac90b5a7aa3d891
 ```
@@ -44,7 +51,7 @@ This will output a block object similar to the following:
 }
 ```
 
-### Get the block info:
+### Get the block info
 
 ```sh
 clio get block --info 1
@@ -68,6 +75,7 @@ This will output a block info object similar to the following:
   "ref_block_prefix": 3526296288
 }
 ```
+
 :::note
 The block info object has a fixed size and excludes the following fields: `new_producers`, `header_extensions`, `transactions`, `block_extensions`.
 :::

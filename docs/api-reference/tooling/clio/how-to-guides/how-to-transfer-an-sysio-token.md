@@ -1,8 +1,6 @@
-## Overview
+# Transfer a Token
 
-This how-to guide provides instructions on how to transfer tokens created by `sysio.token` contract.
-
-## Before you begin
+## Prerequisites
 
 * Install the currently supported version of `clio`.
 
@@ -18,7 +16,7 @@ See the following reference guides for command line usage and related options fo
 
 * The [clio transfer](../command-reference/transfer.md) reference.
 
-## Procedure
+## Example
 
 The following steps show how to transfer `0.0001 SYS` tokens to an account called `bob` from an account called `alice`:
 
@@ -41,7 +39,3 @@ executed transaction: 800835f28659d405748f4ac0ec9e327335eae579a0d8e8ef6330e78c9e
 #         alice <= sysio.token::transfer        {"from":"alice","to":"bob","quantity":"25.0000 SYS","memo":"m"}
 #           bob <= sysio.token::transfer        {"from":"alice","to":"bob","quantity":"25.0000 SYS","memo":"m"}
 ```
-
-## Summary
-
-In conclusion, the above instructions show how to transfer tokens created by `sysio.token` contract from one account to another.

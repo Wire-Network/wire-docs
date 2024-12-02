@@ -2,20 +2,28 @@
 id: transaction
 ---
 
+:::warning Deprecation Notice
+| **Important**: The command `clio get transaction <trx_id>` relies on the `history_api_plugin`, which in turn depends on the `history_plugin`. Please be aware that the `history_plugin` is **deprecated** and will no longer be maintained. For accessing historical blockchain data, consider using the `state_history_plugin` for full-history solutions or the `trace_api_plugin`.
+:::
+
 ## Description
+
 Retrieves a transaction from the blockchain.
 
 ## Positionals
-`id`` _TEXT_ - ID of the transaction to retrieve
+
+`id` _TEXT_ - ID of the transaction to retrieve
 
 ## Options
-` -b,--block-hint` UINT        the block number this transaction may be in
+
+`-b,--block-hint` UINT        the block number this transaction may be in
 
 **Command**
 
 ```sh
 clio get transaction
 ```
+
 **Output**
 
 ## Example
@@ -23,6 +31,7 @@ clio get transaction
 ```sh
 clio get transaction eb4b94b72718a369af09eb2e7885b3f494dd1d8a20278a6634611d5edd76b703
 ```
+
 ```json
 {
   "transaction_id": "eb4b94b72718a369af09eb2e7885b3f494dd1d8a20278a6634611d5edd76b703",
