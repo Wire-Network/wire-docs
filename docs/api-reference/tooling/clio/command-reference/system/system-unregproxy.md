@@ -1,5 +1,5 @@
 ---
-title: system rex unregproxy
+title: system unregproxy
 ---
 ## Description
 
