@@ -34,7 +34,31 @@ const config: Config = {
   // Set the production url of your site here
   url: "https://docs.wire.network",
   baseUrl: "/",
-  plugins: ["@docusaurus/theme-live-codeblock", tailwindLoader],
+  plugins: [
+    "@docusaurus/theme-live-codeblock",
+    tailwindLoader,
+    [
+      "@docusaurus/plugin-client-redirects",
+      {
+        redirects: [
+          {
+            to: "/docs",
+            from: "/docs/introduction/overview",
+          },
+        ],
+        createRedirects(existingPath) {
+          if (existingPath.includes("/community")) {
+            // Redirect from /docs/team/X to /community/X and /docs/support/X to /community/X
+            return [
+              existingPath.replace("/community", "/docs/team"),
+              existingPath.replace("/community", "/docs/support"),
+            ];
+          }
+          return undefined; // Return a falsy value: no redirect created
+        },
+      },
+    ],
+  ],
   organizationName: "Wire-Network",
   projectName: "wire-docs",
   deploymentBranch: "gh-pages",
@@ -143,6 +167,12 @@ const config: Config = {
           label: "API Reference",
           type: "docSidebar",
           sidebarId: "apiReferenceSidebar",
+          position: "left",
+        },
+        {
+          label: "Guides",
+          type: "docSidebar",
+          sidebarId: "guidesReferenceSidebar",
           position: "left",
         },
         // {

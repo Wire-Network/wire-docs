@@ -32,4 +32,4 @@ Replace the `contract_folder` with the path that points to your contract folder.
 
 ## Reference
 
-* [`clio set contract`](../command-reference/set/set-contract.md)
+* [`clio set contract`](/docs/api-reference/tooling/clio/command-reference/set/set-contract.md)

@@ -9,8 +9,8 @@ id: how-to-create-a-wallet
 
 Make sure you meet the following requirements:
 
-* Familiarize with the [`clio wallet create`](../command-reference/wallet/create.md) command and its parameters.
-* Familiarize with the other [`clio wallet`](../command-reference/wallet/index.md) commands.
+* Familiarize with the [`clio wallet create`](/docs/api-reference/tooling/clio/command-reference/wallet/create.md) command and its parameters.
+* Familiarize with the other [`clio wallet`](/docs/api-reference/tooling/clio/command-reference/wallet/index.md) commands.
 * Install the currently supported version of `clio`.
 
 :::info

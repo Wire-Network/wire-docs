@@ -33,6 +33,12 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   // {
+  //   title: "Guides",
+  //   // Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+  //   link: "/docs/guides",
+  //   description: <>Check out our simple guides to get you started.</>,
+  // },
+  // {
   //   title: 'Learning Center',
   //   // Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
   //   link: "/docs/learning_center",
