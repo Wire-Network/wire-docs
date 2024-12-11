@@ -16,7 +16,7 @@ The example uses `clio` to link a custom permission _customp_ in the account _al
 :::
 
 * You have a `sysio` account and access to the account's `active` private key.
-* You have created a custom permission. See [clio set account permission](../command-reference/set/set-account.md).
+* You have created a custom permission. See [clio set account permission](/docs/api-reference/tooling/clio/command-reference/set/set-account.md).
 
 ## Command
 
@@ -45,4 +45,4 @@ executed transaction: 4eb4cf3aea232d46e0e949bc273c3f0575be5bdba7b61851ab51d927cf
 
 See the following reference guides for command line usage and related options:
 
-* [clio set action permission](../command-reference/set/set-action.md) command
+* [clio set action permission](/docs/api-reference/tooling/clio/command-reference/set/set-action.md) command

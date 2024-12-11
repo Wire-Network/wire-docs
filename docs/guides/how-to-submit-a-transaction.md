@@ -13,8 +13,8 @@ This how-to guide provides instructions on how to submit, or push, a transaction
 * Understand the following:
   * What a [transaction](/docs/introduction/glossary.md#transaction) is.
   * How to generate a valid transaction JSON.
-    * Consult [clio push transaction](../command-reference/push/push-transaction.md) reference, see options `-d` and `-j`.
-    * Consult [push transaction](../../../../../openapi/ChainApi.yaml#operation/push_transactions) endpoint for chain_api plugin and refer to the required payload.
+    * Consult [clio push transaction](/docs/api-reference/tooling/clio/command-reference/push/push-transaction.md) reference, see options `-d` and `-j`.
+    * Consult [push transaction](../../openapi/ChainApi.yaml#operation/push_transactions) endpoint for chain_api plugin and refer to the required payload.
 
 ## Steps
 

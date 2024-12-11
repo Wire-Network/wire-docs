@@ -78,4 +78,4 @@ clio -u https://api.testnet.eos.io validate signatures '{ "expiration": "2020-04
 
 ## See Also
 
-- [How to submit a transaction](../../guides/how-to-submit-a-transaction.md)
+- [How to submit a transaction](/docs/guides/how-to-submit-a-transaction.md)

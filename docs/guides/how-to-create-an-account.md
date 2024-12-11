@@ -11,9 +11,9 @@ In a Wire Blockchain, creating a new account is a priviledge reserved for existi
 :::
 
 * [Accounts and Permissions](/docs/smart-contract-development/accounts-permissions.md)
-* Understand [public](../../../../introduction/glossary.md#public-key) and [private key](../../../../introduction/glossary.md#private-key)
+* Understand [public](/docs/introduction/glossary.md#public-key) and [private key](/docs/introduction/glossary.md#private-key)
 * Created an Owner and an Active key pair. See how to create a key pairs [here](./how-to-create-key-pairs.md)
-* [Import a private key](../guides/how-to-import-a-key.md) to the wallet which can authorize on behalf of a creator account
+* [Import a private key](./how-to-import-a-key.md) to the wallet which can authorize on behalf of a creator account
 
 ## Steps
 
