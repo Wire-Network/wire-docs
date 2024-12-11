@@ -42,8 +42,8 @@ const config: Config = {
       {
         redirects: [
           {
-            to: "/docs",
-            from: "/docs/introduction/overview",
+            from: "/docs",
+            to: "/docs/introduction/overview",
           },
         ],
         createRedirects(existingPath) {
