@@ -135,15 +135,15 @@ permission_level(
  When you call an inline action, **the contract initiating the call becomes the new sender**. For security reasons, the original authorization is **not** passed to the called contract. This prevents the called contract from performing actions on behalf of the original sender, such as transferring tokens without explicit permission.
 :::
 
-###### Setting Up Special Permission (`eosio.code`)
+###### Setting Up Special Permission (`sysio.code`)
 
-To allow your contract to call inline actions on other contracts,**you need to grant it the special `eosio.code` permission**. Without this permission, your contract cannot execute actions on other contracts.
+To allow your contract to call inline actions on other contracts,**you need to grant it the special `sysio.code` permission**. Without this permission, your contract cannot execute actions on other contracts.
 
 This permission is on the `active` permission level so that it allows other contracts using the `require_auth()` to verify that your contract has the authority to perform the action.
 
-###### How to Add the `eosio.code` Permission
+###### How to Add the `sysio.code` Permission
 
-Add the `eosio.code` permission to the contract account `active` permission to enable calling inline actions by the contract account's `active` permission.
+Add the `sysio.code` permission to the contract account `active` permission to enable calling inline actions by the contract account's `active` permission.
 
 ```sh
 clio set account permission yourcontract active --add-code -p yourcontract@active
