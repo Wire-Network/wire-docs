@@ -28,7 +28,7 @@ The Wire platform is supported on the following environments:
 
 ## System Info
 
-The subsequent tutorials([hello world contract](/docs/smart-contract-development/hello-world-contract-short.md), [company contract](/docs/smart-contract-development/company-contract.md)) are up to date with the following Wire components.
+The subsequent tutorials([hello world contract](../smart-contract-development/hello-world-contract-short.md), [company contract](../smart-contract-development/company-contract.md)) are up to date with the following Wire components.
 
 | Component          | Version |
 | ------------------ | ------- |

@@ -42,7 +42,7 @@ As CPU and RAM, NET is also a very important resource in Wire-based blockchains.
 
 ## System contracts defined in [wire-system-contracts](https://github.com/Wire-Network/wire-system-contracts)
 
-- [About System Contracts](#about-system-contracts)
+- About System Contracts
   - [Concepts](#concepts)
     - [System contracts, system accounts, priviledged accounts](#system-contracts-system-accounts-priviledged-accounts)
     - [RAM](#ram)
