@@ -26,59 +26,59 @@ clio get block [--info] <block_number_or_id>
 
 Some examples are provided below:
 
-* Query a testnet to retrieve full block information about block number `48351112` or block ID `02e1c7888a92206573ae38d00e09366c7ba7bc54cd8b7996506f7d2a619c43ba`:
+* Query a testnet to retrieve full block information about block number `110000` or block ID `0001adb09b790f991773d65fb535f686583f19d28c044fdc2e57cb16134600fa`:
 
 **Example Output**
 
 ```sh
-clio -u https://hyperion.wire.foundation get block 48351112
+clio -u https://testnet-hyperion.wire.foundation get block 110000 | jq .
 ```
 
 ```json
 {
-  "timestamp": "2024-10-23T15:42:31.500",
-  "producer": "validator3",
+  "timestamp": "2024-12-14T12:36:20.000",
+  "producer": "delta",
   "confirmed": 0,
-  "previous": "02e1c78734899ec03904154f0e8310d636cca88e2a8dda0d740d778b7cfcf356",
+  "previous": "0001adaf50055002bedc659112e3cee37fede0cd05efcf15786c3089ebc9f851",
   "transaction_mroot": "0000000000000000000000000000000000000000000000000000000000000000",
-  "action_mroot": "ec9948cff2cdc0311b1faf4e295398c61108800964f8cbe0d009b10eadb53f78",
+  "action_mroot": "913e3539d85282e5eb2668a66ed236afa4193b677fa56f8de8b2da03d68ad110",
   "schedule_version": 1,
   "new_producers": null,
-  "producer_signature": "SIG_K1_KWXichmkKaQ7Sh47FVPjrEujhb2BNeTtwhPG5kiUx5TkgHP7aBLjkgycmpc32LaLpQNSixeMFn7YF5NYE1KckuMo5C5yWD",
+  "producer_signature": "SIG_K1_K4y8Kbe6dKhBgdaAe2M5pad8i6B6VNNjbZNqfp1Gpez1sLh6sp471YhMceQLJaLKDXjX9TeHzGexcyN7qBjkPv3naRTSmJ",
   "transactions": [],
-  "id": "02e1c7886987b2c61c19b1e65dc3c134f00ee8132d9ab34bc3459fadd10aa7c0",
-  "block_num": 48351112,
-  "ref_block_prefix": 3870365980
+  "id": "0001adb09b790f991773d65fb535f686583f19d28c044fdc2e57cb16134600fa",
+  "block_num": 110000,
+  "ref_block_prefix": 1607889687
 }
 ```
 
-* Query the testnet to retrieve full block information about block ID `02e1c7886987b2c61c19b1e65dc3c134f00ee8132d9ab34bc3459fadd10aa7c0`:
+* Query the testnet to retrieve full block information about block ID `0001adb09b790f991773d65fb535f686583f19d28c044fdc2e57cb16134600fa`:
 
 **Example Output**
 
 ```sh
-clio -u https://hyperion.wire.foundation get block 02e1c7886987b2c61c19b1e65dc3c134f00ee8132d9ab34bc3459fadd10aa7c0
+clio -u https://testnet-hyperion.wire.foundation get block 0001adb09b790f991773d65fb535f686583f19d28c044fdc2e57cb16134600fa
 ```
 
 ```json
 {
-  "timestamp": "2024-10-23T15:42:31.500",
-  "producer": "validator3",
+  "timestamp": "2024-12-14T12:36:20.000",
+  "producer": "delta",
   "confirmed": 0,
-  "previous": "02e1c78734899ec03904154f0e8310d636cca88e2a8dda0d740d778b7cfcf356",
+  "previous": "0001adaf50055002bedc659112e3cee37fede0cd05efcf15786c3089ebc9f851",
   "transaction_mroot": "0000000000000000000000000000000000000000000000000000000000000000",
-  "action_mroot": "ec9948cff2cdc0311b1faf4e295398c61108800964f8cbe0d009b10eadb53f78",
+  "action_mroot": "913e3539d85282e5eb2668a66ed236afa4193b677fa56f8de8b2da03d68ad110",
   "schedule_version": 1,
   "new_producers": null,
-  "producer_signature": "SIG_K1_KWXichmkKaQ7Sh47FVPjrEujhb2BNeTtwhPG5kiUx5TkgHP7aBLjkgycmpc32LaLpQNSixeMFn7YF5NYE1KckuMo5C5yWD",
+  "producer_signature": "SIG_K1_K4y8Kbe6dKhBgdaAe2M5pad8i6B6VNNjbZNqfp1Gpez1sLh6sp471YhMceQLJaLKDXjX9TeHzGexcyN7qBjkPv3naRTSmJ",
   "transactions": [],
-  "id": "02e1c7886987b2c61c19b1e65dc3c134f00ee8132d9ab34bc3459fadd10aa7c0",
-  "block_num": 48351112,
-  "ref_block_prefix": 3870365980
+  "id": "0001adb09b790f991773d65fb535f686583f19d28c044fdc2e57cb16134600fa",
+  "block_num": 110000,
+  "ref_block_prefix": 1607889687
 }
 ```
 
-* Query the local chain to retrieve partial block information about block number `1`:
+* Query a local chain(omit the `-u` option) to retrieve partial block information about block number `3355011`:
 
 **Example Output**
 

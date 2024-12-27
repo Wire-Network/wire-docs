@@ -6,6 +6,11 @@ title: Create Development Accounts
 
 # Create Development Accounts
 
+## Prerequisites
+
+- You have successfully installed Wire Sysio and Wire CDT on your computer. See [Binary Installation](./install-dependencies.md#binary-installation) instructions.
+- You have completed [Launch Local Node](./launch-local-node.mdx) and [Create Development Wallet](./create-development-wallet.md) guides.
+  
 ## Overview
 
 This article gives a brief summary of the concept of account and provides instructions on how to create a new account.
@@ -74,3 +79,8 @@ Doublecheck if `nodeop` is running; and [restart](./launch-local-node.mdx#starti
 ```bash
 pidof nodeop
 ```
+
+## Reference
+
+- [clio create account](/docs/api-reference/tooling/clio/command-reference/create/account.md)
+- [clio get account](/docs/api-reference/tooling/clio/command-reference/get/account.md)

@@ -48,6 +48,21 @@ a {
   @apply list-disc; 
 }
 
+hr {
+  @apply border-0 my-2 h-px bg-[var(--ifm-color-emphasis-200)]
+}
+
+.breadcrumbs__item:first-child .breadcrumbs__link {
+  @apply inline-flex; 
+}
+
+.breadcrumbs__link svg {
+  transform: translateY(2px);
+}
+
+/* table {
+  @apply w-full table-auto;
+} */
 /**
  * Any CSS included here will be global. The classic template
  * bundles Infima by default. Infima is a CSS framework designed to
@@ -150,3 +165,4 @@ a {
 .token.operator {
   color: #56b6c2;
 }
+

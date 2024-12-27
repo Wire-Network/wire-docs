@@ -7,4 +7,6 @@ sidebar_label: Smart Contract Development
 
 # Overview
 
-The following tutorials are built with the purpose of familiarizing you with smart contract terminology and basic C++ contract development.
+Before proceeding forward, ensure that **you have completed Getting Started section** and that you have followed [Getting Started Documentation Diagram](/docs/getting-started/getting-started-intro.md).
+
+The following conceptual articles and tutorials are built with the purpose of familiarizing you with smart contract terminology and basic C++ contract development.

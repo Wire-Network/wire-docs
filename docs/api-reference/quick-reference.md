@@ -20,7 +20,7 @@ title: 'Quick API Reference'
 
 - [SDK Core](https://Wire-Network.github.io/sdk-core/)
 
-## Smart Contract Action References
+## System Contract Action References
 
 - [**sysio.system**](./system-contracts/contracts/sysio.system.md)
 - [**sysio.token**](./system-contracts/contracts/sysio.token.md)
@@ -28,3 +28,4 @@ title: 'Quick API Reference'
 - [**sysio.wrap**](./system-contracts/contracts/sysio.wrap.md)
 - [**sysio.bios**](./system-contracts/contracts/sysio.bios.md)
 - [**sysio.boot**](./system-contracts/contracts/sysio.bios.md)
+- [**sysio.roa**](./system-contracts/contracts/sysio.roa.md)

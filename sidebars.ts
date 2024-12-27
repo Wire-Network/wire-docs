@@ -30,8 +30,10 @@ const sidebars: SidebarsConfig = {
         // "introduction/wns-trx-flow",
         // "introduction/deposits",
         "introduction/glossary",
+        "introduction/network-information",
       ],
     },
+
     {
       type: "category",
       link: {
@@ -41,9 +43,9 @@ const sidebars: SidebarsConfig = {
       collapsed: false,
       label: "Getting Started",
       items: [
+        "getting-started/core-components",
         "getting-started/install-dependencies",
         "getting-started/launch-local-node",
-        "getting-started/system-requirements",
         "getting-started/create-development-wallet",
         "getting-started/create-development-accounts",
       ],
@@ -72,7 +74,7 @@ const sidebars: SidebarsConfig = {
             "smart-contract-development/state-data",
           ],
         },
-        "smart-contract-development/block-explorer",
+        // "smart-contract-development/block-explorer",
         "smart-contract-development/hello-world-contract-short",
         "smart-contract-development/company-contract",
         {
@@ -89,6 +91,21 @@ const sidebars: SidebarsConfig = {
             },
           ],
         },
+      ],
+    },
+    {
+      type: "category",
+      link: {
+        type: "generated-index",
+      },
+      collapsed: false,
+      label: "Wire Hub",
+      items: [
+        "wire-hub/connect-to-a-rpc",
+        "wire-hub/inspect-transaction",
+        "wire-hub/connect-a-wallet",
+        "wire-hub/create-wire-testnet-account",
+        "wire-hub/request-a-policy",
       ],
     },
   ],
@@ -521,6 +538,7 @@ const sidebars: SidebarsConfig = {
             "api-reference/system-contracts/contracts/sysio.system",
             "api-reference/system-contracts/contracts/sysio.token",
             "api-reference/system-contracts/contracts/sysio.wrap",
+            "api-reference/system-contracts/contracts/sysio.roa",
             "api-reference/system-contracts/build-and-deploy",
             // "api-reference/system-contracts/how-to-guides/how-to-buy-ram",
             "api-reference/system-contracts/how-to-guides/how-to-create-issue-and-transfer-a-token",

@@ -22,7 +22,7 @@ id: how-to-create-a-key-pair
 clio create key --to-console
 
 Private key: 5KPzrqNMJdr6AX6abKg*******************************cH
-Public key: EOS4wSiQ2jbYGrqiiKCm8oWR88NYoqnmK4nNL1RCtSQeSFkGtqsNc
+Public key: SYS4wSiQ2jbYGrqiiKCm8oWR88NYoqnmK4nNL1RCtSQeSFkGtqsNc
 ```
 
 * To create a keypair and save it to a file, run:

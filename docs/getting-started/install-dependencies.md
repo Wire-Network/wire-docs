@@ -24,10 +24,6 @@ Currently supported versions:
 
 ***
 
-#### Installation via `wire-cli`
-
-The quickest way to install Wire Sysio and Wire CDT softare is by using the [wire-cli](https://github.com/Wire-Network/wire-install?tab=readme-ov-file#genesis-node-setup). Refer to the installation instructions outlined in the README.md.
-
 #### Binary Installation
 
 If you’d prefer to install the binaries yourself, follow along with the instructions provided below.

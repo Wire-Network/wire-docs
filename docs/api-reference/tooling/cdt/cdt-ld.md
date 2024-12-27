@@ -1,9 +1,8 @@
-
+# cdt-ld
 
 The cdt-ld tool is a the custom web assembly linker for Wire Sysio framework smart contracts.
 
-
-```
+```sh
 USAGE: cdt-ld [options] <input file> ...
 
 OPTIONS:
