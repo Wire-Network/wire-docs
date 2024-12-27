@@ -9,7 +9,7 @@ const config = {
     container: false,
   },
   darkMode: ["selector", '[data-theme="dark"]'],
-  content: ["./src/**/*.{jsx,tsx,html}"],
+  content: ["./src/**/*.{js,jsx,ts,tsx,md,mdx}"],
   theme: {
     colors: {
       transparent: "transparent",

@@ -39,3 +39,6 @@ fix-md-files.sh
 .idea/
 .vscode
 build/
+
+file-tree-script.js
+fileTree.json

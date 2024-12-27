@@ -8,7 +8,7 @@ title: "Quick Start: Hello World Contract"
 
 ## Prerequisites
 
-- [Installation and Development Environment Setup](../getting-started/install-dependencies#binary-installation).
+- Before proceeding forward, ensure that **you have completed Getting Started section** and that you have followed [Getting Started Documentation Diagram](/docs/getting-started/getting-started-intro.md).
 - This page assumes you are familiar with [Smart Contract Basics](./smart-contract-basics.md).
 
 ## Steps
@@ -116,14 +116,6 @@ CLI output:
 
 ## Bonus ⭐️
 
-### Inspect the contract on EOS Authority Block Explorer
+### Inspect the contract on Wire Hub Block Explorer
 
-Feel free to explore your contract on [EOS Authority](./block-explorer.md), which also provides tools to generate ready-to-use `clio` commands, making it easier to push transactions and interact with your contracts directly. This is a great way to get hands-on experience and deepen your understanding of smart contracts.
-
-:::info
-
-Remember to replace `cleos` with `clio` in any generated commands to ensure compatibility with the Wire Sysio software.
-
-:::
-
-![inspect-hello](/img/be-inspect-hello.png)
+Feel free to explore your contract on [Wire Hub Block Explorer](https://hub.wire.network). Use this [guide](/docs/wire-hub/connect-to-a-rpc.md) to connect to your chain and inspect the contract.

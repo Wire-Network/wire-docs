@@ -13,7 +13,8 @@ This page will guide you to creating and developing a simple contract using Wire
 
 ## Prerequisites
 
-- [Smart Contract Basics](./smart-contract-basics.md)
+- Before proceeding forward, ensure that **you have completed Getting Started section** and that you have followed [Getting Started Documentation Diagram](/docs/getting-started/getting-started-intro.md).
+- This page assumes you are familiar with [Smart Contract Basics](./smart-contract-basics.md).
 
 ## Step-by-Step Guide to Creating a *Company Contract* Smart Contract
 

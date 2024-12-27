@@ -1,7 +1,6 @@
 ---
 sidebar_position: 1
 id: getting-started-intro
-sidebar_label: Getting Started
 tags:
   - wire-sysio
   - wire-cdt
@@ -10,45 +9,71 @@ tags:
   - kiod
 ---
 
-# Basic Components
+# Getting Started
 
-Wire Network blockchain platform comes with various components and tooling. See the table below for a brief explanation of each component.
+:::info
+The diagram below serves as a comprehensive roadmap, detailing the *sequential steps required to effectively utilize the documentation provided*. For optimal understanding and efficiency, it’s important to follow the order of the steps, beggining with this article, contunuing with setting up your local environment and progressing through the smart development contracts section.
 
-| Name | Function |
-| --- | --- |
-| `nodeop` | nodeop is the **core service daemon** that runs on every Wire node, responsible for processing smart contracts, validating transactions, producing blocks containing valid transactions, and confirming blocks to record them on the blockchain. It can be configured with various plugins to suit specific needs, including block production, dedicated API endpoints, and local development environments. As the main component of Wire, nodeop ensures efficient and secure operation of the blockchain network by leveraging its capabilities for transaction validation, smart contract processing, and block confirmation. |
-| `kiod` | kiod is the **key manager service daemon** that securely stores private keys and signs digital messages. It ensures that keys are encrypted at rest in the associated wallet file and provides a secure enclave for signing transactions created by `clio` or third-party libraries. |
-| `clio` | clio is a CLI that interfaces with the REST API exposed by nodeop. It also allows developers to deploy and test Wire smart contracts. |
-| `CDT` | The Contract Development Toolkit is a C/C++ toolchain targeting WebAssembly (WASM) and a set of tools to facilitate development and deployment of smart contracts written in C/C++. In addition to being a general-purpose WebAssembly toolchain, Wire-specific optimizations are available to support building Wire smart contracts. This new toolchain is built around Clang 7, which means that CDT has most of the current optimizations and analyses from LLVM. |
+:::
 
-The basic relationship between these components is illustrated in the following diagram:
+![infographic](/img/infographic.png)
 
-```mermaid
-flowchart LR
-    A[["Smart Contract Code"]] --> B(("CDT"))
-    B --> C["clio"]
-    C --> D["nodeop"]
-    C --> E["kiod"]
-    E --> C
-    D --> F[("Wire Blockchain")]
-```
+## Supported Operating Systems
 
-## Reference
+The Wire platform is supported on the following environments:
 
-- [nodeop](/docs/api-reference/tooling/nodeop/index.md)
-- [clio](/docs/api-reference/tooling/clio/index.md)
-- [kiod](/docs/api-reference/tooling/kiod/index.md)
+**Linux Distributions**:
+
+- Ubuntu v22 & v20
+
+## System Info
+
+The subsequent tutorials([hello world contract](/docs/smart-contract-development/hello-world-contract-short.md), [company contract](/docs/smart-contract-development/company-contract.md)) are up to date with the following Wire components.
+
+| Component          | Version |
+| ------------------ | ------- |
+| Wire Sysio Core Version | 3.1.6   |
+| Wire CDT                | 3.1.0   |
+| sysio.contracts    | 3.1.1   |
+| sdk-core           | 1.0.0   |
+
+## Development Experience
+
+Wire based blockchains execute user-generated applications and code using WebAssembly (WASM). WASM is an emerging web standard with widespread support from Google, Microsoft, Apple, and industry leading companies.
+
+At the moment the most mature toolchain for building applications that compile to WASM is clang/llvm with their C/C++ compiler.
+
+### Command Line Knowledge
+
+There are a variety of tools provided along with Wire core and CDT packages which requires you to have a basic command line knowledge in order to interact with them.
+
+### Development Tools
+
+We recommend using an Integrated Development Environment (IDE) rather than a text editor, as IDEs offer a more sophisticated code completion and a more comprehensive development experience. While you can use any text editor that supports C++ syntax highlighting, such as Sublime Text or Atom, IDEs provide additional features that can enhance your coding efficiency. You are welcome to use the software of your personal preference, but if you're unsure what to use, we've provided some options for you to explore.
+
+### IDEs
+
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [CLion](https://www.jetbrains.com/clion/)
+- [Eclipse](https://eclipseide.org/)
 
 :::info[NOTE]
 
-`kiod` can be accessed using the Wallet API, but it is important to note that the intended usage is for local light client applications. kiod is not for cross network access by web applications trying to access users' wallets.
-:::
-
-- [CDT Contract Development Kit](/docs/api-reference/tooling/cdt/index.md)
-<!-- CDT is a toolchain for WebAssembly (Wasm) and a set of tools to facilitate contract writing for the Wire framework. In addition to being a general-purpose WebAssembly toolchain, Wire-specific optimizations are available to support building Wire smart contracts. This new toolchain is built around Clang 7, which means that CDT has most of the current optimizations and analyses from LLVM. -->
-
-:::info[NOTE]
-
-Wire also provides a collection of JavaScript libraries published under [@wireio npm org](https://www.npmjs.com/org/wireio).
+The resources mentioned above are developed, offered, and maintained _by third parties_, **not** by Wire Network. Sharing information, materials, or commentaries about these third-party resources does not constitute an endorsement or recommendation by us. We disclaim any responsibility or liability for your use of or reliance on these resources. Third-party resources may be updated, changed, or terminated at any time, which could render the information below outdated or inaccurate. Your use and reliance on these resources are entirely at your own risk.
 
 :::
+
+## What You Will Learn
+
+- [Manage wallets and keys](./create-development-wallet.md)
+- [Create accounts](./create-development-accounts.md)
+- [Write your first contract](../smart-contract-development/hello-world-contract-short.md#1-clone-the-contract-repository)
+- [Compilation and ABI](../smart-contract-development/hello-world-contract-short.md#2-compile-the-contract)
+- [Contracts deployment](../smart-contract-development/hello-world-contract-short.md#3-deploy-the-contract)
+- [Utilizing Wire Hub Block Explorer](../wire-hub/connect-to-a-rpc.md)
+
+## Code Reference
+
+- [wire-sysio](https://github.com/Wire-Network/wire-sysio)
+- [wire-cdt](https://github.com/Wire-Network/wire-cdt)
+- [wire-system-contracts](https://github.com/Wire-Network/wire-system-contracts)

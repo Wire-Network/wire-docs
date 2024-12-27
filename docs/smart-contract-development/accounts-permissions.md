@@ -2,9 +2,11 @@
 
 A Wire account is a digital entity on the blockchain that identifies a participant, which can be an individual or a group. An account also represents the smart contract actors that send and receive actions to and from other accounts on the blockchain. Actions, which are the fundamental units of execution, are always encapsulated within transactions, allowing for one or more atomic actions to be grouped together.
 
+See account name restrictions [here](/docs/introduction/glossary.md#account-name).
+
 ## Public & Private Keys
 
-Every Wire account is ultimately controlled by a key pair (public and corresponding private key). While the public key is used to identify the account on the blockchain and can be publicly known, the private key which is used to sign each transaction must be kept secret at all times.
+Every Wire account is ultimately controlled by a key pair (public and corresponding private key). While the public key is used to identify the account on the blockchain and can be publicly known, the private key which is used to sign each transaction **must be kept secret at all times**.
 
 If you lose your private key, you will lose access to your account and all of its assets, smart contracts, and any other data associated with it.
 
@@ -72,7 +74,7 @@ Authorization over a given action is determined by satisfying all explicit autho
 
 **Example:**
 
-The authority table for `jack`'s `release-code` named permission is shown in the diagram below. In order to authorize an action under that permission, a threshold of 2 must be reached. 
+The authority table for `jack`'s `release-code` named permission is shown in the diagram below. In order to authorize an action under that permission, a threshold of 2 must be reached.
 
 Since both `katey@active` and `kyle@active` factors have a weight of 2, *either one can satisfy the action authorization*. This means that either `katey` or `kyle` with a permission level of `active` or higher can independently execute any action under `jack`'s `release-code` permission.
 

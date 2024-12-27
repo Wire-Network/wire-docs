@@ -24,7 +24,7 @@ import type {
 import type {
   InternalDocSearchHit,
   StoredDocSearchHit,
-} from "@docsearch/react/dist/esm/types";
+} from "@docsearch/react/dist/esm/index";
 import type { SearchClient } from "algoliasearch/lite";
 
 type DocSearchProps = Omit<
@@ -187,7 +187,6 @@ function DocSearch({
   const resultsFooterComponent: DocSearchProps["resultsFooterComponent"] =
     useMemo(
       () =>
-        // eslint-disable-next-line react/no-unstable-nested-components
         (footerProps: Omit<ResultsFooterProps, "onClose">): JSX.Element => (
           <ResultsFooter {...footerProps} onClose={closeModal} />
         ),
