@@ -16,7 +16,7 @@ See the following code reference:
 
 Make sure you have the following prerequisites in place:
 
-* A Wire development environment, for details consult the [Get Started Guide](https://docs.eosnetwork.com/docs/latest/getting-started/),
+* A Wire development environment, for details consult the [Getting Started](https://docs.wire.network/docs/getting-started/getting-started-intro) section of our docs.
 
 ## Procedure
 

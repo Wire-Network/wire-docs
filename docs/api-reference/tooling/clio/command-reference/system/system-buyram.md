@@ -11,7 +11,7 @@ clio system buyram [OPTIONS] payer receiver amount
 * [OPTIONS] = See Options in  [Command Usage](#command-usage) section below.
 * payer = The account paying for RAM.
 * receiver = The account receiving bought RAM.
-* amount = The amount of EOS to pay for RAM
+* amount = The amount of SYS to pay for RAM
 
 **Note**: The arguments and options enclosed in square brackets are optional.
 
