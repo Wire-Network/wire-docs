@@ -1,0 +1,49 @@
+type: "object"
+additionalProperties: false
+minProperties: 12
+required:
+  - "block_num"
+  - "ref_block_num"
+  - "id"
+  - "timestamp"
+  - "producer"
+  - "confirmed"
+  - "previous"
+  - "transaction_mroot"
+  - "action_mroot"
+  - "schedule_version"
+  - "producer_signature"
+  - "ref_block_prefix"
+properties:
+  block_num:
+    description: "height of this block in the chain"
+    type: "integer"
+  ref_block_num:
+    description: "least significant 16 bits of block number"
+    type: "integer"
+  id:
+    $ref: "Sha256.yaml"
+  timestamp:
+    $ref: "DateTimeSeconds.yaml"
+  producer:
+    oneOf:
+      - $ref: "EmptyString.yaml"
+      - $ref: "Name.yaml"
+  confirmed:
+    description: "number of prior blocks confirmed by the producer of this block in current producer schedule"
+    type: "integer"
+  previous:
+    $ref: "Sha256.yaml"
+  transaction_mroot:
+    $ref: "Sha256.yaml"
+  action_mroot:
+    $ref: "Sha256.yaml"
+  schedule_version:
+    description: "number of times producer schedule has changed since genesis"
+    type: "integer"
+  producer_signature:
+    $ref: "Signature.yaml"
+  ref_block_prefix:
+    description: "32-bit portion of block ID"
+    type: "integer"
+title: "BlockInfo"

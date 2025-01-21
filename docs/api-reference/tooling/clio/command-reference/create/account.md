@@ -53,12 +53,12 @@ clio create account inita tester SYS4toFS3YXEQCkuuw1aqDLrtHim86Gz9u3hBdcBw5KNPZc
     "refBlockPrefix": "2095475630",
     "expiration": "2017-07-25T17:54:55",
     "scope": [
-      "eos",
+      "lol",
       "inita"
     ],
     "signatures": [],
     "messages": [{
-        "code": "eos",
+        "code": "lol",
         "type": "newaccount",
         "authorization": [{
             "account": "inita",
