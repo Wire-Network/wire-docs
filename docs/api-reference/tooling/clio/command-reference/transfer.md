@@ -2,7 +2,7 @@
 
 Transfer tokens from account to account
 
-## Positionals
+## Positional Arguments
 
 - `sender` _TEXT_ - The account sending SYS
 - `recipient` _TEXT_ - The account receiving SYS
@@ -16,7 +16,7 @@ Transfer tokens from account to account
 - `-x,--expiration` - set the time in seconds before a transaction expires, defaults to 30s
 - `-f,--force-unique` - force the transaction to be unique. this will consume extra bandwidth and remove any protections against accidently issuing the same transaction multiple times
 - `-s,--skip-sign` - Specify if unlocked wallet keys should be used to sign transaction
-- `-j,--json` - print result as json
+- `-j,--json` - print result as JSON
 - `--json-file` _TEXT_ - save result in json format into a file
 - `-d,--dont-broadcast` - don't broadcast transaction to the network (just print to stdout)
 - `--return-packed` - used in conjunction with --dont-broadcast to get the packed transaction

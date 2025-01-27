@@ -6,7 +6,7 @@ id: table
 
 Retrieves the contents of a database table.
 
-## Positionals
+## Positional Arguments
 
 - `account` _TEXT_ - The account who owns the table where the smart contract was deployed
 

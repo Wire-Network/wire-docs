@@ -14,7 +14,7 @@ clio net peers [OPTIONS]
 
 **Note:** The arguments and options enclosed in square brackets are optional.
 
-### Positionals
+### Positional Arguments
 
 * `host` _TEXT_ REQUIRED - The hostname:port to disconnect from
 

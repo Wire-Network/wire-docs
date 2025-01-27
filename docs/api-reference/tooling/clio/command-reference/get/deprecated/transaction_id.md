@@ -11,7 +11,7 @@ title: transaction_id
 
 Get `transaction_id` given the transaction object.
 
-## Positionals
+## Positional Arguments
 
 `transaction` _TEXT_ - The JSON string or path to a file containing the transaction object.
 

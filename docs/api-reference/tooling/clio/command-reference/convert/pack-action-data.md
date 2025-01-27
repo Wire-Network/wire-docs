@@ -1,11 +1,11 @@
 ---
 id: pack-action-data
+title: pack_action_data
 ---
-
 
 ## Description
 
-From json action data to packed form
+This command is used to convert action data from a plain JSON to its binary(packed) representation.
 
 ## Positional arguments
 
@@ -20,11 +20,11 @@ From json action data to packed form
 ## Usage
 
 ```sh
- clio convert pack_action_data sysio unlinkauth '{"account":"test1", "code":"test2", "type":"sysiosysio"}'
+ clio convert pack_action_data sysio unlinkauth '{"account":"test1", "code":"test2", "type":"sysio"}'
 ```
 
 ## Output
 
 ```console
-000000008090b1ca000000000091b1ca000075982aea3055
+000000008090b1ca000000000091b1ca0000000000eab0c7
 ```

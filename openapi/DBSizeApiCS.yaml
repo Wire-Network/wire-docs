@@ -1,0 +1,111 @@
+openapi: 3.0.0
+info:
+  title: DB Size API
+  description: >-
+    Nodeop DB Size API Specification. See developer documentation at
+    https://docs.wire.network for information on enabling this plugin.
+  version: 1.0.0
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  contact:
+    url: https://wire.network
+servers:
+  - url: '{protocol}://{host}:{port}/v1/'
+    variables:
+      protocol:
+        enum:
+          - http
+          - https
+        default: http
+      host:
+        default: localhost
+      port:
+        default: '8080'
+components:
+  schemas: {}
+paths:
+  /db_size/get:
+    post:
+      summary: get
+      description: Retrieves database stats
+      operationId: get
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                description: Defines the database stats
+                properties:
+                  free_bytes:
+                    type: integer
+                  used_bytes:
+                    type: integer
+                  size:
+                    type: integer
+                  indices:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        index:
+                          type: string
+                        row_count:
+                          type: integer
+      x-codeSamples:
+        - lang: Shell
+          label: Shell
+          source: |-
+            curl --request POST \
+                 --url http://localhost:8080/v1/db_size/get \
+                 --header 'accept: application/json' \
+                 --header 'content-type: application/json'
+        - lang: Node
+          label: Node.js
+          source: |-
+            const url = 'http://localhost:8080/v1/db_size/get';
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+            fetch(url, options)
+              .then(res => res.json())
+              .then(json => console.log(json))
+              .catch(err => console.error(err));
+        - lang: Python
+          label: Python
+          source: |-
+            import requests
+
+            url = "http://localhost:8080/v1/db_size/get"
+
+            headers = {
+                "accept": "application/json",
+                "content-type": "application/json"
+            }
+
+            response = requests.post(url, headers=headers)
+
+            print(response.text)
+        - lang: Javascript
+          label: Javascript
+          source: |-
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+            fetch('http://localhost:8080/v1/db_size/get', options)
+              .then(res => res.json())
+              .then(res => console.log(res))
+              .catch(err => console.error(err));

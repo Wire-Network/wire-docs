@@ -84,7 +84,7 @@ clio create account --help
 Create a new account on the blockchain (assumes system contract does not restrict RAM usage)
 Usage: clio create account [OPTIONS] creator name OwnerKey [ActiveKey]
 
-Positionals:
+Positional Arguments:
   creator TEXT                The name of the account creating the new account (required)
   name TEXT                   The name of the new account (required)
   OwnerKey TEXT               The owner public key or permission level for the new account (required)
@@ -95,7 +95,7 @@ Options:
   -x,--expiration             set the time in seconds before a transaction expires, defaults to 30s
   -f,--force-unique           force the transaction to be unique. this will consume extra bandwidth and remove any protections against accidently issuing the same transaction multiple times
   -s,--skip-sign              Specify if unlocked wallet keys should be used to sign transaction
-  -j,--json                   print result as json
+  -j,--json                   print result as JSON
   --json-file TEXT            save result in json format into a file
   -d,--dont-broadcast         don't broadcast transaction to the network (just print to stdout)
   --return-packed             used in conjunction with --dont-broadcast to get the packed transaction

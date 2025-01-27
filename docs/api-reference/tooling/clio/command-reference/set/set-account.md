@@ -27,7 +27,7 @@ Set or update blockchain account state. Can be used to set parameters dealing wi
 
 The following information shows the different positionals and options you can use with the `clio set account` command:
 
-### Positionals
+### Positional Arguments
 
 * `account` _TEXT_ REQUIRED The account to set/delete a permission authority for
 

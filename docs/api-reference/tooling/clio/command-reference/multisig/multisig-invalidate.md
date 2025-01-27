@@ -8,7 +8,7 @@ title: multisig invalidate
 
 Invalidate all multisig approvals of an account.
 
-## Positionals
+## Positional Arguments
 
 - invalidator TEXT            invalidator name (string) (required)
 
@@ -18,7 +18,7 @@ Invalidate all multisig approvals of an account.
 - `-x,--expiration`             set the time in seconds before a transaction expires, defaults to 30s
 - `-f,--force-unique`           force the transaction to be unique. this will consume extra bandwidth and remove any protections against accidently issuing the same transaction multiple times
 - `-s,--skip-sign`              Specify if unlocked wallet keys should be used to sign transaction
-- `-j,--json`                   print result as json
+- `-j,--json`                   print result as JSON
 - `-d,--dont-broadcast`         don't broadcast transaction to the network (just print to stdout)
 - `--return-packed`             used in conjunction with --dont-broadcast to get the packed transaction
 - `-r,--ref-block` TEXT         set the reference block num or block id used for TAPOS (Transaction as Proof-of-Stake)

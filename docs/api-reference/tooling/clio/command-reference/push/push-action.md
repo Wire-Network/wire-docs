@@ -3,19 +3,15 @@ id: push-action
 title: push action
 ---
 
-
-
 ## Description
 
 Push a transaction with a single action
 
-## Positionals
+## Positional Arguments
 
--`contract` _Type: Text_ - The account providing the contract to execute
-
--`action` _Type: Text_ - The action to execute on the contract
-
--`data` _Type: Text_ - The arguments to the contract
+- `contract` _Type: Text_ - The account providing the contract to execute
+- `action` _Type: Text_ - The action to execute on the contract
+- `data` _Type: Text_ - The arguments to the contract
 
 ## Options
 
@@ -27,7 +23,7 @@ Push a transaction with a single action
 
 `-s,--skip-sign` - Specify if unlocked wallet keys should be used to sign transaction
 
-`-j,--json` - print result as json
+`-j,--json` - print result as JSON
 
 `-d,--dont-broadcast` - don't broadcast transaction to the network (just print to stdout)
 

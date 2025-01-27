@@ -44,7 +44,7 @@ clio set action permission
   [--max-net-usage <UINT>]         # Set the upper limit on network usage in bytes (default: no limit)
   [--delay-sec <UINT>]             # Set delay in seconds (default: 0s)
 ```
-<!-- ### Positionals
+<!-- ### Positional Arguments
 
 * `account` _TEXT_ <span style={{color: 'red'}}>REQUIRED</span> The account to set/delete a permission authority
 * `code` _TEXT_ REQUIRED The account that owns the code for the action

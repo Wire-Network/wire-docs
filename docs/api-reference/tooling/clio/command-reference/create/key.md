@@ -23,13 +23,14 @@ Creates a new keypair and either prints the public and private keys to the scree
 
 The following information shows the different positionals and options you can use with the `clio create key` command:
 
-### Positionals
+### Positional Arguments
 
-- none
+* none
 
 ### Options
 
-- `-h,--help` - Print this help message and exit
+* `-h,--help` - Print this help message and exit
+
 * `--r1` - Generate a key using the R1 curve (iPhone), instead of the K1 curve (Bitcoin)
 `-f`,`--file` _TEXT_ - Name of file to write private/public key output to. (Must be set, unless "--to-console" is passed
 `--to-console` - Print private/public keys to console.

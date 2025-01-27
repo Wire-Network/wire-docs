@@ -1,5 +1,5 @@
 type: "string"
-description: "Native and EOSIO types"
+description: "Native and SYSIO types"
 enum:
   - "uint8"
   - "uint16"

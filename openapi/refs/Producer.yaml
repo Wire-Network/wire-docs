@@ -14,4 +14,4 @@ properties:
     description: The total number of votes this producer has.
   producer_key:
     type: string
-    description: The producer public key registered with the EOS blockchain.
+    description: The producer public key registered with the blockchain.

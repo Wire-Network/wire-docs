@@ -7,7 +7,7 @@ title: set contract
 
 Creates or updates the contract on an account.
 
-## Positionals
+## Positional Arguments
 
  `account` _TEXT_ - The account to publish a contract for
   `wast-file`  _TEXT_ - The file containing the contract WAST or WASM

@@ -6,7 +6,7 @@ title: "system rex closerex"
 
 Delete unused REX-related user table entries.
 
-## Positionals
+## Positional Arguments
 
 - `owner` _TEXT_ - Account which owns the REX fund (required)
 
@@ -22,7 +22,7 @@ Delete unused REX-related user table entries.
 - `--max-cpu-usage-ms` _UINT_ - Set an upper limit on the milliseconds of CPU usage budget, for the execution of the transaction (defaults to 0 which means no limit)
 - `--max-net-usage` _UINT_ - Set an upper limit on the net usage budget, in bytes, for the transaction (defaults to 0 which means no limit)
 - `--delay-sec` _UINT_            set the delay_sec seconds, defaults to 0s
-- `-j,--json` print result as json
+- `-j,--json` print result as JSON
 
 ## Examples
 

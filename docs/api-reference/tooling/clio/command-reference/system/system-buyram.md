@@ -23,7 +23,7 @@ Use this command to buy RAM for a blockchain account on EOSIO.
 
 The following information shows the different positionals and options you can use with the `clio system buyram` command:
 
-### Positionals
+### Positional Arguments
 
 * `payer` _TEXT_ - The account paying for RAM
 

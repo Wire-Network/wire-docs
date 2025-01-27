@@ -4,7 +4,7 @@ title: system rex sellrex
 
 ## Description
 
-## Positionals
+## Positional Arguments
 
 - `from` _TEXT_ - Account selling REX tokens (required)
 - `rex` _TEXT_ - Amount of REX tokens to be sold (required)

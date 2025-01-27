@@ -1,0 +1,2432 @@
+openapi: 3.0.0
+info:
+  title: Chain API
+  description: >-
+    Nodeop Chain API Specification. See developer documentation at
+    https://docs.wire.network/docs/api-reference/tooling/nodeop/plugins/chain-plugin
+    for information on enabling this plugin.
+  version: 1.0.0
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  contact:
+    url: https://wire.netowrk
+servers:
+  - url: '{protocol}://{host}:{port}/v1/chain'
+    variables:
+      protocol:
+        enum:
+          - http
+          - https
+        default: http
+      host:
+        default: localhost
+      port:
+        default: '8080'
+components:
+  schemas: {}
+paths:
+  /get_account:
+    post:
+      description: >-
+        Returns an object containing various details about a specific account on
+        the blockchain.
+      operationId: get_account
+      requestBody:
+        description: JSON Object with single member "account_name"
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - account_name
+              properties:
+                account_name:
+                  $ref: refs/Name.yaml
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: refs/Account.yaml
+      x-codeSamples:
+        - lang: Shell
+          label: Shell
+          source: |-
+            curl --request POST \
+                 --url http://localhost:8080/v1/chain/get_account \
+                 --header 'accept: application/json' \
+                 --header 'content-type: application/json'
+        - lang: Node
+          label: Node.js
+          source: |-
+            const url = 'http://localhost:8080/v1/chain/get_account';
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+            fetch(url, options)
+              .then(res => res.json())
+              .then(json => console.log(json))
+              .catch(err => console.error(err));
+        - lang: Python
+          label: Python
+          source: |-
+            import requests
+
+            url = "http://localhost:8080/v1/chain/get_account"
+
+            headers = {
+                "accept": "application/json",
+                "content-type": "application/json"
+            }
+
+            response = requests.post(url, headers=headers)
+
+            print(response.text)
+        - lang: Javascript
+          label: Javascript
+          source: |-
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+            fetch('http://localhost:8080/v1/chain/get_account', options)
+              .then(res => res.json())
+              .then(res => console.log(res))
+              .catch(err => console.error(err));
+  /get_block:
+    post:
+      description: >-
+        Returns an object containing various details about a specific block on
+        the blockchain.
+      operationId: get_block
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - block_num_or_id
+              properties:
+                block_num_or_id:
+                  type: string
+                  description: Provide a `block number` or a `block id`
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: refs/Block.yaml
+      x-codeSamples:
+        - lang: Shell
+          label: Shell
+          source: |-
+            curl --request POST \
+                 --url http://localhost:8080/v1/chain/get_block \
+                 --header 'accept: application/json' \
+                 --header 'content-type: application/json'
+        - lang: Node
+          label: Node.js
+          source: |-
+            const url = 'http://localhost:8080/v1/chain/get_block';
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+            fetch(url, options)
+              .then(res => res.json())
+              .then(json => console.log(json))
+              .catch(err => console.error(err));
+        - lang: Python
+          label: Python
+          source: |-
+            import requests
+
+            url = "http://localhost:8080/v1/chain/get_block"
+
+            headers = {
+                "accept": "application/json",
+                "content-type": "application/json"
+            }
+
+            response = requests.post(url, headers=headers)
+
+            print(response.text)
+        - lang: Javascript
+          label: Javascript
+          source: |-
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+            fetch('http://localhost:8080/v1/chain/get_block', options)
+              .then(res => res.json())
+              .then(res => console.log(res))
+              .catch(err => console.error(err));
+  /get_block_info:
+    post:
+      description: >-
+        Similar to `get_block` but returns a fixed-size smaller subset of the
+        block data.
+      operationId: get_block_info
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - block_num
+              properties:
+                block_num:
+                  type: integer
+                  description: Provide a `block number`
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: refs/BlockInfo.yaml
+      x-codeSamples:
+        - lang: Shell
+          label: Shell
+          source: |-
+            curl --request POST \
+                 --url http://localhost:8080/v1/chain/get_block_info \
+                 --header 'accept: application/json' \
+                 --header 'content-type: application/json'
+        - lang: Node
+          label: Node.js
+          source: |-
+            const url = 'http://localhost:8080/v1/chain/get_block_info';
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+            fetch(url, options)
+              .then(res => res.json())
+              .then(json => console.log(json))
+              .catch(err => console.error(err));
+        - lang: Python
+          label: Python
+          source: |-
+            import requests
+
+            url = "http://localhost:8080/v1/chain/get_block_info"
+
+            headers = {
+                "accept": "application/json",
+                "content-type": "application/json"
+            }
+
+            response = requests.post(url, headers=headers)
+
+            print(response.text)
+        - lang: Javascript
+          label: Javascript
+          source: |-
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+            fetch('http://localhost:8080/v1/chain/get_block_info', options)
+              .then(res => res.json())
+              .then(res => console.log(res))
+              .catch(err => console.error(err));
+  /get_info:
+    post:
+      description: Returns an object containing various details about the blockchain.
+      operationId: get_info
+      security: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: refs/Info.yaml
+      x-codeSamples:
+        - lang: Shell
+          label: Shell
+          source: |-
+            curl --request POST \
+                 --url http://localhost:8080/v1/chain/get_info \
+                 --header 'accept: application/json'
+        - lang: Node
+          label: Node.js
+          source: >-
+            const url = 'http://localhost:8080/v1/chain/get_info';
+
+            const options = {method: 'POST', headers: {accept:
+            'application/json'}};
+
+
+            fetch(url, options)
+              .then(res => res.json())
+              .then(json => console.log(json))
+              .catch(err => console.error(err));
+        - lang: Python
+          label: Python
+          source: |-
+            import requests
+
+            url = "http://localhost:8080/v1/chain/get_info"
+
+            headers = {"accept": "application/json"}
+
+            response = requests.post(url, headers=headers)
+
+            print(response.text)
+        - lang: Javascript
+          label: Javascript
+          source: >-
+            const options = {method: 'POST', headers: {accept:
+            'application/json'}};
+
+
+            fetch('http://localhost:8080/v1/chain/get_info', options)
+              .then(res => res.json())
+              .then(res => console.log(res))
+              .catch(err => console.error(err));
+  /push_transaction:
+    post:
+      description: >-
+        This method expects a transaction in JSON format and will attempt to
+        apply it to the blockchain.
+      operationId: push_transaction
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                signatures:
+                  type: array
+                  description: array of signatures required to authorize transaction
+                  items:
+                    $ref: refs/Signature.yaml
+                compression:
+                  type: boolean
+                  description: Compression used, usually false
+                packed_context_free_data:
+                  type: string
+                  description: JSON to hex
+                packed_trx:
+                  type: string
+                  description: Transaction object JSON to hex
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: Returns Nothing
+      x-codeSamples:
+        - lang: Shell
+          label: Shell
+          source: |-
+            curl --request POST \
+                 --url http://localhost:8080/v1/chain/push_transaction \
+                 --header 'accept: application/json' \
+                 --header 'content-type: application/json'
+        - lang: Node
+          label: Node.js
+          source: |-
+            const url = 'http://localhost:8080/v1/chain/push_transaction';
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+            fetch(url, options)
+              .then(res => res.json())
+              .then(json => console.log(json))
+              .catch(err => console.error(err));
+        - lang: Python
+          label: Python
+          source: |-
+            import requests
+
+            url = "http://localhost:8080/v1/chain/push_transaction"
+
+            headers = {
+                "accept": "application/json",
+                "content-type": "application/json"
+            }
+
+            response = requests.post(url, headers=headers)
+
+            print(response.text)
+        - lang: Javascript
+          label: Javascript
+          source: |-
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+            fetch('http://localhost:8080/v1/chain/push_transaction', options)
+              .then(res => res.json())
+              .then(res => console.log(res))
+              .catch(err => console.error(err));
+  /send_transaction:
+    post:
+      description: >-
+        This method expects a transaction in JSON format and will attempt to
+        apply it to the blockchain.
+      operationId: send_transaction
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                signatures:
+                  type: array
+                  description: array of signatures required to authorize transaction
+                  items:
+                    $ref: refs/Signature.yaml
+                compression:
+                  type: boolean
+                  description: Compression used, usually false
+                packed_context_free_data:
+                  type: string
+                  description: JSON to hex
+                packed_trx:
+                  type: string
+                  description: Transaction object JSON to hex
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: Returns Nothing
+      x-codeSamples:
+        - lang: Shell
+          label: Shell
+          source: |-
+            curl --request POST \
+                 --url http://localhost:8080/v1/chain/send_transaction \
+                 --header 'accept: application/json' \
+                 --header 'content-type: application/json'
+        - lang: Node
+          label: Node.js
+          source: |-
+            const url = 'http://localhost:8080/v1/chain/send_transaction';
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+            fetch(url, options)
+              .then(res => res.json())
+              .then(json => console.log(json))
+              .catch(err => console.error(err));
+        - lang: Python
+          label: Python
+          source: |-
+            import requests
+
+            url = "http://localhost:8080/v1/chain/send_transaction"
+
+            headers = {
+                "accept": "application/json",
+                "content-type": "application/json"
+            }
+
+            response = requests.post(url, headers=headers)
+
+            print(response.text)
+        - lang: Javascript
+          label: Javascript
+          source: |-
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+            fetch('http://localhost:8080/v1/chain/send_transaction', options)
+              .then(res => res.json())
+              .then(res => console.log(res))
+              .catch(err => console.error(err));
+  /push_transactions:
+    post:
+      description: >-
+        This method expects a transaction in JSON format and will attempt to
+        apply it to the blockchain.
+      operationId: push_transactions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: refs/Transaction.yaml
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: Returns Nothing
+      x-codeSamples:
+        - lang: Shell
+          label: Shell
+          source: |-
+            curl --request POST \
+                 --url http://localhost:8080/v1/chain/push_transactions \
+                 --header 'accept: application/json' \
+                 --header 'content-type: application/json'
+        - lang: Node
+          label: Node.js
+          source: |-
+            const url = 'http://localhost:8080/v1/chain/push_transactions';
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+            fetch(url, options)
+              .then(res => res.json())
+              .then(json => console.log(json))
+              .catch(err => console.error(err));
+        - lang: Python
+          label: Python
+          source: |-
+            import requests
+
+            url = "http://localhost:8080/v1/chain/push_transactions"
+
+            headers = {
+                "accept": "application/json",
+                "content-type": "application/json"
+            }
+
+            response = requests.post(url, headers=headers)
+
+            print(response.text)
+        - lang: Javascript
+          label: Javascript
+          source: |-
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+            fetch('http://localhost:8080/v1/chain/push_transactions', options)
+              .then(res => res.json())
+              .then(res => console.log(res))
+              .catch(err => console.error(err));
+  /get_block_header_state:
+    post:
+      description: Retrieves the glock header state
+      operationId: get_block_header_state
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - block_num_or_id
+              properties:
+                block_num_or_id:
+                  type: string
+                  description: Provide a block_number or a block_id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: refs/BlockHeaderState.yaml
+      x-codeSamples:
+        - lang: Shell
+          label: Shell
+          source: |-
+            curl --request POST \
+                 --url http://localhost:8080/v1/chain/get_block_header_state \
+                 --header 'accept: application/json' \
+                 --header 'content-type: application/json'
+        - lang: Node
+          label: Node.js
+          source: |-
+            const url = 'http://localhost:8080/v1/chain/get_block_header_state';
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+            fetch(url, options)
+              .then(res => res.json())
+              .then(json => console.log(json))
+              .catch(err => console.error(err));
+        - lang: Python
+          label: Python
+          source: |-
+            import requests
+
+            url = "http://localhost:8080/v1/chain/get_block_header_state"
+
+            headers = {
+                "accept": "application/json",
+                "content-type": "application/json"
+            }
+
+            response = requests.post(url, headers=headers)
+
+            print(response.text)
+        - lang: Javascript
+          label: Javascript
+          source: >-
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+
+            fetch('http://localhost:8080/v1/chain/get_block_header_state',
+            options)
+              .then(res => res.json())
+              .then(res => console.log(res))
+              .catch(err => console.error(err));
+  /get_abi:
+    post:
+      description: Retrieves the ABI for a contract based on its account name
+      operationId: get_abi
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - account_name
+              properties:
+                account_name:
+                  $ref: refs/Name.yaml
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: refs/Abi.yaml
+      x-codeSamples:
+        - lang: Shell
+          label: Shell
+          source: |-
+            curl --request POST \
+                 --url http://localhost:8080/v1/chain/get_abi \
+                 --header 'accept: application/json' \
+                 --header 'content-type: application/json'
+        - lang: Node
+          label: Node.js
+          source: |-
+            const url = 'http://localhost:8080/v1/chain/get_abi';
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+            fetch(url, options)
+              .then(res => res.json())
+              .then(json => console.log(json))
+              .catch(err => console.error(err));
+        - lang: Python
+          label: Python
+          source: |-
+            import requests
+
+            url = "http://localhost:8080/v1/chain/get_abi"
+
+            headers = {
+                "accept": "application/json",
+                "content-type": "application/json"
+            }
+
+            response = requests.post(url, headers=headers)
+
+            print(response.text)
+        - lang: Javascript
+          label: Javascript
+          source: |-
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+            fetch('http://localhost:8080/v1/chain/get_abi', options)
+              .then(res => res.json())
+              .then(res => console.log(res))
+              .catch(err => console.error(err));
+  /get_currency_balance:
+    post:
+      description: Retrieves the current balance
+      operationId: get_currency_balance
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - code
+                - account
+                - symbol
+              properties:
+                code:
+                  $ref: refs/Name.yaml
+                account:
+                  $ref: refs/Name.yaml
+                symbol:
+                  $ref: refs/Symbol.yaml
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: refs/Symbol.yaml
+      x-codeSamples:
+        - lang: Shell
+          label: Shell
+          source: |-
+            curl --request POST \
+                 --url http://localhost:8080/v1/chain/get_currency_balance \
+                 --header 'accept: application/json' \
+                 --header 'content-type: application/json'
+        - lang: Node
+          label: Node.js
+          source: |-
+            const url = 'http://localhost:8080/v1/chain/get_currency_balance';
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+            fetch(url, options)
+              .then(res => res.json())
+              .then(json => console.log(json))
+              .catch(err => console.error(err));
+        - lang: Python
+          label: Python
+          source: |-
+            import requests
+
+            url = "http://localhost:8080/v1/chain/get_currency_balance"
+
+            headers = {
+                "accept": "application/json",
+                "content-type": "application/json"
+            }
+
+            response = requests.post(url, headers=headers)
+
+            print(response.text)
+        - lang: Javascript
+          label: Javascript
+          source: >-
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+
+            fetch('http://localhost:8080/v1/chain/get_currency_balance',
+            options)
+              .then(res => res.json())
+              .then(res => console.log(res))
+              .catch(err => console.error(err));
+  /get_currency_stats:
+    post:
+      description: Retrieves currency stats
+      operationId: get_currency_stats
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                code:
+                  $ref: refs/Name.yaml
+                symbol:
+                  $ref: refs/Symbol.yaml
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: >-
+                  Returns an object with one member labeled as the symbol you
+                  requested, the object has three members: supply (Symbol),
+                  max_supply (Symbol) and issuer (Name)
+      x-codeSamples:
+        - lang: Shell
+          label: Shell
+          source: |-
+            curl --request POST \
+                 --url http://localhost:8080/v1/chain/get_currency_stats \
+                 --header 'accept: application/json' \
+                 --header 'content-type: application/json'
+        - lang: Node
+          label: Node.js
+          source: |-
+            const url = 'http://localhost:8080/v1/chain/get_currency_stats';
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+            fetch(url, options)
+              .then(res => res.json())
+              .then(json => console.log(json))
+              .catch(err => console.error(err));
+        - lang: Python
+          label: Python
+          source: |-
+            import requests
+
+            url = "http://localhost:8080/v1/chain/get_currency_stats"
+
+            headers = {
+                "accept": "application/json",
+                "content-type": "application/json"
+            }
+
+            response = requests.post(url, headers=headers)
+
+            print(response.text)
+        - lang: Javascript
+          label: Javascript
+          source: |-
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+            fetch('http://localhost:8080/v1/chain/get_currency_stats', options)
+              .then(res => res.json())
+              .then(res => console.log(res))
+              .catch(err => console.error(err));
+  /get_required_keys:
+    post:
+      description: Returns the required keys needed to sign a transaction.
+      operationId: get_required_keys
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - transaction
+                - available_keys
+              properties:
+                transaction:
+                  $ref: refs/Transaction.yaml
+                available_keys:
+                  type: array
+                  description: Provide the available keys
+                  items:
+                    $ref: refs/PublicKey.yaml
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: {}
+      x-codeSamples:
+        - lang: Shell
+          label: Shell
+          source: |-
+            curl --request POST \
+                 --url http://localhost:8080/v1/chain/get_required_keys \
+                 --header 'accept: application/json' \
+                 --header 'content-type: application/json'
+        - lang: Node
+          label: Node.js
+          source: |-
+            const url = 'http://localhost:8080/v1/chain/get_required_keys';
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+            fetch(url, options)
+              .then(res => res.json())
+              .then(json => console.log(json))
+              .catch(err => console.error(err));
+        - lang: Python
+          label: Python
+          source: |-
+            import requests
+
+            url = "http://localhost:8080/v1/chain/get_required_keys"
+
+            headers = {
+                "accept": "application/json",
+                "content-type": "application/json"
+            }
+
+            response = requests.post(url, headers=headers)
+
+            print(response.text)
+        - lang: Javascript
+          label: Javascript
+          source: |-
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+            fetch('http://localhost:8080/v1/chain/get_required_keys', options)
+              .then(res => res.json())
+              .then(res => console.log(res))
+              .catch(err => console.error(err));
+  /get_producers:
+    post:
+      description: Retrieves producers list
+      operationId: get_producers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: GetProducersRequest
+              type: object
+              required:
+                - limit
+                - lower_bound
+              properties:
+                limit:
+                  type: string
+                  description: total number of producers to retrieve
+                lower_bound:
+                  type: string
+                  description: >-
+                    In conjunction with limit can be used to paginate through
+                    the results. For example, limit=10 and lower_bound=10 would
+                    be page 2
+                json:
+                  type: boolean
+                  description: return result in JSON format
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: GetProducersResponse
+                type: object
+                properties:
+                  rows:
+                    type: array
+                    nullable: true
+                    items:
+                      $ref: refs/Producer.yaml
+                  total_producer_vote_weight:
+                    type: string
+                    description: The sum of all producer votes.
+                  more:
+                    type: string
+                    description: >-
+                      If not all producers were returned with the first request,
+                      more contains the lower bound to use for the next request.
+      x-codeSamples:
+        - lang: Shell
+          label: Shell
+          source: |-
+            curl --request POST \
+                 --url http://localhost:8080/v1/chain/get_producers \
+                 --header 'accept: application/json' \
+                 --header 'content-type: application/json'
+        - lang: Node
+          label: Node.js
+          source: |-
+            const url = 'http://localhost:8080/v1/chain/get_producers';
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+            fetch(url, options)
+              .then(res => res.json())
+              .then(json => console.log(json))
+              .catch(err => console.error(err));
+        - lang: Python
+          label: Python
+          source: |-
+            import requests
+
+            url = "http://localhost:8080/v1/chain/get_producers"
+
+            headers = {
+                "accept": "application/json",
+                "content-type": "application/json"
+            }
+
+            response = requests.post(url, headers=headers)
+
+            print(response.text)
+        - lang: Javascript
+          label: Javascript
+          source: |-
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+            fetch('http://localhost:8080/v1/chain/get_producers', options)
+              .then(res => res.json())
+              .then(res => console.log(res))
+              .catch(err => console.error(err));
+  /get_raw_code_and_abi:
+    post:
+      description: Retrieves raw code and ABI for a contract based on account name
+      operationId: get_raw_code_and_abi
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - account_name
+              properties:
+                account_name:
+                  $ref: refs/Name.yaml
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  account_name:
+                    $ref: refs/Name.yaml
+                  wasm:
+                    type: string
+                    description: base64 encoded wasm
+                  abi:
+                    type: string
+                    description: base64 encoded ABI
+      x-codeSamples:
+        - lang: Shell
+          label: Shell
+          source: |-
+            curl --request POST \
+                 --url http://localhost:8080/v1/chain/get_raw_code_and_abi \
+                 --header 'accept: application/json' \
+                 --header 'content-type: application/json'
+        - lang: Node
+          label: Node.js
+          source: |-
+            const url = 'http://localhost:8080/v1/chain/get_raw_code_and_abi';
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+            fetch(url, options)
+              .then(res => res.json())
+              .then(json => console.log(json))
+              .catch(err => console.error(err));
+        - lang: Python
+          label: Python
+          source: |-
+            import requests
+
+            url = "http://localhost:8080/v1/chain/get_raw_code_and_abi"
+
+            headers = {
+                "accept": "application/json",
+                "content-type": "application/json"
+            }
+
+            response = requests.post(url, headers=headers)
+
+            print(response.text)
+        - lang: Javascript
+          label: Javascript
+          source: >-
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+
+            fetch('http://localhost:8080/v1/chain/get_raw_code_and_abi',
+            options)
+              .then(res => res.json())
+              .then(res => console.log(res))
+              .catch(err => console.error(err));
+  /get_scheduled_transactions:
+    post:
+      description: Retrieves scheduled transactions
+      operationId: get_scheduled_transactions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                lower_bound:
+                  $ref: refs/DateTimeSeconds.yaml
+                limit:
+                  description: The maximum number of transactions to return
+                  type: integer
+                json:
+                  description: >-
+                    true/false whether the packed transaction is converted to
+                    json
+                  type: boolean
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  transactions:
+                    type: array
+                    items:
+                      $ref: refs/Transaction.yaml
+      x-codeSamples:
+        - lang: Shell
+          label: Shell
+          source: |-
+            curl --request POST \
+                 --url http://localhost:8080/v1/chain/get_scheduled_transactions \
+                 --header 'accept: application/json' \
+                 --header 'content-type: application/json'
+        - lang: Node
+          label: Node.js
+          source: >-
+            const url =
+            'http://localhost:8080/v1/chain/get_scheduled_transactions';
+
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+
+            fetch(url, options)
+              .then(res => res.json())
+              .then(json => console.log(json))
+              .catch(err => console.error(err));
+        - lang: Python
+          label: Python
+          source: |-
+            import requests
+
+            url = "http://localhost:8080/v1/chain/get_scheduled_transactions"
+
+            headers = {
+                "accept": "application/json",
+                "content-type": "application/json"
+            }
+
+            response = requests.post(url, headers=headers)
+
+            print(response.text)
+        - lang: Javascript
+          label: Javascript
+          source: >-
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+
+            fetch('http://localhost:8080/v1/chain/get_scheduled_transactions',
+            options)
+              .then(res => res.json())
+              .then(res => console.log(res))
+              .catch(err => console.error(err));
+  /get_table_by_scope:
+    post:
+      description: Retrieves table scope
+      operationId: get_table_by_scope
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - code
+              properties:
+                code:
+                  type: string
+                  description: '`name` of the contract to return table data for'
+                table:
+                  type: string
+                  description: Filter results by table
+                lower_bound:
+                  type: string
+                  description: >-
+                    Filters results to return the first element that is not less
+                    than provided value in set
+                upper_bound:
+                  type: string
+                  description: >-
+                    Filters results to return the first element that is greater
+                    than provided value in set
+                limit:
+                  type: integer
+                  description: Limit number of results returned.
+                  format: int32
+                  default: 10
+                reverse:
+                  type: boolean
+                  description: Reverse the order of returned results
+                  default: false
+                show_payer:
+                  type: boolean
+                  description: Show RAM payer
+                  default: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  rows:
+                    type: array
+                    items:
+                      $ref: refs/TableScope.yaml
+                  more:
+                    $ref: refs/Name.yaml
+      x-codeSamples:
+        - lang: Shell
+          label: Shell
+          source: |-
+            curl --request POST \
+                 --url http://localhost:8080/v1/chain/get_table_by_scope \
+                 --header 'accept: application/json' \
+                 --header 'content-type: application/json'
+        - lang: Node
+          label: Node.js
+          source: |-
+            const url = 'http://localhost:8080/v1/chain/get_table_by_scope';
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+            fetch(url, options)
+              .then(res => res.json())
+              .then(json => console.log(json))
+              .catch(err => console.error(err));
+        - lang: Python
+          label: Python
+          source: |-
+            import requests
+
+            url = "http://localhost:8080/v1/chain/get_table_by_scope"
+
+            headers = {
+                "accept": "application/json",
+                "content-type": "application/json"
+            }
+
+            response = requests.post(url, headers=headers)
+
+            print(response.text)
+        - lang: Javascript
+          label: Javascript
+          source: |-
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+            fetch('http://localhost:8080/v1/chain/get_table_by_scope', options)
+              .then(res => res.json())
+              .then(res => console.log(res))
+              .catch(err => console.error(err));
+  /get_table_rows:
+    post:
+      description: Returns an object containing rows from the specified table.
+      operationId: get_table_rows
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - code
+                - table
+                - scope
+              properties:
+                code:
+                  type: string
+                  description: >-
+                    The name of the smart contract that controls the provided
+                    table
+                table:
+                  type: string
+                  description: The name of the table to query
+                scope:
+                  type: string
+                  description: The account to which this data belongs
+                index_position:
+                  type: string
+                  description: >-
+                    Position of the index used, accepted parameters `primary`,
+                    `secondary`, `tertiary`, `fourth`, `fifth`, `sixth`,
+                    `seventh`, `eighth`, `ninth` , `tenth`
+                key_type:
+                  type: string
+                  description: >-
+                    Type of key specified by index_position (for example -
+                    `uint64_t` or `name`)
+                encode_type:
+                  type: string
+                lower_bound:
+                  type: string
+                  description: >-
+                    Filters results to return the first element that is not less
+                    than provided value in set
+                upper_bound:
+                  type: string
+                  description: >-
+                    Filters results to return the first element that is greater
+                    than provided value in set
+                limit:
+                  type: integer
+                  description: Limit number of results returned.
+                  format: int32
+                  default: 10
+                reverse:
+                  type: boolean
+                  description: Reverse the order of returned results
+                  default: false
+                show_payer:
+                  type: boolean
+                  description: Show RAM payer
+                  default: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  rows:
+                    type: array
+                    items: {}
+      x-codeSamples:
+        - lang: Shell
+          label: Shell
+          source: |-
+            curl --request POST \
+                 --url http://localhost:8080/v1/chain/get_table_rows \
+                 --header 'accept: application/json' \
+                 --header 'content-type: application/json'
+        - lang: Node
+          label: Node.js
+          source: |-
+            const url = 'http://localhost:8080/v1/chain/get_table_rows';
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+            fetch(url, options)
+              .then(res => res.json())
+              .then(json => console.log(json))
+              .catch(err => console.error(err));
+        - lang: Python
+          label: Python
+          source: |-
+            import requests
+
+            url = "http://localhost:8080/v1/chain/get_table_rows"
+
+            headers = {
+                "accept": "application/json",
+                "content-type": "application/json"
+            }
+
+            response = requests.post(url, headers=headers)
+
+            print(response.text)
+        - lang: Javascript
+          label: Javascript
+          source: |-
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+            fetch('http://localhost:8080/v1/chain/get_table_rows', options)
+              .then(res => res.json())
+              .then(res => console.log(res))
+              .catch(err => console.error(err));
+  /get_code:
+    post:
+      description: Returns an object containing the smart contract WASM code.
+      operationId: get_code
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - account_name
+                - code_as_wasm
+              properties:
+                account_name:
+                  $ref: refs/Name.yaml
+                code_as_wasm:
+                  type: integer
+                  default: 1
+                  description: This must be 1 (true)
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                title: GetCodeResponse.yaml
+                properties:
+                  name:
+                    $ref: refs/Name.yaml
+                  code_hash:
+                    $ref: refs/Sha256.yaml
+                  wast:
+                    type: string
+                  wasm:
+                    type: string
+                  abi:
+                    $ref: refs/Abi.yaml
+      x-codeSamples:
+        - lang: Shell
+          label: Shell
+          source: |-
+            curl --request POST \
+                 --url http://localhost:8080/v1/chain/get_code \
+                 --header 'accept: application/json' \
+                 --header 'content-type: application/json'
+        - lang: Node
+          label: Node.js
+          source: |-
+            const url = 'http://localhost:8080/v1/chain/get_code';
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+            fetch(url, options)
+              .then(res => res.json())
+              .then(json => console.log(json))
+              .catch(err => console.error(err));
+        - lang: Python
+          label: Python
+          source: |-
+            import requests
+
+            url = "http://localhost:8080/v1/chain/get_code"
+
+            headers = {
+                "accept": "application/json",
+                "content-type": "application/json"
+            }
+
+            response = requests.post(url, headers=headers)
+
+            print(response.text)
+        - lang: Javascript
+          label: Javascript
+          source: |-
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+            fetch('http://localhost:8080/v1/chain/get_code', options)
+              .then(res => res.json())
+              .then(res => console.log(res))
+              .catch(err => console.error(err));
+  /get_raw_abi:
+    post:
+      description: Returns an object containing the smart contract abi.
+      operationId: get_raw_abi
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - account_name
+              properties:
+                account_name:
+                  $ref: refs/Name.yaml
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  account_name:
+                    $ref: refs/Name.yaml
+                  code_hash:
+                    $ref: refs/Sha256.yaml
+                  abi_hash:
+                    allOf:
+                      - $ref: refs/Sha256.yaml
+                  abi:
+                    type: string
+      x-codeSamples:
+        - lang: Shell
+          label: Shell
+          source: |-
+            curl --request POST \
+                 --url http://localhost:8080/v1/chain/get_raw_abi \
+                 --header 'accept: application/json' \
+                 --header 'content-type: application/json'
+        - lang: Node
+          label: Node.js
+          source: |-
+            const url = 'http://localhost:8080/v1/chain/get_raw_abi';
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+            fetch(url, options)
+              .then(res => res.json())
+              .then(json => console.log(json))
+              .catch(err => console.error(err));
+        - lang: Python
+          label: Python
+          source: |-
+            import requests
+
+            url = "http://localhost:8080/v1/chain/get_raw_abi"
+
+            headers = {
+                "accept": "application/json",
+                "content-type": "application/json"
+            }
+
+            response = requests.post(url, headers=headers)
+
+            print(response.text)
+        - lang: Javascript
+          label: Javascript
+          source: |-
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+            fetch('http://localhost:8080/v1/chain/get_raw_abi', options)
+              .then(res => res.json())
+              .then(res => console.log(res))
+              .catch(err => console.error(err));
+  /get_activated_protocol_features:
+    post:
+      description: Retreives the activated protocol features for producer node
+      operationId: get_activated_protocol_features
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                lower_bound:
+                  type: integer
+                  description: Lower bound
+                upper_bound:
+                  type: integer
+                  description: Upper bound
+                limit:
+                  type: integer
+                  description: The limit, default is 10
+                search_by_block_num:
+                  type: boolean
+                  description: Flag to indicate it is has to search by block number
+                reverse:
+                  type: boolean
+                  description: Flag to indicate it has to search in reverse
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                description: Returns activated protocol features
+                required:
+                  - activated_protocol_features
+                properties:
+                  activated_protocol_features:
+                    type: array
+                    description: >-
+                      Variant type, an array of strings with the activated
+                      protocol features
+                    items:
+                      type: string
+                  more:
+                    type: integer
+                    description: >-
+                      In case there's more activated protocol features than the
+                      input parameter `limit` requested, returns the ordinal of
+                      the next activated protocol feature which was not
+                      returned, otherwise zero.
+      x-codeSamples:
+        - lang: Shell
+          label: Shell
+          source: |-
+            curl --request POST \
+                 --url http://localhost:8080/v1/chain/get_activated_protocol_features \
+                 --header 'accept: application/json' \
+                 --header 'content-type: application/json'
+        - lang: Node
+          label: Node.js
+          source: >-
+            const url =
+            'http://localhost:8080/v1/chain/get_activated_protocol_features';
+
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+
+            fetch(url, options)
+              .then(res => res.json())
+              .then(json => console.log(json))
+              .catch(err => console.error(err));
+        - lang: Python
+          label: Python
+          source: >-
+            import requests
+
+
+            url =
+            "http://localhost:8080/v1/chain/get_activated_protocol_features"
+
+
+            headers = {
+                "accept": "application/json",
+                "content-type": "application/json"
+            }
+
+
+            response = requests.post(url, headers=headers)
+
+
+            print(response.text)
+        - lang: Javascript
+          label: Javascript
+          source: >-
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+
+            fetch('http://localhost:8080/v1/chain/get_activated_protocol_features',
+            options)
+              .then(res => res.json())
+              .then(res => console.log(res))
+              .catch(err => console.error(err));
+  /get_accounts_by_authorizers:
+    post:
+      description: >-
+        Given a set of account names and public keys, find all account
+        permission authorities that are, in part or whole, satisfiable
+      operationId: get_accounts_by_authorizers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accounts:
+                  type: array
+                  description: List of authorizing accounts and/or actor/permissions
+                  items:
+                    anyOf:
+                      - $ref: refs/Name.yaml
+                      - $ref: refs/Authority.yaml
+                keys:
+                  type: array
+                  description: List of authorizing keys
+                  items:
+                    $ref: refs/PublicKey.yaml
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                description: >-
+                  Result containing a list of accounts which are authorized, in
+                  whole or part, by the provided accounts and keys
+                required:
+                  - accounts
+                properties:
+                  accounts:
+                    type: array
+                    description: >-
+                      An array of each account,permission,authorizing-data
+                      triplet in the response
+                    items:
+                      type: object
+                      description: >-
+                        the information for a single
+                        account,permission,authorizing-data triplet
+                      required:
+                        - account_name
+                        - permission_name
+                        - authorizer
+                        - weight
+                        - threshold
+                      properties:
+                        account_name:
+                          $ref: refs/Name.yaml
+                        permission_name:
+                          $ref: refs/Name.yaml
+                        authorizer:
+                          oneOf:
+                            - $ref: refs/PublicKey.yaml
+                            - $ref: refs/Authority.yaml
+                        weight:
+                          type: integer
+                          description: >-
+                            the weight that this authorizer adds to satisfy the
+                            permission
+                        threshold:
+                          type: integer
+                          description: >-
+                            the sum of weights that must be met or exceeded to
+                            satisfy the permission
+      x-codeSamples:
+        - lang: Shell
+          label: Shell
+          source: |-
+            curl --request POST \
+                 --url http://localhost:8080/v1/chain/get_accounts_by_authorizers \
+                 --header 'accept: application/json' \
+                 --header 'content-type: application/json'
+        - lang: Node
+          label: Node.js
+          source: >-
+            const url =
+            'http://localhost:8080/v1/chain/get_accounts_by_authorizers';
+
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+
+            fetch(url, options)
+              .then(res => res.json())
+              .then(json => console.log(json))
+              .catch(err => console.error(err));
+        - lang: Python
+          label: Python
+          source: |-
+            import requests
+
+            url = "http://localhost:8080/v1/chain/get_accounts_by_authorizers"
+
+            headers = {
+                "accept": "application/json",
+                "content-type": "application/json"
+            }
+
+            response = requests.post(url, headers=headers)
+
+            print(response.text)
+        - lang: Javascript
+          label: Javascript
+          source: >-
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+
+            fetch('http://localhost:8080/v1/chain/get_accounts_by_authorizers',
+            options)
+              .then(res => res.json())
+              .then(res => console.log(res))
+              .catch(err => console.error(err));
+  /get_transaction_status:
+    post:
+      description: >-
+        Attempts to get current blockchain state and, if available, transaction
+        information given the transaction id. For query to work, the transaction
+        finality status feature must be enabled by configuring the chain plugin
+        with the config option
+        '--transaction-finality-status-max-storage-size-gb' in nodeos.
+      operationId: get_transaction_status
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - id
+              properties:
+                id:
+                  type: string
+                  description: >-
+                    The transaction ID of the transaction to retrieve the status
+                    for.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: refs/TransactionStatus.yaml
+      x-codeSamples:
+        - lang: Shell
+          label: Shell
+          source: |-
+            curl --request POST \
+                 --url http://localhost:8080/v1/chain/get_transaction_status \
+                 --header 'accept: application/json' \
+                 --header 'content-type: application/json'
+        - lang: Node
+          label: Node.js
+          source: |-
+            const url = 'http://localhost:8080/v1/chain/get_transaction_status';
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+            fetch(url, options)
+              .then(res => res.json())
+              .then(json => console.log(json))
+              .catch(err => console.error(err));
+        - lang: Python
+          label: Python
+          source: |-
+            import requests
+
+            url = "http://localhost:8080/v1/chain/get_transaction_status"
+
+            headers = {
+                "accept": "application/json",
+                "content-type": "application/json"
+            }
+
+            response = requests.post(url, headers=headers)
+
+            print(response.text)
+        - lang: Javascript
+          label: Javascript
+          source: >-
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+
+            fetch('http://localhost:8080/v1/chain/get_transaction_status',
+            options)
+              .then(res => res.json())
+              .then(res => console.log(res))
+              .catch(err => console.error(err));
+  /send_transaction2:
+    post:
+      description: >-
+        Attempts to apply a transaction to the blockchain specified in JSON
+        format. It supports returning the full trace of a failed transaction and
+        automatic nodeos-mediated retry if it is enabled on the node. When
+        transaction retry is enabled on an API node, it will monitor incoming
+        API transactions and ensure they are resubmitted additional times into
+        the P2P network until they expire or are included in a block. Warning,
+        full failure traces are now returned by default instead of exceptions.
+        Be careful to not confuse a returned trace as an indication of
+        speculative execution success. Verify 'receipt' and 'except' fields of
+        the returned trace.
+      operationId: send_transaction2
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                return_failure_trace:
+                  type: boolean
+                  description: >-
+                    If true, then embed transaction exceptions into the returned
+                    transaction trace.
+                retry_trx:
+                  type: boolean
+                  description: >-
+                    If true, requests to retry transaction until gets in a block
+                    of given height, see retry_trx_num_blocks as well, or it is
+                    irreversible or expires.
+                retry_trx_num_blocks:
+                  type: integer
+                  description: >-
+                    If retry_trx is true, requests to retry transaction until in
+                    a block of given height, or lib if not specified.
+                transaction:
+                  type: object
+                  properties:
+                    signatures:
+                      type: array
+                      description: array of signatures required to authorize transaction.
+                      items:
+                        $ref: refs/Signature.yaml
+                    compression:
+                      type: boolean
+                      description: Compression used, usually false
+                    packed_context_free_data:
+                      type: string
+                      description: JSON to hex
+                    packed_trx:
+                      type: string
+                      description: Transaction object JSON to hex
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: Returns Nothing
+      x-codeSamples:
+        - lang: Shell
+          label: Shell
+          source: |-
+            curl --request POST \
+                 --url http://localhost:8080/v1/chain/send_transaction2 \
+                 --header 'accept: application/json' \
+                 --header 'content-type: application/json'
+        - lang: Node
+          label: Node.js
+          source: |-
+            const url = 'http://localhost:8080/v1/chain/send_transaction2';
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+            fetch(url, options)
+              .then(res => res.json())
+              .then(json => console.log(json))
+              .catch(err => console.error(err));
+        - lang: Python
+          label: Python
+          source: |-
+            import requests
+
+            url = "http://localhost:8080/v1/chain/send_transaction2"
+
+            headers = {
+                "accept": "application/json",
+                "content-type": "application/json"
+            }
+
+            response = requests.post(url, headers=headers)
+
+            print(response.text)
+        - lang: Javascript
+          label: Javascript
+          source: |-
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+            fetch('http://localhost:8080/v1/chain/send_transaction2', options)
+              .then(res => res.json())
+              .then(res => console.log(res))
+              .catch(err => console.error(err));
+  /compute_transaction:
+    post:
+      description: >-
+        Executes specified transaction and creates a transaction trace,
+        including resource usage, and then reverts all state changes but not
+        contribute to the subjective billing for the account. If the transaction
+        has signatures, they are processed, but any failures are ignored.
+        Transactions which fail always include the transaction failure trace.
+        Warning, users with exposed nodes who have enabled the
+        compute_transaction endpoint should implement some throttling to protect
+        from Denial of Service attacks.
+      operationId: compute_transaction
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                signatures:
+                  type: array
+                  description: array of signatures required to authorize transaction
+                  items:
+                    $ref: refs/Signature.yaml
+                compression:
+                  type: boolean
+                  description: Compression used, usually false
+                packed_context_free_data:
+                  type: string
+                  description: JSON to hex
+                packed_trx:
+                  type: string
+                  description: Transaction object, JSON to hex
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: Returns Nothing
+      x-codeSamples:
+        - lang: Shell
+          label: Shell
+          source: |-
+            curl --request POST \
+                 --url http://localhost:8080/v1/chain/compute_transaction \
+                 --header 'accept: application/json' \
+                 --header 'content-type: application/json'
+        - lang: Node
+          label: Node.js
+          source: |-
+            const url = 'http://localhost:8080/v1/chain/compute_transaction';
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+            fetch(url, options)
+              .then(res => res.json())
+              .then(json => console.log(json))
+              .catch(err => console.error(err));
+        - lang: Python
+          label: Python
+          source: |-
+            import requests
+
+            url = "http://localhost:8080/v1/chain/compute_transaction"
+
+            headers = {
+                "accept": "application/json",
+                "content-type": "application/json"
+            }
+
+            response = requests.post(url, headers=headers)
+
+            print(response.text)
+        - lang: Javascript
+          label: Javascript
+          source: |-
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+            fetch('http://localhost:8080/v1/chain/compute_transaction', options)
+              .then(res => res.json())
+              .then(res => console.log(res))
+              .catch(err => console.error(err));
+  /get_code_hash:
+    post:
+      description: >-
+        Retrieves the code hash for a smart contract deployed on the blockchain.
+        Once you have the code hash of a contract, you can compare it with a
+        known or expected value to ensure that the contract code has not been
+        modified or tampered with.
+      operationId: get_code_hash
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                account_name:
+                  description: >-
+                    The name of the account for which you want to retrieve the
+                    code hash. It represents the account that owns the smart
+                    contract code.
+                  type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  account_name:
+                    description: >-
+                      The name of the account where the smart contract was
+                      deployed.
+                    type: string
+                  code_hash:
+                    type: string
+                    description: >-
+                      A string that represents the hash value of the specified
+                      account's smart contract code.
+      x-codeSamples:
+        - lang: Shell
+          label: Shell
+          source: |-
+            curl --request POST \
+                 --url http://localhost:8080/v1/chain/get_code_hash \
+                 --header 'accept: application/json' \
+                 --header 'content-type: application/json'
+        - lang: Node
+          label: Node.js
+          source: |-
+            const url = 'http://localhost:8080/v1/chain/get_code_hash';
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+            fetch(url, options)
+              .then(res => res.json())
+              .then(json => console.log(json))
+              .catch(err => console.error(err));
+        - lang: Python
+          label: Python
+          source: |-
+            import requests
+
+            url = "http://localhost:8080/v1/chain/get_code_hash"
+
+            headers = {
+                "accept": "application/json",
+                "content-type": "application/json"
+            }
+
+            response = requests.post(url, headers=headers)
+
+            print(response.text)
+        - lang: Javascript
+          label: Javascript
+          source: |-
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+            fetch('http://localhost:8080/v1/chain/get_code_hash', options)
+              .then(res => res.json())
+              .then(res => console.log(res))
+              .catch(err => console.error(err));
+  /get_transaction_id:
+    post:
+      description: >-
+        Retrieves the transaction ID (also known as the transaction hash) of a
+        specified transaction on the blockchain.
+      operationId: get_transaction_id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              description: >-
+                The transaction in JSON format for which the ID should be
+                retrieved.
+              $ref: refs/Transaction.yaml
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+                description: The transaction ID.
+      x-codeSamples:
+        - lang: Shell
+          label: Shell
+          source: |-
+            curl --request POST \
+                 --url http://localhost:8080/v1/chain/get_transaction_id \
+                 --header 'accept: application/json' \
+                 --header 'content-type: application/json'
+        - lang: Node
+          label: Node.js
+          source: |-
+            const url = 'http://localhost:8080/v1/chain/get_transaction_id';
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+            fetch(url, options)
+              .then(res => res.json())
+              .then(json => console.log(json))
+              .catch(err => console.error(err));
+        - lang: Python
+          label: Python
+          source: |-
+            import requests
+
+            url = "http://localhost:8080/v1/chain/get_transaction_id"
+
+            headers = {
+                "accept": "application/json",
+                "content-type": "application/json"
+            }
+
+            response = requests.post(url, headers=headers)
+
+            print(response.text)
+        - lang: Javascript
+          label: Javascript
+          source: |-
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+            fetch('http://localhost:8080/v1/chain/get_transaction_id', options)
+              .then(res => res.json())
+              .then(res => console.log(res))
+              .catch(err => console.error(err));
+  /get_producer_schedule:
+    post:
+      description: >-
+        Retrieves the current producer schedule from the blockchain, which
+        includes the list of active producers and their respective rotation
+        schedule.
+      operationId: get_producer_schedule
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  active:
+                    description: >-
+                      A JSON object that encapsulates the list of active
+                      producers schedule and its version.
+                    $ref: refs/ProducerSchedule.yaml
+                  pending:
+                    description: >-
+                      A JSON object that encapsulates the list of pending
+                      producers schedule and its version.
+                    $ref: refs/ProducerSchedule.yaml
+                  proposed:
+                    description: >-
+                      A JSON object that encapsulates the list of proposed
+                      producers schedule and its version.
+                    $ref: refs/ProducerSchedule.yaml
+      x-codeSamples:
+        - lang: Shell
+          label: Shell
+          source: |-
+            curl --request POST \
+                 --url http://localhost:8080/v1/chain/get_producer_schedule \
+                 --header 'accept: application/json'
+        - lang: Node
+          label: Node.js
+          source: >-
+            const url = 'http://localhost:8080/v1/chain/get_producer_schedule';
+
+            const options = {method: 'POST', headers: {accept:
+            'application/json'}};
+
+
+            fetch(url, options)
+              .then(res => res.json())
+              .then(json => console.log(json))
+              .catch(err => console.error(err));
+        - lang: Python
+          label: Python
+          source: |-
+            import requests
+
+            url = "http://localhost:8080/v1/chain/get_producer_schedule"
+
+            headers = {"accept": "application/json"}
+
+            response = requests.post(url, headers=headers)
+
+            print(response.text)
+        - lang: Javascript
+          label: Javascript
+          source: >-
+            const options = {method: 'POST', headers: {accept:
+            'application/json'}};
+
+
+            fetch('http://localhost:8080/v1/chain/get_producer_schedule',
+            options)
+              .then(res => res.json())
+              .then(res => console.log(res))
+              .catch(err => console.error(err));
+  /send_read_only_transaction:
+    post:
+      description: >-
+        Sends a read-only transaction in JSON format to the blockchain. This
+        transaction is not intended for inclusion in the blockchain. When a user
+        sends a transaction, which modifies the blockchain state, the connected
+        node will fail the transaction.
+      operationId: send_read_only_transaction
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                transaction:
+                  type: object
+                  properties:
+                    compression:
+                      type: boolean
+                      description: Compression used, usually false
+                    packed_context_free_data:
+                      type: string
+                      description: JSON to hex
+                    packed_trx:
+                      type: string
+                      description: Transaction object JSON to hex
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: Returns Nothing
+      x-codeSamples:
+        - lang: Shell
+          label: Shell
+          source: |-
+            curl --request POST \
+                 --url http://localhost:8080/v1/chain/send_read_only_transaction \
+                 --header 'accept: application/json' \
+                 --header 'content-type: application/json'
+        - lang: Node
+          label: Node.js
+          source: >-
+            const url =
+            'http://localhost:8080/v1/chain/send_read_only_transaction';
+
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+
+            fetch(url, options)
+              .then(res => res.json())
+              .then(json => console.log(json))
+              .catch(err => console.error(err));
+        - lang: Python
+          label: Python
+          source: |-
+            import requests
+
+            url = "http://localhost:8080/v1/chain/send_read_only_transaction"
+
+            headers = {
+                "accept": "application/json",
+                "content-type": "application/json"
+            }
+
+            response = requests.post(url, headers=headers)
+
+            print(response.text)
+        - lang: Javascript
+          label: Javascript
+          source: >-
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+
+            fetch('http://localhost:8080/v1/chain/send_read_only_transaction',
+            options)
+              .then(res => res.json())
+              .then(res => console.log(res))
+              .catch(err => console.error(err));
+  /push_block:
+    post:
+      description: Sends a block to the blockchain.
+      operationId: push_block
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: refs/Block.yaml
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: Returns Nothing
+      x-codeSamples:
+        - lang: Shell
+          label: Shell
+          source: |-
+            curl --request POST \
+                 --url http://localhost:8080/v1/chain/push_block \
+                 --header 'accept: application/json' \
+                 --header 'content-type: application/json'
+        - lang: Node
+          label: Node.js
+          source: |-
+            const url = 'http://localhost:8080/v1/chain/push_block';
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+            fetch(url, options)
+              .then(res => res.json())
+              .then(json => console.log(json))
+              .catch(err => console.error(err));
+        - lang: Python
+          label: Python
+          source: |-
+            import requests
+
+            url = "http://localhost:8080/v1/chain/push_block"
+
+            headers = {
+                "accept": "application/json",
+                "content-type": "application/json"
+            }
+
+            response = requests.post(url, headers=headers)
+
+            print(response.text)
+        - lang: Javascript
+          label: Javascript
+          source: |-
+            const options = {
+              method: 'POST',
+              headers: {accept: 'application/json', 'content-type': 'application/json'}
+            };
+
+            fetch('http://localhost:8080/v1/chain/push_block', options)
+              .then(res => res.json())
+              .then(res => console.log(res))
+              .catch(err => console.error(err));
