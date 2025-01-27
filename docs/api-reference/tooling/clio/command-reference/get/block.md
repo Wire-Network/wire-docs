@@ -6,7 +6,7 @@ id: block
 
 Retrieves a full block from the blockchain
 
-## Positionals
+## Positional Arguments
 
 - `block` _TEXT_ - The number **or** ID of the block to retrieve
 

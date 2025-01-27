@@ -1,15 +1,15 @@
 ---
 id: unpack-transaction
+title: unpack_transaction
 ---
-
 
 ## Description
 
-From packed to plain signed json form
+This command is used to convert transaction to a plain signed JSON.
 
-## Positionals
+## Positional Arguments
 
-- `transaction` _TEXT_ - The packed transaction json (string containing packed_trx and optionally compression fields.)
+- `transaction` _TEXT_ - The packed transaction JSON (string containing packed_trx and optionally compression fields.)
 
 ## Options
 
@@ -21,19 +21,17 @@ From packed to plain signed json form
 ```sh
 clio convert unpack_transaction '{
   "signatures": [
-    "SIG_K1_KmRbWahefwxs6uyCGNR6wNRjw7cntEeFQhNCbyg8S92Kbp7zdSSVGTD2QS7pNVWgcU126zpxaBp9CwUxFpRwSnfkjd46bS"
+    "SIG_K1_Kf74L4N38U1owcoThiKbqsfuxVCTFs3nD7ntLpfAJJ1zkQVKFbsm22Y9CjFJMrKxqDB6bVPZvPCbnxnw5wRwebBUmMFmKa"
   ],
   "compression": "none",
   "packed_context_free_data": "",
-  "packed_trx": "8468635b7f379feeb95500000000010000000000ea305500409e9a2264b89a010000000000ea305500000000a8ed3232660000000000ea305500a6823403ea30550100000001000240cc0bf90a5656c8bb81f0eb86f49f89613c5cd988c018715d4646c6bd0ad3d8010000000100000001000240cc0bf90a5656c8bb81f0eb86f49f89613c5cd988c018715d4646c6bd0ad3d80100000000"
+  "packed_trx": "8468635b7f379feeb95500000000010000000000eab0c700409e9a2264b89a010000000000eab0c700000000a8ed3232660000000000eab0c700a6823403eab0c70100000001000240cc0bf90a5656c8bb81f0eb86f49f89613c5cd988c018715d4646c6bd0ad3d8010000000100000001000240cc0bf90a5656c8bb81f0eb86f49f89613c5cd988c018715d4646c6bd0ad3d80100000000"
 }'
 ```
 
 ## Output
 
-
-<pre><code class="language-json">
-```
+```json
 {
   "expiration": "2018-08-02T20:24:36",
   "ref_block_num": 14207,
@@ -50,15 +48,13 @@ clio convert unpack_transaction '{
           "permission": "active"
         }
       ],
-      "data": "0000000000ea305500a6823403ea30550100000001000240cc0bf90a5656c8bb81f0eb86f49f89613c5cd988c018715d4646c6bd0ad3d8010000000100000001000240cc0bf90a5656c8bb81f0eb86f49f89613c5cd988c018715d4646c6bd0ad3d801000000"
+      "data": "0000000000eab0c700a6823403eab0c70100000001000240cc0bf90a5656c8bb81f0eb86f49f89613c5cd988c018715d4646c6bd0ad3d8010000000100000001000240cc0bf90a5656c8bb81f0eb86f49f89613c5cd988c018715d4646c6bd0ad3d801000000"
     }
   ],
   "transaction_extensions": [],
   "signatures": [
-    "SIG_K1_KmRbWahefwxs6uyCGNR6wNRjw7cntEeFQhNCbyg8S92Kbp7zdSSVGTD2QS7pNVWgcU126zpxaBp9CwUxFpRwSnfkjd46bS"
+    "SIG_K1_Kf74L4N38U1owcoThiKbqsfuxVCTFs3nD7ntLpfAJJ1zkQVKFbsm22Y9CjFJMrKxqDB6bVPZvPCbnxnw5wRwebBUmMFmKa"
   ],
   "context_free_data": []
 }
 ```
-</code>
-</pre>

@@ -14,7 +14,7 @@ clio get account [OPTIONS] name [core-symbol]
 
 **Note**: The arguments and options enclosed in square brackets are optional.
 
-### Positionals
+### Positional Arguments
 
 * `name` _TEXT_ - The name of the account to retrieve
 

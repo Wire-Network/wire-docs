@@ -4,7 +4,7 @@ title: net connect
 
 ## Description
 
-Start a new connection to a specified peer. A node operator can use this command to instruct a node to connect to another peer without restarting the node.
+Start a new connection to a specified peer. A node operator can use this command to instruct a node to connect to another peer **without restarting** the node.
 
 ## Command
 
@@ -12,7 +12,7 @@ Start a new connection to a specified peer. A node operator can use this command
 clio net connect [OPTIONS] host
 ```
 
-### Positionals
+### Positional Arguments
 
 * `host` _TEXT_ REQUIRED - The hostname:port to connect to
 

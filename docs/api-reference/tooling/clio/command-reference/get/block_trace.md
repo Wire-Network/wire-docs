@@ -6,7 +6,7 @@ id: block_trace
 
 Retrieves a block from the trace logs.
 
-## Positionals
+## Positional Arguments
   
 `block` TEXT REQUIRED         The number of the block to retrieve
 

@@ -127,27 +127,27 @@ const config: Config = {
         specs: [
           {
             id: "chain-api",
-            spec: "openapi/ChainApi.yaml",
+            spec: "openapi/ChainApiCS.yaml",
             route: "docs/api-reference/chain-api",
           },
           {
             id: "producer-api",
-            spec: "openapi/ProducerApiCodeSnippets.yaml",
+            spec: "openapi/ProducerApiCS.yaml",
             route: "docs/api-reference/producer-api",
           },
           {
             id: "net-api",
-            spec: "openapi/NetApi.yaml",
+            spec: "openapi/NetApiCS.yaml",
             route: "docs/api-reference/net-api",
           },
           {
             id: "db-size-api",
-            spec: "openapi/DBSizeApi.yaml",
+            spec: "openapi/DBSizeApiCS.yaml",
             route: "docs/api-reference/db-size-api",
           },
           {
             id: "trace-api",
-            spec: "openapi/TraceApi.yaml",
+            spec: "openapi/TraceApiCS.yaml",
             route: "docs/api-reference/trace-api",
           },
         ],

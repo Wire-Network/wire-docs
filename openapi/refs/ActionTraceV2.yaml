@@ -8,7 +8,7 @@ properties:
     example: myproducer
   account:
     type: string
-    example: eosio.token
+    example: sysio.token
   action:
     type: string
     example: transfer
@@ -34,7 +34,7 @@ properties:
     properties:
       from:
         type: string
-        example: eosio
+        example: sysio
       to:
         type: string
         example: myproducer

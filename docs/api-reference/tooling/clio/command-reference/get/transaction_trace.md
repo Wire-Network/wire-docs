@@ -6,7 +6,7 @@ id: transaction_trace
 
 Retrieves a transaction from the trace logs.
 
-## Positionals
+## Positional Arguments
 
 `id` _TEXT_ - ID of the transaction to retrieve
 

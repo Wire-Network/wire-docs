@@ -7,7 +7,7 @@ title: currency stats
 
 Retrieve the stats of for a given currency.
 
-## Positionals
+## Positional Arguments
 
 - `contract` _TEXT_  - The contract that operates the currency
 

@@ -1,12 +1,13 @@
 ---
 id: pack-transaction
+title: pack_transaction
 ---
 
 # pack-transaction
 
 ## Description
 
-This command is used to convert transaction from a plain signed JSON to it binary(packed) representation.
+This command is used to convert transaction from a plain signed JSON to its binary(packed) representation.
 
 ## Positional arguments
 
@@ -45,7 +46,7 @@ clio convert pack_transaction '{
 
 ## Output
 
-```json5
+```json
 {
   "signatures": [],
   "compression": "none",

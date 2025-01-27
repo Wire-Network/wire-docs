@@ -23,7 +23,7 @@ clio get servants
 ```console
 Usage: clio get servants <account>
 
-Positionals:
+Positional Arguments:
   account TEXT                The name of the controlling account
 ```
 

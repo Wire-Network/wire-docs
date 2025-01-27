@@ -8,7 +8,7 @@ title: set abi
 
 Create or update the abi on an account
 
-## Positionals
+## Positional Arguments
 
 * `account` _TEXT_ - The account to set code for (required)
 * `abi-file` _TEXT_ - The fullpath containing the contract WAST or WASM (required)

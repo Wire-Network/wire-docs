@@ -2,8 +2,8 @@ openapi: 3.0.0
 info:
   title: Producer API
   description: >-
-    Nodeop Producer API Specification. See [developer
-    documentation](https://docs.wire.network/docs/api-reference/tooling/nodeop/plugins/producer-api-plugin)
+    Nodeop Producer API Specification. See developer documentation at
+    https://docs.wire.network/docs/api-reference/tooling/nodeop/plugins/producer-api-plugin
     for information on enabling this plugin.
   version: 1.0.0
   license:
@@ -24,7 +24,7 @@ servers:
       host:
         default: localhost
       port:
-        default: '8887'
+        default: '8080'
 security:
   - {}
 paths:
@@ -51,12 +51,12 @@ paths:
           label: Shell
           source: |-
             curl --request POST \
-                 --url http://localhost:8887/v1/producer/pause \
+                 --url http://localhost:8080/v1/producer/pause \
                  --header 'accept: application/json'
         - lang: Node
           label: Node.js
           source: >-
-            const url = 'http://localhost:8887/v1/producer/pause';
+            const url = 'http://localhost:8080/v1/producer/pause';
 
             const options = {method: 'POST', headers: {accept:
             'application/json'}};
@@ -71,7 +71,7 @@ paths:
           source: |-
             import requests
 
-            url = "http://localhost:8887/v1/producer/pause"
+            url = "http://localhost:8080/v1/producer/pause"
 
             headers = {"accept": "application/json"}
 
@@ -85,49 +85,7 @@ paths:
             'application/json'}};
 
 
-            fetch('http://localhost:8887/v1/producer/pause', options)
-              .then(res => res.json())
-              .then(res => console.log(res))
-              .catch(err => console.error(err));
-        - lang: Shell
-          label: Shell
-          source: |-
-            curl --request POST \
-                 --url http://localhost:8887/v1/producer/pause \
-                 --header 'accept: application/json'
-        - lang: Node
-          label: Node.js
-          source: >-
-            const url = 'http://localhost:8887/v1/producer/pause';
-
-            const options = {method: 'POST', headers: {accept:
-            'application/json'}};
-
-
-            fetch(url, options)
-              .then(res => res.json())
-              .then(json => console.log(json))
-              .catch(err => console.error(err));
-        - lang: Python
-          label: Python
-          source: |-
-            import requests
-
-            url = "http://localhost:8887/v1/producer/pause"
-
-            headers = {"accept": "application/json"}
-
-            response = requests.post(url, headers=headers)
-
-            print(response.text)
-        - lang: Javascript
-          label: Javascript
-          source: >-
-            const options = {method: 'POST', headers: {accept:
-            'application/json'}};
-
-
-            fetch('http://localhost:8887/v1/producer/pause', options)
+            fetch('http://localhost:8080/v1/producer/pause', options)
               .then(res => res.json())
               .then(res => console.log(res))
               .catch(err => console.error(err));
@@ -154,12 +112,12 @@ paths:
           label: Shell
           source: |-
             curl --request POST \
-                 --url http://localhost:8887/v1/producer/resume \
+                 --url http://localhost:8080/v1/producer/resume \
                  --header 'accept: application/json'
         - lang: Node
           label: Node.js
           source: >-
-            const url = 'http://localhost:8887/v1/producer/resume';
+            const url = 'http://localhost:8080/v1/producer/resume';
 
             const options = {method: 'POST', headers: {accept:
             'application/json'}};
@@ -174,7 +132,7 @@ paths:
           source: |-
             import requests
 
-            url = "http://localhost:8887/v1/producer/resume"
+            url = "http://localhost:8080/v1/producer/resume"
 
             headers = {"accept": "application/json"}
 
@@ -188,49 +146,7 @@ paths:
             'application/json'}};
 
 
-            fetch('http://localhost:8887/v1/producer/resume', options)
-              .then(res => res.json())
-              .then(res => console.log(res))
-              .catch(err => console.error(err));
-        - lang: Shell
-          label: Shell
-          source: |-
-            curl --request POST \
-                 --url http://localhost:8887/v1/producer/resume \
-                 --header 'accept: application/json'
-        - lang: Node
-          label: Node.js
-          source: >-
-            const url = 'http://localhost:8887/v1/producer/resume';
-
-            const options = {method: 'POST', headers: {accept:
-            'application/json'}};
-
-
-            fetch(url, options)
-              .then(res => res.json())
-              .then(json => console.log(json))
-              .catch(err => console.error(err));
-        - lang: Python
-          label: Python
-          source: |-
-            import requests
-
-            url = "http://localhost:8887/v1/producer/resume"
-
-            headers = {"accept": "application/json"}
-
-            response = requests.post(url, headers=headers)
-
-            print(response.text)
-        - lang: Javascript
-          label: Javascript
-          source: >-
-            const options = {method: 'POST', headers: {accept:
-            'application/json'}};
-
-
-            fetch('http://localhost:8887/v1/producer/resume', options)
+            fetch('http://localhost:8080/v1/producer/resume', options)
               .then(res => res.json())
               .then(res => console.log(res))
               .catch(err => console.error(err));
@@ -259,12 +175,12 @@ paths:
           label: Shell
           source: |-
             curl --request POST \
-                 --url http://localhost:8887/v1/producer/paused \
+                 --url http://localhost:8080/v1/producer/paused \
                  --header 'accept: application/json'
         - lang: Node
           label: Node.js
           source: >-
-            const url = 'http://localhost:8887/v1/producer/paused';
+            const url = 'http://localhost:8080/v1/producer/paused';
 
             const options = {method: 'POST', headers: {accept:
             'application/json'}};
@@ -279,7 +195,7 @@ paths:
           source: |-
             import requests
 
-            url = "http://localhost:8887/v1/producer/paused"
+            url = "http://localhost:8080/v1/producer/paused"
 
             headers = {"accept": "application/json"}
 
@@ -293,49 +209,7 @@ paths:
             'application/json'}};
 
 
-            fetch('http://localhost:8887/v1/producer/paused', options)
-              .then(res => res.json())
-              .then(res => console.log(res))
-              .catch(err => console.error(err));
-        - lang: Shell
-          label: Shell
-          source: |-
-            curl --request POST \
-                 --url http://localhost:8887/v1/producer/paused \
-                 --header 'accept: application/json'
-        - lang: Node
-          label: Node.js
-          source: >-
-            const url = 'http://localhost:8887/v1/producer/paused';
-
-            const options = {method: 'POST', headers: {accept:
-            'application/json'}};
-
-
-            fetch(url, options)
-              .then(res => res.json())
-              .then(json => console.log(json))
-              .catch(err => console.error(err));
-        - lang: Python
-          label: Python
-          source: |-
-            import requests
-
-            url = "http://localhost:8887/v1/producer/paused"
-
-            headers = {"accept": "application/json"}
-
-            response = requests.post(url, headers=headers)
-
-            print(response.text)
-        - lang: Javascript
-          label: Javascript
-          source: >-
-            const options = {method: 'POST', headers: {accept:
-            'application/json'}};
-
-
-            fetch('http://localhost:8887/v1/producer/paused', options)
+            fetch('http://localhost:8080/v1/producer/paused', options)
               .then(res => res.json())
               .then(res => console.log(res))
               .catch(err => console.error(err));
@@ -362,12 +236,12 @@ paths:
           label: Shell
           source: |-
             curl --request POST \
-                 --url http://localhost:8887/v1/producer/get_runtime_options \
+                 --url http://localhost:8080/v1/producer/get_runtime_options \
                  --header 'accept: application/json'
         - lang: Node
           label: Node.js
           source: >-
-            const url = 'http://localhost:8887/v1/producer/get_runtime_options';
+            const url = 'http://localhost:8080/v1/producer/get_runtime_options';
 
             const options = {method: 'POST', headers: {accept:
             'application/json'}};
@@ -382,7 +256,7 @@ paths:
           source: |-
             import requests
 
-            url = "http://localhost:8887/v1/producer/get_runtime_options"
+            url = "http://localhost:8080/v1/producer/get_runtime_options"
 
             headers = {"accept": "application/json"}
 
@@ -396,50 +270,7 @@ paths:
             'application/json'}};
 
 
-            fetch('http://localhost:8887/v1/producer/get_runtime_options',
-            options)
-              .then(res => res.json())
-              .then(res => console.log(res))
-              .catch(err => console.error(err));
-        - lang: Shell
-          label: Shell
-          source: |-
-            curl --request POST \
-                 --url http://localhost:8887/v1/producer/get_runtime_options \
-                 --header 'accept: application/json'
-        - lang: Node
-          label: Node.js
-          source: >-
-            const url = 'http://localhost:8887/v1/producer/get_runtime_options';
-
-            const options = {method: 'POST', headers: {accept:
-            'application/json'}};
-
-
-            fetch(url, options)
-              .then(res => res.json())
-              .then(json => console.log(json))
-              .catch(err => console.error(err));
-        - lang: Python
-          label: Python
-          source: |-
-            import requests
-
-            url = "http://localhost:8887/v1/producer/get_runtime_options"
-
-            headers = {"accept": "application/json"}
-
-            response = requests.post(url, headers=headers)
-
-            print(response.text)
-        - lang: Javascript
-          label: Javascript
-          source: >-
-            const options = {method: 'POST', headers: {accept:
-            'application/json'}};
-
-
-            fetch('http://localhost:8887/v1/producer/get_runtime_options',
+            fetch('http://localhost:8080/v1/producer/get_runtime_options',
             options)
               .then(res => res.json())
               .then(res => console.log(res))
@@ -474,14 +305,14 @@ paths:
           label: Shell
           source: |-
             curl --request POST \
-                 --url http://localhost:8887/v1/producer/update_runtime_options \
+                 --url http://localhost:8080/v1/producer/update_runtime_options \
                  --header 'accept: application/json' \
                  --header 'content-type: application/json'
         - lang: Node
           label: Node.js
           source: >-
             const url =
-            'http://localhost:8887/v1/producer/update_runtime_options';
+            'http://localhost:8080/v1/producer/update_runtime_options';
 
             const options = {
               method: 'POST',
@@ -498,7 +329,7 @@ paths:
           source: |-
             import requests
 
-            url = "http://localhost:8887/v1/producer/update_runtime_options"
+            url = "http://localhost:8080/v1/producer/update_runtime_options"
 
             headers = {
                 "accept": "application/json",
@@ -517,59 +348,7 @@ paths:
             };
 
 
-            fetch('http://localhost:8887/v1/producer/update_runtime_options',
-            options)
-              .then(res => res.json())
-              .then(res => console.log(res))
-              .catch(err => console.error(err));
-        - lang: Shell
-          label: Shell
-          source: |-
-            curl --request POST \
-                 --url http://localhost:8887/v1/producer/update_runtime_options \
-                 --header 'accept: application/json' \
-                 --header 'content-type: application/json'
-        - lang: Node
-          label: Node.js
-          source: >-
-            const url =
-            'http://localhost:8887/v1/producer/update_runtime_options';
-
-            const options = {
-              method: 'POST',
-              headers: {accept: 'application/json', 'content-type': 'application/json'}
-            };
-
-
-            fetch(url, options)
-              .then(res => res.json())
-              .then(json => console.log(json))
-              .catch(err => console.error(err));
-        - lang: Python
-          label: Python
-          source: |-
-            import requests
-
-            url = "http://localhost:8887/v1/producer/update_runtime_options"
-
-            headers = {
-                "accept": "application/json",
-                "content-type": "application/json"
-            }
-
-            response = requests.post(url, headers=headers)
-
-            print(response.text)
-        - lang: Javascript
-          label: Javascript
-          source: >-
-            const options = {
-              method: 'POST',
-              headers: {accept: 'application/json', 'content-type': 'application/json'}
-            };
-
-
-            fetch('http://localhost:8887/v1/producer/update_runtime_options',
+            fetch('http://localhost:8080/v1/producer/update_runtime_options',
             options)
               .then(res => res.json())
               .then(res => console.log(res))
@@ -603,12 +382,12 @@ paths:
           label: Shell
           source: |-
             curl --request POST \
-                 --url http://localhost:8887/v1/producer/get_greylist \
+                 --url http://localhost:8080/v1/producer/get_greylist \
                  --header 'accept: application/json'
         - lang: Node
           label: Node.js
           source: >-
-            const url = 'http://localhost:8887/v1/producer/get_greylist';
+            const url = 'http://localhost:8080/v1/producer/get_greylist';
 
             const options = {method: 'POST', headers: {accept:
             'application/json'}};
@@ -623,7 +402,7 @@ paths:
           source: |-
             import requests
 
-            url = "http://localhost:8887/v1/producer/get_greylist"
+            url = "http://localhost:8080/v1/producer/get_greylist"
 
             headers = {"accept": "application/json"}
 
@@ -637,49 +416,7 @@ paths:
             'application/json'}};
 
 
-            fetch('http://localhost:8887/v1/producer/get_greylist', options)
-              .then(res => res.json())
-              .then(res => console.log(res))
-              .catch(err => console.error(err));
-        - lang: Shell
-          label: Shell
-          source: |-
-            curl --request POST \
-                 --url http://localhost:8887/v1/producer/get_greylist \
-                 --header 'accept: application/json'
-        - lang: Node
-          label: Node.js
-          source: >-
-            const url = 'http://localhost:8887/v1/producer/get_greylist';
-
-            const options = {method: 'POST', headers: {accept:
-            'application/json'}};
-
-
-            fetch(url, options)
-              .then(res => res.json())
-              .then(json => console.log(json))
-              .catch(err => console.error(err));
-        - lang: Python
-          label: Python
-          source: |-
-            import requests
-
-            url = "http://localhost:8887/v1/producer/get_greylist"
-
-            headers = {"accept": "application/json"}
-
-            response = requests.post(url, headers=headers)
-
-            print(response.text)
-        - lang: Javascript
-          label: Javascript
-          source: >-
-            const options = {method: 'POST', headers: {accept:
-            'application/json'}};
-
-
-            fetch('http://localhost:8887/v1/producer/get_greylist', options)
+            fetch('http://localhost:8080/v1/producer/get_greylist', options)
               .then(res => res.json())
               .then(res => console.log(res))
               .catch(err => console.error(err));
@@ -719,14 +456,14 @@ paths:
           label: Shell
           source: |-
             curl --request POST \
-                 --url http://localhost:8887/v1/producer/add_greylist_accounts \
+                 --url http://localhost:8080/v1/producer/add_greylist_accounts \
                  --header 'accept: application/json' \
                  --header 'content-type: application/json'
         - lang: Node
           label: Node.js
           source: >-
             const url =
-            'http://localhost:8887/v1/producer/add_greylist_accounts';
+            'http://localhost:8080/v1/producer/add_greylist_accounts';
 
             const options = {
               method: 'POST',
@@ -743,7 +480,7 @@ paths:
           source: |-
             import requests
 
-            url = "http://localhost:8887/v1/producer/add_greylist_accounts"
+            url = "http://localhost:8080/v1/producer/add_greylist_accounts"
 
             headers = {
                 "accept": "application/json",
@@ -762,59 +499,7 @@ paths:
             };
 
 
-            fetch('http://localhost:8887/v1/producer/add_greylist_accounts',
-            options)
-              .then(res => res.json())
-              .then(res => console.log(res))
-              .catch(err => console.error(err));
-        - lang: Shell
-          label: Shell
-          source: |-
-            curl --request POST \
-                 --url http://localhost:8887/v1/producer/add_greylist_accounts \
-                 --header 'accept: application/json' \
-                 --header 'content-type: application/json'
-        - lang: Node
-          label: Node.js
-          source: >-
-            const url =
-            'http://localhost:8887/v1/producer/add_greylist_accounts';
-
-            const options = {
-              method: 'POST',
-              headers: {accept: 'application/json', 'content-type': 'application/json'}
-            };
-
-
-            fetch(url, options)
-              .then(res => res.json())
-              .then(json => console.log(json))
-              .catch(err => console.error(err));
-        - lang: Python
-          label: Python
-          source: |-
-            import requests
-
-            url = "http://localhost:8887/v1/producer/add_greylist_accounts"
-
-            headers = {
-                "accept": "application/json",
-                "content-type": "application/json"
-            }
-
-            response = requests.post(url, headers=headers)
-
-            print(response.text)
-        - lang: Javascript
-          label: Javascript
-          source: >-
-            const options = {
-              method: 'POST',
-              headers: {accept: 'application/json', 'content-type': 'application/json'}
-            };
-
-
-            fetch('http://localhost:8887/v1/producer/add_greylist_accounts',
+            fetch('http://localhost:8080/v1/producer/add_greylist_accounts',
             options)
               .then(res => res.json())
               .then(res => console.log(res))
@@ -855,14 +540,14 @@ paths:
           label: Shell
           source: |-
             curl --request POST \
-                 --url http://localhost:8887/v1/producer/remove_greylist_accounts \
+                 --url http://localhost:8080/v1/producer/remove_greylist_accounts \
                  --header 'accept: application/json' \
                  --header 'content-type: application/json'
         - lang: Node
           label: Node.js
           source: >-
             const url =
-            'http://localhost:8887/v1/producer/remove_greylist_accounts';
+            'http://localhost:8080/v1/producer/remove_greylist_accounts';
 
             const options = {
               method: 'POST',
@@ -879,7 +564,7 @@ paths:
           source: |-
             import requests
 
-            url = "http://localhost:8887/v1/producer/remove_greylist_accounts"
+            url = "http://localhost:8080/v1/producer/remove_greylist_accounts"
 
             headers = {
                 "accept": "application/json",
@@ -898,59 +583,7 @@ paths:
             };
 
 
-            fetch('http://localhost:8887/v1/producer/remove_greylist_accounts',
-            options)
-              .then(res => res.json())
-              .then(res => console.log(res))
-              .catch(err => console.error(err));
-        - lang: Shell
-          label: Shell
-          source: |-
-            curl --request POST \
-                 --url http://localhost:8887/v1/producer/remove_greylist_accounts \
-                 --header 'accept: application/json' \
-                 --header 'content-type: application/json'
-        - lang: Node
-          label: Node.js
-          source: >-
-            const url =
-            'http://localhost:8887/v1/producer/remove_greylist_accounts';
-
-            const options = {
-              method: 'POST',
-              headers: {accept: 'application/json', 'content-type': 'application/json'}
-            };
-
-
-            fetch(url, options)
-              .then(res => res.json())
-              .then(json => console.log(json))
-              .catch(err => console.error(err));
-        - lang: Python
-          label: Python
-          source: |-
-            import requests
-
-            url = "http://localhost:8887/v1/producer/remove_greylist_accounts"
-
-            headers = {
-                "accept": "application/json",
-                "content-type": "application/json"
-            }
-
-            response = requests.post(url, headers=headers)
-
-            print(response.text)
-        - lang: Javascript
-          label: Javascript
-          source: >-
-            const options = {
-              method: 'POST',
-              headers: {accept: 'application/json', 'content-type': 'application/json'}
-            };
-
-
-            fetch('http://localhost:8887/v1/producer/remove_greylist_accounts',
+            fetch('http://localhost:8080/v1/producer/remove_greylist_accounts',
             options)
               .then(res => res.json())
               .then(res => console.log(res))
@@ -1012,13 +645,13 @@ paths:
           label: Shell
           source: |-
             curl --request POST \
-                 --url http://localhost:8887/v1/producer/get_whitelist_blacklist \
+                 --url http://localhost:8080/v1/producer/get_whitelist_blacklist \
                  --header 'accept: application/json'
         - lang: Node
           label: Node.js
           source: >-
             const url =
-            'http://localhost:8887/v1/producer/get_whitelist_blacklist';
+            'http://localhost:8080/v1/producer/get_whitelist_blacklist';
 
             const options = {method: 'POST', headers: {accept:
             'application/json'}};
@@ -1033,7 +666,7 @@ paths:
           source: |-
             import requests
 
-            url = "http://localhost:8887/v1/producer/get_whitelist_blacklist"
+            url = "http://localhost:8080/v1/producer/get_whitelist_blacklist"
 
             headers = {"accept": "application/json"}
 
@@ -1047,51 +680,7 @@ paths:
             'application/json'}};
 
 
-            fetch('http://localhost:8887/v1/producer/get_whitelist_blacklist',
-            options)
-              .then(res => res.json())
-              .then(res => console.log(res))
-              .catch(err => console.error(err));
-        - lang: Shell
-          label: Shell
-          source: |-
-            curl --request POST \
-                 --url http://localhost:8887/v1/producer/get_whitelist_blacklist \
-                 --header 'accept: application/json'
-        - lang: Node
-          label: Node.js
-          source: >-
-            const url =
-            'http://localhost:8887/v1/producer/get_whitelist_blacklist';
-
-            const options = {method: 'POST', headers: {accept:
-            'application/json'}};
-
-
-            fetch(url, options)
-              .then(res => res.json())
-              .then(json => console.log(json))
-              .catch(err => console.error(err));
-        - lang: Python
-          label: Python
-          source: |-
-            import requests
-
-            url = "http://localhost:8887/v1/producer/get_whitelist_blacklist"
-
-            headers = {"accept": "application/json"}
-
-            response = requests.post(url, headers=headers)
-
-            print(response.text)
-        - lang: Javascript
-          label: Javascript
-          source: >-
-            const options = {method: 'POST', headers: {accept:
-            'application/json'}};
-
-
-            fetch('http://localhost:8887/v1/producer/get_whitelist_blacklist',
+            fetch('http://localhost:8080/v1/producer/get_whitelist_blacklist',
             options)
               .then(res => res.json())
               .then(res => console.log(res))
@@ -1158,14 +747,14 @@ paths:
           label: Shell
           source: |-
             curl --request POST \
-                 --url http://localhost:8887/v1/producer/set_whitelist_blacklist \
+                 --url http://localhost:8080/v1/producer/set_whitelist_blacklist \
                  --header 'accept: application/json' \
                  --header 'content-type: application/json'
         - lang: Node
           label: Node.js
           source: >-
             const url =
-            'http://localhost:8887/v1/producer/set_whitelist_blacklist';
+            'http://localhost:8080/v1/producer/set_whitelist_blacklist';
 
             const options = {
               method: 'POST',
@@ -1182,7 +771,7 @@ paths:
           source: |-
             import requests
 
-            url = "http://localhost:8887/v1/producer/set_whitelist_blacklist"
+            url = "http://localhost:8080/v1/producer/set_whitelist_blacklist"
 
             headers = {
                 "accept": "application/json",
@@ -1201,59 +790,7 @@ paths:
             };
 
 
-            fetch('http://localhost:8887/v1/producer/set_whitelist_blacklist',
-            options)
-              .then(res => res.json())
-              .then(res => console.log(res))
-              .catch(err => console.error(err));
-        - lang: Shell
-          label: Shell
-          source: |-
-            curl --request POST \
-                 --url http://localhost:8887/v1/producer/set_whitelist_blacklist \
-                 --header 'accept: application/json' \
-                 --header 'content-type: application/json'
-        - lang: Node
-          label: Node.js
-          source: >-
-            const url =
-            'http://localhost:8887/v1/producer/set_whitelist_blacklist';
-
-            const options = {
-              method: 'POST',
-              headers: {accept: 'application/json', 'content-type': 'application/json'}
-            };
-
-
-            fetch(url, options)
-              .then(res => res.json())
-              .then(json => console.log(json))
-              .catch(err => console.error(err));
-        - lang: Python
-          label: Python
-          source: |-
-            import requests
-
-            url = "http://localhost:8887/v1/producer/set_whitelist_blacklist"
-
-            headers = {
-                "accept": "application/json",
-                "content-type": "application/json"
-            }
-
-            response = requests.post(url, headers=headers)
-
-            print(response.text)
-        - lang: Javascript
-          label: Javascript
-          source: >-
-            const options = {
-              method: 'POST',
-              headers: {accept: 'application/json', 'content-type': 'application/json'}
-            };
-
-
-            fetch('http://localhost:8887/v1/producer/set_whitelist_blacklist',
+            fetch('http://localhost:8080/v1/producer/set_whitelist_blacklist',
             options)
               .then(res => res.json())
               .then(res => console.log(res))
@@ -1303,12 +840,12 @@ paths:
           label: Shell
           source: |-
             curl --request POST \
-                 --url http://localhost:8887/v1/producer/create_snapshot \
+                 --url http://localhost:8080/v1/producer/create_snapshot \
                  --header 'accept: application/json'
         - lang: Node
           label: Node.js
           source: >-
-            const url = 'http://localhost:8887/v1/producer/create_snapshot';
+            const url = 'http://localhost:8080/v1/producer/create_snapshot';
 
             const options = {method: 'POST', headers: {accept:
             'application/json'}};
@@ -1323,7 +860,7 @@ paths:
           source: |-
             import requests
 
-            url = "http://localhost:8887/v1/producer/create_snapshot"
+            url = "http://localhost:8080/v1/producer/create_snapshot"
 
             headers = {"accept": "application/json"}
 
@@ -1337,49 +874,7 @@ paths:
             'application/json'}};
 
 
-            fetch('http://localhost:8887/v1/producer/create_snapshot', options)
-              .then(res => res.json())
-              .then(res => console.log(res))
-              .catch(err => console.error(err));
-        - lang: Shell
-          label: Shell
-          source: |-
-            curl --request POST \
-                 --url http://localhost:8887/v1/producer/create_snapshot \
-                 --header 'accept: application/json'
-        - lang: Node
-          label: Node.js
-          source: >-
-            const url = 'http://localhost:8887/v1/producer/create_snapshot';
-
-            const options = {method: 'POST', headers: {accept:
-            'application/json'}};
-
-
-            fetch(url, options)
-              .then(res => res.json())
-              .then(json => console.log(json))
-              .catch(err => console.error(err));
-        - lang: Python
-          label: Python
-          source: |-
-            import requests
-
-            url = "http://localhost:8887/v1/producer/create_snapshot"
-
-            headers = {"accept": "application/json"}
-
-            response = requests.post(url, headers=headers)
-
-            print(response.text)
-        - lang: Javascript
-          label: Javascript
-          source: >-
-            const options = {method: 'POST', headers: {accept:
-            'application/json'}};
-
-
-            fetch('http://localhost:8887/v1/producer/create_snapshot', options)
+            fetch('http://localhost:8080/v1/producer/create_snapshot', options)
               .then(res => res.json())
               .then(res => console.log(res))
               .catch(err => console.error(err));
@@ -1412,12 +907,12 @@ paths:
           label: Shell
           source: |-
             curl --request POST \
-                 --url http://localhost:8887/v1/producer/get_integrity_hash \
+                 --url http://localhost:8080/v1/producer/get_integrity_hash \
                  --header 'accept: application/json'
         - lang: Node
           label: Node.js
           source: >-
-            const url = 'http://localhost:8887/v1/producer/get_integrity_hash';
+            const url = 'http://localhost:8080/v1/producer/get_integrity_hash';
 
             const options = {method: 'POST', headers: {accept:
             'application/json'}};
@@ -1432,7 +927,7 @@ paths:
           source: |-
             import requests
 
-            url = "http://localhost:8887/v1/producer/get_integrity_hash"
+            url = "http://localhost:8080/v1/producer/get_integrity_hash"
 
             headers = {"accept": "application/json"}
 
@@ -1446,50 +941,7 @@ paths:
             'application/json'}};
 
 
-            fetch('http://localhost:8887/v1/producer/get_integrity_hash',
-            options)
-              .then(res => res.json())
-              .then(res => console.log(res))
-              .catch(err => console.error(err));
-        - lang: Shell
-          label: Shell
-          source: |-
-            curl --request POST \
-                 --url http://localhost:8887/v1/producer/get_integrity_hash \
-                 --header 'accept: application/json'
-        - lang: Node
-          label: Node.js
-          source: >-
-            const url = 'http://localhost:8887/v1/producer/get_integrity_hash';
-
-            const options = {method: 'POST', headers: {accept:
-            'application/json'}};
-
-
-            fetch(url, options)
-              .then(res => res.json())
-              .then(json => console.log(json))
-              .catch(err => console.error(err));
-        - lang: Python
-          label: Python
-          source: |-
-            import requests
-
-            url = "http://localhost:8887/v1/producer/get_integrity_hash"
-
-            headers = {"accept": "application/json"}
-
-            response = requests.post(url, headers=headers)
-
-            print(response.text)
-        - lang: Javascript
-          label: Javascript
-          source: >-
-            const options = {method: 'POST', headers: {accept:
-            'application/json'}};
-
-
-            fetch('http://localhost:8887/v1/producer/get_integrity_hash',
+            fetch('http://localhost:8080/v1/producer/get_integrity_hash',
             options)
               .then(res => res.json())
               .then(res => console.log(res))
@@ -1531,14 +983,14 @@ paths:
           label: Shell
           source: |-
             curl --request POST \
-                 --url http://localhost:8887/v1/producer/schedule_protocol_feature_activations \
+                 --url http://localhost:8080/v1/producer/schedule_protocol_feature_activations \
                  --header 'accept: application/json' \
                  --header 'content-type: application/json'
         - lang: Node
           label: Node.js
           source: >-
             const url =
-            'http://localhost:8887/v1/producer/schedule_protocol_feature_activations';
+            'http://localhost:8080/v1/producer/schedule_protocol_feature_activations';
 
             const options = {
               method: 'POST',
@@ -1557,7 +1009,7 @@ paths:
 
 
             url =
-            "http://localhost:8887/v1/producer/schedule_protocol_feature_activations"
+            "http://localhost:8080/v1/producer/schedule_protocol_feature_activations"
 
 
             headers = {
@@ -1579,64 +1031,7 @@ paths:
             };
 
 
-            fetch('http://localhost:8887/v1/producer/schedule_protocol_feature_activations',
-            options)
-              .then(res => res.json())
-              .then(res => console.log(res))
-              .catch(err => console.error(err));
-        - lang: Shell
-          label: Shell
-          source: |-
-            curl --request POST \
-                 --url http://localhost:8887/v1/producer/schedule_protocol_feature_activations \
-                 --header 'accept: application/json' \
-                 --header 'content-type: application/json'
-        - lang: Node
-          label: Node.js
-          source: >-
-            const url =
-            'http://localhost:8887/v1/producer/schedule_protocol_feature_activations';
-
-            const options = {
-              method: 'POST',
-              headers: {accept: 'application/json', 'content-type': 'application/json'}
-            };
-
-
-            fetch(url, options)
-              .then(res => res.json())
-              .then(json => console.log(json))
-              .catch(err => console.error(err));
-        - lang: Python
-          label: Python
-          source: >-
-            import requests
-
-
-            url =
-            "http://localhost:8887/v1/producer/schedule_protocol_feature_activations"
-
-
-            headers = {
-                "accept": "application/json",
-                "content-type": "application/json"
-            }
-
-
-            response = requests.post(url, headers=headers)
-
-
-            print(response.text)
-        - lang: Javascript
-          label: Javascript
-          source: >-
-            const options = {
-              method: 'POST',
-              headers: {accept: 'application/json', 'content-type': 'application/json'}
-            };
-
-
-            fetch('http://localhost:8887/v1/producer/schedule_protocol_feature_activations',
+            fetch('http://localhost:8080/v1/producer/schedule_protocol_feature_activations',
             options)
               .then(res => res.json())
               .then(res => console.log(res))
@@ -1717,14 +1112,14 @@ paths:
           label: Shell
           source: |-
             curl --request POST \
-                 --url http://localhost:8887/v1/producer/get_supported_protocol_features \
+                 --url http://localhost:8080/v1/producer/get_supported_protocol_features \
                  --header 'accept: application/json' \
                  --header 'content-type: application/json'
         - lang: Node
           label: Node.js
           source: >-
             const url =
-            'http://localhost:8887/v1/producer/get_supported_protocol_features';
+            'http://localhost:8080/v1/producer/get_supported_protocol_features';
 
             const options = {
               method: 'POST',
@@ -1743,7 +1138,7 @@ paths:
 
 
             url =
-            "http://localhost:8887/v1/producer/get_supported_protocol_features"
+            "http://localhost:8080/v1/producer/get_supported_protocol_features"
 
 
             headers = {
@@ -1765,64 +1160,7 @@ paths:
             };
 
 
-            fetch('http://localhost:8887/v1/producer/get_supported_protocol_features',
-            options)
-              .then(res => res.json())
-              .then(res => console.log(res))
-              .catch(err => console.error(err));
-        - lang: Shell
-          label: Shell
-          source: |-
-            curl --request POST \
-                 --url http://localhost:8887/v1/producer/get_supported_protocol_features \
-                 --header 'accept: application/json' \
-                 --header 'content-type: application/json'
-        - lang: Node
-          label: Node.js
-          source: >-
-            const url =
-            'http://localhost:8887/v1/producer/get_supported_protocol_features';
-
-            const options = {
-              method: 'POST',
-              headers: {accept: 'application/json', 'content-type': 'application/json'}
-            };
-
-
-            fetch(url, options)
-              .then(res => res.json())
-              .then(json => console.log(json))
-              .catch(err => console.error(err));
-        - lang: Python
-          label: Python
-          source: >-
-            import requests
-
-
-            url =
-            "http://localhost:8887/v1/producer/get_supported_protocol_features"
-
-
-            headers = {
-                "accept": "application/json",
-                "content-type": "application/json"
-            }
-
-
-            response = requests.post(url, headers=headers)
-
-
-            print(response.text)
-        - lang: Javascript
-          label: Javascript
-          source: >-
-            const options = {
-              method: 'POST',
-              headers: {accept: 'application/json', 'content-type': 'application/json'}
-            };
-
-
-            fetch('http://localhost:8887/v1/producer/get_supported_protocol_features',
+            fetch('http://localhost:8080/v1/producer/get_supported_protocol_features',
             options)
               .then(res => res.json())
               .then(res => console.log(res))
@@ -1881,14 +1219,14 @@ paths:
           label: Shell
           source: |-
             curl --request POST \
-                 --url http://localhost:8887/v1/producer/get_account_ram_corrections \
+                 --url http://localhost:8080/v1/producer/get_account_ram_corrections \
                  --header 'accept: application/json' \
                  --header 'content-type: application/json'
         - lang: Node
           label: Node.js
           source: >-
             const url =
-            'http://localhost:8887/v1/producer/get_account_ram_corrections';
+            'http://localhost:8080/v1/producer/get_account_ram_corrections';
 
             const options = {
               method: 'POST',
@@ -1907,7 +1245,7 @@ paths:
 
 
             url =
-            "http://localhost:8887/v1/producer/get_account_ram_corrections"
+            "http://localhost:8080/v1/producer/get_account_ram_corrections"
 
 
             headers = {
@@ -1929,64 +1267,7 @@ paths:
             };
 
 
-            fetch('http://localhost:8887/v1/producer/get_account_ram_corrections',
-            options)
-              .then(res => res.json())
-              .then(res => console.log(res))
-              .catch(err => console.error(err));
-        - lang: Shell
-          label: Shell
-          source: |-
-            curl --request POST \
-                 --url http://localhost:8887/v1/producer/get_account_ram_corrections \
-                 --header 'accept: application/json' \
-                 --header 'content-type: application/json'
-        - lang: Node
-          label: Node.js
-          source: >-
-            const url =
-            'http://localhost:8887/v1/producer/get_account_ram_corrections';
-
-            const options = {
-              method: 'POST',
-              headers: {accept: 'application/json', 'content-type': 'application/json'}
-            };
-
-
-            fetch(url, options)
-              .then(res => res.json())
-              .then(json => console.log(json))
-              .catch(err => console.error(err));
-        - lang: Python
-          label: Python
-          source: >-
-            import requests
-
-
-            url =
-            "http://localhost:8887/v1/producer/get_account_ram_corrections"
-
-
-            headers = {
-                "accept": "application/json",
-                "content-type": "application/json"
-            }
-
-
-            response = requests.post(url, headers=headers)
-
-
-            print(response.text)
-        - lang: Javascript
-          label: Javascript
-          source: >-
-            const options = {
-              method: 'POST',
-              headers: {accept: 'application/json', 'content-type': 'application/json'}
-            };
-
-
-            fetch('http://localhost:8887/v1/producer/get_account_ram_corrections',
+            fetch('http://localhost:8080/v1/producer/get_account_ram_corrections',
             options)
               .then(res => res.json())
               .then(res => console.log(res))

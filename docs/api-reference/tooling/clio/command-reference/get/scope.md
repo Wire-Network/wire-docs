@@ -6,7 +6,7 @@ id: scope
 
 Retrieves a list of scopes and tables owned by a contract.
 
-## Positionals
+## Positional Arguments
 
 - `[contract]` _TEXT_ - The contract who owns the table.
 

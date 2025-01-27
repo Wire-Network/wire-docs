@@ -2,7 +2,7 @@
 
 Retrieve version information of the client
 
-## Positionals
+## Positional Arguments
 
 none
 

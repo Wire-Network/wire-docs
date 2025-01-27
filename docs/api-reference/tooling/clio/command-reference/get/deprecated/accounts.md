@@ -15,7 +15,7 @@ Retrieves all accounts associated with a defined public key.
 This command will **not** return privileged accounts.
 :::
 
-## Positionals
+## Positional Arguments
 
 `public_key` _TEXT_  - The public key to retrieve accounts for
 

@@ -48,10 +48,6 @@ On the Wire platform, the authority relates a public key and the authorization f
 
 ---
 
-## Bancor Relay
-
-Wire adopts a free-market approach to allocating scarce resources such as RAM. The Wire system contract allows users to buy RAM from the system and sell RAM back to the system in exchange for the blockchain's native tokens. This provides liquidity in the RAM market while facilitating price discovery. The less unallocated RAM available to the market maker the higher the market maker prices the remaining RAM. The algorithm used for this market maker is known as a Bancor Relay. A Bancor Relay does not set the price of RAM. It only offers to buy and sell at previously established market rates. Anytime the current market rate is different than the current price offered by the Bancor Relay, traders will buy or sell RAM pushing to closer to the market determined price.
-
 ## Block
 
 A confirmable unit of a blockchain. Each block contains zero or more transactions, as well as a cryptographic connection to all prior blocks. When a block becomes "irreversibly confirmed" it's because a supermajority of node operators have agreed that the given block contains the correct transactions. Once a block is irreversibly confirmed, it becomes a permanent part of the immutable blockchain.
@@ -304,14 +300,6 @@ A public network is a production network instantiated with the Wire platform. Fo
 ## RAM
 
 RAM is required to store account information such as keys, balances, and contract state on an Wire based blockchain. Because the amount of RAM available to a single computer is limited by Moore’s Law and other technological advances, RAM is fundamentally scarce and must be purchased on a free-market inside an Wire based blockchain.
-
- **Related** [Bancor Relay](#bancor-relay)
-
-## RAM Market
-
-In order to persist data on an Wire based blockchain, a user must first purchase RAM. The Wire RAM market uses the Bancor Relay algorithm in a system smart contract to offer to buy and sell RAM from users at previously established market rates.
-
- **Related** [Bancor Relay](#bancor-relay)
 
 ## REX
 
