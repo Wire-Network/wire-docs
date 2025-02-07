@@ -28,5 +28,5 @@ title: system rex rentcpu
 ## Examples
 
 ```sh
-clio system rex rentcpu accountname1 accountname2 "1 EOS" 0
+clio system rex rentcpu accountname1 accountname2 "1 SYS" 0
 ```

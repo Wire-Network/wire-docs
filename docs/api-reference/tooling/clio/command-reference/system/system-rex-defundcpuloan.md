@@ -29,5 +29,5 @@ Withdraw from a CPU loan fund.
 ## Examples
 
 ```sh
-clio system rex defundcpuloan accountname1 abc123 "1 EOS"
+clio system rex defundcpuloan accountname1 abc123 "1 SYS"
 ```

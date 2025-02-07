@@ -7,8 +7,8 @@ title: system undelegatebw
 
 - `from` _TEXT_ - The account undelegating bandwidth
 - `receiver` _TEXT_ - The account to undelegate bandwidth from
-- `unstake_net_quantity` _TEXT_ - The amount of EOS to undelegate for network bandwidth
-- `unstake_cpu_quantity` _TEXT_  - The amount of EOS to undelegate for CPU bandwidth
+- `unstake_net_quantity` _TEXT_ - The amount of SYS to undelegate for network bandwidth
+- `unstake_cpu_quantity` _TEXT_  - The amount of SYS to undelegate for CPU bandwidth
 
 ## Options
 

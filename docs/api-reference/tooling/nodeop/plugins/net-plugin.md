@@ -49,7 +49,7 @@ Config Options for sysio::net_plugin:
   --p2p-reject-incomplete-blocks arg (=1))
                                         Reject pruned signed_blocks even in 
                                         light validation
-  --agent-name arg (=EOS Test Agent))    The name supplied to identify this node
+  --agent-name arg (=bob Test Agent))    The name supplied to identify this node
                                         amongst the peers.
   --allowed-connection arg (=any))       Can be 'any' or 'producers' or 
                                         'specified' or 'none'. If 'specified', 

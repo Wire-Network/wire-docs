@@ -91,13 +91,6 @@ Config Options for sysio::state_history_plugin:
                                         options are "zlib" and "none"
 ```
 
-## Examples
-
-<!-- ### history-tools
-
-  * [Source code](https://github.com/EOSIO/history-tools/)
-  * [Documentation](https://sysio.github.io/history-tools/) -->
-
 ## Dependencies
 
 * [`chain_plugin`](chain-plugin.md)

@@ -72,7 +72,7 @@ clio -u https://api.testnet.eos.io validate signatures '{ "expiration": "2020-04
 
 ```console
 [
-  "EOS7pCywBCz5zw2bc7teCVcT7MEWUr9s749qnYDNPEsBoH32vGqqN"
+  "SYS7pCywBCz5zw2bc7teCVcT7MEWUr9s749qnYDNPEsBoH32vGqqN"
 ]
 ```
 

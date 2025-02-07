@@ -6,7 +6,7 @@ title: system sellram
 
 ## Positional Arguments
 
-- `account` _TEXT_ - The account to receive EOS for sold RAM
+- `account` _TEXT_ - The account to receive SYS for sold RAM
 - `bytes` _UINT_  - Number of RAM bytes to sell
 
 ## Options

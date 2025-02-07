@@ -24,14 +24,14 @@ See the following reference guides for command line usage and related options fo
 
 The following steps show:
 
-* [Overview](#overview)
-* [Before you begin](#before-you-begin)
-* [Command Reference](#command-reference)
-* [Procedure](#procedure)
-  * [1. Stake NET bandwidth](#1-stake-net-bandwidth)
-  * [2. Stake CPU bandwidth](#2-stake-cpu-bandwidth)
-  * [3. Stake NET and CPU bandwidth](#3-stake-net-and-cpu-bandwidth)
-* [Summary](#summary)
+- [Overview](#overview)
+- [Before you begin](#before-you-begin)
+- [Command Reference](#command-reference)
+- [Procedure](#procedure)
+  - [1. Stake NET bandwidth](#1-stake-net-bandwidth)
+  - [2. Stake CPU bandwidth](#2-stake-cpu-bandwidth)
+  - [3. Stake NET and CPU bandwidth](#3-stake-net-and-cpu-bandwidth)
+- [Summary](#summary)
 
 ### 1. Stake NET bandwidth
 
@@ -53,7 +53,7 @@ Example output:
 ```console
 executed transaction: 5487afafd67bf459a20fcc2dbc5d0c2f0d1f10e33123eaaa07088046fd18e3ae  192 bytes  503 us
 #         sysio <= sysio::delegatebw            {"from":"bob","receiver":"alice","stake_net_quantity":"0.01 SYS","stake_cpu_quanti...
-#   sysio.token <= sysio.token::transfer        {"from":"bob","to":"sysio.stake","quantity":"0.01 EOS","memo":"stake bandwidth"}
+#   sysio.token <= sysio.token::transfer        {"from":"bob","to":"sysio.stake","quantity":"0.01 SYS","memo":"stake bandwidth"}
 #  alice <= sysio.token::transfer        {"from":"bob","to":"sysio.stake","quantity":"0.01 SYS","memo":"stake bandwidth"}
 #   sysio.stake <= sysio.token::transfer        {"from":"bob","to":"sysio.stake","quantity":"0.01 SYS","memo":"stake bandwidth"}
 ```
@@ -78,7 +78,7 @@ Example output:
 ```console
 executed transaction: 5487afafd67bf459a20fcc2dbc5d0c2f0d1f10e33123eaaa07088046fd18e3ae  192 bytes  503 us
 #         sysio <= sysio::delegatebw            {"from":"bob","receiver":"alice","stake_net_quantity":"0.0000 SYS","stake_cpu_quanti...
-#   sysio.token <= sysio.token::transfer        {"from":"bob","to":"sysio.stake","quantity":"0.01 EOS","memo":"stake bandwidth"}
+#   sysio.token <= sysio.token::transfer        {"from":"bob","to":"sysio.stake","quantity":"0.01 SYS","memo":"stake bandwidth"}
 #  alice <= sysio.token::transfer        {"from":"bob","to":"sysio.stake","quantity":"0.01 SYS","memo":"stake bandwidth"}
 #   sysio.stake <= sysio.token::transfer        {"from":"bob","to":"sysio.stake","quantity":"0.01 SYS","memo":"stake bandwidth"}
 ```
@@ -103,7 +103,7 @@ Example output:
 ```console
 executed transaction: 5487afafd67bf459a20fcc2dbc5d0c2f0d1f10e33123eaaa07088046fd18e3ae  192 bytes  503 us
 #         sysio <= sysio::delegatebw            {"from":"bob","receiver":"alice","stake_net_quantity":"0.01 SYS","stake_cpu_quanti...
-#   sysio.token <= sysio.token::transfer        {"from":"bob","to":"sysio.stake","quantity":"0.01 EOS","memo":"stake bandwidth"}
+#   sysio.token <= sysio.token::transfer        {"from":"bob","to":"sysio.stake","quantity":"0.01 SYS","memo":"stake bandwidth"}
 #  alice <= sysio.token::transfer        {"from":"bob","to":"sysio.stake","quantity":"0.01 SYS","memo":"stake bandwidth"}
 #   sysio.stake <= sysio.token::transfer        {"from":"bob","to":"sysio.stake","quantity":"0.01 SYS","memo":"stake bandwidth"}
 ```

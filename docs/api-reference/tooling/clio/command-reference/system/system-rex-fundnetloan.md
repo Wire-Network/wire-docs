@@ -30,5 +30,5 @@ Deposit into a Network loan fund
 ## Examples
 
 ```sh
-clio system rex fundnetloan accountname1 abc123 "1 EOS"
+clio system rex fundnetloan accountname1 abc123 "1 SYS"
 ```
