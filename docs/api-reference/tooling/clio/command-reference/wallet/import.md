@@ -53,7 +53,7 @@ The command asks for the private key. Enter it.
 **Example Output**
 
 ```shell
-private key: imported private key for: EOS5zG7PsdtzQ9achTdRtXwHieL7yyigBFiJDRAQonqBsfKyL3XhC
+private key: imported private key for: SYS5zG7PsdtzQ9achTdRtXwHieL7yyigBFiJDRAQonqBsfKyL3XhC
 ```
 
 1. Import a private key to a named wallet. The wallet must be `open` and `unlocked.`
@@ -69,5 +69,5 @@ clio wallet import --name my_wallet --private-key 5KDNWQvY2seBPVUz7MiiaEDGTwACfu
 **Example Output**
 
 ```shell
-imported private key for: EOS5zG7PsdtzQ9achTdRtXwHieL7yyigBFiJDRAQonqBsfKyL3XhC
+imported private key for: SYS5zG7PsdtzQ9achTdRtXwHieL7yyigBFiJDRAQonqBsfKyL3XhC
 ```

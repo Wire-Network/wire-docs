@@ -5,7 +5,7 @@ title: Smart Contract Basics
 ---
 
 
-# Anatomy of Wire Smart Basics
+# Anatomy of Wire Smart Contracts
 
 ## Development Language
 

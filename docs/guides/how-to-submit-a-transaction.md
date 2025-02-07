@@ -4,7 +4,8 @@ title: Submit a Transaction
 
 ## Overview
 
-This how-to guide provides instructions on how to submit a transaction with a single action  using various commands with the `clio` CLI tool.
+This guide provides instructions on how to submit a transaction with a single action on a contract using the `clio` CLI tool.
+It covers two methods: pushing an action directly or submitting a JSON transaction.
 
 ## Prerequisites
 
@@ -77,7 +78,7 @@ clio wallet unlock --name=default --password "$(cat /path/to/wallet_password_fil
 
 ### Create the transaction as JSON snippet
 
-You can create the JSON defining the transaction in 2 ways:
+You can create the JSON defining the transaction in two ways:
 
 * Create a JSON snippet which contains a valid transaction and uses hex format for `data` field.
 

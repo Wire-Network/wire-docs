@@ -1,7 +1,7 @@
+---
 openapi: 3.0.0
 info:
   title: DB Size API
-  description: Nodeop DB Size API Specification. See developer documentation at https://docs.wire.network for information on enabling this plugin.
   version: 1.0.0
   license:
     name: MIT
@@ -9,21 +9,21 @@ info:
   contact:
     url: https://wire.network
 servers:
-  - url: '{protocol}://{host}:{port}/v1/'
-    variables:
-      protocol:
-        enum:
-          - http
-          - https
-        default: http
-      host:
-        default: localhost
-      port:
-        default: "8080"
+- url: "{protocol}://{host}:{port}/v1/"
+  variables:
+    protocol:
+      enum:
+      - http
+      - https
+      default: http
+    host:
+      default: localhost
+    port:
+      default: '8080'
 components:
   schemas: {}
 paths:
-  /db_size/get:
+  "/db_size/get":
     post:
       summary: get
       description: Retrieves database stats

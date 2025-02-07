@@ -21,7 +21,7 @@ cd CONTRACTS_DIR/wire-system-contracts/contracts/sysio.token
 ### Step 2: Create Account for Contract
 
 ```sh
-clio create account sysio sysio.token EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+clio create account sysio sysio.token SYS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
 ```
 
 ### Step 3: Compile the Contract

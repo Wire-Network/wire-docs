@@ -27,5 +27,5 @@ title: system rex unstaketorex
 ## Examples
 
 ```sh
-clio system rex unstaketorex accountname1 accountname2 "1 EOS" 0
+clio system rex unstaketorex accountname1 accountname2 "1 SYS" 0
 ```

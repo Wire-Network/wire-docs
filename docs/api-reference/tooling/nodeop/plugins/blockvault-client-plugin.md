@@ -61,7 +61,7 @@ nodeop --plugin sysio::producer_plugin --producer-name myproducer --plugin sysio
 
 ## Software Dependencies
 
-To build `blockvault_client_plugin` you need `libpq` version 10 or above and `libpqxx` version 6 or above. These dependencies are typically installed (alongside other dependencies) when you either [Install EOSIO](/docs/getting-started/install-dependencies.md) from prebuilt binaries or build from source. You may also opt to install these dependencies manually prior to installing or building EOSIO.
+To build `blockvault_client_plugin` you need `libpq` version 10 or above and `libpqxx` version 6 or above. These dependencies are typically installed (alongside other dependencies) when you either [Install Wire Sysio](/docs/getting-started/install-dependencies.md) from prebuilt binaries or build from source. You may also opt to install these dependencies manually prior to installing or building Wire Sysio Core software.
 
 For MacOS, you can simply use homebrew to install these dependencies:
 

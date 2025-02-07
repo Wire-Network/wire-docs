@@ -36,7 +36,7 @@ This encoding is **not suitable** for:
 0000000000000000000000000000000000000000000000000000000000000000
 ```
 
-1. Add a 0x80 byte in front.  This byte represents the Bitcoin mainnet.  EOS uses the same version byte.  When encoded the version byte helps to identify this as a private key.  Unlike Bitcoin, EOS always uses compressed public keys (derived from a private key) and therefore does not suffix the private key with a 0x01 byte.
+1. Add a 0x80 byte in front.  This byte represents the Bitcoin mainnet.  SYS uses the same version byte.  When encoded the version byte helps to identify this as a private key.  Unlike Bitcoin, SYS always uses compressed public keys (derived from a private key) and therefore does not suffix the private key with a 0x01 byte.
 
 ```console
 800000000000000000000000000000000000000000000000000000000000000000
@@ -128,7 +128,7 @@ ce145d282834c009c24410812a60588c1085b63d65a7effc2e0a5e3a2e21b236
 
 ## [Base58check](https://www.npmjs.com/package/base58check)
 
-Base58Check is a JavaScript implementation of this algorithm and may be used to encode and decode EOS WIF private keys.
+Base58Check is a JavaScript implementation of this algorithm and may be used to encode and decode SYS WIF private keys.
 
 ```sh
 base58check = require('base58check')

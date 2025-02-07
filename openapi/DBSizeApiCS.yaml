@@ -1,17 +1,15 @@
 openapi: 3.0.0
 info:
   title: DB Size API
-  description: >-
-    Nodeop DB Size API Specification. See developer documentation at
-    https://docs.wire.network for information on enabling this plugin.
   version: 1.0.0
   license:
     name: MIT
     url: https://opensource.org/licenses/MIT
   contact:
     url: https://wire.network
+
 servers:
-  - url: '{protocol}://{host}:{port}/v1/'
+  - url: "{protocol}://{host}:{port}/v1/"
     variables:
       protocol:
         enum:
@@ -21,11 +19,13 @@ servers:
       host:
         default: localhost
       port:
-        default: '8080'
+        default: "8080"
+
 components:
   schemas: {}
+
 paths:
-  /db_size/get:
+  "/db_size/get":
     post:
       summary: get
       description: Retrieves database stats
@@ -34,6 +34,8 @@ paths:
       requestBody:
         content:
           application/json:
+            # an empty JSON object is fine, since schema has no required properties
+            example: {}
             schema:
               type: object
               properties: {}
@@ -64,48 +66,31 @@ paths:
       x-codeSamples:
         - lang: Shell
           label: Shell
-          source: |-
-            curl --request POST \
-                 --url http://localhost:8080/v1/db_size/get \
-                 --header 'accept: application/json' \
-                 --header 'content-type: application/json'
-        - lang: Node
+          source: |
+            curl -X POST "http://localhost:8080/v1/db_size/get" \
+              -H "Content-Type: application/json" \
+              -d '{}'
+        - lang: Node.js
           label: Node.js
-          source: |-
-            const url = 'http://localhost:8080/v1/db_size/get';
-            const options = {
-              method: 'POST',
-              headers: {accept: 'application/json', 'content-type': 'application/json'}
-            };
+          source: |
+            const fetch = require('node-fetch');
 
-            fetch(url, options)
+            fetch("http://localhost:8080/v1/db_size/get", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({})
+            })
               .then(res => res.json())
-              .then(json => console.log(json))
-              .catch(err => console.error(err));
+              .then(console.log)
+              .catch(console.error);
         - lang: Python
           label: Python
-          source: |-
+          source: |
             import requests
 
             url = "http://localhost:8080/v1/db_size/get"
+            payload = {}
+            headers = {"Content-Type": "application/json"}
 
-            headers = {
-                "accept": "application/json",
-                "content-type": "application/json"
-            }
-
-            response = requests.post(url, headers=headers)
-
+            response = requests.post(url, json=payload, headers=headers)
             print(response.text)
-        - lang: Javascript
-          label: Javascript
-          source: |-
-            const options = {
-              method: 'POST',
-              headers: {accept: 'application/json', 'content-type': 'application/json'}
-            };
-
-            fetch('http://localhost:8080/v1/db_size/get', options)
-              .then(res => res.json())
-              .then(res => console.log(res))
-              .catch(err => console.error(err));

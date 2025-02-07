@@ -27,5 +27,5 @@ title: system rex rentnet
 ## Examples
 
 ```sh
-clio system rex rentnet accountname1 accountname2 "1 EOS" 0
+clio system rex rentnet accountname1 accountname2 "1 SYS" 0
 ```

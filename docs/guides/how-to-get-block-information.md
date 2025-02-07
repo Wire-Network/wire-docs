@@ -26,7 +26,7 @@ clio get block [--info] <block_number_or_id>
 
 Some examples are provided below:
 
-* Query a testnet to retrieve full block information about block number `110000` or block ID `0001adb09b790f991773d65fb535f686583f19d28c044fdc2e57cb16134600fa`:
+* Query a testnet to retrieve full block information about block number `110000` or block ID `0001adaf4206cf1e77a5042caeed1741f5c8a37441a287cddfb9ac19180d5b64`:
 
 **Example Output**
 
@@ -36,19 +36,19 @@ clio -u https://testnet-hyperion.wire.foundation get block 110000 | jq .
 
 ```json
 {
-  "timestamp": "2024-12-14T12:36:20.000",
-  "producer": "delta",
+  "timestamp": "2025-01-17T08:11:58.500",
+  "producer": "lima",
   "confirmed": 0,
-  "previous": "0001adaf50055002bedc659112e3cee37fede0cd05efcf15786c3089ebc9f851",
+  "previous": "0001adaf4206cf1e77a5042caeed1741f5c8a37441a287cddfb9ac19180d5b64",
   "transaction_mroot": "0000000000000000000000000000000000000000000000000000000000000000",
-  "action_mroot": "913e3539d85282e5eb2668a66ed236afa4193b677fa56f8de8b2da03d68ad110",
+  "action_mroot": "5f728a0a980547176710addcd0aebe08029995bddf3cde7175e0fbdd687aa3e2",
   "schedule_version": 1,
   "new_producers": null,
-  "producer_signature": "SIG_K1_K4y8Kbe6dKhBgdaAe2M5pad8i6B6VNNjbZNqfp1Gpez1sLh6sp471YhMceQLJaLKDXjX9TeHzGexcyN7qBjkPv3naRTSmJ",
+  "producer_signature": "SIG_K1_Kc6Zcy3Qx9HjNyLuCzpD7Jp8GUQ1HHVtN2kr1dtu7BvMZ91ScMP8PS9scsYiyAHqjvgufjevJu1Xg2ELDzft9WF8qbhE7m",
   "transactions": [],
-  "id": "0001adb09b790f991773d65fb535f686583f19d28c044fdc2e57cb16134600fa",
+  "id": "0001adb03039cd98e6568b80bb0307c3b9aeecc219ecdf6ddfbdfeb557a19b7e",
   "block_num": 110000,
-  "ref_block_prefix": 1607889687
+  "ref_block_prefix": 2156615398
 }
 ```
 
@@ -57,28 +57,28 @@ clio -u https://testnet-hyperion.wire.foundation get block 110000 | jq .
 **Example Output**
 
 ```sh
-clio -u https://testnet-hyperion.wire.foundation get block 0001adb09b790f991773d65fb535f686583f19d28c044fdc2e57cb16134600fa
+clio -u https://testnet-hyperion.wire.foundation get block 0001adaf4206cf1e77a5042caeed1741f5c8a37441a287cddfb9ac19180d5b64
 ```
 
 ```json
 {
-  "timestamp": "2024-12-14T12:36:20.000",
-  "producer": "delta",
+  "timestamp": "2025-01-17T08:11:58.000",
+  "producer": "lima",
   "confirmed": 0,
-  "previous": "0001adaf50055002bedc659112e3cee37fede0cd05efcf15786c3089ebc9f851",
+  "previous": "0001adae7207d4a5ec8924d1fee3c2ff2915ae39e82f52c9c1204b9fd6639574",
   "transaction_mroot": "0000000000000000000000000000000000000000000000000000000000000000",
-  "action_mroot": "913e3539d85282e5eb2668a66ed236afa4193b677fa56f8de8b2da03d68ad110",
+  "action_mroot": "54fe866491295e2f380ec5cc89c8cb29842a86ad067f3d077212b8dcb7f81b2e",
   "schedule_version": 1,
   "new_producers": null,
-  "producer_signature": "SIG_K1_K4y8Kbe6dKhBgdaAe2M5pad8i6B6VNNjbZNqfp1Gpez1sLh6sp471YhMceQLJaLKDXjX9TeHzGexcyN7qBjkPv3naRTSmJ",
+  "producer_signature": "SIG_K1_KjF2zB8ZbySmiaHPjYXfjQxsKNQCGH7vsNZBz4mvMfkL4pRSYDFkDiVnGeA5AhjgHeVcA3q5GXc2aXEGBxF3sFU9kkUFCq",
   "transactions": [],
-  "id": "0001adb09b790f991773d65fb535f686583f19d28c044fdc2e57cb16134600fa",
-  "block_num": 110000,
-  "ref_block_prefix": 1607889687
+  "id": "0001adaf4206cf1e77a5042caeed1741f5c8a37441a287cddfb9ac19180d5b64",
+  "block_num": 109999,
+  "ref_block_prefix": 738502007
 }
 ```
 
-* Query a local chain(omit the `-u` option) to retrieve partial block information about block number `3355011`:
+* Query a local chain(omit the `-u` option) to retrieve partial block information about block number `3355`:
 
 **Example Output**
 
@@ -88,18 +88,18 @@ clio get block --info 3355011
 
 ```json
 {
-  "block_num": 3355011,
-  "ref_block_num": 12675,
-  "id": "003331831d6760b4c74dcd8858cb3deb9b631e3a20eaabd941a697387116f4bf",
-  "timestamp": "2024-12-01T11:53:11.000",
-  "producer": "delta",
+  "block_num": 3355,
+  "ref_block_num": 3355,
+  "id": "00000d1bde672567bb080a3a777baac66cacca79f373dcc3033456202048d939",
+  "timestamp": "2025-02-06T17:51:42.500",
+  "producer": "sysio",
   "confirmed": 0,
-  "previous": "00333182991b6066f6115f943dbb2069aef270bb9be022041c39a5cd08c43843",
+  "previous": "00000d1a9bdaec35d5fa12b738735e8826f0222cc762f0f19eb337fc8ee4e167",
   "transaction_mroot": "0000000000000000000000000000000000000000000000000000000000000000",
-  "action_mroot": "13304e3551940565c830c51388c0253eb00dda287e76e8187ea4629dc8a22995",
-  "schedule_version": 1,
-  "producer_signature": "SIG_K1_KVZ6m9PHdfMpRTaUox2UQvnKwXei6AdXKCLXGHmDUeqBuKpZFxr9PmNK1tUHDUsLi6eDWHu1BEnrcvLTD6KhBcwDbLuHfz",
-  "ref_block_prefix": 2295156167
+  "action_mroot": "3da6e79fb0eeedd2cfd09d7d54a4e97f86e0fb0bf6ec62f37fc01d942bb625f7",
+  "schedule_version": 0,
+  "producer_signature": "SIG_K1_Jub1L3hWJvD1kEZ4KaqpUQBKmZdjRq8HnM57kZxKGPiRMoK3Xs5QJnp4xFmooZxvJpTMmK1aLenirYXvh8xEidf4zgRDwh",
+  "ref_block_prefix": 973736123
 }
 ```
 

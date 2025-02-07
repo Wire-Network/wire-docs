@@ -29,5 +29,5 @@ Withdraw from a Network loan fund.
 ## Examples
 
 ```sh
-clio system rex defundnetloan accountname1 abc123 "1 EOS"
+clio system rex defundnetloan accountname1 abc123 "1 SYS"
 ```
