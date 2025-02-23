@@ -38,6 +38,15 @@ Once you have a `*.deb` file, you can install it by running:
 sudo apt install ./wire-sysio-*.deb
 ```
 
+:::info Quick install
+To download and install latest release, run:
+
+```sh
+wget -O wire-sysio.deb https://github.com/Wire-Network/wire-sysio/releases/download/v3.1.7/wire-sysio_3.1.7.deb && sudo dpkg -i wire-sysio.deb  
+```
+
+:::
+
 ##### Verify installation
 
 ```sh
@@ -64,6 +73,15 @@ Once you have a `*.deb` file, you can install it by running:
 ```sh
 sudo apt install ./wire-cdt-*.deb
 ```
+
+:::info Quick install
+To download and install latest release, run:
+
+```sh
+wget -O wire-cdt.deb https://github.com/Wire-Network/wire-cdt/releases/download/v3.1.0/wire-cdt_3.1.0-1_amd64.deb && sudo dpkg -i wire-cdt.deb
+```
+
+:::
 
 ##### Verify installation
 

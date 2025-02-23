@@ -19,9 +19,6 @@ servers:
         default: localhost
       port:
         default: "8887"
-components:
-  securitySchemes: {}
-  schemas: {}
 security:
   - {}
 
@@ -31,25 +28,30 @@ paths:
       summary: pause
       description: Pause producer node
       operationId: pause
-      parameters: []
       requestBody:
         content:
           application/json:
-            example: {}
             schema:
               type: object
-              properties: {}
+              # No specific properties are required as the body is empty
+              additionalProperties: false
+            example: {}
       responses:
         "200":
-          description: OK
+          description: OK - returns operation status
           content:
             application/json:
               schema:
-                type: boolean
-                description: returns status
+                type: object
+                properties:
+                  result:
+                    type: string
+                    description: The status result of the pause operation.
+                example:
+                  result: "ok"
       x-codeSamples:
         - lang: Shell
-          label: Shell
+          label: cURL
           source: |
             curl -X POST "http://localhost:8887/v1/producer/pause" \
               -H "Content-Type: application/json" \
@@ -84,24 +86,30 @@ paths:
       summary: resume
       description: Resume producer node
       operationId: resume
-      parameters: []
       requestBody:
         content:
           application/json:
-            example: {}
             schema:
               type: object
-              description: Resumes activity for producer
+              # No specific properties are required as the body is empty
+              additionalProperties: false
+            example: {}
       responses:
         "200":
-          description: OK
+          description: OK - returns operation status
           content:
             application/json:
               schema:
-                description: void
+                type: object
+                properties:
+                  result:
+                    type: string
+                    description: The status result of the resume operation.
+                example:
+                  result: "ok"
       x-codeSamples:
         - lang: Shell
-          label: Shell
+          label: cURL
           source: |
             curl -X POST "http://localhost:8887/v1/producer/resume" \
               -H "Content-Type: application/json" \
@@ -151,10 +159,11 @@ paths:
             application/json:
               schema:
                 type: boolean
-                description: True if producer is paused, false otherwise
+                description: true if producer is paused, false otherwise
+                example: true
       x-codeSamples:
         - lang: Shell
-          label: Shell
+          label: cURL
           source: |
             curl -X POST "http://localhost:8887/v1/producer/paused" \
               -H "Content-Type: application/json" \
@@ -227,9 +236,11 @@ paths:
                   incoming_defer_ratio:
                     type: integer
                     description: Incoming defer ration
+              example:
+                {"max_transaction_time":200,"max_irreversible_block_age":-1,"produce_time_offset_us":-100000,"last_block_time_offset_us":-200000,"max_scheduled_transaction_time_per_block_ms":100,"incoming_defer_ratio":"1.00000000000000000","greylist_limit":1000}
       x-codeSamples:
         - lang: Shell
-          label: Shell
+          label: cURL
           source: |
             curl -X POST "http://localhost:8887/v1/producer/get_runtime_options" \
               -H "Content-Type: application/json" \
@@ -309,14 +320,20 @@ paths:
                       description: Incoming defer ration
       responses:
         "200":
-          description: OK
+          description: OK - returns operation status
           content:
             application/json:
               schema:
-                description: void
+                type: object
+                properties:
+                  result:
+                    type: string
+                    description: The status result of the pause operation.
+                example:
+                  result: "ok"
       x-codeSamples:
         - lang: Shell
-          label: Shell
+          label: cURL
           source: |
             curl -X POST "http://localhost:8887/v1/producer/update_runtime_options" \
               -H "Content-Type: application/json" \
@@ -396,31 +413,19 @@ paths:
           description: OK
           content:
             application/json:
+              example: 
+                accounts: []
               schema:
-                type: array
-                description: List of account names stored in the greylist
-                items:
-                  anyOf:
-                    - type: string
-                      description: String representation of privileged SYSIO name type
-                      pattern: "^(sysio[\\.][a-z1-5]{1,6})([a-j]{1})?$"
-                      title: NamePrivileged
-                    - type: string
-                      description: String representation of basic SYSIO name type, must be 12 characters and contain only a-z and 0-5
-                      pattern: "^([a-z]{1}[a-z1-5]{11})([a-j]{1})?$"
-                      title: NameBasic
-                    - type: string
-                      description: String representation of SYSIO bid name type, 1-12 characters and only a-z and 0-5 are allowed
-                      pattern: "^([a-z1-5]{1,12})([a-j]{1})?$"
-                      title: NameBid
-                    - type: string
-                      description: String representation of SYSIO name type
-                      pattern: "^([a-z1-5]{1}[a-z1-5\\.]{0,10}[a-z1-5]{1})([a-j]{1})?$"
-                      title: NameCatchAll
-                  title: Name
-      x-codeSamples:
+                properties:
+                  accounts:
+                    type: array
+                    description: List of account names stored in the greylist
+                    items:
+                      anyOf:
+                        - $ref: refs/Name.yaml
+      x-codeSamples:    
         - lang: Shell
-          label: Shell
+          label: cURL
           source: |
             curl -X POST "http://localhost:8887/v1/producer/get_greylist" \
               -H "Content-Type: application/json" \
@@ -460,10 +465,9 @@ paths:
         content:
           application/json:
             example:
-              params:
                 accounts:
-                  - "acc1"
-                  - "acc2"
+                  - "alice"
+                  - "bob"
             schema:
               type: object
               required:
@@ -476,7 +480,7 @@ paths:
                       type: array
                       description: List of account names to add
                       items:
-                        "$ref": "#/paths/~1producer~1get_greylist/post/responses/200/content/application~1json/schema/items"
+                        "$ref": refs/Name.yaml
       responses:
         "200":
           description: OK
@@ -486,13 +490,13 @@ paths:
                 description: void
       x-codeSamples:
         - lang: Shell
-          label: Shell
+          label: cURL
           source: |
             curl -X POST "http://localhost:8887/v1/producer/add_greylist_accounts" \
               -H "Content-Type: application/json" \
               -d '{
                 "params": {
-                  "accounts": ["acc1", "acc2"]
+                  "accounts": ["alice", "bob"]
                 }
               }'
         - lang: Node.js
@@ -502,7 +506,7 @@ paths:
 
             const payload = {
               params: {
-                accounts: ["acc1", "acc2"]
+                accounts: ["alice", "bob"]
               }
             };
 
@@ -522,7 +526,7 @@ paths:
             url = "http://localhost:8887/v1/producer/add_greylist_accounts"
             payload = {
               "params": {
-                "accounts": ["acc1", "acc2"]
+                "accounts": ["alice", "bob"]
               }
             }
             headers = {"Content-Type": "application/json"}
@@ -533,16 +537,15 @@ paths:
   "/producer/remove_greylist_accounts":
     post:
       summary: remove_greylist_accounts
-      description: Removes accounts from greylist for producer node
+      description: Removes accounts from greylist for producer node.At least one account is required.
       operationId: remove_greylist_accounts
       parameters: []
       requestBody:
         content:
           application/json:
             example:
-              params:
                 accounts:
-                  - "acc1"
+                  - "alice"
             schema:
               type: object
               required:
@@ -555,26 +558,29 @@ paths:
                       type: array
                       description: List of account names to remove
                       items:
-                        "$ref": "#/paths/~1producer~1get_greylist/post/responses/200/content/application~1json/schema/items"
+                        $ref: refs/Name.yaml
       responses:
         "200":
-          description: OK
+          description: OK - returns operation status
           content:
             application/json:
               schema:
-                type: array
-                description: List of account names stored in the greylist
-                items:
-                  "$ref": "#/paths/~1producer~1get_greylist/post/responses/200/content/application~1json/schema/items"
+                type: object
+                properties:
+                  result:
+                    type: string
+                    description: The status result of the pause operation.
+                example:
+                  result: "ok"
       x-codeSamples:
         - lang: Shell
-          label: Shell
+          label: cURL
           source: |
             curl -X POST "http://localhost:8887/v1/producer/remove_greylist_accounts" \
               -H "Content-Type: application/json" \
               -d '{
                 "params": {
-                  "accounts": ["acc1"]
+                  "accounts": ["alice"]
                 }
               }'
         - lang: Node.js
@@ -584,7 +590,7 @@ paths:
 
             const payload = {
               params: {
-                accounts: ["acc1"]
+                accounts: ["alice"]
               }
             };
 
@@ -604,7 +610,7 @@ paths:
             url = "http://localhost:8887/v1/producer/remove_greylist_accounts"
             payload = {
               "params": {
-                "accounts": ["acc1"]
+                "accounts": ["alice"]
               }
             }
             headers = {"Content-Type": "application/json"}
@@ -615,7 +621,7 @@ paths:
   "/producer/get_whitelist_blacklist":
     post:
       summary: get_whitelist_blacklist
-      description: Retreives the white list and black list for producer node
+      description: Retrieves the whitelist and blacklist for producer node. A JSON object containing whitelist and blacklist information.
       operationId: get_whitelist_blacklist
       parameters: []
       requestBody:
@@ -638,19 +644,19 @@ paths:
                   actor_whitelist:
                     type: array
                     items:
-                      "$ref": "#/paths/~1producer~1get_greylist/post/responses/200/content/application~1json/schema/items"
+                      $ref: refs/Name.yaml
                   actor_blacklist:
                     type: array
                     items:
-                      "$ref": "#/paths/~1producer~1get_greylist/post/responses/200/content/application~1json/schema/items"
+                      $ref: refs/Name.yaml
                   contract_whitelist:
                     type: array
                     items:
-                      "$ref": "#/paths/~1producer~1get_greylist/post/responses/200/content/application~1json/schema/items"
+                      $ref: refs/Name.yaml
                   contract_blacklist:
                     type: array
                     items:
-                      "$ref": "#/paths/~1producer~1get_greylist/post/responses/200/content/application~1json/schema/items"
+                      $ref: refs/Name.yaml
                   action_blacklist:
                     type: array
                     items:
@@ -658,7 +664,7 @@ paths:
                       description: Array of two string values, the account name as the first and action name as the second
                       items:
                         allOf:
-                          - "$ref": "#/paths/~1producer~1get_greylist/post/responses/200/content/application~1json/schema/items"
+                          - $ref: refs/Name.yaml
                           - type: string
                             description: C++ variable signature
                             pattern: "^([a-z1-9]{1}[a-z1-9_]{0,30}[a-z1-9]{1})$"
@@ -671,9 +677,11 @@ paths:
                         - uint64
                         - double
                       title: KeyType
+                example: 
+                  {"actor_whitelist":["bob"],"actor_blacklist":[],"contract_whitelist":[],"contract_blacklist":[],"action_blacklist":[],"key_blacklist":[]}
       x-codeSamples:
         - lang: Shell
-          label: Shell
+          label: cURL
           source: |
             curl -X POST "http://localhost:8887/v1/producer/get_whitelist_blacklist" \
               -H "Content-Type: application/json" \
@@ -713,14 +721,12 @@ paths:
         content:
           application/json:
             example:
-              params:
-                actor_whitelist: ["accA","accB"]
+                actor_whitelist: ["bob"]
                 actor_blacklist: []
                 contract_whitelist: []
                 contract_blacklist: []
-                action_blacklist: 
-                  - ["accA","transfer"]
-                key_blacklist: ["uint64"]
+                action_blacklist: []
+                key_blacklist: []
             schema:
               type: object
               required:
@@ -734,19 +740,19 @@ paths:
                     actor_whitelist:
                       type: array
                       items:
-                        "$ref": "#/paths/~1producer~1get_greylist/post/responses/200/content/application~1json/schema/items"
+                        $ref: refs/Name.yaml
                     actor_blacklist:
                       type: array
                       items:
-                        "$ref": "#/paths/~1producer~1get_greylist/post/responses/200/content/application~1json/schema/items"
+                        $ref: refs/Name.yaml
                     contract_whitelist:
                       type: array
                       items:
-                        "$ref": "#/paths/~1producer~1get_greylist/post/responses/200/content/application~1json/schema/items"
+                        $ref: refs/Name.yaml
                     contract_blacklist:
                       type: array
                       items:
-                        "$ref": "#/paths/~1producer~1get_greylist/post/responses/200/content/application~1json/schema/items"
+                        $ref: refs/Name.yaml
                     action_blacklist:
                       type: array
                       items:
@@ -754,33 +760,39 @@ paths:
                         description: Array of two string values, the account name as the first and action name as the second
                         items:
                           allOf:
-                            - "$ref": "#/paths/~1producer~1get_greylist/post/responses/200/content/application~1json/schema/items"
-                            - "$ref": "#/paths/~1producer~1get_whitelist_blacklist/post/responses/200/content/application~1json/schema/properties/action_blacklist/items/items/allOf/1"
+                            - "$ref": refs/Name.yaml
+                            - "$ref": refs/CppSignature.yaml
                     key_blacklist:
                       type: array
                       items:
-                        "$ref": "#/paths/~1producer~1get_whitelist_blacklist/post/responses/200/content/application~1json/schema/properties/key_blacklist/items"
+                        "$ref": refs/KeyType.yaml
       responses:
         "200":
-          description: OK
+          description: OK - returns operation status
           content:
             application/json:
               schema:
-                description: void
+                type: object
+                properties:
+                  result:
+                    type: string
+                    description: The status result of the pause operation.
+                example:
+                  result: "ok"
       x-codeSamples:
         - lang: Shell
-          label: Shell
+          label: cURL
           source: |
             curl -X POST "http://localhost:8887/v1/producer/set_whitelist_blacklist" \
               -H "Content-Type: application/json" \
               -d '{
                 "params": {
-                  "actor_whitelist": ["accA","accB"],
+                  "actor_whitelist": ["alice","bob"],
                   "actor_blacklist": [],
                   "contract_whitelist": [],
                   "contract_blacklist": [],
                   "action_blacklist": [
-                    ["accA","transfer"]
+                    ["alice","transfer"]
                   ],
                   "key_blacklist": ["uint64"]
                 }
@@ -792,12 +804,12 @@ paths:
 
             const payload = {
               params: {
-                actor_whitelist: ["accA", "accB"],
+                actor_whitelist: ["alice", "bob"],
                 actor_blacklist: [],
                 contract_whitelist: [],
                 contract_blacklist: [],
                 action_blacklist: [
-                  ["accA","transfer"]
+                  ["alice","transfer"]
                 ],
                 key_blacklist: ["uint64"]
               }
@@ -819,12 +831,12 @@ paths:
             url = "http://localhost:8887/v1/producer/set_whitelist_blacklist"
             payload = {
               "params": {
-                "actor_whitelist": ["accA","accB"],
+                "actor_whitelist": ["alice","bob"],
                 "actor_blacklist": [],
                 "contract_whitelist": [],
                 "contract_blacklist": [],
                 "action_blacklist": [
-                  ["accA","transfer"]
+                  ["alice","transfer"]
                 ],
                 "key_blacklist": ["uint64"]
               }
@@ -839,28 +851,6 @@ paths:
       summary: create_snapshot
       description: Creates a snapshot for producer node
       operationId: create_snapshot
-      parameters: []
-      requestBody:
-        content:
-          application/json:
-            example:
-              next:
-                snapshot_name: "my-snapshot"
-                head_block_id: "ABCDEF123456..."
-            schema:
-              type: object
-              required:
-                - next
-              properties:
-                next:
-                  type: object
-                  description: Defines the snapshot to be created
-                  properties:
-                    snapshot_name:
-                      type: string
-                      description: The name of the snapshot
-                    head_block_id:
-                      "$ref": "#/paths/~1producer~1get_integrity_hash/post/responses/200/content/application~1json/schema/properties/head_block_id"
       responses:
         "200":
           description: OK
@@ -870,27 +860,16 @@ paths:
                 description: void
       x-codeSamples:
         - lang: Shell
-          label: Shell
+          label: cURL
           source: |
             curl -X POST "http://localhost:8887/v1/producer/create_snapshot" \
-              -H "Content-Type: application/json" \
-              -d '{
-                "next": {
-                  "snapshot_name": "my-snapshot",
-                  "head_block_id": "ABCDEF123456..."
-                }
-              }'
+              -H "Content-Type: application/json" 
         - lang: Node.js
           label: Node.js
           source: |
             const fetch = require('node-fetch');
 
-            const payload = {
-              next: {
-                snapshot_name: "my-snapshot",
-                head_block_id: "ABCDEF123456..."
-              }
-            };
+            const payload = {};
 
             fetch("http://localhost:8887/v1/producer/create_snapshot", {
               method: "POST",
@@ -906,17 +885,210 @@ paths:
             import requests
 
             url = "http://localhost:8887/v1/producer/create_snapshot"
-            payload = {
-              "next": {
-                "snapshot_name": "my-snapshot",
-                "head_block_id": "ABCDEF123456..."
-              }
-            }
+            payload = {}
             headers = {"Content-Type": "application/json"}
 
             response = requests.post(url, json=payload, headers=headers)
             print(response.text)
 
+  /producer/schedule_snapshot:
+    post:
+      summary: schedule_snapshot
+      description: Submits a request to automatically generate snapshots according to a schedule specified with given parameters. If request body is empty, schedules immediate snapshot generation. Returns error when unable to accept schedule.
+      operationId: schedule_snapshot
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                block_spacing:
+                  type: integer
+                  description: Generate snapshot every block_spacing blocks
+                start_block_num:
+                  type: integer
+                  description: Block number at which schedule starts
+                  example: 5102
+                end_block_num:
+                  type: integer
+                  description: Block number at which schedule ends
+                  example: 15102
+                snapshot_description:
+                  type: string
+                  description: Description of the snapshot
+                  example: Daily snapshot
+
+      responses:
+        "201":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                    - snapshot_request_id
+                    - block_spacing
+                    - start_block_num
+                    - end_block_num
+                    - snapshot_description
+                properties:
+                  snapshot_request_id:
+                    type: integer
+                    description: Unique id identifying current snapshot request
+                  block_spacing:
+                    type: integer
+                    description: Generate snapshot every block_spacing blocks
+                  start_block_num:
+                    type: integer
+                    description: Block number at which schedule starts
+                    example: 5102
+                  end_block_num:
+                    type: integer
+                    description: Block number at which schedule ends
+                    example: 15102
+                  snapshot_description:
+                    type: string
+                    description: Description of the snapshot
+                    example: Daily snapshot
+        "400":
+          description: client error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /producer/get_snapshot_requests:
+    post:
+      summary: get_snapshot_requests
+      description: Returns a list of scheduled snapshots.
+      operationId: get_snapshot_requests
+      responses:
+        "201":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  snapshot_requests:
+                    type: array
+                    description: An array of scheduled snapshot requests
+                    items:
+                      type: object
+                      required:
+                          - snapshot_request_id
+                          - block_spacing
+                          - start_block_num
+                          - end_block_num
+                          - snapshot_description
+                          - pending_snapshots
+                      properties:
+                        snapshot_request_id:
+                          type: integer
+                          description: Unique id identifying current snapshot request
+                        block_spacing:
+                          type: integer
+                          description: Generate snapshot every block_spacing blocks
+                        start_block_num:
+                          type: integer
+                          description: Block number at which schedule starts
+                          example: 5102
+                        end_block_num:
+                          type: integer
+                          description: Block number at which schedule ends
+                          example: 15102
+                        snapshot_description:
+                          type: string
+                          description: Description of the snapshot
+                          example: Daily snapshot
+                        pending_snapshots:
+                          type: array
+                          description: List of pending snapshots
+                          items:
+                            type: object
+                            required:
+                                - head_block_id
+                                - head_block_num
+                                - head_block_time
+                                - version
+                                - snapshot_name
+                            properties:
+                              head_block_id:
+                                $ref: "https://docs.eosnetwork.com/openapi/v2.0/Sha256.yaml"
+                              head_block_num:
+                                type: integer
+                                description: Highest block number on the chain
+                                example: 5102
+                              head_block_time:
+                                type: string
+                                description: Highest block unix timestamp
+                                example: 2020-11-16T00:00:00.000
+                              version:
+                                type: integer
+                                description: version number
+                                example: 6
+                              snapshot_name:
+                                type: string
+                                description: The path and file name of the snapshot
+                                example: /home/me/nodes/node-name/snapshots/snapshot-0000999f99999f9f999f99f99ff9999f999f9fff99ff99ffff9f9f9fff9f9999.bin
+        "400":
+          description: client error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /producer/unschedule_snapshot:
+    post:
+      summary: unschedule_snapshot
+      description: Removes snapshot request identified by id. Returns error if referenced snapshot request does not exist.
+      operationId: unschedule_snapshot
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                snapshot_request_id:
+                  type: integer
+                  description: snapshot id
+      responses:
+        "201":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - snapshot_request_id
+                  - block_spacing
+                  - start_block_num
+                  - end_block_num
+                  - snapshot_description
+                properties:
+                  snapshot_request_id:
+                    type: integer
+                    description: Unique id identifying current snapshot request
+                  block_spacing:
+                    type: integer
+                    description: Generate snapshot every block_spacing blocks
+                  start_block_num:
+                    type: integer
+                    description: Block number at which schedule starts
+                    example: 5102
+                  end_block_num:
+                    type: integer
+                    description: Block number at which schedule ends
+                    example: 15102
+                  snapshot_description:
+                    type: string
+                    description: Description of the snapshot
+                    example: Daily snapshot
+        "400":
+          description: client error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
   "/producer/get_integrity_hash":
     post:
       summary: get_integrity_hash
@@ -931,23 +1103,30 @@ paths:
               type: object
               properties: {}
       responses:
-        "200":
+        "201":
           description: OK
           content:
             application/json:
               schema:
                 type: object
-                description: Defines the integrity hash information details
                 properties:
-                  integrity_hash:
-                    "$ref": "#/paths/~1producer~1get_integrity_hash/post/responses/200/content/application~1json/schema/properties/head_block_id"
                   head_block_id:
-                    type: string
-                    pattern: "^[0-9A-Fa-f]{64}$"
-                    title: Sha256
+                    $ref: refs/Sha256.yaml
+                  integrity_hash:
+                    $ref: refs/Sha256.yaml
+              example: 
+                {"head_block_id":"0005857b77cc98941c6caa90fa8a083d2b1f4416ac015a107e04ed06774cce94","integrity_hash":"ac2a27f3b40ff252c2450341d2e4f8dbc1f83949103b83d8569c4292b265b224"}                                                                                                                                                                                                 
+
+
+        "400":
+          description: client error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
       x-codeSamples:
         - lang: Shell
-          label: Shell
+          label: cURL
           source: |
             curl -X POST "http://localhost:8887/v1/producer/get_integrity_hash" \
               -H "Content-Type: application/json" \
@@ -1002,7 +1181,7 @@ paths:
                       type: array
                       description: List of protocol features to activate
                       items:
-                        "$ref": "#/paths/~1producer~1get_integrity_hash/post/responses/200/content/application~1json/schema/properties/head_block_id"
+                        "$ref": refs/Sha256.yaml
       responses:
         "200":
           description: OK
@@ -1012,7 +1191,7 @@ paths:
                 description: void
       x-codeSamples:
         - lang: Shell
-          label: Shell
+          label: cURL
           source: |
             curl -X POST "http://localhost:8887/v1/producer/schedule_protocol_feature_activations" \
               -H "Content-Type: application/json" \
@@ -1096,7 +1275,7 @@ paths:
                   type: string
       x-codeSamples:
         - lang: Shell
-          label: Shell
+          label: cURL
           source: |
             curl -X POST "http://localhost:8887/v1/producer/get_supported_protocol_features" \
               -H "Content-Type: application/json" \
@@ -1142,3 +1321,97 @@ paths:
 
             response = requests.post(url, json=payload, headers=headers)
             print(response.text)
+components:
+  securitySchemes: {}
+  schemas:
+    Error:
+      type: object
+      properties:
+        code:
+          type: integer
+          description: http return code
+          example: 400
+        message:
+          type: string
+          description: summary of error
+          example: Invalid Request
+        error:
+          type: object
+          description: details on the error
+          properties:
+            code:
+              type: integer
+              description: internal error code
+              example: 3200006
+            name:
+              type: string
+              description: name of error
+              example: invalid_http_request
+            what:
+              type: string
+              description: prettier version of error name
+              example: invalid http request
+            details:
+              type: array
+              description: list of additional information for debugging
+              items:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: debugging message
+                    example: Unable to parse valid input from POST body
+                  file:
+                    type: string
+                    description: file where error was thrown
+                    example: http_plugin.hpp
+                  line_number:
+                    type: integer
+                    description: line number in file where error was thrown
+                    example: 246
+                  method:
+                    type: string
+                    description: function executed when error occurred
+                    example: parse_params
+    OK:
+      type: object
+      properties:
+        result:
+          type: string
+          description: status
+          example: ok
+    Runtime_Options:
+      type: object
+      properties:
+        max_transaction_time:
+          type: integer
+          description: Max transaction time
+          example: 100
+        max_irreversible_block_age:
+          type: integer
+          description: Max irreversible block age
+          example: -1
+        produce_time_offset_us:
+          type: integer
+          description: Time offset
+          example: -100000
+        last_block_time_offset_us:
+          type: integer
+          description: Last block time offset
+          example: -200000
+        max_scheduled_transaction_time_per_block_ms:
+          type: integer
+          description: Max scheduled transaction time per block in ms
+          example: 100
+        subjective_cpu_leeway_us:
+          type: integer
+          description: in micro seconds
+          example: 10
+        incoming_defer_ratio:
+          type: string
+          description: Incoming defer ratio, parsed to double
+          example: "1.00000000000000000"
+        greylist_limit:
+          type: integer
+          description: limit on number of Names supported by greylist
+          example: 1000

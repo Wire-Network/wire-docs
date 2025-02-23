@@ -11,11 +11,12 @@ clio set account permission [OPTIONS] account permission [authority] [parent]
 
 **Where**
 
-* [OPTIONS] = See Options in [Command Usage](#command-usage) section below.
-* account = The name of the account you want to set.
-* permission = The name of the permission you want to set.
-* authority =  May be a public key, JSON string or filename defining the authority.
-* parent = The parent of this permission, defaults to `active`.
+* account - The name of the account you want to set.
+* permission - The name of the permission you want to set.
+* authority - May be a public key, JSON string or filename defining the authority.
+* parent - The parent of this permission, defaults to `active`.
+
+* [OPTIONS]  See Options in [Command Usage](#command-usage) section below.
 
 **Note**: The arguments and options enclosed in square brackets are optional.
 
