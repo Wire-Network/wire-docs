@@ -1,7 +1,7 @@
 
 ## Overview
 
-This how-to guide provides instructions on how to update an account keys for an Wire blockchain account using the clio CLI tool.
+This how-to guide provides instructions on how to update an account keys for a Wire blockchain account using the clio CLI tool.
 
 The example uses `clio` to update the keys for the **alice** account.
 

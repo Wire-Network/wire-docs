@@ -4,7 +4,7 @@ title: Non-producing Node Setup
 
 ## Goal
 
-This section describes how to set up a non-producing node within the network. A non-producing node is a node that is not configured to produce blocks, instead it is connected and synchronized with other peers from an Wire-based blockchain, exposing one or more services publicly or privately by enabling one or more [Nodeop Plugins](../../plugins/index.md), except the `producer_plugin`.
+This section describes how to set up a non-producing node within the network. A non-producing node is a node that is not configured to produce blocks, instead it is connected and synchronized with other peers from a Wire-based blockchain, exposing one or more services publicly or privately by enabling one or more [Nodeop Plugins](../../plugins/index.md), except the `producer_plugin`.
 
 ## Before you begin
 
@@ -15,11 +15,11 @@ This section describes how to set up a non-producing node within the network. A 
 
 To setup a non-producing node is simple.
 
-- [Goal](#goal)
-- [Before you begin](#before-you-begin)
-- [Steps](#steps)
-  - [1. Set Peers](#1-set-peers)
-  - [2. Enable one or more available plugins](#2-enable-one-or-more-available-plugins)
+* [Goal](#goal)
+* [Before you begin](#before-you-begin)
+* [Steps](#steps)
+  * [1. Set Peers](#1-set-peers)
+  * [2. Enable one or more available plugins](#2-enable-one-or-more-available-plugins)
 
 ### 1. Set Peers
 

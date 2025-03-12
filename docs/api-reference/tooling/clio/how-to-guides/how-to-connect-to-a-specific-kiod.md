@@ -18,7 +18,7 @@ Make sure you meet the following requirements:
 | The `clio` tool and `kiod` are bundled with the Wire software. [Installing Wire core](/docs/getting-started/install-dependencies.md) will install the `clio` and `kiod` command line tools.
 :::
 
-* You have access to an Wire blockchain and the http address and port number of a `nodeop` instance.
+* You have access to a Wire blockchain and the http address and port number of a `nodeop` instance.
 
 ## Reference
 

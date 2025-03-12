@@ -143,7 +143,7 @@ CONTRACT contractname : public sysio::contract {
 
 #### CONTRACT Definition
 
-The `CONTRACT` keyword is utilized to inform the compiler that we are defining an Wire smart contract. It is followed by the contract's name and the base class from which this contract inherits.
+The `CONTRACT` keyword is utilized to inform the compiler that we are defining a Wire smart contract. It is followed by the contract's name and the base class from which this contract inherits.
 
 ```cpp title="project/contractname.cpp"
     CONTRACT contractname : public sysio::contract { 

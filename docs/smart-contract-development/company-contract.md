@@ -251,4 +251,4 @@ clio create account sysio company $PUBLIC_KEY -p sysio@active
 clio set contract company  company -p  company@active
 ```
 
-The smart contract should now be live on your local blockchain. You can inspect through [Block Explorer](https://eosauthority.com/).
+The smart contract should now be live on your local blockchain. You can inspect through [Block Explorer](https://hub.wire.network).
