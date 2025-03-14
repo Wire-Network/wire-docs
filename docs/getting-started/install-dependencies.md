@@ -1,7 +1,8 @@
 ---
 sidebar_position: 3
 id: install-dependencies
-title: Install Dependencies
+title: Install Dependencies & Start a Local Node
+description: Install Wire Sysio and Wire CDT, and start a local node.
 tags:
   - installation 
   - dev setup
@@ -24,30 +25,31 @@ Currently supported versions:
 
 ***
 
-#### Binary Installation
+### Install `wire-cli`
 
-If you’d prefer to install the binaries yourself, follow along with the instructions provided below.
+`wire-cli` is a TypeScript-based command-line tool for spinning up a local node. It automates tasks such as installing Wire Sysio core and CDT, deploying system contracts, and starting blockproducer and chain-api nodes.
 
-##### Install Wire Sysio
-
-You can download Wire Sysio software from the [Official releases page](https://github.com/Wire-Network/wire-sysio/releases) or check the [Release tags page](https://github.com/Wire-Network/wire-sysio/tags) to download a specific version of Wire Sysio.
-
-Once you have a `*.deb` file, you can install it by running:
+To install the Wire CLI, run the following command:
 
 ```sh
-sudo apt install ./wire-sysio-*.deb
+npm i -g wire-cli
 ```
 
-:::info Quick install
-To download and install latest release, run:
+#### Install Dependencies & Start a Local Node
+
+To start a local node, run:
 
 ```sh
-wget -O wire-sysio.deb https://github.com/Wire-Network/wire-sysio/releases/download/v3.1.7/wire-sysio_3.1.7.deb && sudo dpkg -i wire-sysio.deb  
+sudo wire-cli --g --enable-roa
 ```
 
+:::info
+It is important to note that we are *intentially* using wire-cli to launch a full-scale Wire blockchain environment. This is a multi-node setup(blockproducer and chain-api) with deployed system contracts, resource management, including contract policies, as well as protocol features, etc. and identical to testnet configuration setup.
 :::
 
 ##### Verify installation
+
+**Wire Sysio**
 
 ```sh
 nodeop --full-version
@@ -64,26 +66,7 @@ Wire Sysio executables are located at `/usr/local/bin`.
 :::
 ***
 
-##### Install Wire CDT
-
-You can download Wire Sysio software from the [Official releases page](https://github.com/Wire-Network/wire-cdt/releases) or check the [Release tags page](https://github.com/Wire-Network/wire-cdt/tags) to download a specific version of Wire CDT.
-
-Once you have a `*.deb` file, you can install it by running:
-
-```sh
-sudo apt install ./wire-cdt-*.deb
-```
-
-:::info Quick install
-To download and install latest release, run:
-
-```sh
-wget -O wire-cdt.deb https://github.com/Wire-Network/wire-cdt/releases/download/v3.1.0/wire-cdt_3.1.0-1_amd64.deb && sudo dpkg -i wire-cdt.deb
-```
-
-:::
-
-##### Verify installation
+**Wire CDT**
 
 ```sh
 which cdt-cpp
@@ -109,24 +92,10 @@ Wire CDT is located at `/usr/opt` with symlinks to each of its executable in `/u
 
 #### Removing Wire Sysio and Wire CDT
 
-##### Uninstall Wire Sysio
-
-To uninstall it, run:
+##### Uninstall Wire Sysio and Wire CDT
 
 ```sh
-sudo apt remove wire-sysio
-```
-
-If uninstalling has failed or if didn't remove all core components, you can manually delete them with the following command:
-
-```sh
-sudo rm -rf /usr/local/bin/clio \
-/usr/local/bin/kiod \
-/usr/local/bin/nodeop \
-/usr/local/bin/sysio-blocklog \
-/usr/local/bin/trace_api_util \
-.local/share/sysio \
-~/sysio-wallet
+sudo wire-cli uninstall --y 
 ```
 
 :::danger
@@ -134,21 +103,105 @@ The uninstall command above will also remove the **default wallet** installed wi
 :::
 ***
 
-##### Uninstall Wire CDT
+### Validating `nodeop`
 
-To uninstall Wire CDT, run:
+Check that `nodeop` is producing blocks. Run the following command:
 
 ```bash
-sudo apt remove cdt
+tail -f /opt/wire-network/blockproducer/data/nodeop.log
 ```
 
-&nbsp;
+You should see some output in the console similar to:
 
-***
+```bash
+info  [timestamp] nodeop producer_plugin.cpp:2293 produce_block ] Produced block b50adde5943bdde1... #44 at [timestamp] signed by sysio [trxs: 0, lib: 43, confirmed: 0]
+info  [timestamp] nodeop producer_plugin.cpp:2293 produce_block ] Produced block 39b2a4fef9db084f... #45 at [timestamp] signed by sysio [trxs: 0, lib: 44, confirmed: 0]
+info  [timestamp] nodeop producer_plugin.cpp:2293 produce_block ] Produced block cd23d3646d0166dc... #46 at [timestamp] signed by sysio [trxs: 0, lib: 45, confirmed: 0]
+info  [timestamp] nodeop producer_plugin.cpp:2293 produce_block ] Produced block 14bd99c3c3ffd441... #47 at [timestamp] signed by sysio [trxs: 0, lib: 46, confirmed: 0]
+info  [timestamp] nodeop producer_plugin.cpp:2293 produce_block ] Produced block 2e5fb9d0f2dce119... #48 at [timestamp] signed by sysio [trxs: 0, lib: 47, confirmed: 0]
+```
+
+Verify the `[timestamp]` is a recent one and that you aren't looking at a stale logs.
+
+To exit logs: <kbd>Ctrl</kbd> + <kbd>C</kbd>
+
+### Check the Wallet
+
+Open the shell and run the `sudo clio wallet list` command to list available wallets. We need to validate the installation and see that the command line client `clio` is working as intended.
+
+```bash
+Wallets:
+[
+  "default"
+]
+```
+
+:::warning[IMPORTANT]
+Wallets can exist on multiple Linux users. Since we ran the script as `sudo`, the wallet we use is on `sudo`.
+:::
+
+From this point forward, you'll be executing commands from your local system.
+
+### Check `nodeop` endpoints
+
+This step ensures that the RPC API is functioning properly. You can choose one of the following methods:
+
+#### 3.1. Using `clio`
+
+```bash
+clio get info 
+```
+
+#### 3.2. HTTP GET request to `/get_info`
+
+Use your browser to access the `get_info` endpoint from the `chain_api_plugin`. Simply click [http://localhost:8888/v1/chain/get_info](http://localhost:8888/v1/chain/get_info).
+
+import BrowserWindow from '@site/src/components/BrowserWindow';
+
+<BrowserWindow url="http://localhost:8888/v1/chain/get_info">
+     ```json
+       {
+            "server_version": "1dd2fd86",
+            "chain_id": "8a34ec7df1b8cd06ff4a8abbaa7cc50300823350cadc59ab296cb00d104d2b8f",
+            "head_block_num": 1769,
+            "last_irreversible_block_num": 1768,
+            "last_irreversible_block_id": "000006e810b62ae346aa0066d7e3d5fe152285692c4d15dc742e1733b61eb27b",
+            "head_block_id": "000006e931c346d88fc5cb63ce025bfd5f0843656761ac074b35c1c941684f64",
+            "head_block_time": "2024-09-25T15:43:18.000",
+            "head_block_producer": "sysio",
+            "virtual_block_cpu_limit": 1170419,
+            "virtual_block_net_limit": 6146775,
+            "block_cpu_limit": 200000,
+            "block_net_limit": 1048576,
+            "server_version_string": "v3.1.6",
+            "fork_db_head_block_num": 1769,
+            "fork_db_head_block_id": "000006e931c346d88fc5cb63ce025bfd5f0843656761ac074b35c1c941684f64",
+            "server_full_version_string": "v3.1.6-1dd2fd862c04c1b49df6b2314eb1a621d0301c9f",
+            "total_cpu_weight": 0,
+            "total_net_weight": 0,
+            "earliest_available_block_num": 1,
+            "last_irreversible_block_time": "<timestamp>"
+        }
+   ```
+ </BrowserWindow>
+
+Alternatively, check the endpoint directly from your terminal using the command:
+
+```sh
+curl http://localhost:8888/v1/chain/get_info | jq .
+```
+
+---
+
+Third-party tools used in the steps above:
+
+- [JSON Formatter Chrome Extension](https://chromewebstore.google.com/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa?hl=en)
+- [curl](https://curl.se/)
+- [jq](https://jqlang.github.io/jq/download/)
 
 ### Troubleshooting
 
-If you are missing certain dependencies and when trying to install the binaries you are getting an error similar to:
+When wire-cli is trying to install the binaries and you are getting an error similar to:
 
 ```bash
 Reading package lists... Done

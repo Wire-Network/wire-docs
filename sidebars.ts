@@ -45,7 +45,6 @@ const sidebars: SidebarsConfig = {
       items: [
         "getting-started/core-components",
         "getting-started/install-dependencies",
-        "getting-started/launch-local-node",
         "getting-started/create-development-wallet",
         "getting-started/create-development-accounts",
       ],
@@ -606,7 +605,6 @@ const sidebars: SidebarsConfig = {
         "guides/how-to-deploy-a-smart-contract",
         "guides/how-to-get-block-information",
         "guides/hello-world-video-testnet",
-        "guides/how-to-connect-to-wire-badge",
       ],
     },
   ],

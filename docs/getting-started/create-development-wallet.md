@@ -8,7 +8,7 @@ title: Create Development Wallet
 ## Prerequisites
 
 - You have successfully installed Wire Sysio and Wire CDT on your computer. See [Binary Installation](./install-dependencies.md#binary-installation) instructions.
-- You have completed [Launch Local Node](./launch-local-node.mdx) guide.
+- You have completed [Install Dependencies & Start a Local Node](./install-dependencies.md) guide.
 
 ## Overview
 
@@ -125,6 +125,8 @@ You'll be prompted for a private key, enter the `sysio` development key provided
 ```bash
 5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
 ```
+
+Public key: SYS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
 
 :::danger[WARNING]
 

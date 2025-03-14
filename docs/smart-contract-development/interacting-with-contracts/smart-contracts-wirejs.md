@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-id: smart-contracts-wirejs
+id: smart-contracts-sdk-core
 title: Using SDK Core
 ---
 
@@ -26,7 +26,7 @@ Once installed, you can use it like:
 nvm use 18.18.0 
 ```
 
-This tutorial uses [EOS Authority Block Explorer](https://eosauthority.com/), but you can use [Wire Hub](https://hub.wire.network).
+This tutorial uses [EOS Authority Block Explorer](https://eosauthority.com/), but you can use [Wire Hub](https://explore.wire.foundation).
 
 ## Steps
 
