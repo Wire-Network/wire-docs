@@ -7,8 +7,7 @@ title: Create Development Wallet
 
 ## Prerequisites
 
-- You have successfully installed Wire Sysio and Wire CDT on your computer. See [Binary Installation](./install-dependencies.md#binary-installation) instructions.
-- You have completed [Install Dependencies & Start a Local Node](./install-dependencies.md) guide.
+- You have successfully installed Wire Sysio and Wire CDT on your computer and you have a local chain running. See [Install Dependencies & Start a local node](./install-dependencies.md) article.
 
 ## Overview
 

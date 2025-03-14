@@ -72,13 +72,27 @@ Issue the policy:
 sudo clio push action sysio.roa addpolicy '{"owner": hello, "issuer": nodedaddy, "net_weight": "0.0100 SYS", "cpu_weight": "0.0100 SYS", "ram_weight": "0.0010 SYS", "time_block": 1, "network_gen": 0 }' -p nodedaddy@active
 ```
 
-#### 3.3. Run `./deploy.sh`
+#### 3.3. Run deploy script
 
 ```bash
-./deploy.sh
+sudo ./deploy.sh
 ```
 
 ### 4. Push a Transaction
+
+#### 4.1. Create `bob`'s account
+
+```bash
+sudo clio create account sysio bob $PUBLIC_KEY -p sysio@active
+```
+
+#### 4.2. Issue a policy to `bob`
+
+```bash
+sudo clio push action sysio.roa addpolicy '{"owner": bob, "issuer": nodedaddy, "net_weight": "0.0100 SYS", "cpu_weight": "0.0100 SYS", "ram_weight": "0.0010 SYS", "time_block": 1, "network_gen": 0 }' -p nodedaddy@active
+```
+
+#### 4.3. Invoke the `hi` action
 
 Invoke the `hi` action within the contract:
 

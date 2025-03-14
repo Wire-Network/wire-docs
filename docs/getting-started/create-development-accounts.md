@@ -8,8 +8,8 @@ title: Create Development Accounts
 
 ## Prerequisites
 
-- You have successfully installed Wire Sysio and Wire CDT on your computer. See [Binary Installation](./install-dependencies.md#binary-installation) instructions.
-- You have completed [Install Dependencies & Start a local node](./install-dependencies.md) and [Create Development Wallet](./create-development-wallet.md) guides.
+- You have successfully installed Wire Sysio and Wire CDT on your computer and you have a local chain running. See [Install Dependencies & Start a local node](./install-dependencies.md) article.
+- You have also completed [Create Development Wallet](./create-development-wallet.md) guide.
   
 ## Overview
 
