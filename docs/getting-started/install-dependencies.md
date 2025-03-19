@@ -32,7 +32,7 @@ Currently supported versions:
 To install the Wire CLI, run the following command:
 
 ```sh
-npm i -g wire-cli
+npm i -g @wireio/wire-cli
 ```
 
 #### Install Dependencies & Start a Local Node
