@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-id: smart-contracts-wirejs
+id: smart-contracts-sdk-core
 title: Using SDK Core
 ---
 
@@ -25,6 +25,8 @@ Once installed, you can use it like:
 ```shell
 nvm use 18.18.0 
 ```
+
+This tutorial uses [EOS Authority Block Explorer](https://eosauthority.com/), but you can use [Wire Hub](https://explore.wire.foundation).
 
 ## Steps
 
@@ -54,11 +56,10 @@ mkdir -p ts-dapp-sdk-wire && cd ts-dapp-sdk-wire && npm init -y && npm install -
 
 #### 1.2. Get your private key
 
-Note your private key from the key pair generated earlier.
-You could output key pair  value by running:
+You could output a key pair value stored in your wallet by running:
 
 ```sh
-clio wallet private_keys --password=$(cat ~/my-secret-pass.txt)
+clio wallet private_keys --password=$(cat ~/path/to/my-wallet-pass.txt)
 ```
 
 #### 1.3. Add scripts to `package.json`
@@ -105,21 +106,10 @@ Open up a terminal and run `npm watch` to run TypeScript compilation in watch mo
 
 ### 2.2. Write API calls
 
----
-
-Below is a breakdown of the API calls performed in the [code snippet](#code), along with the corresponding line numbers for each operation:
-
-- **Fetch Local Blockchain Info:** Retrieves the current blockchain status. See line **14**.
-- **Access Smart Contract Data:** Fetches the current state of the `employees` table from the `company` smart contract, including the number of rows and user details. See line **20-28**.
-- **Retrieve Contract ABI:** Obtains and prints the ABI (Application Binary Interface) of the `company` smart contract, detailing its methods and structures. See line **36-39**.
-- **Prepare Transaction:** Constructs a transaction payload to update the details of an employee named “Jack” and constructs a signature required to authorize this transaction. See line **45-71**.
-- **Execute Transaction:** Sends the transaction to the blockchain. See line **73-76**.
-
----
-
 #### code
 
-```ts {14,20-28,36-39,45-71,73-76} showLineNumbers
+<!-- {14,20-28,36-39,45-71,73-76} showLineNumbers -->
+```ts
 import { API, APIClient, FetchProvider, PrivateKey, SignedTransaction, Transaction, AnyAction, Action, PackedTransaction } from "@wireio/core";
 
 const privateKey = "<your-private-key>"
@@ -133,72 +123,88 @@ const apiClient = new APIClient(
 
 (async () => {
 
-    const info = await apiClient.v1.chain.get_info()
+        // highlight-start
+        // Fetch Local Blockchain Info: Retrieves the current blockchain status
+        const info = await apiClient.v1.chain.get_info()
+        // highlight-end
+        console.log("\nBlockchain Info:");
+        console.log(JSON.stringify(info, null, 2)); 
+      
   
-    console.log("\nBlockchain Info:");
-    console.log(JSON.stringify(info, null, 2)); 
-  
-    // Retrieve rows from employees table in our company contract
-    const tableRows: API.v1.GetTableRowsResponse = await apiClient.call({
-        path: '/v1/chain/get_table_rows',
-        params: {
-          code: "company", 
-          table: "employees",
-          scope: "company",
-          json: true
-        },
-    });
 
-    console.log(tableRows)
-  
-    console.log(`\nEmployees Table Info:`);
-    console.log(`- Number of rows: ${tableRows.rows.length}`);
-    console.log(`- User emails: ${tableRows.rows.map(a => a.email).join(", ")}`);
-  
-    const abiRes: API.v1.GetAbiResponse = await apiClient.call({
-      path: '/v1/chain/get_abi',
-      params: {account_name: untypedAction.account},
-    });
+        // Fetches the current state of the `employees` table from the `company` smart contract, including the number of rows and user details
+        // highlight-start
+        const tableRows: API.v1.GetTableRowsResponse = await apiClient.call({
+            path: '/v1/chain/get_table_rows',
+            params: {
+              code: "company", 
+              table: "employees",
+              scope: "company",
+              json: true
+            },
+        });
+        // highlight-end
+        console.log(tableRows)
+      
+        console.log(`\nEmployees Table Info:`);
+        console.log(`- Number of rows: ${tableRows.rows.length}`);
+        console.log(`- User emails: ${tableRows.rows.map(a => a.email).join(", ")}`);
+      
+        // highlight-start
+        // Obtains and prints the ABI (Application Binary Interface) of the `company` smart contract, detailing its methods and structures
+        const abiRes: API.v1.GetAbiResponse = await apiClient.call({
+          path: '/v1/chain/get_abi',
+          params: {account_name: untypedAction.account},
+        });
+        // highlight-end
 
-    const { abi } = abiRes;
-    console.log("\nContract ABI:");
-    console.log(JSON.stringify(abi, null, 2)); 
 
-    const untypedAction: AnyAction =  {
-        account: "company",
-        name: "upsertemp",
-        authorization: [
-          {
-            actor: "jack",
-            permission: "active"
+        const { abi } = abiRes;
+        console.log("\nContract ABI:");
+        console.log(JSON.stringify(abi, null, 2)); 
+
+        // highlight-start
+        //Constructs a transaction payload to update the details of an employee named “Jack” and constructs a signature required to authorize this transaction.
+        const untypedAction: AnyAction =  {
+            account: "company",
+            name: "upsertemp",
+            authorization: [
+              {
+                actor: "jack",
+                permission: "active"
+              }
+            ],
+            data: {
+              user: "jack",
+              name: "Jackson Smith!!",
+              email: "jack@example.com",
+              status: "active"
+            }
           }
-        ],
-        data: {
-          user: "jack",
-          name: "Jackson Smith!!",
-          email: "jack@example.com",
-          status: "active"
-        }
-      }
 
-      const action = Action.from(untypedAction, abi);
-      const header = info.getTransactionHeader()
+          const action = Action.from(untypedAction, abi);
+          const header = info.getTransactionHeader()
 
-      const transaction = Transaction.from({ ...header, actions: [action] })
-      const digest = transaction.signingDigest(info.chain_id)
-      const privKey = PrivateKey.from(privateKey)
+          const transaction = Transaction.from({ ...header, actions: [action] })
+          const digest = transaction.signingDigest(info.chain_id)
+          const privKey = PrivateKey.from(privateKey)
 
-      const signature = privKey.signDigest(digest).toString()
-      let signedTrx = SignedTransaction.from({ ...transaction, signatures: [signature] })
-      const packed =  PackedTransaction.fromSigned(SignedTransaction.from(signedTrx));
+          const signature = privKey.signDigest(digest).toString()
+          let signedTrx = SignedTransaction.from({ ...transaction, signatures: [signature] })
+          const packed =  PackedTransaction.fromSigned(SignedTransaction.from(signedTrx));
+          // highlight-end
 
-      const trx = await apiClient.call({
-        path: '/v1/chain/push_transaction',
-        params: packed
-      })
-      console.log("\nTransaction Result:");
-      console.log(JSON.stringify(trx, null, 2));
-  
+
+          // highlight-start
+          // Sends the transaction to the blockchain.
+          const trx = await apiClient.call({
+            path: '/v1/chain/push_transaction',
+            params: packed
+          })
+          // highlight-end
+          console.log("\nTransaction Result:");
+          console.log(JSON.stringify(trx, null, 2));
+      
 })();
 ```
 
@@ -211,7 +217,7 @@ You can inspect the `employees` table on the [EOS Block Explorer](https://eosaut
 Run `npm run exec` and you should see output in the console with the logs like:
 
 ```console
-➜  ts-app-sdk-wire npm run
+➜  ts-app-sdk-wire: npm run exec
 Blockchain Info:
 {
   "server_version": "c83d8e08",
@@ -239,5 +245,5 @@ Blockchain Info:
 ....
 ```
 
-Check update on [EOS Block Explorer](https://eosauthority.com/account/company?network=localtest&endpoint=http:%2F%2F127.0.0.1:8888&token_symbol=EOS&scope=company&table=employees&limit=10&index_position=1&key_type=i64&reverse=0&mode=contract&sub=tables)
-![be-table-pre-update](/img/be-table-wirejs-post-update.png)
+Check update on [EOS Block Explorer](https://eosauthority.com/account/company?network=localtest&endpoint=http:%2F%2F127.0.0.1:8888&token_symbol=EOS&scope=company&table=employees&limit=10&index_position=1&key_type=i64&reverse=0&mode=contract&sub=tables).
+![be-table-pre-update](/img/be-table-wirejs-post-update.png).

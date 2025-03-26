@@ -8,13 +8,11 @@ title: push transaction
 
 Push an arbitrary JSON transaction
 
-## Positionals
+## Positional Arguments
 
 - `transaction` (text) The JSON of the transaction to push, or the name of a JSON file containing the transaction
 
 ## Options
-
-This command has no options
 
 `-h,--help` - Print this help message and exit
 
@@ -24,7 +22,7 @@ This command has no options
 
 `-s,--skip-sign` - Specify if unlocked wallet keys should be used to sign transaction
 
-`-j,--json` - print result as json
+`-j,--json` - print result as JSON
 
 `-d,--dont-broadcast` - don't broadcast transaction to the network (just print to stdout)
 
@@ -39,5 +37,30 @@ This command has no options
 ## Example
 
 ```sh
-clio push transaction {}
+clio push transaction '{
+  "max_net_usage_words": 0,
+  "max_cpu_usage_ms": 0,
+  "delay_sec": 0,
+  "context_free_actions": [],
+  "actions": [
+    {
+      "account": "sysio.token",
+      "name": "transfer",
+      "authorization": [
+        {
+          "actor": "sysio",
+          "permission": "active"
+        }
+      ],
+      "data": {
+        "from": "sysio",
+        "to": "han",
+        "quantity": "1.0000 SYS",
+        "memo": "memo"
+      }
+    }
+  ],
+  "transaction_extensions": [],
+  "context_free_data": []
+}' -p sysio@active
 ```

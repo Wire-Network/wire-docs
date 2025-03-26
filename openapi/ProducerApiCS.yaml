@@ -1,0 +1,1417 @@
+openapi: 3.0.0
+info:
+  title: Producer API
+  version: 1.0.0
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  contact:
+    url: https://wire.network
+servers:
+  - url: "{protocol}://{host}:{port}/v1/"
+    variables:
+      protocol:
+        enum:
+          - http
+          - https
+        default: http
+      host:
+        default: localhost
+      port:
+        default: "8887"
+security:
+  - {}
+
+paths:
+  "/producer/pause":
+    post:
+      summary: pause
+      description: Pause producer node
+      operationId: pause
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              # No specific properties are required as the body is empty
+              additionalProperties: false
+            example: {}
+      responses:
+        "200":
+          description: OK - returns operation status
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: string
+                    description: The status result of the pause operation.
+                example:
+                  result: "ok"
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8887/v1/producer/pause" \
+              -H "Content-Type: application/json" \
+              -d '{}'
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+
+            fetch("http://localhost:8887/v1/producer/pause", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({})
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+
+            url = "http://localhost:8887/v1/producer/pause"
+            payload = {}
+            headers = {"Content-Type": "application/json"}
+
+            response = requests.post(url, json=payload, headers=headers)
+            print(response.text)
+
+  "/producer/resume":
+    post:
+      summary: resume
+      description: Resume producer node
+      operationId: resume
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              # No specific properties are required as the body is empty
+              additionalProperties: false
+            example: {}
+      responses:
+        "200":
+          description: OK - returns operation status
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: string
+                    description: The status result of the resume operation.
+                example:
+                  result: "ok"
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8887/v1/producer/resume" \
+              -H "Content-Type: application/json" \
+              -d '{}'
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+
+            fetch("http://localhost:8887/v1/producer/resume", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({})
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+
+            url = "http://localhost:8887/v1/producer/resume"
+            payload = {}
+            headers = {"Content-Type": "application/json"}
+
+            response = requests.post(url, json=payload, headers=headers)
+            print(response.text)
+
+  "/producer/paused":
+    post:
+      summary: paused
+      description: Retreives paused status for producer node
+      operationId: paused
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            example: {}
+            schema:
+              type: object
+              properties: {}
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: boolean
+                description: true if producer is paused, false otherwise
+                example: true
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8887/v1/producer/paused" \
+              -H "Content-Type: application/json" \
+              -d '{}'
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+
+            fetch("http://localhost:8887/v1/producer/paused", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({})
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+
+            url = "http://localhost:8887/v1/producer/paused"
+            payload = {}
+            headers = {"Content-Type": "application/json"}
+
+            response = requests.post(url, json=payload, headers=headers)
+            print(response.text)
+
+  "/producer/get_runtime_options":
+    post:
+      summary: get_runtime_options
+      description: Retreives run time options for producer node
+      operationId: get_runtime_options
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            example: {}
+            schema:
+              type: object
+              properties: {}
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                description: Returns run time options set for the producer
+                properties:
+                  max_transaction_time:
+                    type: integer
+                    description: Max transaction time
+                  max_irreversible_block_age:
+                    type: integer
+                    description: Max irreversible block age
+                  produce_time_offset_us:
+                    type: integer
+                    description: Time offset
+                  last_block_time_offset_us:
+                    type: integer
+                    description: Last block time offset
+                  max_scheduled_transaction_time_per_block_ms:
+                    type: integer
+                    description: Max scheduled transaction time per block in ms
+                  subjective_cpu_leeway_us:
+                    type: integer
+                    description: Subjective CPU leeway
+                  incoming_defer_ratio:
+                    type: integer
+                    description: Incoming defer ration
+              example:
+                {"max_transaction_time":200,"max_irreversible_block_age":-1,"produce_time_offset_us":-100000,"last_block_time_offset_us":-200000,"max_scheduled_transaction_time_per_block_ms":100,"incoming_defer_ratio":"1.00000000000000000","greylist_limit":1000}
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8887/v1/producer/get_runtime_options" \
+              -H "Content-Type: application/json" \
+              -d '{}'
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+
+            fetch("http://localhost:8887/v1/producer/get_runtime_options", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({})
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+
+            url = "http://localhost:8887/v1/producer/get_runtime_options"
+            payload = {}
+            headers = {"Content-Type": "application/json"}
+
+            response = requests.post(url, json=payload, headers=headers)
+            print(response.text)
+
+  "/producer/update_runtime_options":
+    post:
+      summary: update_runtime_options
+      description: Update run time options for producer node
+      operationId: update_runtime_options
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            example:
+              options:
+                max_transaction_time: 100
+                max_irreversible_block_age: -1
+                produce_time_offset_us: -100000
+                last_block_time_offset_us: -200000
+                max_scheduled_transaction_time_per_block_ms: 100
+                subjective_cpu_leeway_us: 10
+                incoming_defer_ratio: 1
+            schema:
+              type: object
+              required:
+                - options
+              properties:
+                options:
+                  type: object
+                  description: Defines the run time options to set for the producer
+                  properties:
+                    max_transaction_time:
+                      type: integer
+                      description: Max transaction time
+                    max_irreversible_block_age:
+                      type: integer
+                      description: Max irreversible block age
+                    produce_time_offset_us:
+                      type: integer
+                      description: Time offset
+                    last_block_time_offset_us:
+                      type: integer
+                      description: Last block time offset
+                    max_scheduled_transaction_time_per_block_ms:
+                      type: integer
+                      description: Max scheduled transaction time per block in ms
+                    subjective_cpu_leeway_us:
+                      type: integer
+                      description: Subjective CPU leeway
+                    incoming_defer_ratio:
+                      type: integer
+                      description: Incoming defer ration
+      responses:
+        "200":
+          description: OK - returns operation status
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: string
+                    description: The status result of the pause operation.
+                example:
+                  result: "ok"
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8887/v1/producer/update_runtime_options" \
+              -H "Content-Type: application/json" \
+              -d '{
+                "options": {
+                  "max_transaction_time": 100,
+                  "max_irreversible_block_age": -1,
+                  "produce_time_offset_us": -100000,
+                  "last_block_time_offset_us": -200000,
+                  "max_scheduled_transaction_time_per_block_ms": 100,
+                  "subjective_cpu_leeway_us": 10,
+                  "incoming_defer_ratio": 1
+                }
+              }'
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+
+            const payload = {
+              options: {
+                max_transaction_time: 100,
+                max_irreversible_block_age: -1,
+                produce_time_offset_us: -100000,
+                last_block_time_offset_us: -200000,
+                max_scheduled_transaction_time_per_block_ms: 100,
+                subjective_cpu_leeway_us: 10,
+                incoming_defer_ratio: 1
+              }
+            };
+
+            fetch("http://localhost:8887/v1/producer/update_runtime_options", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(payload)
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+
+            url = "http://localhost:8887/v1/producer/update_runtime_options"
+            payload = {
+              "options": {
+                "max_transaction_time": 100,
+                "max_irreversible_block_age": -1,
+                "produce_time_offset_us": -100000,
+                "last_block_time_offset_us": -200000,
+                "max_scheduled_transaction_time_per_block_ms": 100,
+                "subjective_cpu_leeway_us": 10,
+                "incoming_defer_ratio": 1
+              }
+            }
+            headers = {"Content-Type": "application/json"}
+
+            response = requests.post(url, json=payload, headers=headers)
+            print(response.text)
+
+  "/producer/get_greylist":
+    post:
+      summary: get_greylist
+      description: Retreives the greylist for producer node
+      operationId: get_greylist
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            example: {}
+            schema:
+              type: object
+              properties: {}
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              example: 
+                accounts: []
+              schema:
+                properties:
+                  accounts:
+                    type: array
+                    description: List of account names stored in the greylist
+                    items:
+                      anyOf:
+                        - $ref: refs/Name.yaml
+      x-codeSamples:    
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8887/v1/producer/get_greylist" \
+              -H "Content-Type: application/json" \
+              -d '{}'
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+
+            fetch("http://localhost:8887/v1/producer/get_greylist", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({})
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+
+            url = "http://localhost:8887/v1/producer/get_greylist"
+            payload = {}
+            headers = {"Content-Type": "application/json"}
+
+            response = requests.post(url, json=payload, headers=headers)
+            print(response.text)
+
+  "/producer/add_greylist_accounts":
+    post:
+      summary: add_greylist_accounts
+      description: Adds accounts to grey list for producer node
+      operationId: add_greylist_accounts
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            example:
+                accounts:
+                  - "alice"
+                  - "bob"
+            schema:
+              type: object
+              required:
+                - params
+              properties:
+                params:
+                  type: object
+                  properties:
+                    accounts:
+                      type: array
+                      description: List of account names to add
+                      items:
+                        "$ref": refs/Name.yaml
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: void
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8887/v1/producer/add_greylist_accounts" \
+              -H "Content-Type: application/json" \
+              -d '{
+                "params": {
+                  "accounts": ["alice", "bob"]
+                }
+              }'
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+
+            const payload = {
+              params: {
+                accounts: ["alice", "bob"]
+              }
+            };
+
+            fetch("http://localhost:8887/v1/producer/add_greylist_accounts", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(payload)
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+
+            url = "http://localhost:8887/v1/producer/add_greylist_accounts"
+            payload = {
+              "params": {
+                "accounts": ["alice", "bob"]
+              }
+            }
+            headers = {"Content-Type": "application/json"}
+
+            response = requests.post(url, json=payload, headers=headers)
+            print(response.text)
+
+  "/producer/remove_greylist_accounts":
+    post:
+      summary: remove_greylist_accounts
+      description: Removes accounts from greylist for producer node.At least one account is required.
+      operationId: remove_greylist_accounts
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            example:
+                accounts:
+                  - "alice"
+            schema:
+              type: object
+              required:
+                - params
+              properties:
+                params:
+                  type: object
+                  properties:
+                    accounts:
+                      type: array
+                      description: List of account names to remove
+                      items:
+                        $ref: refs/Name.yaml
+      responses:
+        "200":
+          description: OK - returns operation status
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: string
+                    description: The status result of the pause operation.
+                example:
+                  result: "ok"
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8887/v1/producer/remove_greylist_accounts" \
+              -H "Content-Type: application/json" \
+              -d '{
+                "params": {
+                  "accounts": ["alice"]
+                }
+              }'
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+
+            const payload = {
+              params: {
+                accounts: ["alice"]
+              }
+            };
+
+            fetch("http://localhost:8887/v1/producer/remove_greylist_accounts", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(payload)
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+
+            url = "http://localhost:8887/v1/producer/remove_greylist_accounts"
+            payload = {
+              "params": {
+                "accounts": ["alice"]
+              }
+            }
+            headers = {"Content-Type": "application/json"}
+
+            response = requests.post(url, json=payload, headers=headers)
+            print(response.text)
+
+  "/producer/get_whitelist_blacklist":
+    post:
+      summary: get_whitelist_blacklist
+      description: Retrieves the whitelist and blacklist for producer node. A JSON object containing whitelist and blacklist information.
+      operationId: get_whitelist_blacklist
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            example: {}
+            schema:
+              type: object
+              properties: {}
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                description: Defines the actor whitelist and blacklist, the contract whitelist
+                  and blacklist, the action blacklist and key blacklist
+                properties:
+                  actor_whitelist:
+                    type: array
+                    items:
+                      $ref: refs/Name.yaml
+                  actor_blacklist:
+                    type: array
+                    items:
+                      $ref: refs/Name.yaml
+                  contract_whitelist:
+                    type: array
+                    items:
+                      $ref: refs/Name.yaml
+                  contract_blacklist:
+                    type: array
+                    items:
+                      $ref: refs/Name.yaml
+                  action_blacklist:
+                    type: array
+                    items:
+                      type: array
+                      description: Array of two string values, the account name as the first and action name as the second
+                      items:
+                        allOf:
+                          - $ref: refs/Name.yaml
+                          - type: string
+                            description: C++ variable signature
+                            pattern: "^([a-z1-9]{1}[a-z1-9_]{0,30}[a-z1-9]{1})$"
+                            title: CppSignature
+                  key_blacklist:
+                    type: array
+                    items:
+                      type: string
+                      enum:
+                        - uint64
+                        - double
+                      title: KeyType
+                example: 
+                  {"actor_whitelist":["bob"],"actor_blacklist":[],"contract_whitelist":[],"contract_blacklist":[],"action_blacklist":[],"key_blacklist":[]}
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8887/v1/producer/get_whitelist_blacklist" \
+              -H "Content-Type: application/json" \
+              -d '{}'
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+
+            fetch("http://localhost:8887/v1/producer/get_whitelist_blacklist", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({})
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+
+            url = "http://localhost:8887/v1/producer/get_whitelist_blacklist"
+            payload = {}
+            headers = {"Content-Type": "application/json"}
+
+            response = requests.post(url, json=payload, headers=headers)
+            print(response.text)
+
+  "/producer/set_whitelist_blacklist":
+    post:
+      summary: set_whitelist_blacklist
+      description: Sets the white list and black list for producer node
+      operationId: set_whitelist_blacklist
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            example:
+                actor_whitelist: ["bob"]
+                actor_blacklist: []
+                contract_whitelist: []
+                contract_blacklist: []
+                action_blacklist: []
+                key_blacklist: []
+            schema:
+              type: object
+              required:
+                - params
+              properties:
+                params:
+                  type: object
+                  description: Defines the actor whitelist and blacklist, the contract whitelist
+                    and blacklist, the action blacklist and key blacklist
+                  properties:
+                    actor_whitelist:
+                      type: array
+                      items:
+                        $ref: refs/Name.yaml
+                    actor_blacklist:
+                      type: array
+                      items:
+                        $ref: refs/Name.yaml
+                    contract_whitelist:
+                      type: array
+                      items:
+                        $ref: refs/Name.yaml
+                    contract_blacklist:
+                      type: array
+                      items:
+                        $ref: refs/Name.yaml
+                    action_blacklist:
+                      type: array
+                      items:
+                        type: array
+                        description: Array of two string values, the account name as the first and action name as the second
+                        items:
+                          allOf:
+                            - "$ref": refs/Name.yaml
+                            - "$ref": refs/CppSignature.yaml
+                    key_blacklist:
+                      type: array
+                      items:
+                        "$ref": refs/KeyType.yaml
+      responses:
+        "200":
+          description: OK - returns operation status
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: string
+                    description: The status result of the pause operation.
+                example:
+                  result: "ok"
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8887/v1/producer/set_whitelist_blacklist" \
+              -H "Content-Type: application/json" \
+              -d '{
+                "params": {
+                  "actor_whitelist": ["alice","bob"],
+                  "actor_blacklist": [],
+                  "contract_whitelist": [],
+                  "contract_blacklist": [],
+                  "action_blacklist": [
+                    ["alice","transfer"]
+                  ],
+                  "key_blacklist": ["uint64"]
+                }
+              }'
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+
+            const payload = {
+              params: {
+                actor_whitelist: ["alice", "bob"],
+                actor_blacklist: [],
+                contract_whitelist: [],
+                contract_blacklist: [],
+                action_blacklist: [
+                  ["alice","transfer"]
+                ],
+                key_blacklist: ["uint64"]
+              }
+            };
+
+            fetch("http://localhost:8887/v1/producer/set_whitelist_blacklist", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(payload)
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+
+            url = "http://localhost:8887/v1/producer/set_whitelist_blacklist"
+            payload = {
+              "params": {
+                "actor_whitelist": ["alice","bob"],
+                "actor_blacklist": [],
+                "contract_whitelist": [],
+                "contract_blacklist": [],
+                "action_blacklist": [
+                  ["alice","transfer"]
+                ],
+                "key_blacklist": ["uint64"]
+              }
+            }
+            headers = {"Content-Type": "application/json"}
+
+            response = requests.post(url, json=payload, headers=headers)
+            print(response.text)
+
+  "/producer/create_snapshot":
+    post:
+      summary: create_snapshot
+      description: Creates a snapshot for producer node
+      operationId: create_snapshot
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: void
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8887/v1/producer/create_snapshot" \
+              -H "Content-Type: application/json" 
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+
+            const payload = {};
+
+            fetch("http://localhost:8887/v1/producer/create_snapshot", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(payload)
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+
+            url = "http://localhost:8887/v1/producer/create_snapshot"
+            payload = {}
+            headers = {"Content-Type": "application/json"}
+
+            response = requests.post(url, json=payload, headers=headers)
+            print(response.text)
+
+  /producer/schedule_snapshot:
+    post:
+      summary: schedule_snapshot
+      description: Submits a request to automatically generate snapshots according to a schedule specified with given parameters. If request body is empty, schedules immediate snapshot generation. Returns error when unable to accept schedule.
+      operationId: schedule_snapshot
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                block_spacing:
+                  type: integer
+                  description: Generate snapshot every block_spacing blocks
+                start_block_num:
+                  type: integer
+                  description: Block number at which schedule starts
+                  example: 5102
+                end_block_num:
+                  type: integer
+                  description: Block number at which schedule ends
+                  example: 15102
+                snapshot_description:
+                  type: string
+                  description: Description of the snapshot
+                  example: Daily snapshot
+
+      responses:
+        "201":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                    - snapshot_request_id
+                    - block_spacing
+                    - start_block_num
+                    - end_block_num
+                    - snapshot_description
+                properties:
+                  snapshot_request_id:
+                    type: integer
+                    description: Unique id identifying current snapshot request
+                  block_spacing:
+                    type: integer
+                    description: Generate snapshot every block_spacing blocks
+                  start_block_num:
+                    type: integer
+                    description: Block number at which schedule starts
+                    example: 5102
+                  end_block_num:
+                    type: integer
+                    description: Block number at which schedule ends
+                    example: 15102
+                  snapshot_description:
+                    type: string
+                    description: Description of the snapshot
+                    example: Daily snapshot
+        "400":
+          description: client error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /producer/get_snapshot_requests:
+    post:
+      summary: get_snapshot_requests
+      description: Returns a list of scheduled snapshots.
+      operationId: get_snapshot_requests
+      responses:
+        "201":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  snapshot_requests:
+                    type: array
+                    description: An array of scheduled snapshot requests
+                    items:
+                      type: object
+                      required:
+                          - snapshot_request_id
+                          - block_spacing
+                          - start_block_num
+                          - end_block_num
+                          - snapshot_description
+                          - pending_snapshots
+                      properties:
+                        snapshot_request_id:
+                          type: integer
+                          description: Unique id identifying current snapshot request
+                        block_spacing:
+                          type: integer
+                          description: Generate snapshot every block_spacing blocks
+                        start_block_num:
+                          type: integer
+                          description: Block number at which schedule starts
+                          example: 5102
+                        end_block_num:
+                          type: integer
+                          description: Block number at which schedule ends
+                          example: 15102
+                        snapshot_description:
+                          type: string
+                          description: Description of the snapshot
+                          example: Daily snapshot
+                        pending_snapshots:
+                          type: array
+                          description: List of pending snapshots
+                          items:
+                            type: object
+                            required:
+                                - head_block_id
+                                - head_block_num
+                                - head_block_time
+                                - version
+                                - snapshot_name
+                            properties:
+                              head_block_id:
+                                $ref: "https://docs.eosnetwork.com/openapi/v2.0/Sha256.yaml"
+                              head_block_num:
+                                type: integer
+                                description: Highest block number on the chain
+                                example: 5102
+                              head_block_time:
+                                type: string
+                                description: Highest block unix timestamp
+                                example: 2020-11-16T00:00:00.000
+                              version:
+                                type: integer
+                                description: version number
+                                example: 6
+                              snapshot_name:
+                                type: string
+                                description: The path and file name of the snapshot
+                                example: /home/me/nodes/node-name/snapshots/snapshot-0000999f99999f9f999f99f99ff9999f999f9fff99ff99ffff9f9f9fff9f9999.bin
+        "400":
+          description: client error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /producer/unschedule_snapshot:
+    post:
+      summary: unschedule_snapshot
+      description: Removes snapshot request identified by id. Returns error if referenced snapshot request does not exist.
+      operationId: unschedule_snapshot
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                snapshot_request_id:
+                  type: integer
+                  description: snapshot id
+      responses:
+        "201":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - snapshot_request_id
+                  - block_spacing
+                  - start_block_num
+                  - end_block_num
+                  - snapshot_description
+                properties:
+                  snapshot_request_id:
+                    type: integer
+                    description: Unique id identifying current snapshot request
+                  block_spacing:
+                    type: integer
+                    description: Generate snapshot every block_spacing blocks
+                  start_block_num:
+                    type: integer
+                    description: Block number at which schedule starts
+                    example: 5102
+                  end_block_num:
+                    type: integer
+                    description: Block number at which schedule ends
+                    example: 15102
+                  snapshot_description:
+                    type: string
+                    description: Description of the snapshot
+                    example: Daily snapshot
+        "400":
+          description: client error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  "/producer/get_integrity_hash":
+    post:
+      summary: get_integrity_hash
+      description: Retreives the integrity hash for producer node
+      operationId: get_integrity_hash
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            example: {}
+            schema:
+              type: object
+              properties: {}
+      responses:
+        "201":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  head_block_id:
+                    $ref: refs/Sha256.yaml
+                  integrity_hash:
+                    $ref: refs/Sha256.yaml
+              example: 
+                {"head_block_id":"0005857b77cc98941c6caa90fa8a083d2b1f4416ac015a107e04ed06774cce94","integrity_hash":"ac2a27f3b40ff252c2450341d2e4f8dbc1f83949103b83d8569c4292b265b224"}                                                                                                                                                                                                 
+
+
+        "400":
+          description: client error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8887/v1/producer/get_integrity_hash" \
+              -H "Content-Type: application/json" \
+              -d '{}'
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+
+            fetch("http://localhost:8887/v1/producer/get_integrity_hash", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({})
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+
+            url = "http://localhost:8887/v1/producer/get_integrity_hash"
+            payload = {}
+            headers = {"Content-Type": "application/json"}
+
+            response = requests.post(url, json=payload, headers=headers)
+            print(response.text)
+
+  "/producer/schedule_protocol_feature_activations":
+    post:
+      summary: schedule_protocol_feature_activations
+      description: Schedule protocol feature activation for producer node
+      operationId: schedule_protocol_feature_activations
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            example:
+              schedule:
+                protocol_features_to_activate:
+                  - "ABCDEF123456..."
+            schema:
+              type: object
+              required:
+                - schedule
+              properties:
+                schedule:
+                  type: object
+                  properties:
+                    protocol_features_to_activate:
+                      type: array
+                      description: List of protocol features to activate
+                      items:
+                        "$ref": refs/Sha256.yaml
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: void
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8887/v1/producer/schedule_protocol_feature_activations" \
+              -H "Content-Type: application/json" \
+              -d '{
+                "schedule": {
+                  "protocol_features_to_activate": ["ABCDEF123456..."]
+                }
+              }'
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+
+            const payload = {
+              schedule: {
+                protocol_features_to_activate: ["ABCDEF123456..."]
+              }
+            };
+
+            fetch("http://localhost:8887/v1/producer/schedule_protocol_feature_activations", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(payload)
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+
+            url = "http://localhost:8887/v1/producer/schedule_protocol_feature_activations"
+            payload = {
+              "schedule": {
+                "protocol_features_to_activate": ["ABCDEF123456..."]
+              }
+            }
+            headers = {"Content-Type": "application/json"}
+
+            response = requests.post(url, json=payload, headers=headers)
+            print(response.text)
+
+  "/producer/get_supported_protocol_features":
+    post:
+      summary: get_supported_protocol_features
+      description: Retreives supported protocol features for producer node
+      operationId: get_supported_protocol_features
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            example:
+              params:
+                exclude_disabled: false
+                exclude_unactivatable: false
+            schema:
+              type: object
+              required:
+                - params
+              properties:
+                params:
+                  type: object
+                  description: Defines filters based on which to return the supported protocol features
+                  properties:
+                    exclude_disabled:
+                      type: boolean
+                      description: Exclude disabled protocol features
+                    exclude_unactivatable:
+                      type: boolean
+                      description: Exclude unactivatable protocol features
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                description: Variant type, an array of strings with the supported protocol features
+                items:
+                  type: string
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8887/v1/producer/get_supported_protocol_features" \
+              -H "Content-Type: application/json" \
+              -d '{
+                "params": {
+                  "exclude_disabled": false,
+                  "exclude_unactivatable": false
+                }
+              }'
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+
+            const payload = {
+              params: {
+                exclude_disabled: false,
+                exclude_unactivatable: false
+              }
+            };
+
+            fetch("http://localhost:8887/v1/producer/get_supported_protocol_features", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(payload)
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+
+            url = "http://localhost:8887/v1/producer/get_supported_protocol_features"
+            payload = {
+              "params": {
+                "exclude_disabled": False,
+                "exclude_unactivatable": False
+              }
+            }
+            headers = {"Content-Type": "application/json"}
+
+            response = requests.post(url, json=payload, headers=headers)
+            print(response.text)
+components:
+  securitySchemes: {}
+  schemas:
+    Error:
+      type: object
+      properties:
+        code:
+          type: integer
+          description: http return code
+          example: 400
+        message:
+          type: string
+          description: summary of error
+          example: Invalid Request
+        error:
+          type: object
+          description: details on the error
+          properties:
+            code:
+              type: integer
+              description: internal error code
+              example: 3200006
+            name:
+              type: string
+              description: name of error
+              example: invalid_http_request
+            what:
+              type: string
+              description: prettier version of error name
+              example: invalid http request
+            details:
+              type: array
+              description: list of additional information for debugging
+              items:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: debugging message
+                    example: Unable to parse valid input from POST body
+                  file:
+                    type: string
+                    description: file where error was thrown
+                    example: http_plugin.hpp
+                  line_number:
+                    type: integer
+                    description: line number in file where error was thrown
+                    example: 246
+                  method:
+                    type: string
+                    description: function executed when error occurred
+                    example: parse_params
+    OK:
+      type: object
+      properties:
+        result:
+          type: string
+          description: status
+          example: ok
+    Runtime_Options:
+      type: object
+      properties:
+        max_transaction_time:
+          type: integer
+          description: Max transaction time
+          example: 100
+        max_irreversible_block_age:
+          type: integer
+          description: Max irreversible block age
+          example: -1
+        produce_time_offset_us:
+          type: integer
+          description: Time offset
+          example: -100000
+        last_block_time_offset_us:
+          type: integer
+          description: Last block time offset
+          example: -200000
+        max_scheduled_transaction_time_per_block_ms:
+          type: integer
+          description: Max scheduled transaction time per block in ms
+          example: 100
+        subjective_cpu_leeway_us:
+          type: integer
+          description: in micro seconds
+          example: 10
+        incoming_defer_ratio:
+          type: string
+          description: Incoming defer ratio, parsed to double
+          example: "1.00000000000000000"
+        greylist_limit:
+          type: integer
+          description: limit on number of Names supported by greylist
+          example: 1000

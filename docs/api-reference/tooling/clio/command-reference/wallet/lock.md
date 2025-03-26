@@ -2,18 +2,22 @@
 
 Locks a wallet
 
-## Positionals
+## Positional Arguments
+
 None
 
 ## Options
-- `-n, --name` _TEXT_ - The name of the wallet to lock
-## Usage
 
+- `-n, --name` _TEXT_ - The name of the wallet to lock
+
+## Usage
 
 ```sh
 clio wallet lock
 ```
+
 or
+
 ```sh
 clio wallet lock -n second-wallet
 ```

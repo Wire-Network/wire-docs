@@ -1,6 +1,6 @@
 ## Description
 
-The `chain_plugin` is a core plugin required to process and aggregate chain data on an Wire node.
+The `chain_plugin` is a core plugin required to process and aggregate chain data on a Wire node.
 
 ## Usage
 
@@ -122,12 +122,12 @@ Config Options for sysio::chain_plugin:
                                         application config dir)
   --checkpoint arg                      Pairs of [BLOCK_NUM,BLOCK_ID] that 
                                         should be enforced as checkpoints.
-  --wasm-runtime runtime (=eos-vm-jit))  Override default WASM runtime ( 
-                                        "eos-vm-jit", "eos-vm")
-                                        "eos-vm-jit" : A WebAssembly runtime 
+  --wasm-runtime runtime (=sys-vm-jit))  Override default WASM runtime ( 
+                                        "sys-vm-jit", "sys-vm")
+                                        "sys-vm-jit" : A WebAssembly runtime 
                                         that compiles WebAssembly code to 
                                         native x86 code prior to execution.
-                                        "eos-vm" : A WebAssembly interpreter.
+                                        "sys-vm" : A WebAssembly interpreter.
                                         
   --abi-serializer-max-time-ms arg (=15))
                                         Override default maximum ABI 

@@ -16,10 +16,12 @@ This procedure creates a database containing the chain state, with full history 
 
 1. Enable the `producer_api_plugin` on a node with full state-history.
 
-[[caution | Caution when using `producer_api_plugin`]]
+:::danger `producer_api_plugin`
 | Either use a firewall to block access to `http-server-address`, or change it to `localhost:8888` to disable remote access.
+:::
 
 1. Create a portable snapshot:
+
 ```sh
 curl http://127.0.0.1:8888/v1/producer/create_snapshot | json_pp
 ```

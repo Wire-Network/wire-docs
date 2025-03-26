@@ -6,7 +6,7 @@ title: "system rex defundcpuloan"
 
 Withdraw from a CPU loan fund.
 
-## Positionals
+## Positional Arguments
 
 - `from` _TEXT_ - Loan owner (required)
 - `loan_num` _TEXT_ - Loan ID (required)
@@ -24,10 +24,10 @@ Withdraw from a CPU loan fund.
 - `--max-cpu-usage-ms` _UINT_ - Set an upper limit on the milliseconds of CPU usage budget, for the execution of the transaction (defaults to 0 which means no limit)
 - `--max-net-usage` _UINT_ - Set an upper limit on the net usage budget, in bytes, for the transaction (defaults to 0 which means no limit)
 - `--delay-sec` _UINT_            set the delay_sec seconds, defaults to 0s
-- `-j,--json` print result as json
+- `-j,--json` print result as JSON
 
 ## Examples
 
 ```sh
-clio system rex defundcpuloan accountname1 abc123 "1 EOS"
+clio system rex defundcpuloan accountname1 abc123 "1 SYS"
 ```

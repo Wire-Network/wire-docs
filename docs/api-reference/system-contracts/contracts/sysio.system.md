@@ -4,7 +4,7 @@ id: sysio.system
 
 # `sysio.system`
 
-The `sysio.system` contract provides essential structures and actions to manage various system-level features, such as resource allocation, voting, RAM market, and governance in SysIO-based blockchains.
+The `sysio.system` contract provides essential structures and actions to manage various system-level features, such as resource allocation and governance in Wire based blockchains.
 
 ## Actions
 

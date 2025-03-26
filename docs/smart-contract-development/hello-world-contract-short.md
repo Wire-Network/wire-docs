@@ -45,28 +45,59 @@ Upon successful compilation, you will see a `hello` folder with `hello.abi` and 
 
 ### 3. Deploy the Contract
 
-Before deploying, ensure you have an account to deploy the contract to. Create an account if necessary and replace `YOUR_PUBLIC_KEY` with your actual public key when you created a wallet(see [Import Keys](../getting-started/create-development-wallet.md#import-keys-into-your-wallet)). Your wallet must be also unlocked before using it(see [Unlock a wallet](../getting-started/create-development-wallet.md#unlock-a-wallet))
+Before deploying, ensure you have an account to deploy the contract to. Create an account if necessary and replace `PUBLIC_KEY` with the development key used in Create Development Wallet doc (see [Import Keys](../getting-started/create-development-wallet.md#import-keys-into-your-wallet); key pair is also listed [here](#development-key-pair)). Your wallet must be also unlocked before using it(see [Unlock a wallet](../getting-started/create-development-wallet.md#unlock-a-wallet))
 
 #### 3.1. Create an account using `clio`
 
 ```bash
-clio create account sysio hello $PUBLIC_KEY -p sysio@active
+sudo clio create account sysio hello $PUBLIC_KEY -p sysio@active
 ```
 
 This command enables the `sysio` system account to create a new account named `hello` on the Wire blockchain. The `-p sysio@active` specifies that the active permission of the `sysio` account is used to authorize the account creation.
 
-#### 3.2. Deploy the contract
+#### 3.2. Issue a contract policy to `hello` account
+
+`nodedaddy`'s credentials(those should be already imported in your wallet):
+
+##### development key pair
+
+```txt
+PUBLIC_KEY=SYS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+PRIVATE_KEY=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
+```
+
+Issue the policy:
+
+```sh
+sudo clio push action sysio.roa addpolicy '{"owner": hello, "issuer": nodedaddy, "net_weight": "0.0100 SYS", "cpu_weight": "0.0100 SYS", "ram_weight": "0.0010 SYS", "time_block": 1, "network_gen": 0 }' -p nodedaddy@active
+```
+
+#### 3.3. Run deploy script
 
 ```bash
-./deploy.sh
+sudo ./deploy.sh
 ```
 
 ### 4. Push a Transaction
 
+#### 4.1. Create `bob`'s account
+
+```bash
+sudo clio create account sysio bob $PUBLIC_KEY -p sysio@active
+```
+
+#### 4.2. Issue a policy to `bob`
+
+```bash
+sudo clio push action sysio.roa addpolicy '{"owner": bob, "issuer": nodedaddy, "net_weight": "0.0100 SYS", "cpu_weight": "0.0100 SYS", "ram_weight": "0.0010 SYS", "time_block": 1, "network_gen": 0 }' -p nodedaddy@active
+```
+
+#### 4.3. Invoke the `hi` action
+
 Invoke the `hi` action within the contract:
 
 ```bash
-clio push action hello hi '["bob"]' -p bob@active
+sudo clio push action hello hi '["bob"]' -p bob@active
 ```
 
 This command triggers the `hi` action for the user `bob`, and if authorized by `bob`, it prints "Hello, bob".
@@ -76,7 +107,7 @@ This command triggers the `hi` action for the user `bob`, and if authorized by `
 Repeat the same passing "alice" as data to the action and using the same permissions:
 
 ```bash
-clio push action hello hi '["alice"]' -p bob@active
+sudo clio push action hello hi '["alice"]' -p bob@active
 ```
 
 ![bob-invoke-with-alice](/img/clio-push-action-hello-2.png)
@@ -103,7 +134,7 @@ void hello::hi(name user) {
 [Recompile](#2-compile-the-contract) and [redeploy](#3-deploy-the-contract) the contract. Then execute:
 
 ```bash
-clio push action hello hi '["alice"]' -p bob@active
+sudo clio push action hello hi '["alice"]' -p bob@active
 ```
 
 This will result in an authorization error since `bob` is trying to execute an action that requires `alice`'s permission.
@@ -118,4 +149,4 @@ CLI output:
 
 ### Inspect the contract on Wire Hub Block Explorer
 
-Feel free to explore your contract on [Wire Hub Block Explorer](https://hub.wire.network). Use this [guide](/docs/wire-hub/connect-to-a-rpc.md) to connect to your chain and inspect the contract.
+Feel free to explore your contract on [Wire Hub Block Explorer](https://explore.wire.foundation). Use this [guide](/docs/wire-hub/connect-to-a-rpc.md) to connect to your chain and inspect the contract.

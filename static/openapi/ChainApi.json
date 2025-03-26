@@ -9,7 +9,7 @@
         "url": "https://opensource.org/licenses/MIT"
       },
       "contact": {
-        "url": "https://eos.io"
+        "url": "https:/wire.network"
       }
     },
     "servers": [
@@ -1468,7 +1468,7 @@
                       "items": {
                         "type": "string",
                         "description": "Base58 encoded SYSIO public key",
-                        "pattern": "^(EOS|PUB_([RK]1|WA)_)[1-9A-HJ-NP-Za-km-z]+$",
+                        "pattern": "^(SYS|PUB_([RK]1|WA)_)[1-9A-HJ-NP-Za-km-z]+$",
                         "title": "PublicKey"
                       }
                     }

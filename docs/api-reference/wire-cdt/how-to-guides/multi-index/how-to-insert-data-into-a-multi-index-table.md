@@ -18,7 +18,7 @@ Relevant classes and methods:
 
 Make sure you have the following prerequisites in place:
 
-* A Wire development environment, for details consult the [Get Started Guide](https://docs.eosnetwork.com/docs/latest/getting-started/),
+* A Wire development environment, for details consult the [Getting Started](https://docs.wire.network/docs/getting-started/getting-started-intro) section of our docs.
 * A multi-index `testab` table instance which stores `user` objects indexed by the primary key which is of type `sysio::name`. Consult the section [How to instantiate a multi-index table](./how-to-instantiate-a-multi-index-table.md) to learn how to set it up.
 
 ## Procedure

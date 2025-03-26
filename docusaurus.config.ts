@@ -2,6 +2,9 @@ import { themes as prismThemes } from "prism-react-renderer";
 import type { Config } from "@docusaurus/types";
 import * as Preset from "@docusaurus/preset-classic";
 import { tailwindLoader } from "./plugins/docusaurus-tailwindcss-loader";
+import type * as Plugin from "@docusaurus/types/src/plugin";
+import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
+import type * as Redocusaurus from "redocusaurus";
 
 // prism themes
 
@@ -58,6 +61,22 @@ const config: Config = {
         },
       },
     ],
+    [
+      "docusaurus-plugin-openapi-docs",
+      {
+        id: "producer",
+        docsPluginId: "classic",
+        config: {
+          producerApi: {
+            specPath: "openapi/ProducerApiCodeSnippets.yaml",
+            outputDir: "docs/api-reference",
+            // sidebarOptions: {
+            //   groupPathsBy: "tag",
+            // },
+          } satisfies OpenApiPlugin.Options,
+        },
+      },
+    ],
   ],
   organizationName: "Wire-Network",
   projectName: "wire-docs",
@@ -72,7 +91,7 @@ const config: Config = {
     defaultLocale: "en",
     locales: ["en"],
   },
-  themes: ["@docusaurus/theme-mermaid"],
+  themes: ["@docusaurus/theme-mermaid", "docusaurus-theme-openapi-docs"],
   markdown: {
     mermaid: true,
   },
@@ -83,6 +102,7 @@ const config: Config = {
         docs: {
           sidebarPath: "./sidebars.ts",
           editUrl: "https://github.com/Wire-Network/wire-docs/edit/master",
+          docItemComponent: "@theme/ApiItem",
         },
         blog: false,
         sitemap: {
@@ -106,28 +126,33 @@ const config: Config = {
       {
         specs: [
           {
-            spec: "openapi/ChainApi.yaml",
+            id: "chain-api",
+            spec: "openapi/ChainApiCS.yaml",
             route: "docs/api-reference/chain-api",
           },
           {
-            spec: "openapi/ProducerApi.yaml",
+            id: "producer-api",
+            spec: "openapi/ProducerApiCS.yaml",
             route: "docs/api-reference/producer-api",
           },
           {
-            spec: "openapi/NetApi.yaml",
+            id: "net-api",
+            spec: "openapi/NetApiCS.yaml",
             route: "docs/api-reference/net-api",
           },
           {
-            spec: "openapi/DBSizeApi.yaml",
+            id: "db-size-api",
+            spec: "openapi/DBSizeApiCS.yaml",
             route: "docs/api-reference/db-size-api",
           },
           {
-            spec: "openapi/TraceApi.yaml",
+            id: "trace-api",
+            spec: "openapi/TraceApiCS.yaml",
             route: "docs/api-reference/trace-api",
           },
         ],
       },
-    ],
+    ] satisfies Redocusaurus.PresetEntry,
   ],
   themeConfig: {
     tableOfContents: {
@@ -223,7 +248,7 @@ const config: Config = {
     prism: {
       theme: prismThemes.dracula,
       darkTheme: prismThemes.palenight,
-      additionalLanguages: ["php", "bash", "json"],
+      additionalLanguages: ["bash", "json"],
     },
     algolia: {
       appId: "17BRJEIISS",

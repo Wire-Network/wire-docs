@@ -6,7 +6,7 @@ id: code
 
 Retrieves the code and ABI for an account.
 
-## Positionals
+## Positional Arguments
 
 - `name` _TEXT_ - The name of the account whose code should be retrieved
 

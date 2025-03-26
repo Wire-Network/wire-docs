@@ -3,7 +3,7 @@ title: system rex unstaketorex
 ---
 ## Description
 
-## Positionals
+## Positional Arguments
 
 - `from` _TEXT_ - Account buying REX tokens (required)
 - `receiver` _TEXT_ - Account that tokens have been staked to (required)
@@ -22,10 +22,10 @@ title: system rex unstaketorex
 - `--max-cpu-usage-ms` _UINT_ - Set an upper limit on the milliseconds of CPU usage budget, for the execution of the transaction (defaults to 0 which means no limit)
 - `--max-net-usage` _UINT_ - Set an upper limit on the net usage budget, in bytes, for the transaction (defaults to 0 which means no limit)
 - `--delay-sec` _UINT_            set the delay_sec seconds, defaults to 0s
-- `-j,--json` print result as json
+- `-j,--json` print result as JSON
 
 ## Examples
 
 ```sh
-clio system rex unstaketorex accountname1 accountname2 "1 EOS" 0
+clio system rex unstaketorex accountname1 accountname2 "1 SYS" 0
 ```

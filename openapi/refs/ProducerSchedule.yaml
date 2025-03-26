@@ -1,0 +1,17 @@
+type: object
+description: A JSON object that encapsulates the list of the producers schedule and its version.
+properties:
+  version:
+    type: integer
+    description: The version of the producers schedule list. Version is an integer subsequently incremented.
+  producers:
+    type: array
+    description: The list of producers.
+    items:
+      type: object
+      properties:
+        producer_name:
+          type: string
+          description: The name of the producer.
+        authority:
+          $ref: "ProducerAuthorityList.yaml"

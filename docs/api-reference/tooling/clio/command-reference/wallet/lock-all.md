@@ -7,7 +7,7 @@ title: lock_all
 
 Locks all unlocked wallets
 
-## Positionals
+## Positional Arguments
 
 None
 

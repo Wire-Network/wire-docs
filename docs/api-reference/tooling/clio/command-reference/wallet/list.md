@@ -2,7 +2,7 @@
 
 Lists opened wallets, * = unlocked
 
-## Positionals
+## Positional Arguments
 
 None
 

@@ -1,0 +1,96 @@
+openapi: 3.0.0
+info:
+  title: DB Size API
+  version: 1.0.0
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  contact:
+    url: https://wire.network
+
+servers:
+  - url: "{protocol}://{host}:{port}/v1/"
+    variables:
+      protocol:
+        enum:
+          - http
+          - https
+        default: http
+      host:
+        default: localhost
+      port:
+        default: "8080"
+
+components:
+  schemas: {}
+
+paths:
+  "/db_size/get":
+    post:
+      summary: get
+      description: Retrieves database stats
+      operationId: get
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            # an empty JSON object is fine, since schema has no required properties
+            example: {}
+            schema:
+              type: object
+              properties: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                description: Defines the database stats
+                properties:
+                  free_bytes:
+                    type: integer
+                  used_bytes:
+                    type: integer
+                  size:
+                    type: integer
+                  indices:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        index:
+                          type: string
+                        row_count:
+                          type: integer
+      x-codeSamples:
+        - lang: Shell
+          label: Shell
+          source: |
+            curl -X POST "http://localhost:8080/v1/db_size/get" \
+              -H "Content-Type: application/json" \
+              -d '{}'
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+
+            fetch("http://localhost:8080/v1/db_size/get", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({})
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+
+            url = "http://localhost:8080/v1/db_size/get"
+            payload = {}
+            headers = {"Content-Type": "application/json"}
+
+            response = requests.post(url, json=payload, headers=headers)
+            print(response.text)

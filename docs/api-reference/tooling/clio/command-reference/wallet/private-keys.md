@@ -6,7 +6,7 @@ title: private_keys
 
 It is possible to query for the public and private key pairs of an individual wallet. The wallet must already be unlocked and you must give the password again
 
-## Positionals
+## Positional Arguments
 
 None
 

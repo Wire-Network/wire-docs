@@ -45,4 +45,4 @@ executed transaction: 4eb4cf3aea232d46e0e949bc273c3f0575be5bdba7b61851ab51d927cf
 
 See the following reference guides for command line usage and related options:
 
-* [clio set action permission](/docs/api-reference/tooling/clio/command-reference/set/set-action.md) command
+* [clio set action permission](/docs/api-reference/tooling/clio/command-reference/set/set-action-permission.md) command

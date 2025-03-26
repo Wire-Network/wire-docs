@@ -6,7 +6,7 @@ id: actions
 
 Retrieve all actions with specific account name referenced in authorization or receiver.
 
-## Positionals
+## Positional Arguments
 
 - `account_name` _TEXT_ - name of account to query on (required)
 - `pos` _INT_ - sequence number of action for this account, -1 for last (optional)

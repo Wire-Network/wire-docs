@@ -48,17 +48,13 @@ On the Wire platform, the authority relates a public key and the authorization f
 
 ---
 
-## Bancor Relay
-
-Wire adopts a free-market approach to allocating scarce resources such as RAM. The Wire system contract allows users to buy RAM from the system and sell RAM back to the system in exchange for the blockchain's native tokens. This provides liquidity in the RAM market while facilitating price discovery. The less unallocated RAM available to the market maker the higher the market maker prices the remaining RAM. The algorithm used for this market maker is known as a Bancor Relay. A Bancor Relay does not set the price of RAM. It only offers to buy and sell at previously established market rates. Anytime the current market rate is different than the current price offered by the Bancor Relay, traders will buy or sell RAM pushing to closer to the market determined price.
-
 ## Block
 
 A confirmable unit of a blockchain. Each block contains zero or more transactions, as well as a cryptographic connection to all prior blocks. When a block becomes "irreversibly confirmed" it's because a supermajority of node operators have agreed that the given block contains the correct transactions. Once a block is irreversibly confirmed, it becomes a permanent part of the immutable blockchain.
 
 ## Block Header
 
-A part of the block which holds metadata related to the block. In an Wire block header this includes things like the transaction Merkle root, the action Merkle root, the producer who produced the block, the block id of the previous block, the block id of the current block, and the block timestamp.
+A part of the block which holds metadata related to the block. In a Wire block header this includes things like the transaction Merkle root, the action Merkle root, the producer who produced the block, the block id of the previous block, the block id of the current block, and the block timestamp.
 
 **Related** [Block Merkle Tree](#merkle-tree)
 
@@ -68,7 +64,7 @@ The block log is an append-only log of blocks written to disk and contains all t
 
 ## Node Operator
 
-A Node Operator Producer is an identifiable entity composed of one or more individuals that express interest in participating in running an Wire network. By participating it is meant these entities will provide a full node, gather transactions, verify their validity, add them into blocks, and propose and confirm these blocks. A Node Operator is generally required to have experience with system administration and security as it is expected that their full-node have constant availability.
+A Node Operator Producer is an identifiable entity composed of one or more individuals that express interest in participating in running a Wire network. By participating it is meant these entities will provide a full node, gather transactions, verify their validity, add them into blocks, and propose and confirm these blocks. A Node Operator is generally required to have experience with system administration and security as it is expected that their full-node have constant availability.
 
 ## Node Operator Schedule
 
@@ -86,11 +82,11 @@ A blockchain application is a software application that has integrated a blockch
 
 ## Byzantine Fault Tolerance
 
-In the context of distributed systems, Asyncronous Byzantine Fault Tolerance (aBFT) is the ability of a distributed computer network to function as desired and correctly reach a sufficient consensus despite malicious components (nodes) of the system failing or propagating incorrect information to other peers. In an Wire based blockchain aBFT is achieved using a combination of Appointed Proof of Stake, the last irreversible block, and the fact that a producer cannot sign two blocks with the same block number.
+In the context of distributed systems, Asyncronous Byzantine Fault Tolerance (aBFT) is the ability of a distributed computer network to function as desired and correctly reach a sufficient consensus despite malicious components (nodes) of the system failing or propagating incorrect information to other peers. In a Wire based blockchain aBFT is achieved using a combination of Appointed Proof of Stake, the last irreversible block, and the fact that a producer cannot sign two blocks with the same block number.
 
 ## CPU
 
-CPU is processing power granted to an account by an Wire based blockchain. The amount of CPU an account has is measured in microseconds, and represents the amount of processing time an account has at its disposal when executing its actions.
+CPU is processing power granted to an account by a Wire based blockchain. The amount of CPU an account has is measured in microseconds, and represents the amount of processing time an account has at its disposal when executing its actions.
 
 ## Chain State
 
@@ -98,7 +94,7 @@ The chain state (or "database" as it is often called) is a memory mapped file, w
 
 ## clio
 
-clio is a command line tool that interfaces with the REST api exposed by nodeop, in other words clio is the command line tool through which you can interface with an Wire based blockchain; clio contains documentation for all of its commands. For a list of all commands known to clio, simply run it with no arguments. clio = command line + eos
+clio is a command line tool that interfaces with the REST api exposed by nodeop, in other words clio is the command line tool through which you can interface with a Wire based blockchain; clio contains documentation for all of its commands. For a list of all commands known to clio, simply run it without no arguments
 
 ## Confirmed Transaction
 
@@ -186,13 +182,13 @@ Inline actions request other actions that need to be executed as part of the ori
 
 ## Irreversible Block
 
-Irreversible blocks are blocks that contain confirmed, final transactions. A block is considered irreversible (i.e., immutable) on an Wire-based blockchain when a supermajority, consisting of 2/3rds plus 1 of the currently elected node operators have confirmed the block.
+Irreversible blocks are blocks that contain confirmed, final transactions. A block is considered irreversible (i.e., immutable) on a Wire-based blockchain when a supermajority, consisting of 2/3rds plus 1 of the currently elected node operators have confirmed the block.
 
 **Related**: [Block](#block)
 
 ## Kiod
 
-kiod is the component that securely stores Wire keys in wallets. kiod = key + eos
+kiod is the component that securely stores Wire keys in wallets. It is a separate process from nodeop and is designed to be run on the same machine as nodeop.
 
 ## Merkle Tree
 
@@ -215,13 +211,13 @@ Multi Index Tables, are a way to cache state and/or data in RAM for fast access.
 
 ## Multisig
 
-Multisig is a short term for multiple signatures. It’s used to describe the case in which one requires more than one account's permission to execute a transaction. Wire provides the system account sysio.msig, which can be used to push onto the blockchain the multisig proposals and their corresponding account's permission required to approve the proposal. Multisig, when used properly, increases the security of an account, the security of a smart contract, and it's also the method by which producers are able to affect changes within an Wire blockchain.
+Multisig is a short term for multiple signatures. It’s used to describe the case in which one requires more than one account's permission to execute a transaction. Wire provides the system account sysio.msig, which can be used to push onto the blockchain the multisig proposals and their corresponding account's permission required to approve the proposal. Multisig, when used properly, increases the security of an account, the security of a smart contract, and it's also the method by which producers are able to affect changes within a Wire blockchain.
 
 *Synonyms* msig multiple signatures
 
 ## NET
 
-NET is required to store transactions on an Wire based blockchain. The amount of NET an account has is measured in bytes, representing the amount of transaction storage an account has at its disposal when creating a new transaction. NET is recalculated after each block is produced, based on the system tokens staked for NET bandwidth by the account. The amount allocated to an account is proportional with the total system tokens staked for NET by all accounts. Do not confuse NET with RAM, although it is also storage space, NET measures the size of the transactions and not contract state.
+NET is required to store transactions on a Wire based blockchain. The amount of NET an account has is measured in bytes, representing the amount of transaction storage an account has at its disposal when creating a new transaction. NET is recalculated after each block is produced, based on the system tokens staked for NET bandwidth by the account. The amount allocated to an account is proportional with the total system tokens staked for NET by all accounts. Do not confuse NET with RAM, although it is also storage space, NET measures the size of the transactions and not contract state.
 
 ## Nodeop
 
@@ -277,7 +273,7 @@ nodeop plugins are software components that implement features that complement t
 
 ## Private Key
 
-A private key is a secret key used to sign transactions. In Wire, a private key's authority is determined by it's mapping to an Wire account name.
+A private key is a secret key used to sign transactions. In Wire, a private key's authority is determined by it's mapping to a Wire account name.
 
 ## Private Network
 
@@ -285,11 +281,11 @@ A private network is a production network, or a test network, to which access is
 
 ## Privileged
 
-Privileged accounts are accounts which can execute transactions while skipping the standard authorization check. To ensure that this is not a security hole, the permission authority over these accounts is granted to the sysio.prods account. An account can be set as privileged by sending the action setpriv to an Wire based blockchain, specifying the account to be set as privileged, and providing the correct permission, or, by using `clio` command line utility.
+Privileged accounts are accounts which can execute transactions while skipping the standard authorization check. To ensure that this is not a security hole, the permission authority over these accounts is granted to the sysio.prods account. An account can be set as privileged by sending the action setpriv to a Wire based blockchain, specifying the account to be set as privileged, and providing the correct permission, or, by using `clio` command line utility.
 
 ## Privileged Account
 
-At the genesis of an Wire based blockchain, there is only one account present, Wire which is the main system account.
+At the genesis of a Wire based blockchain, there is only one account present, Wire which is the main system account.
 
 **Related** [Account](#account)
 
@@ -303,15 +299,7 @@ A public network is a production network instantiated with the Wire platform. Fo
 
 ## RAM
 
-RAM is required to store account information such as keys, balances, and contract state on an Wire based blockchain. Because the amount of RAM available to a single computer is limited by Moore’s Law and other technological advances, RAM is fundamentally scarce and must be purchased on a free-market inside an Wire based blockchain.
-
- **Related** [Bancor Relay](#bancor-relay)
-
-## RAM Market
-
-In order to persist data on an Wire based blockchain, a user must first purchase RAM. The Wire RAM market uses the Bancor Relay algorithm in a system smart contract to offer to buy and sell RAM from users at previously established market rates.
-
- **Related** [Bancor Relay](#bancor-relay)
+RAM is required to store account information such as keys, balances, and contract state on a Wire based blockchain. Because the amount of RAM available to a single computer is limited by Moore’s Law and other technological advances, RAM is fundamentally scarce and must be purchased on a free-market inside a Wire based blockchain.
 
 ## REX
 
@@ -335,7 +323,7 @@ An action within a validated transaction, that is, an action whose transaction w
 
 ## Reversible Block
 
-Any block on an Wire based blockchain with a block number greater than the last irreversible block. Reversible blocks are blocks that are not currently guaranteed to be on the blockchain.
+Any block on a Wire based blockchain with a block number greater than the last irreversible block. Reversible blocks are blocks that are not currently guaranteed to be on the blockchain.
 
 **Related** [Irreversible Block](#irreversible-block)
 
@@ -345,7 +333,7 @@ In the Wire based blockchain context Ricardian Contract is a digital document th
 
 ## SYS
 
-SYS is the blockchain default token name for an Wire based blockchain. Any fork of the Wire open source has the option to rename it to any token name that meets the symbol validation rules.
+SYS is the blockchain default token name for a Wire based blockchain. Any fork of the Wire open source has the option to rename it to any token name that meets the symbol validation rules.
 
 ## Scope
 
@@ -365,7 +353,7 @@ A smart contract is a computer protocol intended to facilitate, verify, or enfor
 
 ## Staking
 
-Staking is the act of locking tokens for resources on an Wire network. This includes but is not limited to, CPU time, RAM, and on-chain governance.
+Staking is the act of locking tokens for resources on a Wire network. This includes but is not limited to, CPU time, RAM, and on-chain governance.
 
 ## Standard Account Name
 
@@ -385,7 +373,7 @@ The design of the Wire blockchain calls for a number of smart contracts that are
 
 ## Tables
 
-Tables on an Wire-based blockchain are achieved via Multiple Index Table.
+Tables on a Wire-based blockchain are achieved via Multiple Index Table.
 
 **Related** [Multiple Index Table](#multi-index-table)
 

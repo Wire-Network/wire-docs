@@ -10,7 +10,7 @@ id: transaction
 
 Retrieves a transaction from the blockchain.
 
-## Positionals
+## Positional Arguments
 
 `id` _TEXT_ - ID of the transaction to retrieve
 

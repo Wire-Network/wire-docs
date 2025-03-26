@@ -7,7 +7,7 @@ title: set code
 
 Sets or updates an account's code on the blockchain.
 
-## Positionals
+## Positional Arguments
 
 * `account` _TEXT_ - The account to set code for (**required**)
 * `code-file` _TEXT_ - The fullpath containing the contract WAST or WASM (**required**)
@@ -27,7 +27,7 @@ Sets or updates an account's code on the blockchain.
 
 `-s,--skip-sign` Specify if unlocked wallet keys should be used to sign transaction
 
-`-j,--json` print result as json
+`-j,--json` print result as JSON
 
 `-d,--dont-broadcast` - Don't broadcast transaction to the network (just print to stdout)
 

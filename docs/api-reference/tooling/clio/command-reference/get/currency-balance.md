@@ -7,7 +7,7 @@ title: currency balance
 
 Retrieve the balance of an account for a given currency.
 
-## Positionals
+## Positional Arguments
 
 - `contract` _TEXT_ - The contract that operates the currency
 

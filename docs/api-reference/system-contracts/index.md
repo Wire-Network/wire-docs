@@ -14,7 +14,7 @@ Not all system accounts contain a system contract, but each system account has i
 
 |Account|Priviledged|Has contract|Description|
 |---|---|---|---|
-|sysio|Yes|It contains the `sysio.system` contract|The main system account on an Wire based blockchain.|
+|sysio|Yes|It contains the `sysio.system` contract|The main system account on a Wire based blockchain.|
 |sysio.msig|Yes|It contains the `sysio.msig` contract|Allows the signing of a multi-sig transaction proposal for later execution if all required parties sign the proposal before the expiration time.|
 |sysio.wrap|Yes|It contains the `sysio.wrap` contract.|Simplifies block producer superuser actions by making them more readable and easier to audit.|
 |sysio.token|No|It contains the `sysio.token` contract.|Defines the structures and actions allowing users to create, issue, and manage tokens on Wire based blockchains.|
@@ -86,7 +86,7 @@ Below are listed the actions which are declared in the `sysio.bios` contract, ma
 
 ### `sysio.system` contract
 
-The `sysio.system` contract is another smart contract that Block.one provides an implementation for as a sample system contract.  It is a version of `sysio.bios` only this time it is not minimalist, it contains more elaborated structures, classes, methods, and actions needed for an Wire based blockchain core functionality:
+The `sysio.system` contract is another smart contract that Block.one provides an implementation for as a sample system contract.  It is a version of `sysio.bios` only this time it is not minimalist, it contains more elaborated structures, classes, methods, and actions needed for a Wire based blockchain core functionality:
 
 The actions implemented and publicly exposed by the `sysio.system` system contract are presented in the table below. Just like the `sysio.bios` sample contract there are a few actions which are not implemented at the contract level (`newaccount`, `updateauth`, `deleteauth`, `linkauth`, `unlinkauth`, `canceldelay`, `onerror`, `setabi`, `setcode`), they are just declared in the contract so they will show in the contract's ABI and users will be able to push those actions to the chain via the account holding the 'sysio.system' contract, but the implementation is at the Wire Sysio core level. They are referred to as **native actions.**
 

@@ -16,8 +16,8 @@ Make sure you meet the following requirements:
 <!-- TODO references -->
 * Ensure the reference system contracts from [`sysio.contracts`](https://github.com/Wire-Network/wire-system-contracts) repository is deployed and used to manage system resources.
 * Understand what an [account](/docs/introduction/glossary.md#account) is and its role in the blockchain.
-* Understand [CPU bandwidth](/docs/introduction/glossary.md#cpu) in an Wire blockchain.
-* Understand [NET bandwidth](/docs/introduction/glossary.md#net) in an Wire blockchain.
+* Understand [CPU bandwidth](/docs/introduction/glossary.md#cpu) in a Wire blockchain.
+* Understand [NET bandwidth](/docs/introduction/glossary.md#net) in a Wire blockchain.
 
 ## Steps
 

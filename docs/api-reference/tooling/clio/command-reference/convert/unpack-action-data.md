@@ -1,17 +1,18 @@
 ---
 id: unpack-action-data
+title: unpack_action_data
 ---
 
 
 ## Description
 
-From packed to json action data form
+This command is used to convert packed action data to a plain JSON.
 
-## Positionals
+## Positional Arguments
 
 - `account` _TEXT_ - The name of the account that hosts the contract
 - `name` _TEXT_ - The name of the function that's called by this action
-- `packed_action_data` _TEXT_ - The action data expressed as packed hex string
+- `packed_action_data` _TEXT_ - The action data expressed as packed HEX string
 
 ## Options
 
@@ -20,7 +21,7 @@ From packed to json action data form
 ## Usage
 
 ```sh
- clio convert unpack_action_data sysio unlinkauth 000000008090b1ca000000000091b1ca000075982aea3055
+clio convert unpack_action_data sysio unlinkauth 000000008090b1ca000000000091b1ca0000000000eab0c7
 ```
 
 ## Output
@@ -29,6 +30,6 @@ From packed to json action data form
 {
   "account": "test1",
   "code": "test2",
-  "type": "sysiosysio"
+  "type": "sysio"
 }
 ```

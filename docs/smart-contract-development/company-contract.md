@@ -234,21 +234,40 @@ In Wire ecosystem, deploying a smart contract requires an account; an account ca
 
 #### 4.1 Retrieve public key
 
-Before proceeding, make sure you have the public key available from the key pair that was created when setting up your wallet. If you haven’t yet created a wallet or a key pair, you can do so by following the instructions [here](../getting-started/create-development-wallet.md).
+Before proceeding, make sure you have the public key available from the key pair that was created when setting up your wallet(key pair is also listed [here](#development-key-pair)). If you haven’t yet created a wallet or a key pair, you can do so by following the instructions [here](../getting-started/create-development-wallet.md).
 
 ```bash
 export PUBLIC_KEY=<public-key-value>
 ```
 
+#### 4.2. Create the account that we will deploy the contract to
+
 ```bash
-clio create account sysio company $PUBLIC_KEY -p sysio@active
+sudo clio create account sysio company $PUBLIC_KEY -p sysio@active
+```
+
+#### 4.3. Issue a contract policy to `company` account
+
+`nodedaddy`'s credentials(those should be already imported in your wallet):
+
+##### development key pair
+
+```txt
+PUBLIC_KEY=SYS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+PRIVATE_KEY=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
+```
+
+Issue the policy:
+
+```sh
+sudo clio push action sysio.roa addpolicy '{"owner": company, "issuer": nodedaddy, "net_weight": "0.0100 SYS", "cpu_weight": "0.0100 SYS", "ram_weight": "0.0010 SYS", "time_block": 1, "network_gen": 0 }' -p nodedaddy@active
 ```
 
 #### 4.2 Deploy the compiled contract
 
 ```bash
-                  [account] [WASM dir]  [permission level] 
-clio set contract company  company -p  company@active
+                      [account] [WASM dir]  [permission level] 
+sudo clio set contract company  company -p  company@active
 ```
 
-The smart contract should now be live on your local blockchain. You can inspect through [Block Explorer](https://eosauthority.com/).
+The smart contract should now be live on your local blockchain. You can inspect through [Block Explorer](https://explore.wire.foundation).

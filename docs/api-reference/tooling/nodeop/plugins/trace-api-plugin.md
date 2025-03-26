@@ -1,11 +1,11 @@
 
 ## Overview
 
-The `trace_api_plugin` provides a consumer-focused long-term API for retrieving retired actions and related metadata from a specified block. The plugin stores serialized block trace data to the filesystem for later retrieval via HTTP RPC requests. For detailed information about the definition of this application programming interface see the [Trace API reference](../../../../../openapi/TraceApi.yaml).
+The `trace_api_plugin` provides a consumer-focused long-term API for retrieving retired actions and related metadata from a specified block. The plugin stores serialized block trace data to the filesystem for later retrieval via HTTP RPC requests. For detailed information about the definition of this application programming interface see the [Trace API reference](../../../../../openapi/TraceApiCS.yaml).
 
 ## Purpose
 
-While integrating applications such as block explorers and exchanges with an Wire blockchain, the user might require a complete transcript of actions processed by the blockchain, including those spawned from the execution of smart contracts and scheduled transactions. The `trace_api_plugin` serves this need. The purpose of the plugin is to provide:
+While integrating applications such as block explorers and exchanges with a Wire blockchain, the user might require a complete transcript of actions processed by the blockchain, including those spawned from the execution of smart contracts and scheduled transactions. The `trace_api_plugin` serves this need. The purpose of the plugin is to provide:
 
 * A transcript of retired actions and related metadata
 * A consumer-focused long-term API to retrieve blocks
@@ -156,7 +156,7 @@ Compressed trace log files have the `.clog` file extension (see [Compression of 
 The data is compressed into raw zlib form with full-flush *seek points* placed at regular intervals. A decompressor can start from any of these *seek points* without reading previous data and it can also traverse a seek point without issue if it appears within the data.
 
 :::info[Size reduction of trace logs]
-| Data compression can reduce the space growth of trace logs twentyfold! For instance, with 512 seek points and using the test dataset on the EOS public network, data compression reduces the growth of the trace directory from &#126;50 GiB/day to &#126;2.5 GiB/day for full data. Due to the high redundancy of the trace log contents, the compression is still comparable to `gzip -9`. The decompressed data is also made immediately available via the [Trace RPC API](/docs/api-reference/trace-api/) without any service degradation.
+| Data compression can reduce the space growth of trace logs twentyfold! For instance, with 512 seek points and using the test dataset on the Wire network, data compression reduces the growth of the trace directory from &#126;50 GiB/day to &#126;2.5 GiB/day for full data. Due to the high redundancy of the trace log contents, the compression is still comparable to `gzip -9`. The decompressed data is also made immediately available via the [Trace RPC API](/docs/api-reference/trace-api/) without any service degradation.
 :::
 
 #### Role of seek points

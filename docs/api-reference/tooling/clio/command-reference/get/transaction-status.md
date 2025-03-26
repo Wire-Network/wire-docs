@@ -10,7 +10,7 @@ Retrieves transaction status information.
 clio get transaction-status <id>
 ```
 
-## Positionals
+## Positional Arguments
 
 `id` _TEXT_ - ID of the transaction.
 

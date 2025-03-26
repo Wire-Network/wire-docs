@@ -8,8 +8,8 @@ title: Create Development Accounts
 
 ## Prerequisites
 
-- You have successfully installed Wire Sysio and Wire CDT on your computer. See [Binary Installation](./install-dependencies.md#binary-installation) instructions.
-- You have completed [Launch Local Node](./launch-local-node.mdx) and [Create Development Wallet](./create-development-wallet.md) guides.
+- You have successfully installed Wire Sysio and Wire CDT on your computer and you have a local chain running. See [Install Dependencies & Start a local node](./install-dependencies.md) article.
+- You have also completed [Create Development Wallet](./create-development-wallet.md) guide.
   
 ## Overview
 
@@ -74,7 +74,7 @@ For a clear understanding of how Wire accounts and their associated public keys 
 
 ### `[clio: Failed to connect to nodeop at ](http://127.0.0.1:8888/); is nodeop running?`
 
-Doublecheck if `nodeop` is running; and [restart](./launch-local-node.mdx#starting-nodeop) the process if needed.
+Doublecheck if `nodeop` is running; and use `/opt/wire-network/blockproducer/stop.sh` and `/opt/wire-network/blockproducer/start.sh` to restart the node.
 
 ```bash
 pidof nodeop

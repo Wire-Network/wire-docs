@@ -1,0 +1,2550 @@
+openapi: 3.0.0
+info:
+  title: Chain API
+  description: >-
+    Nodeop Chain API Specification. See developer documentation at
+    https://docs.wire.network/docs/api-reference/tooling/nodeop/plugins/chain-plugin
+    for information on enabling this plugin.
+  version: 1.0.0
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  contact:
+    url: https://wire.network
+
+servers:
+  - url: "{protocol}://{host}:{port}/v1/chain"
+    variables:
+      protocol:
+        enum:
+          - http
+          - https
+        default: http
+      host:
+        default: localhost
+      port:
+        default: "8888"
+
+components:
+  schemas: {}
+
+paths:
+  "/get_account":
+    post:
+      description: Returns an object containing various details about a specific account on the blockchain.
+      operationId: get_account
+      requestBody:
+        description: JSON Object with single member "account_name"
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - account_name
+              properties:
+                account_name:
+                  $ref: refs/Name.yaml
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: refs/Account.yaml
+              examples:
+                ExampleResponse:
+                  summary: Sample Response for Get Account
+                  value:
+                    account_name: "sysio.token"
+                    head_block_num: 181701
+                    head_block_time: "2025-02-07T18:50:13.000"
+                    privileged: false
+                    last_code_update: "2025-02-06T17:24:01.000"
+                    created: "2025-02-06T17:24:00.500"
+                    ram_quota: -1
+                    net_weight: -1
+                    cpu_weight: -1
+                    net_limit: { used: -1, available: -1, max: -1 }
+                    cpu_limit: { used: -1, available: -1, max: -1 }
+                    ram_usage: 504
+                    permissions: [ { perm_name: "active", parent: "owner", required_auth: { threshold: 1, keys: [ { key: "SYS7wdrtpDM1yEbL8XT3JS4rCLu6rb3BTQWpt62vzgqtoeTt2V2zs", weight: 1 } ], accounts: [], waits: [] } } ]
+                    subjective_cpu_bill_limit: { used: 0, available: 0, max: 0 }
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8888/v1/chain/get_account" \
+              -H "Content-Type: application/json" \
+              -d '{"account_name": "sysio.token"}'
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+            fetch("http://localhost:8888/v1/chain/get_account", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ account_name: "sysio.token" })
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+            url = "http://localhost:8888/v1/chain/get_account"
+            payload = {"account_name": "sysio.token"}
+            headers = {"Content-Type": "application/json"}
+            response = requests.post(url, json=payload, headers=headers)
+            print(response.json())
+
+  "/get_block":
+    post:
+      description: Returns an object containing various details about a specific block on the blockchain.
+      operationId: get_block
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - block_num_or_id
+              properties:
+                block_num_or_id:
+                  type: string
+                  description: Provide a `block number` or a `block id`
+            example:
+              block_num: 234
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: refs/Block.yaml
+              examples: 
+                ExampleResponse:
+                  summary: Sample Response for Get Block
+                  value:
+                    timestamp: "2025-02-06T17:25:42.000"
+                    producer: "sysio"
+                    confirmed: 0
+                    previous: "000000e989ae687b45c95ef25ee42efe8b283690e97ca9694b78e0a0d7d2dcff"
+                    transaction_mroot: "0000000000000000000000000000000000000000000000000000000000000000"
+                    action_mroot: "7957f5ea86130b6c2f8e442f3a549ebfe744c788ed9d77108738350bd31b2327"
+                    schedule_version: 0
+                    new_producers: null
+                    producer_signature: "SIG_K1_KbMeciZ5vQ9BDLHusX9Mj9YWUBmGKxg5k8s5jnML3o9ftac55vk7p3oZYABQjeZMBb983gPYyKQvoc18sExP9EftRJQX6z"
+                    transactions: []
+                    id: "000000eaa7707d77cec76eda35a3a66c69273bd706d25cd950aa9811a6752152"
+                    block_num: 234
+                    ref_block_prefix: 3664693198    
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8888/v1/chain/get_block" \
+              -H "Content-Type: application/json" \
+              -d '{"block_num_or_id": "234"}'
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+            fetch("http://localhost:8888/v1/chain/get_block", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ block_num_or_id: "234" })
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+            url = "http://localhost:8888/v1/chain/get_block"
+            payload = {"block_num_or_id": "234"}
+            headers = {"Content-Type": "application/json"}
+            response = requests.post(url, json=payload, headers=headers)
+            print(response.json())
+  "/get_block_info":
+    post:
+      description: Similar to `get_block` but returns a fixed-size smaller subset of the block data.
+      operationId: get_block_info
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - block_num
+              properties:
+                block_num:
+                  type: integer
+                  description: Provide a `block number`
+            example:
+              block_num: 99
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: refs/BlockInfo.yaml
+              examples: 
+                ExampleResponse:
+                  summary: Sample Response for Get Block Info
+                  value:
+                    block_num: 100
+                    ref_block_num: 100
+                    id: "0000006460e32d086102050bea6aa3667c6b028661ee3f670558177e3eb9cf89"
+                    timestamp: "2025-01-16T16:56:08.500"
+                    producer: "sysio"
+                    confirmed: 0
+                    previous: "0000006324658a5bc110b5bb80796788a49ba0a804726b3ea11ef7533fae4dbf"
+                    transaction_mroot: "164293eb9dd5882dd90be18656c59bb82f0e68fe84db0bb7556a975da9a65903"
+                    action_mroot: "f5cc39656758f5b86445ffb7234d1141292ffc2084cf158c590a8185d580a52d"
+                    schedule_version: 0
+                    producer_signature: "SIG_K1_K4YWvzXWoAz3yTXg9Kh7rQTiHGqGZkG4cvbbdVLTTWhEFYgiDVb72gHRbz7ZfxsozBe9uGdH7WHp5hdxy8zVUNRYR45Vb7"
+                    ref_block_prefix: 184877665
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8888/v1/chain/get_block_info" \
+              -H "Content-Type: application/json" \
+              -d '{"block_num": 100}'
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+
+            const body = { block_num: 100 };
+
+            fetch("http://localhost:8888/v1/chain/get_block_info", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(body)
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+
+            url = "http://localhost:8888/v1/chain/get_block_info"
+            payload = { "block_num": 100 }
+            headers = { "Content-Type": "application/json" }
+
+            response = requests.post(url, json=payload, headers=headers)
+            print(response.json())
+  "/get_info":
+    post:
+      summary: get_info
+      description: Returns an object containing various details about the blockchain.
+      operationId: get_info
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: refs/Info.yaml
+              examples:
+                ExampleResponse:
+                  summary: Sample Response for Get Info
+                  value:
+                    server_version: "8903fb39"
+                    chain_id: "b6de5b756bf858001a6c321b228cdb378dba0c6eebe9822af92e5478d75f26a8"
+                    head_block_num: 177352
+                    last_irreversible_block_num: 177351
+                    last_irreversible_block_id: "0002b4c7e186506709284e7698d02cc071130b67504e8ad1a7fbe5fa6d8e9708"
+                    head_block_id: "0002b4c836b29fb762ca922b8b885bf12a5f02991989e47020cd98af8252fb11"
+                    head_block_time: "2025-02-07T18:13:58.500"
+                    head_block_producer: "sysio"
+                    virtual_block_cpu_limit: 100000000
+                    virtual_block_net_limit: 1048576000
+                    block_cpu_limit: 99900
+                    block_net_limit: 1048576
+                    server_version_string: "v3.1.6"
+                    fork_db_head_block_num: 177352
+                    fork_db_head_block_id: "0002b4c836b29fb762ca922b8b885bf12a5f02991989e47020cd98af8252fb11"
+                    server_full_version_string: "v3.1.6-8903fb39ab64c984aa2489b5546316a4ce4128d1"
+                    total_cpu_weight: 0
+                    total_net_weight: 0
+                    earliest_available_block_num: 1
+                    last_irreversible_block_time: "2025-02-07T18:13:58.000"  
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8080/v1/chain/get_info"
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+            fetch("http://localhost:8080/v1/chain/get_info", {
+              method: "POST"
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+            url = "http://localhost:8080/v1/chain/get_info"
+            response = requests.post(url)
+            print(response.text)
+  "/push_transaction":
+    post:
+      description: Attempts to apply a single transaction to the blockchain.
+      operationId: push_transaction
+      requestBody:
+        content:
+          application/json:
+            example:
+              signatures: ["SIG_K1_xyz..."]
+              compression: false
+              packed_context_free_data: ""
+              packed_trx: "abcdef1234..."
+            schema:
+              type: object
+              properties:
+                signatures:
+                  type: array
+                  items:
+                    type: string
+                    pattern: "^SIG_([RK]1|WA)_[1-9A-HJ-NP-Za-km-z]+$"
+                    $ref: refs/Signature.yaml
+                  description: array of signatures required to authorize transaction
+                compression:
+                  type: boolean
+                  description: Compression used, usually false
+                packed_context_free_data:
+                  type: string
+                  description: json to hex
+                packed_trx:
+                  type: string
+                  description: Transaction object json to hex
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: void
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8888/v1/chain/push_transaction" \
+              -H "Content-Type: application/json" \
+              -d '{
+                "signatures": ["SIG_K1_xyz..."],
+                "compression": false,
+                "packed_context_free_data": "",
+                "packed_trx": "abcdef1234..."
+              }'
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+
+            const body = {
+              signatures: ["SIG_K1_xyz..."],
+              compression: false,
+              packed_context_free_data: "",
+              packed_trx: "abcdef1234..."
+            };
+
+            fetch("http://localhost:8888/v1/chain/push_transaction", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(body)
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+
+            url = "http://localhost:8888/v1/chain/push_transaction"
+            payload = {
+              "signatures": ["SIG_K1_xyz..."],
+              "compression": False,
+              "packed_context_free_data": "",
+              "packed_trx": "abcdef1234..."
+            }
+            headers = {"Content-Type": "application/json"}
+
+            response = requests.post(url, json=payload, headers=headers)
+            print(response.text)
+
+  "/send_transaction":
+    post:
+      description: Similar to push_transaction, but uses a separate code path.
+      operationId: send_transaction
+      requestBody:
+        content:
+          application/json:
+            example:
+              signatures: ["SIG_K1_abc..."]
+              compression: false
+              packed_context_free_data: ""
+              packed_trx: "1234abcd..."
+            schema:
+              type: object
+              properties:
+                signatures:
+                  type: array
+                  items:
+                    "$ref": refs/Signature.yaml
+                compression:
+                  type: boolean
+                packed_context_free_data:
+                  type: string
+                packed_trx:
+                  type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: void
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8888/v1/chain/send_transaction" \
+              -H "Content-Type: application/json" \
+              -d '{
+                "signatures": ["SIG_K1_abc..."],
+                "compression": false,
+                "packed_context_free_data": "",
+                "packed_trx": "1234abcd..."
+              }'
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+
+            const body = {
+              signatures: ["SIG_K1_abc..."],
+              compression: false,
+              packed_context_free_data: "",
+              packed_trx: "1234abcd..."
+            };
+
+            fetch("http://localhost:8888/v1/chain/send_transaction", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(body)
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+
+            url = "http://localhost:8888/v1/chain/send_transaction"
+            payload = {
+              "signatures": ["SIG_K1_abc..."],
+              "compression": False,
+              "packed_context_free_data": "",
+              "packed_trx": "1234abcd..."
+            }
+            headers = {"Content-Type": "application/json"}
+
+            response = requests.post(url, json=payload, headers=headers)
+            print(response.text)
+
+  "/push_transactions":
+    post:
+      description: This method expects an array of transaction objects, applying each to the blockchain.
+      operationId: push_transactions
+      requestBody:
+        content:
+          application/json:
+            example:
+              - expiration: "2025-12-31T23:59:59"
+                ref_block_num: 12345
+                ref_block_prefix: 54321
+                max_net_usage_words: "0"
+                max_cpu_usage_ms: "0"
+                delay_sec: 0
+                context_free_actions: []
+                actions:
+                  - account: "someacc"
+                    name: "dosomething"
+                    authorization: ["someactor"]
+                    data: {}
+                    hex_data: "abcd1234"
+                transaction_extensions: []
+            schema:
+              type: array
+              items:
+                type: object
+                title: Transaction
+                # (Schema details omitted)
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: void
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8888/v1/chain/push_transactions" \
+              -H "Content-Type: application/json" \
+              -d '[
+                {
+                  "expiration": "2025-12-31T23:59:59",
+                  "ref_block_num": 12345,
+                  "ref_block_prefix": 54321,
+                  "max_net_usage_words": "0",
+                  "max_cpu_usage_ms": "0",
+                  "delay_sec": 0,
+                  "context_free_actions": [],
+                  "actions": [
+                    {
+                      "account": "someacc",
+                      "name": "dosomething",
+                      "authorization": ["someactor"],
+                      "data": {},
+                      "hex_data": "abcd1234"
+                    }
+                  ],
+                  "transaction_extensions": []
+                }
+              ]'
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+
+            const txArray = [
+              {
+                expiration: "2025-12-31T23:59:59",
+                ref_block_num: 12345,
+                ref_block_prefix: 54321,
+                max_net_usage_words: "0",
+                max_cpu_usage_ms: "0",
+                delay_sec: 0,
+                context_free_actions: [],
+                actions: [
+                  {
+                    account: "someacc",
+                    name: "dosomething",
+                    authorization: ["someactor"],
+                    data: {},
+                    hex_data: "abcd1234"
+                  }
+                ],
+                transaction_extensions: []
+              }
+            ];
+
+            fetch("http://localhost:8888/v1/chain/push_transactions", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(txArray)
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+
+            url = "http://localhost:8888/v1/chain/push_transactions"
+            payload = [
+              {
+                "expiration": "2025-12-31T23:59:59",
+                "ref_block_num": 12345,
+                "ref_block_prefix": 54321,
+                "max_net_usage_words": "0",
+                "max_cpu_usage_ms": "0",
+                "delay_sec": 0,
+                "context_free_actions": [],
+                "actions": [
+                  {
+                    "account": "someacc",
+                    "name": "dosomething",
+                    "authorization": ["someactor"],
+                    "data": {},
+                    "hex_data": "abcd1234"
+                  }
+                ],
+                "transaction_extensions": []
+              }
+            ]
+            headers = {"Content-Type": "application/json"}
+
+            response = requests.post(url, json=payload, headers=headers)
+            print(response.text)
+
+  "/get_block_header_state":
+    post:
+      description: Retrieves the block header state.
+      operationId: get_block_header_state
+      requestBody:
+        content:
+          application/json:
+            example:
+              block_num_or_id: "234"
+            schema:
+              type: object
+              required:
+                - block_num_or_id
+              properties:
+                block_num_or_id:
+                  type: string
+                  description: Provide a block_number or a block_id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                title: BlockHeaderState
+                # (Schema details omitted)
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8888/v1/chain/get_block_header_state" \
+              -H "Content-Type: application/json" \
+              -d '{"block_num_or_id": "234"}'
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+            
+            const body = { block_num_or_id: "234" };
+
+            fetch("http://localhost:8888/v1/chain/get_block_header_state", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(body)
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+
+            url = "http://localhost:8888/v1/chain/get_block_header_state"
+            payload = {"block_num_or_id": "234"}
+            headers = {"Content-Type": "application/json"}
+
+            response = requests.post(url, json=payload, headers=headers)
+            print(response.text)
+
+  "/get_abi":
+    post:
+      description: Retrieves the ABI for a contract based on its account name.
+      operationId: get_abi
+      requestBody:
+        content:
+          application/json:
+            example:
+              account_name: "sysio.token"
+            schema:
+              type: object
+              required:
+                - account_name
+              properties:
+                account_name:
+                  $ref: refs/Name.yaml
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: refs/Abi.yaml
+              examples: 
+                ExampleResponse:
+                  value:
+                    account_name: "sysio.token"
+                    abi:
+                      version: "sysio::abi/1.2"
+                      types: []
+                      structs:
+                        - name: "account"
+                          base: ""
+                          fields:
+                            - name: "balance"
+                              type: "asset"
+                      actions:
+                        - name: "transfer"
+                          type: "transfer"
+                          ricardian_contract: "Send {{quantity}} from {{from}} to {{to}}."
+                      tables:
+                        - name: "accounts"
+                          index_type: "i64"
+                          key_names: []
+                          key_types: []
+                          type: "account"
+                      ricardian_clauses: []
+                      error_messages: []
+                      abi_extensions: []
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8888/v1/chain/get_abi" \
+              -H "Content-Type: application/json" \
+              -d '{"account_name": "sysio.token"}'
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+            fetch("http://localhost:8888/v1/chain/get_abi", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ account_name: "sysio.token" })
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+            url = "http://localhost:8888/v1/chain/get_abi"
+            payload = {"account_name": "sysio.token"}
+            headers = {"Content-Type": "application/json"}
+            response = requests.post(url, json=payload, headers=headers)
+            print(response.json())
+
+  "/get_currency_balance":
+    post:
+      description: Retrieves the current balance of a specific account and token symbol.
+      operationId: get_currency_balance
+      requestBody:
+        content:
+          application/json:
+            example:
+              code: "sysio.token"
+              account: "sysio"
+              symbol: "SYS"
+            schema:
+              type: object
+              required:
+                - code
+                - account
+                - symbol
+              properties:
+                code:
+                  $ref: refs/Name.yaml
+                  example: "sysio.token"
+                account:
+                  $ref: refs/Account.yaml
+                  example: "sysio"
+                symbol:
+                  $ref: refs/Symbol.yaml
+                  example: "SYS"
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: refs/Symbol.yaml
+              examples:
+                ExampleResponse:
+                  summary: Example Currency Balance
+                  value:
+                    - "75496.0000 SYS"
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8888/v1/chain/get_currency_balance" \
+              -H "Content-Type: application/json" \
+              -d '{"code": "sysio.token", "account": "sysio", "symbol": "SYS"}'
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+            fetch("http://localhost:8888/v1/chain/get_currency_balance", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ code: "sysio.token", account: "sysio", symbol: "SYS" })
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+            url = "http://localhost:8888/v1/chain/get_currency_balance"
+            payload = {"code": "sysio.token", "account": "sysio", "symbol": "SYS"}
+            headers = {"Content-Type": "application/json"}
+            response = requests.post(url, json=payload, headers=headers)
+            print(response.json())
+
+  "/get_currency_stats":
+      post:
+        description: Retrieves currency stats
+        operationId: get_currency_stats
+        requestBody:
+          content:
+            application/json:
+              example:
+                code: "sysio.token"
+                symbol: "SYS"
+              schema:
+                type: object
+                properties:
+                  code:
+                    "$ref": refs/Name.yaml
+                  symbol:
+                    "$ref": refs/Symbol.yaml
+        responses:
+          '200':
+            description: OK
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    [symbol]:
+                      type: object
+                      properties:
+                        supply:
+                          type: string
+                        max_supply:
+                          type: string
+                        issuer:
+                          type: string
+                  example:
+                      SYS:
+                        supply: "75496.0000 SYS"
+                        max_supply: "75496.0000 SYS"
+                        issuer: "sysio"
+        x-codeSamples:
+          - lang: Shell
+            label: cURL
+            source: |
+              curl -X POST "http://localhost:8888/v1/chain/get_currency_stats" \
+                -H "Content-Type: application/json" \
+                -d '{"code": "sysio.token", "symbol": "SYS"}'
+          - lang: Node.js
+            label: Node.js
+            source: |
+              const fetch = require('node-fetch');
+
+              const body = { code: "sysio.token", symbol: "SYS" };
+
+              fetch("http://localhost:8888/v1/chain/get_currency_stats", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(body)
+              })
+                .then(res => res.json())
+                .then(console.log)
+                .catch(console.error);
+          - lang: Python
+            label: Python
+            source: |
+              import requests
+
+              url = "http://localhost:8888/v1/chain/get_currency_stats"
+              payload = {
+                "code": "sysio.token",
+                "symbol": "SYS"
+              }
+              headers = {"Content-Type": "application/json"}
+
+              response = requests.post(url, json=payload, headers=headers)
+              print(response.text)
+  "/get_required_keys":
+    post:
+      description: Returns the required keys needed to sign a transaction.
+      operationId: get_required_keys
+      requestBody:
+        content:
+          application/json:
+            example:
+              transaction:
+                expiration: "2025-12-31T23:59:59"
+                ref_block_num: 123
+                ref_block_prefix: 456
+                max_net_usage_words: "0"
+                max_cpu_usage_ms: "0"
+                delay_sec: 0
+                context_free_actions: []
+                actions: []
+              available_keys:
+                - "PUB_K1_abc..."
+            schema:
+              type: object
+              required:
+                - transaction
+                - available_keys
+              properties:
+                transaction:
+                  $ref: refs/Transaction.yaml
+                available_keys:
+                  type: array
+                  items:
+                    $ref: refs/PublicKey.yaml
+                    pattern: "^(SYS|PUB_([RK]1|WA)_)[1-9A-HJ-NP-Za-km-z]+$"
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  required_keys:
+                    type: array
+                    items:
+                      type: string
+                      pattern: "^(SYS|PUB_([RK]1|WA)_)[1-9A-HJ-NP-Za-km-z]+$"
+              examples:
+                ExampleResponse:
+                  summary: Sample Response for Get Required Keys
+                  value:
+                    required_keys:
+                      - "SYS7wdrtpDM1yEbL8XT3JS4rCLu6rb3BTQWpt62vzgqtoeTt2V2zs"
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8888/v1/chain/get_required_keys" \
+              -H "Content-Type: application/json" \
+              -d '{
+                "transaction": {
+                  "expiration": "2025-12-31T23:59:59",
+                  "ref_block_num": 123,
+                  "ref_block_prefix": 456,
+                  "max_net_usage_words": "0",
+                  "max_cpu_usage_ms": "0",
+                  "delay_sec": 0,
+                  "context_free_actions": [],
+                  "actions": []
+                },
+                "available_keys": ["PUB_K1_abc..."]
+              }'
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+
+            const body = {
+              transaction: {
+                expiration: "2025-12-31T23:59:59",
+                ref_block_num: 123,
+                ref_block_prefix: 456,
+                max_net_usage_words: "0",
+                max_cpu_usage_ms: "0",
+                delay_sec: 0,
+                context_free_actions: [],
+                actions: []
+              },
+              available_keys: ["PUB_K1_abc..."]
+            };
+
+            fetch("http://localhost:8888/v1/chain/get_required_keys", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(body)
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+
+            url = "http://localhost:8888/v1/chain/get_required_keys"
+            payload = {
+              "transaction": {
+                "expiration": "2025-12-31T23:59:59",
+                "ref_block_num": 123,
+                "ref_block_prefix": 456,
+                "max_net_usage_words": "0",
+                "max_cpu_usage_ms": "0",
+                "delay_sec": 0,
+                "context_free_actions": [],
+                "actions": []
+              },
+              "available_keys": ["PUB_K1_abc..."]
+            }
+            headers = {"Content-Type": "application/json"}
+
+            response = requests.post(url, json=payload, headers=headers)
+            print(response.text)
+
+  "/get_producers":
+    post:
+      description: Retrieves a list of producers.
+      operationId: get_producers
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              title: GetProducersRequest
+              type: object
+              required:
+                - limit
+                - lower_bound
+                - json
+              properties:
+                limit:
+                  type: integer
+                  format: int32
+                  description: Total number of producers to retrieve.
+                lower_bound:
+                  type: integer
+                  format: int32
+                  description: Pagination lower bound.
+                json:
+                  type: boolean
+                  description: Return result in JSON format.
+              example:
+                limit: 10
+                lower_bound: 0
+                json: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: GetProducersResponse
+                type: object
+                properties:
+                  rows:
+                    $ref: refs/Producer.yaml
+                  total_producer_vote_weight:
+                    type: string
+                    description: The sum of all producer votes.
+                  more:
+                    type: string
+                    description: >
+                      A pagination indicator. If non-empty, this string represents the `lower_bound`
+                      value to use on the next request for retrieving additional results. If empty (""), 
+                      there are no more pages to fetch.
+              example:
+                rows:
+                  - owner: "alpha"
+                    producer_authority:
+                      - 0
+                      - threshold: 1
+                        keys:
+                          - key: "SYS6stkNixN..."
+                            weight: 1
+                    url: ""
+                    total_votes: "0.00000000000000000"
+                    producer_key: "SYS6stkNixN..."
+                  - owner: "beta"
+                    producer_authority:
+                      - 0
+                      - threshold: 1
+                        keys:
+                          - key: "SYS6stkNixN..."
+                            weight: 1
+                    url: ""
+                    total_votes: "0.00000000000000000"
+                    producer_key: "SYS6stkNixN..."
+                total_producer_vote_weight: "0.00000000000000000"
+                more: ""
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8888/v1/chain/get_producers" \
+              -H "Content-Type: application/json" \
+              -d '{"limit": 10, "lower_bound": 0, "json": true}'
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+
+            const body = {
+              limit: 10,
+              lower_bound: 0,
+              json: true
+            };
+
+            fetch("http://localhost:8888/v1/chain/get_producers", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(body)
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+
+            url = "http://localhost:8888/v1/chain/get_producers"
+            payload = {
+              "limit": 10,
+              "lower_bound": 0,
+              "json": True
+            }
+            headers = {"Content-Type": "application/json"}
+
+            response = requests.post(url, json=payload, headers=headers)
+            print(response.text)
+  
+  "/get_producer_schedule":
+    post:
+      description: Retrieves the current producer schedule from the blockchain, which includes the list of active producers and their respective rotation schedule.
+      operationId: get_producer_schedule
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  active:
+                    description: A JSON object that encapsulates the list of active producers schedule and its version.
+                    $ref: refs/ProducerSchedule.yaml                          
+                  pending:
+                    description: A JSON object that encapsulates the list of pending producers schedule and its version.
+                    $ref: refs/ProducerSchedule.yaml
+                  proposed:
+                    description: A JSON object that encapsulates the list of proposed producers schedule and its version.
+                    $ref: refs/ProducerSchedule.yaml
+  "/get_raw_code_and_abi":
+    post:
+      description: Retrieves raw code and ABI for a contract based on the specified account name.
+      operationId: get_raw_code_and_abi
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - account_name
+              properties:
+                account_name:
+                  type: string
+                  description: Name of the account whose code/ABI should be retrieved.
+              example:
+                account_name: "sysio.token"
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  account_name:
+                    $ref: refs/Account.yaml
+                  wasm:
+                    type: string
+                    description: Base64-encoded WASM code.
+                  abi:
+                    type: string
+                    description: Base64-encoded ABI.
+              example:
+                account_name: "sysio.token"
+                wasm: "AGFzbQEAAAABggEWYAAAYAF+...50AAAAAACQTcYDaTY0AAAOY3VycmVuY3lfc3RhdHMAAAAAAA=="
+                abi: "DnN5c2lvOjphYmkvMS4y...AAA=="
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8888/v1/chain/get_raw_code_and_abi" \
+              -H "Content-Type: application/json" \
+              -d '{"account_name": "sysio.token"}'
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+
+            const body = {
+              account_name: "sysio.token"
+            };
+
+            fetch("http://localhost:8888/v1/chain/get_raw_code_and_abi", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(body)
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+
+            url = "http://localhost:8888/v1/chain/get_raw_code_and_abi"
+            payload = {"account_name": "sysio.token"}
+            headers = {"Content-Type": "application/json"}
+
+            response = requests.post(url, json=payload, headers=headers)
+            print(response.text)
+
+  "/get_scheduled_transactions":
+    post:
+      description: Retrieves the scheduled transactions
+      operationId: get_scheduled_transactions
+      requestBody:
+        content:
+          application/json:
+            example:
+              lower_bound: "2025-12-31T12:34:56.789"
+              limit: 10
+              json: false
+            schema:
+              type: object
+              required:
+                - json
+              properties:
+                lower_bound:
+                  type: string
+                  $ref: refs/DateTimeSeconds.yaml
+                limit:
+                  description: The maximum number of transactions to return
+                  type: integer
+                json:
+                  description: true/false whether the packed transaction is converted to JSON
+                  type: boolean
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  transactions:
+                    type: array
+                    items:
+                      $ref: refs/Transaction.yaml
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8888/v1/chain/get_scheduled_transaction" \
+              -H "Content-Type: application/json" \
+              -d '{
+                "lower_bound": "2025-12-31T12:34:56.789",
+                "limit": 10,
+                "json": false
+              }'
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+
+            const body = {
+              lower_bound: "2025-12-31T12:34:56.789",
+              limit: 10,
+              json: false
+            };
+
+            fetch("http://localhost:8888/v1/chain/get_scheduled_transaction", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(body)
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+
+            url = "http://localhost:8888/v1/chain/get_scheduled_transaction"
+            payload = {
+              "lower_bound": "2025-12-31T12:34:56.789",
+              "limit": 10,
+              "json": False
+            }
+            headers = {"Content-Type": "application/json"}
+
+            response = requests.post(url, json=payload, headers=headers)
+            print(response.text)
+
+  "/get_table_by_scope":
+    post:
+      summary: get_table_by_scope
+      description: Retrieves table scope for a given contract and table name.
+      operationId: get_table_by_scope
+      requestBody:
+        content:
+          application/json:
+            example:
+              code: "sysio.token"
+              table: "accounts"
+              lower_bound: ""
+              upper_bound: ""
+              limit: 10
+              reverse: false
+              show_payer: false
+            schema:
+              type: object
+              required:
+                - code
+              properties:
+                code:
+                  type: string
+                  description: "`name` of the contract to return table data for"
+                table:
+                  type: string
+                  description: Filter results by table
+                lower_bound:
+                  type: string
+                  description: Filters results to return the first element that is not less than provided value in set
+                upper_bound:
+                  type: string
+                  description: Filters results to return the first element that is greater than provided value in set
+                limit:
+                  type: integer
+                  description: Limit number of results returned.
+                  format: int32
+                  default: 10
+                reverse:
+                  type: boolean
+                  description: Reverse the order of returned results
+                  default: false
+                show_payer:
+                  type: boolean
+                  description: Show RAM payer
+                  default: false
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  rows:
+                    type: array
+                    items:
+                      $ref: refs/TableScope.yaml
+                  more:
+                    type: string
+                    description: | 
+                      If there are more results available beyond the current response, 
+                      this contains the value to set as `lower_bound` in the next request. 
+                      If empty (""), no further pages exist.
+              examples:
+                ExampleResponse:
+                  summary: Sample Response for Get Table Scope
+                  value:
+                    rows:
+                      - code: "sysio.token"
+                        scope: "sysio"
+                        table: "accounts"
+                        payer: "sysio"
+                        count: 1
+                      - code: "sysio.token"
+                        scope: "sysio.rex"
+                        table: "accounts"
+                        payer: "sysio"
+                        count: 1
+                    more: ""
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8888/v1/chain/get_table_by_scope" \
+              -H "Content-Type: application/json" \
+              -d '{
+                "code": "sysio.token",
+                "table": "accounts",
+                "lower_bound": "",
+                "upper_bound": "",
+                "limit": 10,
+                "reverse": false,
+                "show_payer": false
+              }'
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+            const body = {
+              code: "sysio.token",
+              table: "accounts",
+              lower_bound: "",
+              upper_bound: "",
+              limit: 10,
+              reverse: false,
+              show_payer: false
+            };
+            fetch("http://localhost:8888/v1/chain/get_table_by_scope", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(body)
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+            url = "http://localhost:8888/v1/chain/get_table_by_scope"
+            payload = {
+              "code": "sysio.token",
+              "table": "accounts",
+              "lower_bound": "",
+              "upper_bound": "",
+              "limit": 10,
+              "reverse": False,
+              "show_payer": False
+            }
+            headers = {"Content-Type": "application/json"}
+            response = requests.post(url, json=payload, headers=headers)
+            print(response.json())
+  "/get_table_rows":
+    post:
+      summary: get_table_rows
+      description: Returns rows from the specified table.
+      operationId: get_table_rows
+      requestBody:
+        content:
+          application/json:
+            example:
+              code: "sysio.token"
+              table: "accounts"
+              scope: "sysio"
+              index_position: "primary"
+              key_type: "name"
+              encode_type: "dec"
+              lower_bound: ""
+              upper_bound: ""
+              limit: 10
+              reverse: false
+              show_payer: false,
+              json: true
+            schema:
+              type: object
+              required:
+                - code
+                - table
+                - scope
+              properties:
+                code:
+                  type: string
+                table:
+                  type: string
+                scope:
+                  type: string
+                index_position:
+                  type: string
+                  description: e.g. "primary", "secondary", etc.
+                key_type:
+                  type: string
+                encode_type:
+                  type: string
+                lower_bound:
+                  type: string
+                upper_bound:
+                  type: string
+                limit:
+                  type: integer
+                  default: 10
+                reverse:
+                  type: boolean
+                  default: false
+                show_payer:
+                  type: boolean
+                  default: false
+                json:
+                  type: boolean
+                  default: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  rows:
+                    type: array
+                    items:
+                      oneOf:
+                        - type: string
+                          description: Hex-encoded data (if `json=false`).
+                          example: "80c6ff2c000000000453595300000000"
+                        - type: object
+                          description: JSON-decoded row data (if `json=true`).
+                          example: { balance: "75496.0000 SYS" }
+                  more:
+                    type: boolean
+                    example: false
+                    description: |
+                      Indicates whether more rows exist beyond the current response. 
+                      - If `true`, the result is truncated due to the `limit`, and additional rows can be fetched in the next request.
+                      - If `false`, no further rows are available.
+                  next_key:
+                    type: string
+                    example: ""
+                    description: |
+                      Used as `lower_bound` in the next request to fetch the next set of rows.
+                      - If empty (`""`), no additional data is available.
+                      - Otherwise, include this value in `lower_bound` for the next paginated request.
+              examples:
+                ExampleResponse:
+                  summary: Sample Response for Get Table Rows
+                  value:
+                    rows:
+                      # - "80c6ff2c000000000453595300000000"
+                      - { balance: "75496.0000 SYS" }
+                    more: false
+                    next_key: ""
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8888/v1/chain/get_table_rows" \
+              -H "Content-Type: application/json" \
+              -d '{
+                "code": "sysio.token",
+                "table": "accounts",
+                "scope": "sysio",
+                "index_position": "primary",
+                "key_type": "name",
+                "encode_type": "dec",
+                "lower_bound": "",
+                "upper_bound": "",
+                "limit": 10,
+                "reverse": false,
+                "show_payer": false,
+                "json": true
+              }'
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+            const body = {
+              code: "sysio.token",
+              table: "accounts",
+              scope: "sysio",
+              index_position: "primary",
+              key_type: "name",
+              encode_type: "dec",
+              lower_bound: "",
+              upper_bound: "",
+              limit: 10,
+              reverse: false,
+              show_payer: false,
+              json: true
+            };
+            fetch("http://localhost:8888/v1/chain/get_table_rows", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(body)
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+            url = "http://localhost:8888/v1/chain/get_table_rows"
+            payload = {
+              "code": "sysio.token",
+              "table": "accounts",
+              "scope": "sysio",
+              "index_position": "primary",
+              "key_type": "name",
+              "encode_type": "dec",
+              "lower_bound": "",
+              "upper_bound": "",
+              "limit": 10,
+              "reverse": False,
+              "show_payer": False,
+              "json": True
+            }
+            headers = {"Content-Type": "application/json"}
+            response = requests.post(url, json=payload, headers=headers)
+            print(response.json())
+
+  "/abi_json_to_bin":
+    post:
+      description: Returns serialized action data.
+      operationId: abi_json_to_bin
+      requestBody:
+        content:
+          application/json:
+            example:
+              code: "sysio.token"
+              action: "transfer"
+              args:
+                from: "bob"
+                to: "alice"
+                quantity: "10.0000 SYS"
+                memo: "Test transfer"
+            schema:
+              type: object
+              title: AbiJsonToBinRequest
+              properties:
+                code:
+                  "$ref": refs/Name.yaml
+                action:
+                  "$ref": refs/Name.yaml
+                args:
+                  type: object
+                  description: The action parameters to be serialized
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  binargs:
+                    "$ref": "#/paths/~1abi_bin_to_json/post/requestBody/content/application~1json/schema/properties/binargs"
+
+              examples:
+               ExampleResponse: 
+                value: 
+                  {"binargs":"0000000000000e3d0000000000855c34a08601000000000004535953000000000d54657374207472616e73666572"}
+      x-codeSamples:
+      - lang: Shell
+        label: cURL
+        source: |
+          curl -X POST "http://localhost:8888/v1/chain/abi_json_to_bin" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "code": "sysio.token",
+              "action": "transfer",
+              "args": {
+                "from": "bob",
+                "to": "alice",
+                "quantity": "10.0000 SYS",
+                "memo": "Test transfer"
+              }
+            }'
+      - lang: Node.js
+        label: Node.js
+        source: |
+          const fetch = require('node-fetch');
+
+          const body = {
+            code: "sysio.token",
+            action: "transfer",
+            args: {
+              from: "bob",
+              to: "alice",
+              quantity: "10.0000 SYS",
+              memo: "Test transfer"
+            }
+          };
+
+          fetch("http://localhost:8888/v1/chain/abi_json_to_bin", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(body)
+          })
+            .then(res => res.json())
+            .then(console.log)
+            .catch(console.error);
+      - lang: Python
+        label: Python
+        source: |
+          import requests
+
+          url = "http://localhost:8888/v1/chain/abi_json_to_bin"
+          payload = {
+            "code": "sysio.token",
+            "action": "transfer",
+            "args": {
+              "from": "bob",
+              "to": "alice",
+              "quantity": "10.0000 SYS",
+              "memo": "Test transfer"
+            }
+          }
+          headers = {"Content-Type": "application/json"}
+
+          response = requests.post(url, json=payload, headers=headers)
+          print(response.text)
+  "/abi_bin_to_json":
+    post:
+      description: Returns deserialized action data.
+      operationId: abi_bin_to_json
+      requestBody:
+        content:
+          application/json:
+            example:
+              code: "sysio.token"
+              action: "transfer"
+              binargs: "0000000000000e3d0000000000855c34a08601000000000004535953000000000d54657374207472616e73666572"
+            schema:
+              type: object
+              title: AbiBinToJsonRequest
+              required:
+                - code
+                - action
+                - binargs
+              properties:
+                code:
+                  "$ref": refs/Name.yaml
+                action:
+                  "$ref": refs/Name.yaml
+                binargs:
+                  type: string
+                  pattern: "^(0[xX])?[0-9a-fA-F]*$"
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  args:
+                    type: object
+                    additionalProperties: true
+                    description: The action parameters that have been deserialized from the binary data.
+              examples:
+                ExampleResponse:
+                  summary: Sample Response for AbiBinToJson
+                  value:
+                    args:
+                      from: "bob"
+                      to: "alice"
+                      quantity: "10.0000 SYS"
+                      memo: "Test transfer"
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8888/v1/chain/abi_bin_to_json" \
+              -H "Content-Type: application/json" \
+              -d '{
+                "code": "sysio.token",
+                "action": "transfer",
+                "binargs": "0000000000000e3d0000000000855c34a08601000000000004535953000000000d54657374207472616e73666572"
+              }'
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+
+            const body = {
+              code: "sysio.token",
+              action: "transfer",
+              binargs: "0000000000000e3d0000000000855c34a08601000000000004535953000000000d54657374207472616e73666572"
+            };
+
+            fetch("http://localhost:8888/v1/chain/abi_bin_to_json", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(body)
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+
+            url = "http://localhost:8888/v1/chain/abi_bin_to_json"
+            payload = {
+              "code": "sysio.token",
+              "action": "transfer",
+              "binargs": "0000000000000e3d0000000000855c34a08601000000000004535953000000000d54657374207472616e73666572"
+            }
+            headers = {"Content-Type": "application/json"}
+
+            response = requests.post(url, json=payload, headers=headers)
+            print(response.text)
+  "/get_code":
+    post:
+      description: Returns an object containing the smart contract WASM code.
+      operationId: get_code
+      requestBody:
+        content:
+          application/json:
+            example:
+              account_name: "sysio.token"
+              code_as_wasm: 1
+            schema:
+              type: object
+              required:
+                - account_name
+                - code_as_wasm
+              properties:
+                account_name:
+                  "$ref": refs/Name.yaml
+                code_as_wasm:
+                  type: integer
+                  default: 1
+                  description: This must be 1 (true)
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                title: GetCodeResponse.yaml
+                type: object
+                properties:
+                  name:
+                    $ref: refs/Name.yaml
+                  code_hash:
+                    $ref: refs/Sha256.yaml
+                  wast:
+                    type: string
+                  wasm:
+                    type: string
+                  abi:
+                    $ref: refs/Abi.yaml
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8888/v1/chain/get_code" \
+              -H "Content-Type: application/json" \
+              -d '{"account_name": "sysio.token", "code_as_wasm": 1}'
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+
+            const body = {
+              account_name: "sysio.token",
+              code_as_wasm: 1
+            };
+
+            fetch("http://localhost:8888/v1/chain/get_code", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(body)
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+
+            url = "http://localhost:8888/v1/chain/get_code"
+            payload = {
+              "account_name": "sysio.token",
+              "code_as_wasm": 1
+            }
+            headers = {"Content-Type": "application/json"}
+
+            response = requests.post(url, json=payload, headers=headers)
+            print(response.text)
+
+  "/get_code_hash":
+    post:
+      description: Retrieves the code hash for a smart contract deployed on the blockchain. Once you have the code hash of a contract, you can compare it with a known or expected value to ensure that the contract code has not been modified or tampered with.
+      operationId: get_code_hash
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                account_name:
+                  description: The name of the account for which you want to retrieve the code hash. It represents the account that owns the smart contract code.
+                  type: string
+            example: 
+              account_name: "sysio.token"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  account_name:
+                    description: The name of the account where the smart contract was deployed.
+                    type: string
+                  code_hash:
+                    type: string
+                    description: A string that represents the hash value of the specified account's smart contract code.
+              example:
+                {"account_name":"sysio.token","code_hash":"7a7fd56e9d291824db8f1d2abbadb5d25c10dd6048e3cba224ff0b94aaa467f3"}
+      x-codeSamples:
+      - lang: Shell
+        label: cURL
+        source: |
+          curl -X POST "http://localhost:8888/v1/chain/get_code_hash" \
+            -H "Content-Type: application/json" \
+            -d '{"account_name": "sysio.token"}'
+      - lang: Python
+        label: Python Requests
+        source: |
+          import requests
+          
+          url = "http://localhost:8888/v1/chain/get_code_hash"
+          payload = {
+              "account_name": "sysio.token"
+          }
+          
+          response = requests.post(url, json=payload)
+          if response.status_code == 200:
+              data = response.json()
+              print("Account Name:", data.get("account_name"))
+              print("Code Hash:", data.get("code_hash"))
+          else:
+              print("Error:", response.status_code, response.text)
+      - lang: JavaScript
+        label: Fetch API
+        source: |
+          const url = "http://localhost:8888/v1/chain/get_code_hash";
+          const payload = {
+            account_name: "sysio.token"
+          };
+          
+          fetch(url, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+          })
+            .then(response => {
+              if (!response.ok) {
+                throw new Error("Network response was not ok");
+              }
+              return response.json();
+            })
+            .then(data => {
+              console.log("Account Name:", data.account_name);
+              console.log("Code Hash:", data.code_hash);
+            })
+            .catch(error => console.error("Error:", error));
+  "/get_raw_abi":
+    post:
+      description: Returns an object containing the smart contract abi.
+      operationId: get_raw_abi
+      requestBody:
+        content:
+          application/json:
+            example:
+              account_name: "sysio.token"
+            schema:
+              type: object
+              required:
+                - account_name
+              properties:
+                account_name:
+                    "$ref": refs/Name.yaml
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  account_name:
+                    $ref: refs/Name.yaml
+                  code_hash:
+                    $ref: refs/Sha256.yaml
+                  abi_hash:
+                    allOf:
+                      - $ref: refs/Sha256.yaml
+                  abi:
+                    type: string
+              example:
+                account_name: "sysio.token"
+                code_hash: "7a7fd56e9d291824db8f1d2abbadb5d25c10dd6048e3cba224ff0b94aaa467f3"
+                abi_hash: "523465f934cd5bf5efd706b5cfb06be8fd5e85e19edda6fa4a2f24551a60b848"
+                abi: "DnN5c2lvOjphYmkvMS4yAAgHYWNjb3VudA...AOY3VycmVuY3lfc3RhdHMAAAAAAA==="
+
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8888/v1/chain/get_raw_abi" \
+              -H "Content-Type: application/json" \
+              -d '{"account_name": "sysio.token"}'
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+
+            const body = { account_name: "sysio.token" };
+
+            fetch("http://localhost:8888/v1/chain/get_raw_abi", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(body)
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+
+            url = "http://localhost:8888/v1/chain/get_raw_abi"
+            payload = {"account_name": "sysio.token"}
+            headers = {"Content-Type": "application/json"}
+
+            response = requests.post(url, json=payload, headers=headers)
+            print(response.text)
+
+  "/get_activated_protocol_features":
+    post:
+      description: Retrieves the activated protocol features for producer node
+      operationId: get_activated_protocol_features
+      requestBody:
+        content:
+          application/json:
+            example:
+              params:
+                search_by_block_num: true
+                reverse: false
+                lower_bound: 0
+                upper_bound: 100
+                limit: 3
+            schema:
+              type: object
+              required:
+                - params
+              properties:
+                params:
+                  type: object
+                  description: Defines filters
+                  required:
+                    - search_by_block_num
+                    - reverse
+                  properties:
+                    search_by_block_num:
+                      type: boolean
+                    reverse:
+                      type: boolean
+                    lower_bound:
+                      type: integer
+                    upper_bound:
+                      type: integer
+                    limit:
+                      type: integer
+                      description: default is 10
+      responses:
+        '200':
+          description: A list of activated protocol features.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  activated_protocol_features:
+                    type: array
+                    description: An array of activated protocol feature objects.
+                    items:
+                      type: object
+                      properties:
+                        feature_digest:
+                          type: string
+                          description: Digest (hex) identifying the feature.
+                        activation_ordinal:
+                          type: integer
+                          description: Sequential number indicating the order of activation.
+                        activation_block_num:
+                          type: integer
+                          description: Block number at which feature was activated.
+                        description_digest:
+                          type: string
+                          description: Digest (hex) referencing a more detailed description.
+                        dependencies:
+                          type: array
+                          items:
+                            type: string
+                            description: Other feature digests this feature depends on.
+                        protocol_feature_type:
+                          type: string
+                          description: Indicates whether the feature is builtin or otherwise.
+                        specification:
+                          type: array
+                          description: Array describing feature codenames or other metadata.
+                          items:
+                            type: object
+                            properties:
+                              name:
+                                type: string
+                                description: Name of the specification field (e.g. builtin_feature_codename).
+                              value:
+                                type: string
+                                description: The associated codename or value.
+                  more:
+                    type: string
+                    description: >
+                      A pagination indicator. If non-empty, this string represents the `lower_bound`
+                      value to use on the next request for retrieving additional results. If empty (""), 
+                      there are no more pages to fetch.
+              example:
+                activated_protocol_features: 
+                  - feature_digest: "0ec7e080177b2c02b278d5088611686b49d739925a92d9bfcacd7fc6b74053bd"
+                    activation_ordinal: 0
+                    activation_block_num: 49
+                    description_digest: "64fe7df32e9b86be2b296b3f81dfd527f84e82b98e363bc97e40bc7a83733310"
+                    dependencies: []
+                    protocol_feature_type: "builtin"
+                    specification:
+                      - name: "builtin_feature_codename"
+                        value: "PREACTIVATE_FEATURE"
+                  - feature_digest: "c3a6138c5061cf291310887c0b5c71fcaffeab90d5deb50d3b9e687cead45071"
+                    activation_ordinal: 1
+                    activation_block_num: 63
+                    description_digest: "69b064c5178e2738e144ed6caa9349a3995370d78db29e494b3126ebd9111966"
+                    dependencies: []
+                    protocol_feature_type: "builtin"
+                    specification:
+                      - name: "builtin_feature_codename"
+                        value: "ACTION_RETURN_VALUE"
+                  - feature_digest: "4a90c00d55454dc5b059055ca213579c6ea856967712a56017487886a4d4cc0f"
+                    activation_ordinal: 9
+                    activation_block_num: 64
+                    description_digest: "45967387ee92da70171efd9fefd1ca8061b5efe6f124d269cd2468b47f1575a0"
+                    dependencies:
+                      - "ef43112c6543b88db2283a2e077278c315ae2c84719a8b25f25cc88565fbea99"
+                    protocol_feature_type: "builtin"
+                    specification:
+                      - name: "builtin_feature_codename"
+                        value: "NO_DUPLICATE_DEFERRED"
+                more: 10
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8888/v1/chain/get_activated_protocol_features" \
+              -H "Content-Type: application/json" \
+              -d '{
+                "params": {
+                  "lower_bound": 0,
+                  "upper_bound": 100,
+                  "limit": 10,
+                  "search_by_block_num": true,
+                  "reverse": false
+                }
+              }'
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+
+            const body = {
+              params: {
+                lower_bound: 0,
+                upper_bound: 100,
+                limit: 10,
+                search_by_block_num: true,
+                reverse: false
+              }
+            };
+
+            fetch("http://localhost:8888/v1/chain/get_activated_protocol_features", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(body)
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+
+            url = "http://localhost:8888/v1/chain/get_activated_protocol_features"
+            payload = {
+              "params": {
+                "lower_bound": 0,
+                "upper_bound": 100,
+                "limit": 10,
+                "search_by_block_num": True,
+                "reverse": False
+              }
+            }
+            headers = {"Content-Type": "application/json"}
+
+            response = requests.post(url, json=payload, headers=headers)
+            print(response.text)
+
+  "/get_accounts_by_authorizers":
+    post:
+      description: Find all account permission authorities that match provided accounts and keys
+      operationId: get_accounts_by_authorizers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accounts:
+                  type: array
+                  description: List of authorizing accounts and/or actor/permissions
+                  items:
+                    anyOf:
+                      - $ref: refs/Name.yaml
+                      - $ref: refs/Authority.yaml
+                keys:
+                  type: array
+                  description: List of authorizing keys
+                  items:
+                    $ref: refs/PublicKey.yaml
+            examples:
+              example1:
+                summary: Example request with actor-permission pair
+                value:
+                  accounts:
+                    - { "actor": "bob", "permission": "active" }
+                  keys:
+                    - "SYS7wdrtpDM1yEbL8XT3JS4rCLu6rb3BTQWpt62vzgqtoeTt2V2zs"
+              example2:
+                summary: Example request with multiple accounts and keys
+                value:
+                  accounts:
+                    - "alice"
+                    - { "actor": "bob", "permission": "owner" }
+                  keys:
+                    - "SYS6mrpEXXc5Ej7j4KjQ8yUdxF3VHtPYZ2X34MbvU1LTqKXzB9V"
+                    - "SYS5VmrzEXU7o9i8fPY4P1fH7PY5X9kLtqeTt2YV2XzsTqMdLt"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                description: Result containing a list of accounts which are authorized, in whole or part, by the provided accounts and keys
+                required:
+                  - accounts
+                properties:
+                  accounts:
+                    type: array
+                    description: An array of each account,permission,authorizing-data triplet in the response
+                    items:
+                      type: object
+                      description: the information for a single account,permission,authorizing-data triplet
+                      required:
+                        - account_name
+                        - permission_name
+                        - authorizer
+                        - weight
+                        - threshold
+                      properties:
+                        account_name:
+                          $ref: refs/Name.yaml
+                        permission_name:
+                          $ref: refs/Name.yaml
+                        authorizer:
+                          oneOf:
+                            - $ref: refs/PublicKey.yaml
+                            - $ref: refs/Authority.yaml
+                        weight:
+                          type: "integer"
+                          description: the weight that this authorizer adds to satisfy the permission
+                        threshold:
+                          type: "integer"
+                          description: the sum of weights that must be met or exceeded to satisfy the permission
+                example:
+                    accounts:
+                      - account_name: "bob"
+                        permission_name: "active"
+                        authorizer: "SYS7wdrtpDM1yEbL8XT3JS4rCLu6rb3BTQWpt62vzgqtoeTt2V2zs"
+                        weight: 1
+                        threshold: 1
+                      - account_name: "bob"
+                        permission_name: "owner"
+                        authorizer: "SYS7wdrtpDM1yEbL8XT3JS4rCLu6rb3BTQWpt62vzgqtoeTt2V2zs"
+                        weight: 1
+                        threshold: 1
+      x-codeSamples:
+      - lang: Shell
+        label: cURL
+        source: |
+          curl -X POST "http://localhost:8888/v1/chain/get_accounts_by_authorizers" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "accounts": [
+                { "actor": "bob", "permission": "active" }
+              ],
+              "keys": ["SYS7wdrtpDM1yEbL8XT3JS4rCLu6rb3BTQWpt62vzgqtoeTt2V2zs"]
+            }'
+
+      - lang: Node.js
+        label: Node.js
+        source: |
+          const fetch = require('node-fetch');
+
+          const body = {
+            accounts: [
+              { actor: "bob", permission: "active" }
+            ],
+            keys: ["SYS7wdrtpDM1yEbL8XT3JS4rCLu6rb3BTQWpt62vzgqtoeTt2V2zs"]
+          };
+
+          fetch("http://localhost:8888/v1/chain/get_accounts_by_authorizers", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(body)
+          })
+            .then(res => res.json())
+            .then(console.log)
+            .catch(console.error);
+
+      - lang: Python
+        label: Python
+        source: |
+          import requests
+
+          url = "http://localhost:8888/v1/chain/get_accounts_by_authorizers"
+          payload = {
+            "accounts": [
+              { "actor": "bob", "permission": "active" }
+            ],
+            "keys": ["SYS7wdrtpDM1yEbL8XT3JS4rCLu6rb3BTQWpt62vzgqtoeTt2V2zs"]
+          }
+          headers = {"Content-Type": "application/json"}
+
+          response = requests.post(url, json=payload, headers=headers)
+          print(response.json())
+  
+  "/get_transaction_status":
+    post:
+      description: Attempts to get current blockchain state and, if available, transaction information given the transaction id. For query to work, the transaction finality status feature must be enabled by configuring the chain plugin with the config option `--transaction-finality-status-max-storage-size-gb` in nodeop.
+      operationId: get_transaction_status
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - id
+              properties:
+                id:
+                  type: string
+                  description: The transaction ID of the transaction to retrieve the status for. 
+            example:
+              id: "02ca32345cc025052c8fe119516aa6086e14a333eddc4433283ecf50374e2b06"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: refs/TransactionStatus.yaml
+
+      x-codeSamples:
+      - lang: Shell
+        label: cURL
+        source: |
+          curl -X POST "http://localhost:8888/v1/chain/get_transaction_status" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "id": "02ca32345cc025052c8fe119516aa6086e14a333eddc4433283ecf50374e2b06"
+            }'
+
+      - lang: Node.js
+        label: Node.js
+        source: |
+          const fetch = require('node-fetch');
+
+          const body = {
+            id: "02ca32345cc025052c8fe119516aa6086e14a333eddc4433283ecf50374e2b06"
+          };
+
+          fetch("http://localhost:8888/v1/chain/get_transaction_status", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(body)
+          })
+            .then(res => res.json())
+            .then(console.log)
+            .catch(console.error);
+
+      - lang: Python
+        label: Python
+        source: |
+          import requests
+
+          url = "http://localhost:8888/v1/chain/get_transaction_status"
+          payload = {
+            "id": "02ca32345cc025052c8fe119516aa6086e14a333eddc4433283ecf50374e2b06"
+          }
+          headers = {"Content-Type": "application/json"}
+
+          response = requests.post(url, json=payload, headers=headers)
+          print(response.json())
+      
+  "/send_transaction2":
+    post:
+      description: Attempts to apply a transaction to the blockchain specified in JSON format. It supports returning the full trace of a failed transaction and automatic nodeop-mediated retry if it is enabled on the node. When transaction retry is enabled on an API node, it will monitor incoming API transactions and ensure they are resubmitted additional times into the P2P network until they expire or are included in a block. Warning, full failure traces are now returned by default instead of exceptions. Be careful to not confuse a returned trace as an indication of speculative execution success. Verify 'receipt' and 'except' fields of the returned trace.
+      operationId: send_transaction2
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                return_failure_trace:
+                  type: boolean
+                  description: If true, then embed transaction exceptions into the returned transaction trace.
+                retry_trx:
+                  type: boolean
+                  description: If true, requests to retry transaction until gets in a block of given height, see retry_trx_num_blocks as well, or it is irreversible or expires.
+                retry_trx_num_blocks:
+                  type: integer
+                  description: If retry_trx is true, requests to retry transaction until in a block of given height, or lib if not specified.
+                transaction:
+                  type: object
+                  properties:
+                    signatures:
+                      type: array
+                      description: array of signatures required to authorize transaction.
+                      items:
+                        $ref: refs/Signature.yaml
+                    compression:
+                      type: boolean
+                      description: Compression used, usually false
+                    packed_context_free_data:
+                      type: string
+                      description: JSON to hex
+                    packed_trx:
+                      type: string
+                      description: Transaction object JSON to hex
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: Returns Nothing
+
+  "/compute_transaction":
+    post:
+      description: Executes specified transaction and creates a transaction trace, including resource usage, and then reverts all state changes but not contribute to the subjective billing for the account. If the transaction has signatures, they are processed, but any failures are ignored. Transactions which fail always include the transaction failure trace. Warning, users with exposed nodes who have enabled the compute_transaction endpoint should implement some throttling to protect from Denial of Service attacks.
+      operationId: compute_transaction
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                signatures:
+                  type: array
+                  description: array of signatures required to authorize transaction
+                  items:
+                    $ref: refs/Signature.yaml
+                compression:
+                  type: boolean
+                  description: Compression used, usually false
+                packed_context_free_data:
+                  type: string
+                  description: JSON to hex
+                packed_trx:
+                  type: string
+                  description: Transaction object, JSON to hex
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: Returns Nothing
+
+  
+  /get_transaction_id:
+    post:
+      description: Retrieves the transaction ID (also known as the transaction hash) of a specified transaction on the blockchain.
+      operationId: get_transaction_id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              description: The transaction in JSON format for which the ID should be retrieved.
+              $ref: refs/Transaction.yaml
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+                description: The transaction ID.
+
+  "/send_read_only_transaction":
+    post:
+      description: Sends a read-only transaction in JSON format to the blockchain. This transaction is not intended for inclusion in the blockchain. When a user sends a transaction, which modifies the blockchain state, the connected node will fail the transaction.
+      operationId: send_read_only_transaction
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                transaction:
+                  type: object
+                  properties:
+                    compression:
+                      type: boolean
+                      description: Compression used, usually false
+                    packed_context_free_data:
+                      type: string
+                      description: JSON to hex
+                    packed_trx:
+                      type: string
+                      description: Transaction object JSON to hex
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: Returns Nothing
+
+  "/push_block":
+    post:
+      description: Sends a block to the blockchain.
+      operationId: push_block
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: refs/Block.yaml
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: void

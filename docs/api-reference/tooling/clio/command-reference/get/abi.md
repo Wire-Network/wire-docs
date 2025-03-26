@@ -6,7 +6,7 @@ id: abi
 
 Retrieves the ABI for an account.
 
-## Positionals
+## Positional Arguments
 
 - `name` _TEXT_ - The name of the account whose ABI should be retrieved.
 

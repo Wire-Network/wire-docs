@@ -11,24 +11,24 @@ clio system buyram [OPTIONS] payer receiver amount
 * [OPTIONS] = See Options in  [Command Usage](#command-usage) section below.
 * payer = The account paying for RAM.
 * receiver = The account receiving bought RAM.
-* amount = The amount of EOS to pay for RAM
+* amount = The amount of SYS to pay for RAM
 
 **Note**: The arguments and options enclosed in square brackets are optional.
 
 ## Description
 
-Use this command to buy RAM for a blockchain account on EOSIO.
+Use this command to buy RAM for a blockchain account.
 
 ## Command Usage
 
 The following information shows the different positionals and options you can use with the `clio system buyram` command:
 
-### Positionals
+### Positional Arguments
 
 * `payer` _TEXT_ - The account paying for RAM
 
 * `receiver` _TEXT_ - The account receiving bought RAM
-* `amount` _TEXT_ - The amount of EOS to pay for RAM
+* `amount` _TEXT_ - The amount of SYS to pay for RAM
 
 ### Options
 

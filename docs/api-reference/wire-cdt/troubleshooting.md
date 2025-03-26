@@ -1,7 +1,7 @@
 
 ## When sending an action to the blockchain you get the error below
 
-```console
+```json
 {
     "code":500,
     "message":"Internal Service Error",
@@ -21,7 +21,7 @@
 }
 ```
 
-__Possible solution__: Verify if you did not forget to set code for contract, is it possible that you only set the `abi` for the contract but not the code as well?
+__Possible solution__: Verify if you did not forget to set_code() for contract, is it possible that you only set the `abi` for the contract but not the code as well?
 
 ## When sending an action to the blockchain an error similar to the one below is encountered
 
@@ -155,4 +155,6 @@ assertion failure with message: system contract must first be initialized
 ```
 
 The failure is stating that `sysio.system` `init` action was not called yet. The `init` action is implemented by the `void init(uint64_t, symbol)` function. The first parameter is the version, this should always be `0` for now, until a new version of `init` will be created that handles more information.
-The second parameter is the system's symbol (i.e. for main net this is `SYS`). If you followed the [BIOS Boot Sequence](https://docs.eosnetwork.com/docs/latest/tutorials/bios-boot-sequence) tutorial and created a system with the default symbol `SYS` then `SYS` shall be used as the system's symbol in the `init` action. It is whatever symbol you as the chain creator want to use in your blockchain.
+The second parameter is the system's symbol (i.e. for main net this is `SYS`). 
+
+If you followed the [BIOS Boot Sequence](https://docs.eosnetwork.com/docs/latest/tutorials/bios-boot-sequence) tutorial and created a system with the default symbol `SYS` then `SYS` shall be used as the system's symbol in the `init` action. It is whatever symbol you as the chain creator want to use in your blockchain.

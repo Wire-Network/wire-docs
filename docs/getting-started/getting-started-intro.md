@@ -16,7 +16,7 @@ The diagram below serves as a comprehensive roadmap, detailing the *sequential s
 
 :::
 
-![infographic](/img/infographic.png)
+![infographic](/img/infographic1.png)
 
 ## Supported Operating Systems
 

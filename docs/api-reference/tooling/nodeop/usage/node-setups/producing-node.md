@@ -8,7 +8,7 @@ title: Producing Node Setup
 
 ## Goal
 
-This section describes how to set up a producing node within the network. A producing node, as its name implies, is a node that is configured to produce blocks in an Wire-based blockchain. This functionality if provided through the `producer_plugin` as well as other [Nodeop Plugins](../../plugins/index.md).
+This section describes how to set up a producing node within the network. A producing node, as its name implies, is a node that is configured to produce blocks in a Wire-based blockchain. This functionality if provided through the `producer_plugin` as well as other [Nodeop Plugins](../../plugins/index.md).
 
 ## Before you begin
 
@@ -19,23 +19,23 @@ This section describes how to set up a producing node within the network. A prod
 
 Please follow the steps below to set up a producing node:
 
-- [Goal](#goal)
-- [Before you begin](#before-you-begin)
-- [Steps](#steps)
-  - [1. Register your account as a producer](#1-register-your-account-as-a-producer)
-  - [2. Set Producer Name](#2-set-producer-name)
-  - [3. Set the Producer's signature-provider](#3-set-the-producers-signature-provider)
-    - [Using a Key](#using-a-key)
-    - [Using Kiod](#using-kiod)
-  - [4. Define a peers list](#4-define-a-peers-list)
-  - [5. Load the Required Plugins](#5-load-the-required-plugins)
+* [Goal](#goal)
+* [Before you begin](#before-you-begin)
+* [Steps](#steps)
+  * [1. Register your account as a producer](#1-register-your-account-as-a-producer)
+  * [2. Set Producer Name](#2-set-producer-name)
+  * [3. Set the Producer's signature-provider](#3-set-the-producers-signature-provider)
+    * [Using a Key](#using-a-key)
+    * [Using Kiod](#using-kiod)
+  * [4. Define a peers list](#4-define-a-peers-list)
+  * [5. Load the Required Plugins](#5-load-the-required-plugins)
 
 ### 1. Register your account as a producer
 
 In order for your account to be eligible as a producer, you will need to register the account as a producer:
 
 ```sh
-clio system regproducer accountname1 EOS1234534... http://producer.site Antarctica
+clio system regproducer accountname1 SYS1234534...sdhuds http://producer.site Antarctica
 ```
 
 ### 2. Set Producer Name
@@ -67,7 +67,7 @@ You will need to set the private key for your producer. The public key should ha
 signature-provider = PUBLIC_SIGNING_KEY=KEY:PRIVATE_SIGNING_KEY
 
 //Example
-//signature-provider = EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV=KEY:5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
+//signature-provider SYS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV=KEY:5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
 ```
 
 #### Using Kiod
@@ -80,7 +80,7 @@ You can also use `kiod` instead of hard-defining keys.
 signature-provider = KIOD:<data>   
 
 //Example
-//EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV=KIOD:https://127.0.0.1:88888
+//SYS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV=KIOD:https://127.0.0.1:88888
 ```
 
 ### 4. Define a peers list

@@ -1,7 +1,7 @@
 
 ## Overview
 
-This how-to guide provides instructions on how to update an account keys for an Wire blockchain account using the clio CLI tool.
+This how-to guide provides instructions on how to update an account keys for a Wire blockchain account using the clio CLI tool.
 
 The example uses `clio` to update the keys for the **alice** account.
 
@@ -40,7 +40,7 @@ clio create key --to-console
 
 ```shell
 Private key: 5KDNWQvY2seBPVUz7MiiaEDGTwACfuXu78bwZu7w2UDM9A3u3Fs
-Public key: EOS5zG7PsdtzQ9achTdRtXwHieL7yyigBFiJDRAQonqBsfKyL3XhC
+Public key: SYS5zG7PsdtzQ9achTdRtXwHieL7yyigBFiJDRAQonqBsfKyL3XhC
 ```
 
 1. Import the new private key into your wallet
@@ -55,20 +55,20 @@ clio wallet import --private-key 5KDNWQvY2seBPVUz7MiiaEDGTwACfuXu78bwZu7w2UDM9A3
 **Example Output**
 
 ```shell
-imported private key for: EOS5zG7PsdtzQ9achTdRtXwHieL7yyigBFiJDRAQonqBsfKyL3XhC
+imported private key for: SYS5zG7PsdtzQ9achTdRtXwHieL7yyigBFiJDRAQonqBsfKyL3XhC
 ```
 
 1. Update the `active` permission key
 
 ```shell
-clio set account permission alice active EOS5zG7PsdtzQ9achTdRtXwHieL7yyigBFiJDRAQonqBsfKyL3XhC -p alice@owner
+clio set account permission alice active SYS5zG7PsdtzQ9achTdRtXwHieL7yyigBFiJDRAQonqBsfKyL3XhC -p alice@owner
 ```
 
 **Where**
 
 * `alice` = The name of the account to update the key.
 * `active`= The name of the permission to update the key.
-* `EOS5zG7PsdtzQ9achTdRtXwHieL7yyigBFiJDRAQonqBsfKyL3XhC` = The new public key.
+* `SYS5zG7PsdtzQ9achTdRtXwHieL7yyigBFiJDRAQonqBsfKyL3XhC` = The new public key.
 * `-p alice@owner` = The permission used to authorize the transaction.
 
 **Example Output**
@@ -91,8 +91,8 @@ clio get account alice
 
 ```shell
 permissions: 
-     owner     1:    1 EOS6c5UjmyRsZSdikLbpAoMdg4V7FQwvdhep3KMxUifzmpDnoLVPe
-        active     1:    1 EOS5zG7PsdtzQ9achTdRtXwHieL7yyigBFiJDRAQonqBsfKyL3XhC
+     owner     1:    1 SYS6c5UjmyRsZSdikLbpAoMdg4V7FQwvdhep3KMxUifzmpDnoLVPe
+        active     1:    1 SYS5zG7PsdtzQ9achTdRtXwHieL7yyigBFiJDRAQonqBsfKyL3XhC
 memory: 
      quota:       xxx  used:      2.66 KiB  
 

@@ -16,11 +16,11 @@ Create an account, buy ram, stake for bandwidth for the account
 ## Options
 
 - `-h,--help` Print this help message and exit
-- `--stake-net` _TEXT_ - The amount of EOS delegated for net bandwidth
-- `--stake-cpu` _TEXT_  - The amount of EOS delegated for CPU bandwidth
+- `--stake-net` _TEXT_ - The amount of SYS delegated for net bandwidth
+- `--stake-cpu` _TEXT_  - The amount of SYS delegated for CPU bandwidth
 - `--buy-ram-bytes` _UINT_ - The amount of RAM bytes to purchase for the new account in kilobytes KiB, default is 8 KiB
-- `--buy-ram-EOS` _TEXT_ - The amount of RAM bytes to purchase for the new account in EOS
-- `--transfer` - Transfer voting power and right to unstake EOS to receiver
+- `--buy-ram-SYS` _TEXT_ - The amount of RAM bytes to purchase for the new account in SYS
+- `--transfer` - Transfer voting power and right to unstake SYS to receiver
 - `-x,--expiration` _TEXT_ - set the time in seconds before a transaction expires, defaults to 30s
 - `-f,--force-unique` - force the transaction to be unique. this will consume extra bandwidth and remove any protections against accidently issuing the same transaction multiple times
 - `-s,--skip-sign` Specify if unlocked wallet keys should be used to sign transaction
@@ -30,6 +30,6 @@ Create an account, buy ram, stake for bandwidth for the account
 - `--max-cpu-usage-ms` _UINT_ - set an upper limit on the milliseconds of CPU usage budget, for the execution of the transaction (defaults to 0 which means no limit)
 - `--max-net-usage` _UINT_ - set an upper limit on the net usage budget, in bytes, for the transaction (defaults to 0 which means no limit)
 - `--delay-sec` _UINT_            set the delay_sec seconds, defaults to 0s
-- `-j,--json` print result as json
+- `-j,--json` print result as JSON
 
 ## Examples
