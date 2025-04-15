@@ -1,11 +1,15 @@
+---
+sidebar_label: sysio::binary_extension
+sidebar_position: 1
+---
 
-Let's fully explain what the `sysio::binary_extension` type is, what it does, and why we need it for contract upgrades in certain situations.
+# `sysio::binary_extension`
 
-You can find the implementation of `sysio::binary_extension` within the CDT repository in the file: `libraries/sysiolib/core/sysio/binary_extension.hpp`.
+You can find the implementation of `sysio::binary_extension` [here](https://github.com/Wire-Network/wire-cdt/blob/master/libraries/sysiolib/core/sysio/binary_extension.hpp).
 
 Our primary concern when using this type is when we are adding a new field to a smart contract's data structure that is currently utilized in an `sysio::multi_index` type (AKA a _table_), or when adding a new parameter to an action declaration.
 
-By wrapping the new field in an `sysio::binary_extension`, you are enabling your contract to be backwards compatible for future use. Note that this new field/parameter **MUST** be appended at the end of a data structure (this is due to implementation details in `sysio::multi_index`, which relies on the `boost::multi_index` type), or at the end of the parameter list in an action declaration.
+By wrapping the new field in an `sysio::binary_extension`, you are enabling your contract to be _backwards compatible_ for future use. Note that this new field/parameter **MUST** be appended at the end of a data structure (this is due to implementation details in `sysio::multi_index`, which relies on the `boost::multi_index` type), or at the end of the parameter list in an action declaration.
 
 If you don't wrap the new field in an `sysio::binary_extension`, the `sysio::multi_index` table will be reformatted in such a way that disallows reads to the former datum; or in an action's case, the function will be uncallable.
 
@@ -381,11 +385,11 @@ warning: transaction executed locally, but may not be confirmed by the network y
 
 Next, let's push some data to our contract.
 
-```
+```sh
 ~/binary_extension_contract $ clio push action sysio regpkey '{"primary_key":"sysio.name"}' -p sysio
 ```
 
-```
+```sh
 executed transaction: 3c708f10dcbf4412801d901eb82687e82287c2249a29a2f4e746d0116d6795f0  104 bytes  248 us
 #         sysio <= sysio::regpkey               {"primary_key":"sysio.name"}
 [(sysio,regpkey)->sysio]: CONSOLE OUTPUT BEGIN =====================
@@ -398,11 +402,11 @@ warning: transaction executed locally, but may not be confirmed by the network y
 
 Finally, let's read back the data we have just written.
 
-```
+```sh
 ~/binary_extension_contract $ clio push action sysio printbyp '{"primary_key":"sysio.name"}' -p sysio
 ```
 
-```
+```sh
 executed transaction: e9b77d3cfba322a7a3a93970c0c883cb8b67e2072a26d714d46eef9d79b2f55e  104 bytes  227 us
 #         sysio <= sysio::printbyp              {"primary_key":"sysio.name"}
 [(sysio,printbyp)->sysio]: CONSOLE OUTPUT BEGIN =====================

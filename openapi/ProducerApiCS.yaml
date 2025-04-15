@@ -956,6 +956,142 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8887/v1/producer/schedule_snapshot" \
+              -H "Content-Type: application/json" \
+              -d '{
+                "block_spacing": 1000,
+                "start_block_num": 5102,
+                "end_block_num": 15102,
+                "snapshot_description": "Daily snapshot"
+              }'
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+            
+            const payload = {
+              block_spacing: 1000,
+              start_block_num: 5102,
+              end_block_num: 15102,
+              snapshot_description: "Daily snapshot"
+            };
+            
+            fetch("http://localhost:8887/v1/producer/schedule_snapshot", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(payload)
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+            
+            url = "http://localhost:8887/v1/producer/schedule_snapshot"
+            payload = {
+              "block_spacing": 1000,
+              "start_block_num": 5102,
+              "end_block_num": 15102,
+              "snapshot_description": "Daily snapshot"
+            }
+            headers = {"Content-Type": "application/json"}
+            
+            response = requests.post(url, json=payload, headers=headers)
+            print(response.text)
+  
+  /producer/unschedule_snapshot:
+    post:
+      summary: unschedule_snapshot
+      description: Removes snapshot request identified by id. Returns error if the referenced snapshot request does not exist.
+      operationId: unschedule_snapshot
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                snapshot_request_id:
+                  type: integer
+                  description: The unique ID of the snapshot request to remove.
+      responses:
+        "201":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - snapshot_request_id
+                  - block_spacing
+                  - start_block_num
+                  - end_block_num
+                  - snapshot_description
+                properties:
+                  snapshot_request_id:
+                    type: integer
+                    description: Unique id identifying the current snapshot request.
+                  block_spacing:
+                    type: integer
+                    description: Generate snapshot every block_spacing blocks.
+                  start_block_num:
+                    type: integer
+                    description: Block number at which the schedule starts.
+                    example: 5102
+                  end_block_num:
+                    type: integer
+                    description: Block number at which the schedule ends.
+                    example: 15102
+                  snapshot_description:
+                    type: string
+                    description: Description of the snapshot.
+                    example: Daily snapshot
+        "400":
+          description: Client error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8887/v1/producer/unschedule_snapshot" \
+              -H "Content-Type: application/json" \
+              -d '{ "snapshot_request_id": 123 }'
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+            
+            const payload = { snapshot_request_id: 123 };
+            
+            fetch("http://localhost:8887/v1/producer/unschedule_snapshot", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(payload)
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+            
+            url = "http://localhost:8887/v1/producer/unschedule_snapshot"
+            payload = { "snapshot_request_id": 123 }
+            headers = {"Content-Type": "application/json"}
+            
+            response = requests.post(url, json=payload, headers=headers)
+            print(response.text)
+
   /producer/get_snapshot_requests:
     post:
       summary: get_snapshot_requests
@@ -1013,7 +1149,7 @@ paths:
                                 - snapshot_name
                             properties:
                               head_block_id:
-                                $ref: "https://docs.eosnetwork.com/openapi/v2.0/Sha256.yaml"
+                                $ref: refs/Sha256.yaml
                               head_block_num:
                                 type: integer
                                 description: Highest block number on the chain
@@ -1036,60 +1172,35 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
-  /producer/unschedule_snapshot:
-    post:
-      summary: unschedule_snapshot
-      description: Removes snapshot request identified by id. Returns error if referenced snapshot request does not exist.
-      operationId: unschedule_snapshot
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                snapshot_request_id:
-                  type: integer
-                  description: snapshot id
-      responses:
-        "201":
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                required:
-                  - snapshot_request_id
-                  - block_spacing
-                  - start_block_num
-                  - end_block_num
-                  - snapshot_description
-                properties:
-                  snapshot_request_id:
-                    type: integer
-                    description: Unique id identifying current snapshot request
-                  block_spacing:
-                    type: integer
-                    description: Generate snapshot every block_spacing blocks
-                  start_block_num:
-                    type: integer
-                    description: Block number at which schedule starts
-                    example: 5102
-                  end_block_num:
-                    type: integer
-                    description: Block number at which schedule ends
-                    example: 15102
-                  snapshot_description:
-                    type: string
-                    description: Description of the snapshot
-                    example: Daily snapshot
-        "400":
-          description: client error
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Error"
-  "/producer/get_integrity_hash":
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8887/v1/producer/get_snapshot_requests" \
+              -H "Content-Type: application/json"
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+            
+            fetch("http://localhost:8887/v1/producer/get_snapshot_requests", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" }
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+            
+            url = "http://localhost:8887/v1/producer/get_snapshot_requests"
+            headers = {"Content-Type": "application/json"}
+            
+            response = requests.post(url, headers=headers)
+            print(response.text)
+  /producer/get_integrity_hash:
     post:
       summary: get_integrity_hash
       description: Retreives the integrity hash for producer node
@@ -1156,7 +1267,7 @@ paths:
             response = requests.post(url, json=payload, headers=headers)
             print(response.text)
 
-  "/producer/schedule_protocol_feature_activations":
+  /producer/schedule_protocol_feature_activations:
     post:
       summary: schedule_protocol_feature_activations
       description: Schedule protocol feature activation for producer node
@@ -1319,6 +1430,230 @@ paths:
             }
             headers = {"Content-Type": "application/json"}
 
+            response = requests.post(url, json=payload, headers=headers)
+            print(response.text)
+  /producer/get_account_ram_corrections:
+    post:
+      summary: get_account_ram_corrections
+      description: Retrieves accounts with ram corrections.
+      operationId: get_account_ram_corrections
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                lower_bound:
+                  type: integer
+                  description: lowest account key
+                upper_bound:
+                  type: integer
+                  description: highest account key
+                limit:
+                  type: integer
+                  description: number of rows to scan
+                  default: 10
+                  example: 10
+                reverse:
+                  type: boolean
+                  description: direction of search
+                  example: false
+                  default: false
+      responses:
+        "201":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - rows
+                properties:
+                  rows:
+                    type: array
+                    items:
+                      type: string
+                  more:
+                    type: array
+                    items:
+                      - $ref: refs/Name.yaml
+        "400":
+          description: client error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8887/v1/producer/get_account_ram_corrections" \
+              -H "Content-Type: application/json" \
+              -d '{
+                "lower_bound": 0,
+                "upper_bound": 100,
+                "limit": 10,
+                "reverse": false
+              }'
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+            
+            const payload = {
+              lower_bound: 0,
+              upper_bound: 100,
+              limit: 10,
+              reverse: false
+            };
+            
+            fetch("http://localhost:8887/v1/producer/get_account_ram_corrections", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(payload)
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+            
+            url = "http://localhost:8887/v1/producer/get_account_ram_corrections"
+            payload = {
+              "lower_bound": 0,
+              "upper_bound": 100,
+              "limit": 10,
+              "reverse": False
+            }
+            headers = {"Content-Type": "application/json"}
+            
+            response = requests.post(url, json=payload, headers=headers)
+            print(response.text)
+  /producer/get_unapplied_transactions:
+    post:
+      summary: get_unapplied_transactions
+      description: Get Unapplied Transactions.
+      operationId: get_unapplied_transactions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                limit:
+                  type: integer
+                  description: limit number of transactions to return
+                  default: 100
+                  example: 100
+                lower_bound:
+                  $ref: refs/Sha256.yaml
+                time_limit_ms:
+                  type: integer
+                  default: http-max-response-time-ms
+                  example: 10
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  size:
+                    type: integer
+                    default: 0
+                    example: 12428
+                  incoming_size:
+                    type: integer
+                    default: 0
+                    example: 4475
+                  trxs:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        trx_id:
+                          $ref: refs/Sha256.yaml
+                        expiration:
+                          type: string
+                          example: "2022-09-17T16:30:16"
+                        trx_type:
+                          type: string
+                          example: "aborted"
+                        first_auth:
+                          type: string
+                          example: "jkbsg.wam"
+                        first_receiver:
+                          type: string
+                          example: "m.federation"
+                        first_action:
+                          type: string
+                          example: "mine"
+                        total_actions:
+                          type: integer
+                          default: 0
+                          example: 1
+                        billed_cpu_time_us:
+                          type: integer
+                          default: 0
+                          example: 504
+                        size:
+                          type: integer
+                          default: 0
+                          example: 934
+                  more:
+                    $ref: refs/Sha256.yaml
+        "400":
+          description: client error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8887/v1/producer/get_unapplied_transactions" \
+              -H "Content-Type: application/json" \
+              -d '{
+                "limit": 100,
+                "lower_bound": "0000000000000000000000000000000000000000000000000000000000000000",
+                "time_limit_ms": 10
+              }'
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+            
+            const payload = {
+              limit: 100,
+              lower_bound: "0000000000000000000000000000000000000000000000000000000000000000",
+              time_limit_ms: 10
+            };
+            
+            fetch("http://localhost:8887/v1/producer/get_unapplied_transactions", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(payload)
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+            
+            url = "http://localhost:8887/v1/producer/get_unapplied_transactions"
+            payload = {
+              "limit": 100,
+              "lower_bound": "0000000000000000000000000000000000000000000000000000000000000000",
+              "time_limit_ms": 10
+            }
+            headers = {"Content-Type": "application/json"}
+            
             response = requests.post(url, json=payload, headers=headers)
             print(response.text)
 components:

@@ -260,7 +260,7 @@ PRIVATE_KEY=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
 Issue the policy:
 
 ```sh
-sudo clio push action sysio.roa addpolicy '{"owner": company, "issuer": nodedaddy, "net_weight": "0.0100 SYS", "cpu_weight": "0.0100 SYS", "ram_weight": "0.0010 SYS", "time_block": 1, "network_gen": 0 }' -p nodedaddy@active
+sudo clio push action sysio.roa addpolicy '{"owner": company, "issuer": nodedaddy, "netWeight": "0.0100 SYS", "cpuWeight": "0.0100 SYS", "ramWeight": "0.0010 SYS", "timeBlock": 1, "networkGen": 0 }' -p nodedaddy@active
 ```
 
 #### 4.2 Deploy the compiled contract
