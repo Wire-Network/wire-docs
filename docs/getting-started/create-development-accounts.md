@@ -11,6 +11,10 @@ title: Create Development Accounts
 - You have successfully installed Wire Sysio and Wire CDT on your computer and you have a local chain running. See [Install Dependencies & Start a local node](./install-dependencies.md) article.
 - You have also completed [Create Development Wallet](./create-development-wallet.md) guide.
   
+:::warning[REMINDER]
+The install process sets up the wallet for the *root* user. To interact with clio, ensure **you are on the root user**. Run `sudo su -` to switch to the root user and before proceeding with the tutorial.
+:::
+
 ## Overview
 
 This article gives a brief summary of the concept of account and provides instructions on how to create a new account.

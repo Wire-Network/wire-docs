@@ -58,7 +58,7 @@ nodeop --full-version
 You should see a semantic version string followed by a commit hash with no errors. For example:
 
 ```console
-v3.1.6-8f6875608efc9aceab9218360822bba3bc664cfb
+v5.1.0-1fd21e2b206a5a97d2c41b4afefa42b25c5c15be
 ```
 
 :::info
@@ -79,7 +79,7 @@ or
 ```sh
 cdt-cpp --version
 
-Expected Output -> cdt-cpp version 3.1.0
+Expected Output -> cdt-cpp version 4.0.1
 ```
 
 :::info
@@ -161,27 +161,27 @@ import BrowserWindow from '@site/src/components/BrowserWindow';
 <BrowserWindow url="http://localhost:8888/v1/chain/get_info">
      ```json
        {
-            "server_version": "1dd2fd86",
-            "chain_id": "8a34ec7df1b8cd06ff4a8abbaa7cc50300823350cadc59ab296cb00d104d2b8f",
-            "head_block_num": 1769,
-            "last_irreversible_block_num": 1768,
-            "last_irreversible_block_id": "000006e810b62ae346aa0066d7e3d5fe152285692c4d15dc742e1733b61eb27b",
-            "head_block_id": "000006e931c346d88fc5cb63ce025bfd5f0843656761ac074b35c1c941684f64",
-            "head_block_time": "2024-09-25T15:43:18.000",
-            "head_block_producer": "sysio",
-            "virtual_block_cpu_limit": 1170419,
-            "virtual_block_net_limit": 6146775,
-            "block_cpu_limit": 200000,
-            "block_net_limit": 1048576,
-            "server_version_string": "v3.1.6",
-            "fork_db_head_block_num": 1769,
-            "fork_db_head_block_id": "000006e931c346d88fc5cb63ce025bfd5f0843656761ac074b35c1c941684f64",
-            "server_full_version_string": "v3.1.6-1dd2fd862c04c1b49df6b2314eb1a621d0301c9f",
-            "total_cpu_weight": 0,
-            "total_net_weight": 0,
-            "earliest_available_block_num": 1,
-            "last_irreversible_block_time": "<timestamp>"
-        }
+          "server_version": "1fd21e2b",
+          "chain_id": "4b6ea11bff557dbaef04100a15ee8b5864bd0daf4103b98468bdb297356951fa",
+          "head_block_num": 1920,
+          "last_irreversible_block_num": 1919,
+          "last_irreversible_block_id": "0000077f97d283793011d0e11d270e2c3bcc0c9c2634a2620c96b55988780b0f",
+          "head_block_id": "0000078034dc84be41b08732fe8e0b40639db355f70b1ebcc4246fd69e669d53",
+          "head_block_time": "2025-04-17T16:47:14.500",
+          "head_block_producer": "sysio",
+          "virtual_block_cpu_limit": 1361215,
+          "virtual_block_net_limit": 7149134,
+          "block_cpu_limit": 100000,
+          "block_net_limit": 1048576,
+          "server_version_string": "v5.1.0",
+          "fork_db_head_block_num": 1920,
+          "fork_db_head_block_id": "0000078034dc84be41b08732fe8e0b40639db355f70b1ebcc4246fd69e669d53",
+          "server_full_version_string": "v5.1.0-1fd21e2b206a5a97d2c41b4afefa42b25c5c15be",
+          "total_cpu_weight": 500,
+          "total_net_weight": 500,
+          "earliest_available_block_num": 1,
+          "last_irreversible_block_time": "2025-04-17T16:47:14.000"
+      }
    ```
  </BrowserWindow>
 
@@ -207,7 +207,7 @@ When wire-cli is trying to install the binaries and you are getting an error sim
 Reading package lists... Done
 Building dependency tree... Done
 Reading state information... Done
-Note, selecting 'wire-sysio' instead of './wire-sysio-3.1.6_amd64.deb'
+Note, selecting 'wire-sysio' instead of './wire-sysio-5.1.0_amd64.deb'
 Some packages could not be installed. This may mean that you have
 requested an impossible situation or if you are using the unstable
 distribution that some required packages have not yet been created

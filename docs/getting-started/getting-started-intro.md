@@ -32,10 +32,9 @@ The subsequent tutorials([hello world contract](../smart-contract-development/he
 
 | Component          | Version |
 | ------------------ | ------- |
-| Wire Sysio Core Version | 3.1.6   |
-| Wire CDT                | 3.1.0   |
-| sysio.contracts    | 3.1.1   |
-| sdk-core           | 1.0.0   |
+| Wire Sysio Core Version | 5.1.0   |
+| Wire CDT                | 4.0.1   |
+| sysio.contracts    | 3.3.0   |
 
 ## Development Experience
 

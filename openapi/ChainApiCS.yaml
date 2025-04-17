@@ -268,10 +268,10 @@ paths:
                     virtual_block_net_limit: 1048576000
                     block_cpu_limit: 99900
                     block_net_limit: 1048576
-                    server_version_string: "v3.1.6"
+                    server_version_string: "v5.1.0"
                     fork_db_head_block_num: 177352
                     fork_db_head_block_id: "0002b4c836b29fb762ca922b8b885bf12a5f02991989e47020cd98af8252fb11"
-                    server_full_version_string: "v3.1.6-8903fb39ab64c984aa2489b5546316a4ce4128d1"
+                    server_full_version_string: "v5.1.0-1fd21e2b206a5a97d2c41b4afefa42b25c5c15be"
                     total_cpu_weight: 0
                     total_net_weight: 0
                     earliest_available_block_num: 1
