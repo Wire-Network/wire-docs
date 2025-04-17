@@ -537,11 +537,29 @@ const sidebars: SidebarsConfig = {
             id: "api-reference/tooling/cdt/index",
           },
           items: [
-            "api-reference/tooling/cdt/cdt-init",
-            "api-reference/tooling/cdt/cdt-ld",
-            "api-reference/tooling/cdt/cdt-abidiff",
-            "api-reference/tooling/cdt/cdt-cc",
-            "api-reference/tooling/cdt/cdt-cpp",
+            {
+              type: "category",
+              label: "Features",
+              items: [
+                "api-reference/tooling/cdt/features/binary-extension",
+                "api-reference/tooling/cdt/features/return-values-from-actions",
+              ],
+            },
+            {
+              type: "category",
+              label: "Command Reference",
+              link: {
+                type: "doc",
+                id: "api-reference/tooling/cdt/ref-index",
+              },
+              items: [
+                "api-reference/tooling/cdt/cdt-init",
+                "api-reference/tooling/cdt/cdt-ld",
+                "api-reference/tooling/cdt/cdt-abidiff",
+                "api-reference/tooling/cdt/cdt-cc",
+                "api-reference/tooling/cdt/cdt-cpp",
+              ],
+            },
           ],
         },
         {
@@ -605,6 +623,7 @@ const sidebars: SidebarsConfig = {
         "guides/how-to-deploy-a-smart-contract",
         "guides/how-to-get-block-information",
         "guides/hello-world-video-testnet",
+        "guides/how-to-return-values-from-actions",
       ],
     },
   ],

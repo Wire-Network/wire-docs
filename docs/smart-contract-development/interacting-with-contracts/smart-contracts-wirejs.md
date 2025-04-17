@@ -28,6 +28,10 @@ nvm use 18.18.0
 
 This tutorial uses [EOS Authority Block Explorer](https://eosauthority.com/), but you can use [Wire Hub](https://explore.wire.foundation).
 
+:::warning[REMINDER]
+The install process sets up the wallet for the *root* user. To interact with clio, ensure **you are on the root user**. Run `sudo su -` to switch to the root user and before proceeding with the tutorial.
+:::
+
 ## Steps
 
 ### 1. Create & set up `ts-dapp-sdk-wire`
@@ -220,21 +224,26 @@ Run `npm run exec` and you should see output in the console with the logs like:
 ➜  ts-app-sdk-wire: npm run exec
 Blockchain Info:
 {
-  "server_version": "c83d8e08",
-  "chain_id": "8a34ec7df1b8cd06ff4a8abbaa7cc50300823350cadc59ab296cb00d104d2b8f",
-  "head_block_num": 538955,
-  "last_irreversible_block_num": 538954,
-  "last_irreversible_block_id": "0008394a52821c9552c17f8620576d53fe417e29068aee6ba6fe91b31591d052",
-  "head_block_id": "0008394bd3b0ae2b818eed6a626ef66c3750a2a7cfff48e61f1bc6a8d5203076",
-  "head_block_time": "2024-09-30T13:09:22.000",
+  "server_version": "1fd21e2b",
+  "chain_id": "4b6ea11bff557dbaef04100a15ee8b5864bd0daf4103b98468bdb297356951fa",
+  "head_block_num": 1920,
+  "last_irreversible_block_num": 1919,
+  "last_irreversible_block_id": "0000077f97d283793011d0e11d270e2c3bcc0c9c2634a2620c96b55988780b0f",
+  "head_block_id": "0000078034dc84be41b08732fe8e0b40639db355f70b1ebcc4246fd69e669d53",
+  "head_block_time": "2025-04-17T16:47:14.500",
   "head_block_producer": "sysio",
-  "virtual_block_cpu_limit": 200000000,
-  "virtual_block_net_limit": 1048576000,
-  "block_cpu_limit": 200000,
+  "virtual_block_cpu_limit": 1361215,
+  "virtual_block_net_limit": 7149134,
+  "block_cpu_limit": 100000,
   "block_net_limit": 1048576,
-  "server_version_string": "v3.1.6",
-  "fork_db_head_block_num": 538955,
-  "fork_db_head_block_id": "0008394bd3b0ae2b818eed6a626ef66c3750a2a7cfff48e61f1bc6a8d5203076"
+  "server_version_string": "v5.1.0",
+  "fork_db_head_block_num": 1920,
+  "fork_db_head_block_id": "0000078034dc84be41b08732fe8e0b40639db355f70b1ebcc4246fd69e669d53",
+  "server_full_version_string": "v5.1.0-1fd21e2b206a5a97d2c41b4afefa42b25c5c15be",
+  "total_cpu_weight": 500,
+  "total_net_weight": 500,
+  "earliest_available_block_num": 1,
+  "last_irreversible_block_time": "2025-04-17T16:47:14.000"
 }
 {
   rows: [

@@ -143,7 +143,7 @@ paths:
         content:
           application/json:
             example:
-              endpoint: "127.0.0.1:9876"
+              endpoint: "127.0.0.1:4443"
             schema:
               type: object
               required:
@@ -166,14 +166,14 @@ paths:
           source: |
             curl -X POST "http://localhost:8080/v1/net/connect" \
               -H "Content-Type: application/json" \
-              -d '{"endpoint": "127.0.0.1:9876"}'
+              -d '{"endpoint": "127.0.0.1:4443"}'
         - lang: Node.js
           label: Node.js
           source: |
             const fetch = require('node-fetch');
 
             const payload = {
-              endpoint: "127.0.0.1:9876"
+              endpoint: "127.0.0.1:4443"
             };
 
             fetch("http://localhost:8080/v1/net/connect", {
@@ -191,7 +191,7 @@ paths:
 
             url = "http://localhost:8080/v1/net/connect"
             payload = {
-              "endpoint": "127.0.0.1:9876"
+              "endpoint": "127.0.0.1:4443"
             }
             headers = {"Content-Type": "application/json"}
 
@@ -209,7 +209,7 @@ paths:
         content:
           application/json:
             example:
-              endpoint: "127.0.0.1:9876"
+              endpoint: "127.0.0.1:4443"
             schema:
               type: object
               required:
@@ -232,14 +232,14 @@ paths:
           source: |
             curl -X POST "http://localhost:8080/v1/net/disconnect" \
               -H "Content-Type: application/json" \
-              -d '{"endpoint": "127.0.0.1:9876"}'
+              -d '{"endpoint": "127.0.0.1:4443"}'
         - lang: Node.js
           label: Node.js
           source: |
             const fetch = require('node-fetch');
 
             const payload = {
-              endpoint: "127.0.0.1:9876"
+              endpoint: "127.0.0.1:4443"
             };
 
             fetch("http://localhost:8080/v1/net/disconnect", {
@@ -257,7 +257,7 @@ paths:
 
             url = "http://localhost:8080/v1/net/disconnect"
             payload = {
-              "endpoint": "127.0.0.1:9876"
+              "endpoint": "127.0.0.1:4443"
             }
             headers = {"Content-Type": "application/json"}
 
@@ -275,7 +275,7 @@ paths:
         content:
           application/json:
             example:
-              endpoint: "127.0.0.1:9876"
+              endpoint: "127.0.0.1:4443"
             schema:
               type: object
               required:
@@ -359,14 +359,14 @@ paths:
           source: |
             curl -X POST "http://localhost:8080/v1/net/status" \
               -H "Content-Type: application/json" \
-              -d '{"endpoint": "127.0.0.1:9876"}'
+              -d '{"endpoint": "127.0.0.1:4443"}'
         - lang: Node.js
           label: Node.js
           source: |
             const fetch = require('node-fetch');
 
             const payload = {
-              endpoint: "127.0.0.1:9876"
+              endpoint: "127.0.0.1:4443"
             };
 
             fetch("http://localhost:8080/v1/net/status", {
@@ -384,7 +384,7 @@ paths:
 
             url = "http://localhost:8080/v1/net/status"
             payload = {
-              "endpoint": "127.0.0.1:9876"
+              "endpoint": "127.0.0.1:4443"
             }
             headers = {"Content-Type": "application/json"}
 

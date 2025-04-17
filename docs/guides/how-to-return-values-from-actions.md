@@ -1,6 +1,8 @@
+# How to Return Values from Actions
+
 ## Overview
 
-This how-to demonstrates how a smart contract developer implements return values from an action.
+This article demonstrates how a smart contract developer implements return values from an action.
 
 In order to accomplish this, use the `return` statement and pass the desired returned value, which can be of any C++ primitive type, a standard library type, or a user defined type.
 
@@ -8,11 +10,12 @@ In order to accomplish this, use the `return` statement and pass the desired ret
 
 Make sure you have the following prerequisites in place:
 
-* Setup Wire development environrment, for details consult the [Get Started Guide](/docs/getting-started/install-dependencies.md).
-* A smart contract, let’s call it `smrtcontract`, which builds without error.
-* An action, let’s call it `checkwithrv`, from which you want to return a value of a user defined type `action_response`.
+- Setup Wire development environrment, for details consult the [Getting Started](/docs/getting-started/install-dependencies.md).- Before proceeding forward, ensure that **you have completed Getting Started section** and that you have followed [Getting Started Documentation Diagram](/docs/getting-started/getting-started-intro.md).
+- This page assumes you are familiar with [Smart Contract Basics](/docs/smart-contract-development/smart-contract-basics).
+- A smart contract - `smrtcontract`, which builds without error.
+- An action -  `checkwithrv`, from which you want to return a value of a user defined type `action_response`.
 
-Refer to the following reference implementation for your starting point:
+Refer to the code below for your starting point:
 
 ```cpp
 struct action_response
@@ -30,7 +33,7 @@ class [[sysio::contract]] smrtcontract : public contract {
 };
 ```
 
-## Procedure
+## Steps
 
 Complete the following steps to return an instance of `action_response` from the `checkwithrv` action:
 
@@ -64,9 +67,9 @@ For a complete example of a smart contract that implements an action which retur
 
 ## Next Steps
 
-* Compile the smart contract and deploy it to the Wire testnet or any Wire-based blockchain.
-* Use the `clio` command to send the `checkwithrv` action to the smart contract and observe the returned value in the `clio` output.
-* Use other means (e.g. programmatically) to send the  `checkwithrv` action to the smart contract and observe the returned value in the action trace.
+- Compile the smart contract and deploy it to the Wire testnet or any Wire-based blockchain.
+- Use the `clio` command to send the `checkwithrv` action to the smart contract and observe the returned value in the `clio` output.
+- Use other means (e.g. programmatically) to send the  `checkwithrv` action to the smart contract and observe the returned value in the action trace.
 
 :::info
 The action return values are only available to clients sending the action via the RPC API. Currently, there is no support for an inline action to be able to use the return value, because inline actions don't execute synchronously.

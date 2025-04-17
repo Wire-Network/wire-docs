@@ -16,6 +16,10 @@ This page will guide you to creating and developing a simple contract using Wire
 - Before proceeding forward, ensure that **you have completed Getting Started section** and that you have followed [Getting Started Documentation Diagram](/docs/getting-started/getting-started-intro.md).
 - This page assumes you are familiar with [Smart Contract Basics](./smart-contract-basics.md).
 
+:::warning[REMINDER]
+The install process sets up the wallet for the *root* user. To interact with clio, ensure **you are on the root user**. Run `sudo su -` to switch to the root user and before proceeding with the tutorial.
+:::
+
 ## Step-by-Step Guide to Creating a *Company Contract* Smart Contract
 
 ### 1\. Set Up Your Contract Workspace
@@ -243,7 +247,7 @@ export PUBLIC_KEY=<public-key-value>
 #### 4.2. Create the account that we will deploy the contract to
 
 ```bash
-sudo clio create account sysio company $PUBLIC_KEY -p sysio@active
+clio create account sysio company $PUBLIC_KEY -p sysio@active
 ```
 
 #### 4.3. Issue a contract policy to `company` account
@@ -260,14 +264,14 @@ PRIVATE_KEY=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
 Issue the policy:
 
 ```sh
-sudo clio push action sysio.roa addpolicy '{"owner": company, "issuer": nodedaddy, "net_weight": "0.0100 SYS", "cpu_weight": "0.0100 SYS", "ram_weight": "0.0010 SYS", "time_block": 1, "network_gen": 0 }' -p nodedaddy@active
+clio push action sysio.roa addpolicy '{"owner": company, "issuer": nodedaddy, "netWeight": "0.0100 SYS", "cpuWeight": "0.0100 SYS", "ramWeight": "0.0010 SYS", "timeBlock": 1, "networkGen": 0 }' -p nodedaddy@active
 ```
 
 #### 4.2 Deploy the compiled contract
 
 ```bash
-                      [account] [WASM dir]  [permission level] 
-sudo clio set contract company  company -p  company@active
+                 [account] [WASM dir]  [permission level] 
+clio set contract company  company -p  company@active
 ```
 
 The smart contract should now be live on your local blockchain. You can inspect through [Block Explorer](https://explore.wire.foundation).

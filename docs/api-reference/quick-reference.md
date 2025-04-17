@@ -6,7 +6,7 @@ title: 'Quick API Reference'
 
 ## Nodeop API Reference
 
-### Nodeop `v3.1.6`
+### Nodeop `v5.1.0`
 
 **Nodeop** APIs:
 

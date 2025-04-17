@@ -11,6 +11,10 @@ title: "Quick Start: Hello World Contract"
 - Before proceeding forward, ensure that **you have completed Getting Started section** and that you have followed [Getting Started Documentation Diagram](/docs/getting-started/getting-started-intro.md).
 - This page assumes you are familiar with [Smart Contract Basics](./smart-contract-basics.md).
 
+:::warning[REMINDER]
+The install process sets up the wallet for the *root* user. To interact with clio, ensure **you are on the root user**. Run `sudo su -` to switch to the root user and before proceeding with the tutorial.
+:::
+
 ## Steps
 
 ### 1. Clone the Contract Repository
@@ -50,7 +54,7 @@ Before deploying, ensure you have an account to deploy the contract to. Create a
 #### 3.1. Create an account using `clio`
 
 ```bash
-sudo clio create account sysio hello $PUBLIC_KEY -p sysio@active
+clio create account sysio hello $PUBLIC_KEY -p sysio@active
 ```
 
 This command enables the `sysio` system account to create a new account named `hello` on the Wire blockchain. The `-p sysio@active` specifies that the active permission of the `sysio` account is used to authorize the account creation.
@@ -69,7 +73,7 @@ PRIVATE_KEY=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
 Issue the policy:
 
 ```sh
-sudo clio push action sysio.roa addpolicy '{"owner": hello, "issuer": nodedaddy, "net_weight": "0.0100 SYS", "cpu_weight": "0.0100 SYS", "ram_weight": "0.0010 SYS", "time_block": 1, "network_gen": 0 }' -p nodedaddy@active
+clio push action sysio.roa addpolicy '{"owner": hello, "issuer": nodedaddy,  "netWeight": "0.0100 SYS", "cpuWeight": "0.0100 SYS", "ramWeight": "0.0010 SYS", "timeBlock": 1, "networkGen": 0 }' -p nodedaddy@active
 ```
 
 #### 3.3. Run deploy script
@@ -83,13 +87,13 @@ sudo ./deploy.sh
 #### 4.1. Create `bob`'s account
 
 ```bash
-sudo clio create account sysio bob $PUBLIC_KEY -p sysio@active
+clio create account sysio bob $PUBLIC_KEY -p sysio@active
 ```
 
 #### 4.2. Issue a policy to `bob`
 
 ```bash
-sudo clio push action sysio.roa addpolicy '{"owner": bob, "issuer": nodedaddy, "net_weight": "0.0100 SYS", "cpu_weight": "0.0100 SYS", "ram_weight": "0.0010 SYS", "time_block": 1, "network_gen": 0 }' -p nodedaddy@active
+clio push action sysio.roa addpolicy '{"owner": bob, "issuer": nodedaddy,  "netWeight": "0.0100 SYS", "cpuWeight": "0.0100 SYS", "ramWeight": "0.0010 SYS", "timeBlock": 1, "networkGen": 0 }' -p nodedaddy@active
 ```
 
 #### 4.3. Invoke the `hi` action
@@ -97,7 +101,7 @@ sudo clio push action sysio.roa addpolicy '{"owner": bob, "issuer": nodedaddy, "
 Invoke the `hi` action within the contract:
 
 ```bash
-sudo clio push action hello hi '["bob"]' -p bob@active
+clio push action hello hi '["bob"]' -p bob@active
 ```
 
 This command triggers the `hi` action for the user `bob`, and if authorized by `bob`, it prints "Hello, bob".
@@ -107,7 +111,7 @@ This command triggers the `hi` action for the user `bob`, and if authorized by `
 Repeat the same passing "alice" as data to the action and using the same permissions:
 
 ```bash
-sudo clio push action hello hi '["alice"]' -p bob@active
+clio push action hello hi '["alice"]' -p bob@active
 ```
 
 ![bob-invoke-with-alice](/img/clio-push-action-hello-2.png)
@@ -134,7 +138,7 @@ void hello::hi(name user) {
 [Recompile](#2-compile-the-contract) and [redeploy](#3-deploy-the-contract) the contract. Then execute:
 
 ```bash
-sudo clio push action hello hi '["alice"]' -p bob@active
+clio push action hello hi '["alice"]' -p bob@active
 ```
 
 This will result in an authorization error since `bob` is trying to execute an action that requires `alice`'s permission.
