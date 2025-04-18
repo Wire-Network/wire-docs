@@ -18,6 +18,10 @@ The example uses `clio` to link a custom permission _customp_ in the account _al
 * You have a `sysio` account and access to the account's `active` private key.
 * You have created a custom permission. See [clio set account permission](/docs/api-reference/tooling/clio/command-reference/set/set-account.md).
 
+:::warning[REMINDER]
+The install process sets up the wallet for the _root_ user. To interact with clio, ensure **you are on the root user**. Run `sudo su -` to switch to the root user.
+:::
+
 ## Command
 
 The following step shows you how to link a permission:

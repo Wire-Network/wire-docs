@@ -21,6 +21,10 @@ Make sure you meet the following requirements:
 * Understand [Accounts and Permissions](/docs/smart-contract-development/accounts-permissions.md) in the protocol documents.
 * Understand what a [public](/docs/introduction/glossary.md#public-key) and [private](/docs/introduction/glossary.md#private-key) key pair is.
 
+:::warning[REMINDER]
+The install process sets up the wallet for the *root* user. To interact with clio, ensure **you are on the root user**. Run `sudo su -` to switch to the root user.
+:::
+
 ## Command
 
 To create `default` or a named wallet and save the wallet password to a file, you can run:

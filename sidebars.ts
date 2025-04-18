@@ -622,6 +622,7 @@ const sidebars: SidebarsConfig = {
         "guides/how-to-submit-a-transaction",
         "guides/how-to-deploy-a-smart-contract",
         "guides/how-to-get-block-information",
+        "guides/how-to-get-account-information",
         "guides/hello-world-video-testnet",
         "guides/how-to-return-values-from-actions",
       ],

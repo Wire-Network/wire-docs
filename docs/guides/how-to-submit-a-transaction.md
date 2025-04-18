@@ -17,6 +17,10 @@ It covers two methods: pushing an action directly or submitting a JSON transacti
 The steps below assume you have access to a **local chain** and you have authority over `sysio` key pair.
 :::
 
+:::warning[REMINDER]
+The install process sets up the wallet for the *root* user. To interact with clio, ensure **you are on the root user**. Run `sudo su -` to switch to the root user.
+:::
+
 ## Steps to submit a transaction(via `clio push action`)
 
 ## Use Case

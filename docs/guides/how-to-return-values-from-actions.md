@@ -15,6 +15,10 @@ Make sure you have the following prerequisites in place:
 - A smart contract - `smrtcontract`, which builds without error.
 - An action -  `checkwithrv`, from which you want to return a value of a user defined type `action_response`.
 
+:::warning[REMINDER]
+The install process sets up the wallet for the *root* user. To interact with clio, ensure **you are on the root user**. Run `sudo su -` to switch to the root user.
+:::
+
 Refer to the code below for your starting point:
 
 ```cpp

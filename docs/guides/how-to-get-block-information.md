@@ -14,6 +14,10 @@
 * Understand what a [block](/docs/introduction/glossary.md#block) is and its role in the blockchain.
 * Understand the block lifecycle
 
+:::warning[REMINDER]
+The install process sets up the wallet for the *root* user. To interact with clio, ensure **you are on the root user**. Run `sudo su -` to switch to the root user.
+:::
+
 ## Steps
 
 Retrieve full or partial information about a block:

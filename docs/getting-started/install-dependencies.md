@@ -40,7 +40,7 @@ npm i -g @wireio/wire-cli
 To start a local node, run:
 
 ```sh
-sudo wire-cli --g --enable-roa
+sudo wire-cli install --g --enable-roa
 ```
 
 :::info

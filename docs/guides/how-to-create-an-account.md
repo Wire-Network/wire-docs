@@ -15,6 +15,10 @@ In a Wire Blockchain, creating a new account is a priviledge reserved for existi
 * Created an Owner and an Active key pair. See how to create a key pairs [here](./how-to-create-key-pairs.md)
 * [Import a private key](./how-to-import-a-key.md) to the wallet which can authorize on behalf of a creator account
 
+:::warning[REMINDER]
+The install process sets up the wallet for the *root* user. To interact with clio, ensure **you are on the root user**. Run `sudo su -` to switch to the root user.
+:::
+
 ## Steps
 
 **Command**
