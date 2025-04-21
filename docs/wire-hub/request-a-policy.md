@@ -26,7 +26,7 @@ Begin by navigating to the [Wire Hub](https://explore.wire.foundation) website.
 
 In the navigation bar click *Manage*:
 
-<BrowserWindow url="https://explore.wire.foundation//explore/node-owner">
+<BrowserWindow url="https://explore.wire.foundation/explore/node-owner">
       <img src="/img/hub-policy-init.png" alt="hub-policy-init" />
 
  </BrowserWindow>
@@ -35,7 +35,7 @@ In the navigation bar click *Manage*:
 
 Copy the account contract's username and keys to a safe place, check *I have saved the username and key pair to a safe place* and click **Request New Contract Policy**.
 
-<BrowserWindow url="https://explore.wire.foundation//explore/node-owner">
+<BrowserWindow url="https://explore.wire.foundation/explore/node-owner">
       <img src="/img/hub-policy-copy-details.png" alt="hub-policy-copy-details" />
 
  </BrowserWindow>
@@ -44,7 +44,7 @@ Copy the account contract's username and keys to a safe place, check *I have sav
 
 If policy creation has been successful, you will be able to see it on the right side along with other contracts' policies:
 
-<BrowserWindow url="https://explore.wire.foundation//explore/node-owner">
+<BrowserWindow url="https://explore.wire.foundation/explore/node-owner">
       <img src="/img/hub-policy-created-success.png" alt="hub-policy-created-success" />
 
  </BrowserWindow>

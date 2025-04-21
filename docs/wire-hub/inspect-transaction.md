@@ -19,7 +19,7 @@ Ensure you are connected to any network
 
 Copy any transaction ID from *All Transactions* list.
 
-<BrowserWindow url="https://explore.wire.foundation//explore/transactions/b91e21c08ab2fcc8b7e7c850ff8dc69419ceab45f4be4bb4f51160982428dc45">
+<BrowserWindow url="https://explore.wire.foundation/explore/transactions/b91e21c08ab2fcc8b7e7c850ff8dc69419ceab45f4be4bb4f51160982428dc45">
       <img src="/img/hub-trx-1.png" alt="hub-trx-1" />
 
  </BrowserWindow>
@@ -28,9 +28,9 @@ Copy any transaction ID from *All Transactions* list.
 
 Paste the transaction ID in the search box and the results will load the transaction details.
 
-<BrowserWindow url="https://explore.wire.foundation//explore/transactions/b91e21c08ab2fcc8b7e7c850ff8dc69419ceab45f4be4bb4f51160982428dc45">
+<BrowserWindow url="https://explore.wire.foundation/explore/transactions/b91e21c08ab2fcc8b7e7c850ff8dc69419ceab45f4be4bb4f51160982428dc45">
       <img src="/img/hub-trx-2.png" alt="hub-trx-2" />
 
  </BrowserWindow>
 
-[link](https://explore.wire.foundation//explore/transactions/b91e21c08ab2fcc8b7e7c850ff8dc69419ceab45f4be4bb4f51160982428dc45>)
+[link](https://explore.wire.foundation/explore/transactions/b91e21c08ab2fcc8b7e7c850ff8dc69419ceab45f4be4bb4f51160982428dc45>)
