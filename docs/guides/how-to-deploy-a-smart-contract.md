@@ -13,7 +13,7 @@ id: how-to-deploy-a-smart-contract
 :::
 
 :::warning[REMINDER]
-The install process sets up the wallet for the *root* user. To interact with clio, ensure **you are on the root user**. Run `sudo su -` to switch to the root user.
+The install process has already set up the wallet for the *root* user. To interact with clio, ensure **you are on the root user**. Run `sudo su -` to switch to the root user.
 :::
 
 * Unlock your wallet

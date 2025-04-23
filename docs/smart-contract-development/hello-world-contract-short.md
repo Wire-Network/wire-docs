@@ -12,7 +12,7 @@ title: "Quick Start: Hello World Contract"
 - This page assumes you are familiar with [Smart Contract Basics](./smart-contract-basics.md).
 
 :::warning[REMINDER]
-The install process sets up the wallet for the *root* user. To interact with clio, ensure **you are on the root user**. Run `sudo su -` to switch to the root user and before proceeding with the tutorial.
+The install process has already set up the wallet for the *root* user. To interact with clio, ensure **you are on the root user**. Run `sudo su -` to switch to the root user before proceeding with the tutorial.
 :::
 
 ## Steps
@@ -49,7 +49,7 @@ Upon successful compilation, you will see a `hello` folder with `hello.abi` and 
 
 ### 3. Deploy the Contract
 
-Before deploying, ensure you have an account to deploy the contract to. Create an account if necessary and replace `PUBLIC_KEY` with the development key used in Create Development Wallet doc (see [Import Keys](../getting-started/create-development-wallet.md#import-keys-into-your-wallet); key pair is also listed [here](#development-key-pair)). Your wallet must be also unlocked before using it(see [Unlock a wallet](../getting-started/create-development-wallet.md#unlock-a-wallet))
+Before deploying, ensure you have an account to deploy the contract to. Create an account if necessary and replace `PUBLIC_KEY` with the development key used in Manage Local Wallet with clio guide (see [Import Keys](../getting-started/manage-local-wallet-with-clio.md#import-the-development-key); key pair is also listed [here](#development-key-pair)). Your wallet must be also unlocked before using it(see [Unlock a wallet](../getting-started/manage-local-wallet-with-clio.md#unlock-a-wallet))
 
 #### 3.1. Create an account using `clio`
 
@@ -63,7 +63,7 @@ This command enables the `sysio` system account to create a new account named `h
 
 `nodedaddy`'s credentials(those should be already imported in your wallet):
 
-##### development key pair
+##### Development key pair
 
 ```txt
 PUBLIC_KEY=SYS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
@@ -153,4 +153,4 @@ CLI output:
 
 ### Inspect the contract on Wire Hub Block Explorer
 
-Feel free to explore your contract on [Wire Hub Block Explorer](https://explore.wire.foundation). Use this [guide](/docs/wire-hub/connect-to-a-rpc.md) to connect to your chain and inspect the contract.
+Feel free to explore your contract on [Wire Hub Block Explorer](https://hub.wire.foundation). Use this [guide](/docs/wire-hub/connect-to-a-rpc.md) to connect to your chain and inspect the contract.

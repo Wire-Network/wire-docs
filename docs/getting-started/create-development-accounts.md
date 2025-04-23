@@ -9,10 +9,10 @@ title: Create Development Accounts
 ## Prerequisites
 
 - You have successfully installed Wire Sysio and Wire CDT on your computer and you have a local chain running. See [Install Dependencies & Start a local node](./install-dependencies.md) article.
-- You have also completed [Create Development Wallet](./create-development-wallet.md) guide.
+- You have also completed [Manage Local Wallet with clio](./manage-local-wallet-with-clio.md) guide.
   
 :::warning[REMINDER]
-The install process sets up the wallet for the *root* user. To interact with clio, ensure **you are on the root user**. Run `sudo su -` to switch to the root user and before proceeding with the tutorial.
+The install process has already set up the wallet for the *root* user. To interact with clio, ensure **you are on the root user**. Run `sudo su -` to switch to the root user before proceeding with the tutorial.
 :::
 
 ## Overview
@@ -21,7 +21,7 @@ This article gives a brief summary of the concept of account and provides instru
 
 ## Account
 
-An **account** on the blockchain holds a set of authorizations and serves to identify a sender or recipient. Its flexible authorization framework allows ownership by individuals or groups ,depending on the configured permissions. An account is required to send or receive a valid transaction on the blockchain.
+An **account** on the blockchain is the identity of a participant on the blockchain — whether a single user, a group, or a smart-contract actor — and it carries the authorizations that control what that participant can do. This flexible permission framework lets ownership be assigned to one key, multiple keys, or even other accounts. Because every action or transaction must be signed by an account, a valid account is required to send, receive, or invoke smart-contract actions with other accounts on-chain.
 
 In this practical tutorial series, we utilize two user accounts, `bob` and `alice`, along with the default `sysio` account for configuration purposes. Additional accounts are also created for various contracts in the future articles.
 
@@ -29,8 +29,8 @@ In this practical tutorial series, we utilize two user accounts, `bob` and `alic
 
 ### Prerequisites
 
-- **public key** from the key pair you've created in [Create Development Wallet](create-development-wallet.md#import-keys-into-your-wallet) tutorial.
-- Ensure your wallet is [unlocked](create-development-wallet#unlock-a-wallet)
+- **public key** from the key pair you've created in [Create Development Wallet](manage-local-wallet-with-clio.md#create-and-import-keys-into-your-wallet) tutorial.
+- Ensure your wallet is [unlocked](manage-local-wallet-with-clio#unlock-a-wallet)
 
 ### Steps
 

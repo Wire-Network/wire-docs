@@ -22,10 +22,10 @@ import IFrameWindow from '@site/src/components/IFrameWindow';
 ## Steps 
 ### 1. Connect to the Wire Hub & Create Your Wire Testnet Account
 
-- **Open [Wire Hub](https://explore.wire.foundation)** in your browser.  
+- **Open [Wire Hub](https://hub.wire.foundation)** in your browser.  
 - **Connect your wallet** (e.g., MetaMask).  
    - Once connected, the Hub should display your account’s public address.  
-- **Create your on-chain account** in the [Wire Testnet Explorer](https://explore.wire.foundation/explore):  
+- **Create your on-chain account** in the [Wire Testnet Explorer](https://hub.wire.foundation/explore):  
    - You’ll be prompted to **sign a message** in MetaMask to retrieve your public key.  
    - After signing, the system creates a new user account associated with that public key.
 
@@ -34,12 +34,12 @@ import IFrameWindow from '@site/src/components/IFrameWindow';
 
 ### 2. Request a Developer Contract Policy
 
-- **Open the [Node Owner Dashboard](https://explore.wire.foundation/explore/node-owner)**.  
+- **Open the [Node Owner Dashboard](https://hub.wire.foundation/explore/node-owner)**.  
 - **Request `Developer Contract Policy`** for a new contract account:  
    - Randomly generated usernames and keys are displayed. You can shuffle them if you want.  
    - **Save these credentials** in a secure place — this account will be the contract account you will deploy your contract to.
 
-- Confirm the new contract policy was created. In the [Wire Hub](https://explore.wire.foundation) or [Explorer](https://explore.wire.foundation/explore), you should see:
+- Confirm the new contract policy was created. In the [Wire Hub](https://hub.wire.foundation) or [Explorer](https://hub.wire.foundation/explore), you should see:
    - **Account Type**: `Contract Account`
    - **Public Keys**: Matching the the public key you just saved.
 
@@ -116,14 +116,14 @@ sudo ./deploy.sh
 ```
 If successful, you’ll see a transaction receipt indicating “executed success”.
 
-- In the [Wire Hub](https://explore.wire.foundation) or [Explorer](https://explore.wire.foundation/explore), navigate to the *Accounts* -> *Contract Accounts* list. You should see your new contract.
+- In the [Wire Hub](https://hub.wire.foundation) or [Explorer](https://hub.wire.foundation/explore), navigate to the *Accounts* -> *Contract Accounts* list. You should see your new contract.
 - You can then inspect tables and actions under the *Contract* tab on the contract’s account page.
 
 #### Testing the `hi()` Action from the Wire Hub
 
 The Hello World contract includes a single action called `hi()`, which logs a greeting in the console.
 
-- In the [Wire Hub](https://explore.wire.foundation), open the *Contract* Tab for your contract’s account.
+- In the [Wire Hub](https://hub.wire.foundation), open the *Contract* Tab for your contract’s account.
 - You’ll see *Actions* listed (in this case, just `hi`) and parameters field.
 - To invoke the action, enter a username(e.g. `bob`) and click Submit.
 - The Hub displays a receipt upon success, and you can view the console log output:

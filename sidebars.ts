@@ -45,7 +45,7 @@ const sidebars: SidebarsConfig = {
       items: [
         "getting-started/core-components",
         "getting-started/install-dependencies",
-        "getting-started/create-development-wallet",
+        "getting-started/manage-local-wallet-with-clio",
         "getting-started/create-development-accounts",
       ],
     },

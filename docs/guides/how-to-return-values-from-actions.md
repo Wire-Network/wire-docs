@@ -12,7 +12,7 @@ In order to accomplish this, we use the `return` statement and pass the desired 
 - This page assumes you are familiar with [Smart Contract Basics](/docs/smart-contract-development/smart-contract-basics).
 
 :::warning[REMINDER]
-The install process sets up the wallet for the *root* user. To interact with clio, ensure **you are on the root user**. Run `sudo su -` to switch to the root user.
+The install process has already set up the wallet for the *root* user. To interact with clio, ensure **you are on the root user**. Run `sudo su -` to switch to the root user.
 :::
 
 ## Steps

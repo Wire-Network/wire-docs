@@ -17,7 +17,7 @@ This page will guide you to creating and developing a simple contract using Wire
 - This page assumes you are familiar with [Smart Contract Basics](./smart-contract-basics.md).
 
 :::warning[REMINDER]
-The install process sets up the wallet for the *root* user. To interact with clio, ensure **you are on the root user**. Run `sudo su -` to switch to the root user and before proceeding with the tutorial.
+The install process has already set up the wallet for the *root* user. To interact with clio, ensure **you are on the root user**. Run `sudo su -` to switch to the root user before proceeding with the tutorial.
 :::
 
 ## Step-by-Step Guide to Creating a *Company Contract* Smart Contract
@@ -238,7 +238,7 @@ In Wire ecosystem, deploying a smart contract requires an account; an account ca
 
 #### 4.1 Retrieve public key
 
-Before proceeding, make sure you have the public key available from the key pair that was created when setting up your wallet(key pair is also listed [here](#development-key-pair)). If you haven’t yet created a wallet or a key pair, you can do so by following the instructions [here](../getting-started/create-development-wallet.md).
+Before proceeding, make sure you have the public key available from the key pair that was created when setting up your wallet(key pair is also listed [here](#development-key-pair)). If you haven’t yet created a wallet or a key pair, you can do so by following the instructions [here](../getting-started/manage-local-wallet-with-clio.md).
 
 ```bash
 export PUBLIC_KEY=<public-key-value>
@@ -274,4 +274,4 @@ clio push action sysio.roa addpolicy '{"owner": company, "issuer": nodedaddy, "n
 clio set contract company  company -p  company@active
 ```
 
-The smart contract should now be live on your local blockchain. You can inspect through [Block Explorer](https://explore.wire.foundation).
+The smart contract should now be live on your local blockchain. You can inspect through [Block Explorer](https://hub.wire.foundation).
