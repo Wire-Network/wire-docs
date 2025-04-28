@@ -492,10 +492,7 @@ const sidebars: SidebarsConfig = {
                     type: "doc",
                     id: "api-reference/tooling/nodeop/logging/native-logging/index",
                   },
-                  items: [
-                    "api-reference/tooling/nodeop/logging/native-logging/setup-logging.json",
-                    "api-reference/tooling/nodeop/logging/native-logging/logging-levels",
-                  ],
+                  items: [],
                 },
                 {
                   type: "category",
