@@ -482,30 +482,9 @@ const sidebars: SidebarsConfig = {
               label: "Logging",
               link: {
                 type: "doc",
-                id: "api-reference/tooling/nodeop/logging/index",
+                id: "api-reference/tooling/nodeop/native-logging",
               },
-              items: [
-                {
-                  type: "category",
-                  label: "Native Logging",
-                  link: {
-                    type: "doc",
-                    id: "api-reference/tooling/nodeop/logging/native-logging/index",
-                  },
-                  items: [],
-                },
-                {
-                  type: "category",
-                  label: "Third-Party Logging",
-                  link: {
-                    type: "doc",
-                    id: "api-reference/tooling/nodeop/logging/third-party-logging/index",
-                  },
-                  items: [
-                    "api-reference/tooling/nodeop/logging/third-party-logging/deep-mind-logger",
-                  ],
-                },
-              ],
+              items: [],
             },
             "api-reference/tooling/nodeop/replays",
             {
