@@ -14,15 +14,12 @@ For information on specific plugins, just select from the list below:
 * [`db_size_api_plugin`](db-size-api-plugin.md)
 * [`history_api_plugin`](history-api-plugin.md)
 * [`history_plugin`](history-plugin.md)
-* [`http_client_plugin`](http-client-plugin.md)
 * [`http_plugin`](http-plugin.md)
-* [`login_plugin`](login-plugin.md)
 * [`net_api_plugin`](net-api-plugin.md)
 * [`net_plugin`](net-plugin.md)
 * [`producer_plugin`](producer-plugin.md)
 * [`state_history_plugin`](state-history-plugin.md)
 * [`trace_api_plugin`](trace-api-plugin.md)
-* [`txn_test_gen_plugin`](txn-test-gen-plugin.md)
 
 ::: note
 | Plugins add incremental functionality to `nodeop`. Unlike runtime plugins, `nodeop` plugins are built at compile-time.

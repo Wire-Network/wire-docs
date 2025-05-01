@@ -84,27 +84,14 @@ Config Options for sysio::state_history_plugin:
                                         incoming connections. Caution: only 
                                         expose this port to your internal 
                                         network.
+  --state-history-unix-socket-path arg  the path (relative to data-dir) to
+                                        create a unix socket upon which to
+                                        listen for incoming connections.
   --trace-history-debug-mode            enable debug mode for trace history
   --context-free-data-compression arg (=zlib)
                                         compression mode for context free data 
                                         in transaction traces. Supported 
                                         options are "zlib" and "none"
-```
-
-## Dependencies
-
-* [`chain_plugin`](chain-plugin.md)
-
-### Load Dependency Examples
-
-```console
-# config.ini
-plugin = sysio::chain_plugin --disable-replay-opts
-```
-
-```sh
-# command-line
-nodeop ... --plugin sysio::chain_plugin --disable-replay-opts
 ```
 
 ## How-To Guides

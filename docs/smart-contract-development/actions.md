@@ -156,5 +156,5 @@ owner
   • YOUR_PUBLIC_KEY
     ↳ active
       • YOUR_PUBLIC_KEY
-      • <yourcontract@eosio.code>
+      • <yourcontract@sysio.code>
 ```

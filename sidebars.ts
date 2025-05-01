@@ -556,7 +556,6 @@ const sidebars: SidebarsConfig = {
             "api-reference/system-contracts/contracts/sysio.roa",
             "api-reference/system-contracts/build-and-deploy",
             // "api-reference/system-contracts/how-to-guides/how-to-buy-ram",
-            "api-reference/system-contracts/how-to-guides/how-to-create-issue-and-transfer-a-token",
             // "api-reference/system-contracts/how-to-guides/how-to-stake",
             // "api-reference/system-contracts/how-to-guides/how-to-vote",
             // "api-reference/system-contracts/how-to-guides/upgrading-the-sysio.system-contract",
@@ -564,18 +563,18 @@ const sidebars: SidebarsConfig = {
             "api-reference/system-contracts/how-to-guides/how-to-sign-a-multisig-transaction-with-sysio.msig",
           ],
         },
-        {
-          type: "category",
-          label: "Utilities",
-          link: {
-            type: "doc",
-            id: "api-reference/tooling/utilities/index",
-          },
-          items: [
-            "api-reference/tooling/utilities/sysio-blocklog",
-            "api-reference/tooling/utilities/trace-api-util",
-          ],
-        },
+        // {
+        //   type: "category",
+        //   label: "Utilities",
+        //   link: {
+        //     type: "doc",
+        //     id: "api-reference/tooling/utilities/index",
+        //   },
+        //   items: [
+        //     "api-reference/tooling/utilities/sysio-blocklog",
+        //     "api-reference/tooling/utilities/trace-api-util",
+        //   ],
+        // },
       ],
     },
   ],
