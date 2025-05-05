@@ -1,6 +1,6 @@
 ---
-sidebar_label: Return Values from Actions
-title: Return Values from Actions
+sidebar_label: ACTION_RETURN_VALUE
+title: ACTION_RETURN_VALUE
 sidebar_position: 1
 ---
 
@@ -31,4 +31,4 @@ The following list provides important details for when you return a value from a
 For a full working example of a smart contract action which returns a value, refer to the following resources:
 
 * The [`hello`](https://github.com/Wire-Network/wire-cdt/blob/master/examples/hello/src/hello.cpp#L14) smart contract example, see action `hello::checkwithrv`.
-* The [Return values from actions Guide](../../../../guides/how-to-return-values-from-actions.md).
+* The [Return values from actions Guide](../../guides/how-to-return-values-from-actions.md).

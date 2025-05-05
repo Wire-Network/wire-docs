@@ -464,9 +464,7 @@ const sidebars: SidebarsConfig = {
                 "api-reference/tooling/nodeop/plugins/db-size-api-plugin",
                 "api-reference/tooling/nodeop/plugins/history-api-plugin",
                 "api-reference/tooling/nodeop/plugins/history-plugin",
-                "api-reference/tooling/nodeop/plugins/http-client-plugin",
                 "api-reference/tooling/nodeop/plugins/http-plugin",
-                "api-reference/tooling/nodeop/plugins/login-plugin",
                 "api-reference/tooling/nodeop/plugins/net-api-plugin",
                 "api-reference/tooling/nodeop/plugins/net-plugin",
                 "api-reference/tooling/nodeop/plugins/producer-api-plugin",
@@ -474,7 +472,6 @@ const sidebars: SidebarsConfig = {
                 "api-reference/tooling/nodeop/plugins/resource-monitor-plugin",
                 "api-reference/tooling/nodeop/plugins/state-history-plugin",
                 "api-reference/tooling/nodeop/plugins/trace-api-plugin",
-                "api-reference/tooling/nodeop/plugins/txn-test-gen-plugin",
               ],
             },
             {
@@ -516,10 +513,7 @@ const sidebars: SidebarsConfig = {
             {
               type: "category",
               label: "Features",
-              items: [
-                "api-reference/tooling/cdt/features/binary-extension",
-                "api-reference/tooling/cdt/features/return-values-from-actions",
-              ],
+              items: ["api-reference/tooling/cdt/features/binary-extension"],
             },
             {
               type: "category",

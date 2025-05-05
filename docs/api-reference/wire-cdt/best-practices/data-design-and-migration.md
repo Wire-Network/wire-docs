@@ -2,11 +2,16 @@
 content_title: Data design and migration
 ---
 
-Antelope based blockchains allow developers to easily update their smart contract code. However, a few things need to be considered when it comes to data updates and/or migration. The multi-index table API is one of the mechanisms (Key-Value API being the other) for storing and updating blockchain state. The multi-index table API creates and uses data structures in RAM. Once created and deployed on the blockchain there are limitations if you want to update these structures. Below you will find a few approaches to your smart contract data design, updates to this design, and for data migration.
 
 # How to modify a data structure defined using multi-index table API
 
 Modifying a deployed multi-index table structure may be done by selecting one of the different strategies outlined below:
+
+## Overview
+
+Wire based blockchains allow developers to easily update their smart contract code. However, a few things need to be considered when it comes to data updates and/or migration. The multi-index table API is one of the mechanisms (Key-Value API being the other) for storing and updating blockchain state. The multi-index table API creates and uses data structures in RAM. Once created and deployed on the blockchain there are limitations if you want to update these structures. Below you will find a few approaches to your smart contract data design, updates to this design, and for data migration.
+
+## Steps
 
 ## 1. If you don't mind losing the existing data
 
@@ -21,11 +26,11 @@ If you want to keep the existing data there are two ways to do it:
 
 ### 2.1. Using binary extensions
 
-To learn how to modify the structure using binary extensions read this [tutorial](../09_tutorials/01_binary-extension.md).
+To learn how to modify the structure using binary extensions read this [tutorial](../tutorials/binary-extension.md).
 
 ### 2.2. Using ABI variants
 
-To learn how to modify the structure using ABI variants read this [tutorial](../09_tutorials/02_abi-variants.md).
+To learn how to modify the structure using ABI variants read this [tutorial](../tutorials/abi-variants.md).
 
 ### 2.3. Migrate the existing data to a second table
 

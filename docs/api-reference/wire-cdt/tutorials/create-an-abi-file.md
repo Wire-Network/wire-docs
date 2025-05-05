@@ -28,15 +28,14 @@ To make things easy, we will start with an empty ABI.
 
 An ABI enables any client or interface to interpret and even generate an GUI for you contract. For this to work in a consistent manner, we'll need to describe the custom types that are used as a parameter in any public action or struct that we would like to describe in the ABI.
 
-<!-- TODO: add references to built in types -->
 :::info
 |Built-in Types
 
-Wire implements a number of custom built-ins. Built-in types don't need to be described in an ABI file.
+Wire implements a number of [custom built-ins](https://github.com/Wire-Network/wire-sysio/blob/b6f586932621e2a82c7722ba51b6efc824570e6e/libraries/chain/abi_serializer.cpp#L90-L129 ). Built-in types don't need to be described in an ABI file.
 
 :::
 
-Using **sysio.token** as an example, the only type that requires a description in the ABI file is `account_name`. The ABI uses "new_type_name" to describe explicit types, in this case `account_name`, and `account_name` is an alias of `name` type.
+Using **sysio.token** as an example, the only type that requires a description in the ABI file is `account_name`. The ABI uses `new_type_name` to describe explicit types, in this case `account_name`, and `account_name` is an alias of `name` type.
 
 So in the ABI file we'll add the following object
 
@@ -66,7 +65,7 @@ Our ABI now looks like this:
 
 ## Structs
 
-We now need to describe the structs of the token contract. By looking at sysio.token.hpp, we can quickly determine which structs are utilized by public actions. This is particularly important for when we describe our actions in the the ABI file in the next step.
+We now need to describe the structs of the token contract. By looking at `sysio.token.hpp`, we can quickly determine which structs are utilized by public actions. This is particularly important for when we describe our actions in the the ABI file in the next step.
 
 A struct's object definition in JSON looks like the following:
 
@@ -89,9 +88,9 @@ Looking through the `sysio.token` contract, we see a number of structs that requ
 
 ## Implicit Structs
 
-The following structs are implicit in that a struct was never explicitly defined in the contract. Looking at the [create](https://github.com/Wire-Network/wire-system-contracts/blob/master/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L24) action, you'll find two parameters, `issuer` of type `account_name` and `maximum_supply` of type `asset`. For brevity this tutorial won't break down every struct, but applying the same logic, you will end up with the following:
+The following structs are implicit in that a struct was never explicitly defined in the contract. Looking at the [create](https://github.com/Wire-Network/wire-system-contracts/blob/27b56ff6cf36ef6e96670d600eea110e55fc7c15/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L41) action, you'll find two parameters, `issuer` of type `name` and `maximum_supply` of type `asset`. For brevity this tutorial won't break down every struct, but applying the same logic, you will end up with the following:
 
-### [create](https://github.com/Wire-Network/wire-system-contracts/blob/master/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L24)
+### [create](https://github.com/Wire-Network/wire-system-contracts/blob/27b56ff6cf36ef6e96670d600eea110e55fc7c15/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L41)
 
 ```json
 {

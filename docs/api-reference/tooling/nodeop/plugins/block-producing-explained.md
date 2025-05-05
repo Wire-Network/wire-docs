@@ -17,11 +17,11 @@ For simplicity of the explanation let's consider the following notations:
 * `n` = `network tcp/ip latency`
 * `h` = `block header validation time ms`
 
-Peer validation for similar hardware/version/config will be <= `m`
+Peer validation for similar hardware/version/config will be `<= m`
 
 **Let's consider the example of the following two BPs and their network topology as depicted in the below diagram**
 
-```
+```txt
          +------+     +------+       +------+     +------+
       -->| BP-A |---->| BP-A |------>| BP-B |---->| BP-B |
          +------+     | Peer |       | Peer |     +------+

@@ -18,7 +18,7 @@ Navigate the sections below to configure and use `nodeop`.
 * [Plugins](./plugins/index.md) - Using plugins, plugin options, mandatory vs. optional.
 * [Replays](./replays.md) - Replaying the chain from a snapshot or a blocks.log file.
 * [RPC APIs](./nodeop-apis.md) - Remote Procedure Call API reference for plugin HTTP endpoints.
-* [Logging](./logging/index.md) - Logging config/usage, loggers, appenders, logging levels.
+* [Logging](./native-logging.md) - Logging config/usage, loggers, appenders, logging levels.
 * [Concepts](./concepts/index.md) - `nodeop` concepts, explainers, implementation aspects.
 * [Troubleshooting](troubleshooting.md) - Common `nodeop` troubleshooting questions.
 

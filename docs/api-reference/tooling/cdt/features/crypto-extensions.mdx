@@ -20,26 +20,18 @@ In `v3.0`, `C` format was supported; in `v3.1`, `C++` format was added for bette
 
 ## C Format
 
-- `int32_t alt_bn128_add( const char* op1, uint32_t op1_len, const char* op2, uint32_t op2_len, char* result, uint32_t result_len )`
-Perform addition operation on the elliptic curve `alt_bn128`, store the result in `result`, and return `0` if success otherwise `-1`
-- `int32_t alt_bn128_mul( const char* g1, uint32_t g1_len, const char* scalar, uint32_t scalar_len, char* result, uint32_t result_len )`
-Perform scalar multiplication operation on the elliptic curve `alt_bn128`
-- `int32_t alt_bn128_pair( const char* pairs, uint32_t pairs_len )`
-Perform Optimal-Ate pairing check elliptic curve `alt_bn128`, and return `0` if `true` and successful, `1` if `false`,  otherwise `-1`
-- `int32_t mod_exp( const char* base, uint32_t base_len, const char* exp, uint32_t exp_len, const char* mod, uint32_t mod_len, char* result, uint32_t result_len )`
-Calculate `( BASE^EXP ) % MOD`, store in `result`, and return `0` if successful, otherwise `-1`
-- `int32_t blake2_f( uint32_t rounds, const char* state, uint32_t state_len, const char* msg, uint32_t msg_len, const char* t0_offset, uint32_t t0_len, const char* t1_offset, uint32_t t1_len, int32_t final, char* result, uint32_t result_len)`
-Implement BLAKE2 compression function `F`. Return `0` if success otherwise `-1`
-- `sysio::checksum256 sha3(const char* data, uint32_t length)`
-Return hash of `data` using `SHA3 NIST`
-- `void assert_sha3(const char* data, uint32_t length, const sysio::checksum256& hash)`
-Test if the SHA3 hash generated from data matches the provided digest
-- `sysio::checksum256 keccak(const char* data, uint32_t length)`
-Return hash of `data` using `SHA3 Keccak`
-- `void assert_keccak(const char* data, uint32_t length, const sysio::checksum256& hash)
-Test if the SHA3 keccak hash generated from data matches the provided digest
-- `int32_t k1_recover( const char* sig, uint32_t sig_len, const char* dig, uint32_t dig_len, char* pub, uint32_t pub_len )`
-Calculates the uncompressed public key used for a given signature on a given digest. Return `0` if success otherwise `-1`
+| C‑API function | Description | Return |
+| --- | --- | --- |
+| `int32_t alt_bn128_add(const char* op1, uint32_t op1_len,<br />&nbsp;&nbsp;&nbsp;&nbsp;const char* op2, uint32_t op2_len,<br />&nbsp;&nbsp;&nbsp;&nbsp;char* result, uint32_t result_len)` | Add two G1 points on **alt_bn128** and store the serialized result in `result`. | `0` success<br />`‑1` error |
+| `int32_t alt_bn128_mul(const char* g1, uint32_t g1_len,<br />&nbsp;&nbsp;&nbsp;&nbsp;const char* scalar, uint32_t scalar_len,<br />&nbsp;&nbsp;&nbsp;&nbsp;char* result, uint32_t result_len)` | Scalar‑multiply a G1 point by `scalar`; writes serialized G1 (32 B x, 32 B y) to `result`. | `0` success<br />`‑1` error |
+| `int32_t alt_bn128_pair(const char* pairs, uint32_t pairs_len)` | Optimal‑Ate pairing check on **alt_bn128** for the serialized G1/G2 pair list. | `0` pairing = true<br />`1` pairing = false<br />`‑1` error |
+| `int32_t mod_exp(const char* base, uint32_t base_len,<br />&nbsp;&nbsp;&nbsp;&nbsp;const char* exp, uint32_t exp_len,<br />&nbsp;&nbsp;&nbsp;&nbsp;const char* mod, uint32_t mod_len,<br />&nbsp;&nbsp;&nbsp;&nbsp;char* result, uint32_t result_len)` | Compute `(base^exp) mod mod`; big‑int result written to `result`. | `0` success<br />`‑1` error |
+| `int32_t blake2_f(uint32_t rounds,<br />&nbsp;&nbsp;&nbsp;&nbsp;const char* state, uint32_t state_len,<br />&nbsp;&nbsp;&nbsp;&nbsp;const char* msg, uint32_t msg_len,<br />&nbsp;&nbsp;&nbsp;&nbsp;const char* t0, uint32_t t0_len,<br />&nbsp;&nbsp;&nbsp;&nbsp;const char* t1, uint32_t t1_len,<br />&nbsp;&nbsp;&nbsp;&nbsp;int32_t final,<br />&nbsp;&nbsp;&nbsp;&nbsp;char* result, uint32_t result_len)` | BLAKE2b compression function **F**. | `0` success<br />`‑1` error |
+| `sysio::checksum256 sha3(const char* data, uint32_t length)` | Return SHA‑3 (NIST) hash of `data`. | 256‑bit digest |
+| `void assert_sha3(const char* data, uint32_t length,<br />&nbsp;&nbsp;&nbsp;&nbsp;const sysio::checksum256& hash)` | Abort if `sha3(data)` ≠ `hash`. | — |
+| `sysio::checksum256 keccak(const char* data, uint32_t length)` | Return SHA‑3 **Keccak** hash of `data`. | 256‑bit digest |
+| `void assert_keccak(const char* data, uint32_t length,<br />&nbsp;&nbsp;&nbsp;&nbsp;const sysio::checksum256& hash)` | Abort if `keccak(data)` ≠ `hash`. | — |
+| `int32_t k1_recover(const char* sig, uint32_t sig_len,<br />&nbsp;&nbsp;&nbsp;&nbsp;const char* dig, uint32_t dig_len,<br />&nbsp;&nbsp;&nbsp;&nbsp;char* pub, uint32_t pub_len)` | Recover uncompressed secp256k1 public key from signature `sig` over digest `dig`; writes key to `pub`. | `0` success<br />`‑1` error |
 
 ## C++ Format
 
