@@ -91,7 +91,7 @@ function Footer(): JSX.Element | null {
           Terms of Service
         </a>
         <p className="font-body text-[10px] text-white">
-          © 2024 Wire Network. All Rights Reserved
+          © 2025 Wire Network. All Rights Reserved
         </p>
       </div>
     </div>

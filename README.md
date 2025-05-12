@@ -44,7 +44,7 @@ npm clear
       <a href="https://www.wire.network/">Website</a> |
       <a href="https://x.com/wire_blockchain">Twitter</a> |
       <a href="https://www.linkedin.com/company/wire-network-blockchain/">LinkedIn</a><br>
-      © 2024 Wire Network. All rights reserved.
+      © 2025 Wire Network. All rights reserved.
     </td>
   </tr>
 </table

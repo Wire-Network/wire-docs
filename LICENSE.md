@@ -1,5 +1,5 @@
 Wire Network <br/>
-Copyright (c) 2024 WIRE NETWORK, INC. and its contributors. All Rights Reserved.
+Copyright (c) 2025 WIRE NETWORK, INC. and its contributors. All Rights Reserved.
 
 ---
 
@@ -11,7 +11,7 @@ FSL-1.1-Apache-2.0
 
 ## Notice
 
-Copyright 2024 WIRE NETWORK, INC.
+Copyright 2025 WIRE NETWORK, INC.
 
 ## Terms and Conditions
 
