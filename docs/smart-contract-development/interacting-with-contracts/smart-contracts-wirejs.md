@@ -26,7 +26,7 @@ Once installed, you can use it like:
 nvm use 18.18.0 
 ```
 
-This tutorial uses [EOS Authority Block Explorer](https://eosauthority.com/), but you can use [Wire Hub](https://hub.wire.foundation).
+This tutorial uses [EOS Authority Block Explorer](https://eosauthority.com/), but you can use [Wire Hub](https://hub.wire.network).
 
 :::warning[REMINDER]
 The install process has already set up the wallet for the *root* user. To interact with clio, ensure **you are on the root user**. Run `sudo su -` to switch to the root user before proceeding with the tutorial.

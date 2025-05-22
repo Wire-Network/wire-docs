@@ -20,12 +20,27 @@ clio get schedule
 
 This command simply returns the current producer schedule.
 
-```console
-active schedule version 1
-    Producer      Producer Authority
-    ============= ==================
-    alpha         {"threshold":1,"keys":[{"key":"SYS6stkNi....","weight":1}]}
-    beta          {"threshold":1,"keys":[{"key":"SYS8Z8Xj4....","weight":1}]}
-    charlie       {"threshold":1,"keys":[{"key":"SYS5zB5kY....","weight":1}]}
-    delta         {"threshold":1,"keys":[{"key":"SYS74fmHz....","weight":1}]}
+```json
+{
+  "active": {
+    "version": 3,
+    "producers": [
+      {
+        "producer_name": "alpha",
+        "authority": [
+          0,
+          {
+            "threshold": 1,
+            "keys": [
+              {
+                "key": "SYS6stkNixNfrWSzduips3XaQE47XZAXGv89Gbquqsrpm5zP6ExVB",
+                "weight": 1
+              }
+            ]
+          }
+        ]
+      },
+      ...
+    ]
+  }
 ```

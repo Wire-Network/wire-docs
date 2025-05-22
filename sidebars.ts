@@ -203,7 +203,6 @@ const sidebars: SidebarsConfig = {
                   items: [
                     "api-reference/tooling/clio/command-reference/get/abi",
                     "api-reference/tooling/clio/command-reference/get/account",
-                    "api-reference/tooling/clio/command-reference/get/actions",
                     "api-reference/tooling/clio/command-reference/get/block",
                     "api-reference/tooling/clio/command-reference/get/code",
                     "api-reference/tooling/clio/command-reference/get/currency-balance",

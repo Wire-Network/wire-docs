@@ -25,7 +25,7 @@ clio get code sysio.token
 ```
 
 ```console
-code hash: f675e7aeffbf562c033acfaf33eadff255dacb90d002db51c7ad7cbf057eb791
+code hash: 92d0fa227e2ebe492d40f88ed12ad0ebab627080830727c5b0c0021246e58955
 ```
 
 - To retrieve and save contract's ABI to a file, run:
@@ -35,7 +35,7 @@ clio get code sysio.token -a sysio.token.abi
 ```
 
 ```console
-code hash: f675e7aeffbf562c033acfaf33eadff255dacb90d002db51c7ad7cbf057eb791
+code hash: 92d0fa227e2ebe492d40f88ed12ad0ebab627080830727c5b0c0021246e58955
 saving abi to sysio.token.abi
 ```
 
@@ -46,6 +46,6 @@ clio get code sysio.token -c sysio.token.wast
 ```
 
 ```console
-code hash: f675e7aeffbf562c033acfaf33eadff255dacb90d002db51c7ad7cbf057eb791
+code hash: 92d0fa227e2ebe492d40f88ed12ad0ebab627080830727c5b0c0021246e58955
 saving wast to sysio.token.wast
 ```

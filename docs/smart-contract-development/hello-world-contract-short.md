@@ -153,4 +153,4 @@ CLI output:
 
 ### Inspect the contract on Wire Hub Block Explorer
 
-Feel free to explore your contract on [Wire Hub Block Explorer](https://hub.wire.foundation). Use this [guide](/docs/wire-hub/connect-to-a-rpc.md) to connect to your chain and inspect the contract.
+Feel free to explore your contract on [Wire Hub Block Explorer](https://hub.wire.network). Use this [guide](/docs/wire-hub/connect-to-a-rpc.md) to connect to your chain and inspect the contract.
