@@ -1,3 +1,8 @@
+---
+id: list
+title: list
+---
+
 ## Description
 
 Lists opened wallets, * = unlocked

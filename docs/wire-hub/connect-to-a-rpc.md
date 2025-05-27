@@ -12,18 +12,18 @@ This tool is an invaluable for monitoring a network's transactions and observing
 
 ### Step 1: Access Wire Hub
 
-Begin by navigating to the [Wire Hub](https://explore.wire.foundation) website.
+Begin by navigating to the [Wire Hub](https://hub.wire.network) website.
 
 import BrowserWindow from '@site/src/components/BrowserWindow';
 
-<BrowserWindow url="https://explore.wire.foundation/">
+<BrowserWindow url="https://hub.wire.network/">
       <img src="/img/hub.png" alt="=hub page" />
 
  </BrowserWindow>
 
 ### Step 2: Add Network
 
-<BrowserWindow url="https://explore.wire.foundation/">
+<BrowserWindow url="https://hub.wire.network/">
       <img src="/img/hub-change-network.png" alt="add-network" />
 
  </BrowserWindow>
@@ -32,7 +32,7 @@ import BrowserWindow from '@site/src/components/BrowserWindow';
 
 Enter your network details and click *Add Network*.
 
-<BrowserWindow url="https://explore.wire.foundation/">
+<BrowserWindow url="https://hub.wire.network/">
       <img src="/img/hub-connect-to-a-local-network.png" alt="new-network-details" />
 
  </BrowserWindow>

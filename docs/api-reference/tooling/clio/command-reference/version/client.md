@@ -11,3 +11,9 @@ none
 ```sh
 clio version client
 ```
+
+Ouput:
+
+```sh
+v5.1.0
+```

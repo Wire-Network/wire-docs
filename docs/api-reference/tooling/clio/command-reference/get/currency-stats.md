@@ -30,8 +30,8 @@ clio get currency stats sysio.token SYS
 ```json
 {
   "SYS": {
-    "supply": "1000000000.0000 SYS",
-    "max_supply": "10000000000.0000 SYS",
+    "supply": "75496.0000 SYS",
+    "max_supply": "75496.0000 SYS",
     "issuer": "sysio"
   }
 }

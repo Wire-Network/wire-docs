@@ -28,7 +28,6 @@
 - **`--signature-cpu-billable-pct arg`**: Percentage of actual signature recovery cpu to bill (default: 50).
 - **`--chain-threads arg`**: Number of worker threads in controller thread pool (default: 2).
 - **`--contracts-console`**: Print contract's output to console.
-- **`--deep-mind`**: Print deeper information about chain operations.
 - **`--actor-whitelist arg`**: Account added to actor whitelist (can specify multiple times).
 - **`--actor-blacklist arg`**: Account added to actor blacklist (can specify multiple times).
 - **`--contract-whitelist arg`**: Contract account added to contract whitelist (can specify multiple times).

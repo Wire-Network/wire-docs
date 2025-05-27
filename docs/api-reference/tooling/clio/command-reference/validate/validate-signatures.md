@@ -26,46 +26,48 @@ clio validate signatures [OPTIONS] transaction
 
 ## Example
 
+If you need the create a signed transaction, see [this example](/docs/api-reference/tooling/clio/command-reference/push/push-transactions#create-the-signed-json-transactions).
+
+Assuming you have a signed transaction:
+
 ```json
 {
-  "expiration": "2020-04-23T04:47:23",
-  "ref_block_num": 20,
-  "ref_block_prefix": 3872940040,
+  "expiration": "2025-05-27T18:57:56",
+  "ref_block_num": 25537,
+  "ref_block_prefix": 2094524613,
   "max_net_usage_words": 0,
   "max_cpu_usage_ms": 0,
   "delay_sec": 0,
   "context_free_actions": [],
-  "actions": [
-    {
+  "actions": [{
       "account": "sysio",
-      "name": "voteproducer",
-      "authorization": [
-        {
-          "actor": "initb",
+      "name": "newaccount",
+      "authorization": [{
+          "actor": "sysio",
           "permission": "active"
         }
       ],
-      "data": "000000008093dd74000000000000000001000000008093dd74"
+      "data": "0000000000eab0c70000000050e4a24101000000010002c0ded2bc1f1305fb0faac5e6c03ee3a1924234985427b6167ca569d13df435cf0100000001000000010002c0ded2bc1f1305fb0faac5e6c03ee3a1924234985427b6167ca569d13df435cf01000000"
     }
   ],
   "transaction_extensions": [],
   "signatures": [
-    "SIG_K1_Jy81u5yWSE4vGET1cm9TChKrzhAz4QE2hB2pWnUsHQExGafqhVwXtg7a7mbLZwXcon8bVQJ3J5jtZuecJQADTiz2kwcm7c"
+    "SIG_K1_K1a79tBD8rYBZjYD1BdQHqkNa5z8FeoEuTEMFG95xhXw3CVSyTZE3eomUQgZxWDwt9AFyZpVd4RK1j93nT1YFXBsxoDZmT"
   ],
   "context_free_data": []
 }
 ```
 
+To validate the signatures, run:
+
 ```sh
-clio validate signatures --chain-id cf057bbfb72640471fd910bcb67639c22df9f92470936cddc1ade0e2f2e7dc4f '{ "expiration": "2020-04-23T04:47:23", "ref_block_num": 20, "ref_block_prefix": 3872940040, 
-"max_net_usage_words": 0, "max_cpu_usage_ms": 0, "delay_sec": 0, "context_free_actions": [], "actions": [ { "account": "sysio", "name": "voteproducer", "authorization": [ { "actor": "initb", "permission": "active" } ], "data": "000000008093dd74000000000000000001000000008093dd74" } ], "transaction_extensions": [], "signatures": [ "SIG_K1_Jy81u5yWSE4vGET1cm9TChKrzhAz4QE2hB2pWnUsHQExGafqhVwXtg7a7mbLZwXcon8bVQJ3J5jtZuecJQADTiz2kwcm7c" ], "context_free_data": [] }'
+clio validate signatures --chain-id 36f1517f04abdb122eb261484d43a45f9bf6b5af6e120dcc351690d55572d33a '{"expiration":"2025-05-27T18:57:56","ref_block_num":25537,"ref_block_prefix":2094524613,"max_net_usage_words":0,"max_cpu_usage_ms":0,"delay_sec":0,"context_free_actions":[],"actions":[{"account":"sysio","name":"newaccount","authorization":[{"actor":"sysio","permission":"active"}],"data":"0000000000eab0c70000000050e4a24101000000010002c0ded2bc1f1305fb0faac5e6c03ee3a1924234985427b6167ca569d13df435cf0100000001000000010002c0ded2bc1f1305fb0faac5e6c03ee3a1924234985427b6167ca569d13df435cf01000000"}],"transaction_extensions":[],"signatures":["SIG_K1_K1a79tBD8rYBZjYD1BdQHqkNa5z8FeoEuTEMFG95xhXw3CVSyTZE3eomUQgZxWDwt9AFyZpVd4RK1j93nT1YFXBsxoDZmT"],"context_free_data":[]}'
 ```
 
 or
 
 ```sh
-clio -u https://api.testnet.eos.io validate signatures '{ "expiration": "2020-04-23T04:47:23", "ref_block_num": 20, "ref_block_prefix": 3872940040, 
-"max_net_usage_words": 0, "max_cpu_usage_ms": 0, "delay_sec": 0, "context_free_actions": [], "actions": [ { "account": "sysio", "name": "voteproducer", "authorization": [ { "actor": "initb", "permission": "active" } ], "data": "000000008093dd74000000000000000001000000008093dd74" } ], "transaction_extensions": [], "signatures": [ "SIG_K1_Jy81u5yWSE4vGET1cm9TChKrzhAz4QE2hB2pWnUsHQExGafqhVwXtg7a7mbLZwXcon8bVQJ3J5jtZuecJQADTiz2kwcm7c" ], "context_free_data": [] }'
+clio -u http://localhost:8888 validate signatures '{"expiration":"2025-05-27T18:57:56","ref_block_num":25537,"ref_block_prefix":2094524613,"max_net_usage_words":0,"max_cpu_usage_ms":0,"delay_sec":0,"context_free_actions":[],"actions":[{"account":"sysio","name":"newaccount","authorization":[{"actor":"sysio","permission":"active"}],"data":"0000000000eab0c70000000050e4a24101000000010002c0ded2bc1f1305fb0faac5e6c03ee3a1924234985427b6167ca569d13df435cf0100000001000000010002c0ded2bc1f1305fb0faac5e6c03ee3a1924234985427b6167ca569d13df435cf01000000"}],"transaction_extensions":[],"signatures":["SIG_K1_K1a79tBD8rYBZjYD1BdQHqkNa5z8FeoEuTEMFG95xhXw3CVSyTZE3eomUQgZxWDwt9AFyZpVd4RK1j93nT1YFXBsxoDZmT"],"context_free_data":[]}'
 ```
 
 ## Output

@@ -1,3 +1,8 @@
+---
+id: create
+title: create
+---
+
 ## Description
 
 Creates a wallet with the specified name. If no name is given, the wallet will be created with the name 'default'
@@ -16,15 +21,6 @@ None
 
 clio wallet create [OPTIONS]
 
-**Where**
-- [OPTIONS] = See Options in  [Command Usage](#command-usage) section below.
-
-**Note**: The arguments and options enclosed in square brackets are optional.
-
-## Description
-
-Create a new wallet locally.
-
 ## Command Usage
 
 The following information shows the different positionals and options you can use with the `clio wallet create` command:
@@ -42,7 +38,7 @@ The following information shows the different positionals and options you can us
 
 ## Requirements
 
-* Install the currently supported version of `clio` and `kiod`.
+- Install the currently supported version of `clio` and `kiod`.
 
 :::note
 | The `clio` tool is bundled with the Wire software. [Installing Wire core](/docs/getting-started/install-dependencies.md) will install the `clio` and `kiod` command line tools.

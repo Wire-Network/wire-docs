@@ -30,5 +30,5 @@ clio get currency balance sysio.token sysio SYS
 ```
 
 ```console
-999999920.0000 SYS
+75496.0000 SYS
 ```

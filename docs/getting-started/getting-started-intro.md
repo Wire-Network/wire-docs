@@ -16,7 +16,7 @@ The diagram below serves as a comprehensive roadmap, detailing the *sequential s
 
 :::
 
-![infographic](/img/infographic1.png)
+![infographic](/img/infographic.png)
 
 ## Supported Operating Systems
 
@@ -58,13 +58,13 @@ We recommend using an Integrated Development Environment (IDE) rather than a tex
 
 :::info[NOTE]
 
-The resources mentioned above are developed, offered, and maintained _by third parties_, **not** by Wire Network. Sharing information, materials, or commentaries about these third-party resources does not constitute an endorsement or recommendation by us. We disclaim any responsibility or liability for your use of or reliance on these resources. Third-party resources may be updated, changed, or terminated at any time, which could render the information below outdated or inaccurate. Your use and reliance on these resources are entirely at your own risk.
+The resources mentioned above are developed, offered, and maintained *by third parties*, **not** by Wire Network. Sharing information, materials, or commentaries about these third-party resources does not constitute an endorsement or recommendation by us. We disclaim any responsibility or liability for your use of or reliance on these resources. Third-party resources may be updated, changed, or terminated at any time, which could render the information below outdated or inaccurate. Your use and reliance on these resources are entirely at your own risk.
 
 :::
 
 ## What You Will Learn
 
-- [Manage wallets and keys](./create-development-wallet.md)
+- [Manage wallets and keys](./manage-local-wallet-with-clio.md)
 - [Create accounts](./create-development-accounts.md)
 - [Write your first contract](../smart-contract-development/hello-world-contract-short.md#1-clone-the-contract-repository)
 - [Compilation and ABI](../smart-contract-development/hello-world-contract-short.md#2-compile-the-contract)

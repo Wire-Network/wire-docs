@@ -1,3 +1,8 @@
+---
+id: lock
+title: lock
+---
+
 ## Description
 
 Locks a wallet

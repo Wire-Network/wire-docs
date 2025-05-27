@@ -49,7 +49,7 @@ clio get table sysio.token sysio accounts
 ```json
 {
   "rows": [{
-      "balance": "999999920.0000 SYS"
+      "balance": "75496.0000 SYS"
     }
   ],
   "more": false,

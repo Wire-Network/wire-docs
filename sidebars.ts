@@ -45,7 +45,7 @@ const sidebars: SidebarsConfig = {
       items: [
         "getting-started/core-components",
         "getting-started/install-dependencies",
-        "getting-started/create-development-wallet",
+        "getting-started/manage-local-wallet-with-clio",
         "getting-started/create-development-accounts",
       ],
     },
@@ -203,7 +203,6 @@ const sidebars: SidebarsConfig = {
                   items: [
                     "api-reference/tooling/clio/command-reference/get/abi",
                     "api-reference/tooling/clio/command-reference/get/account",
-                    "api-reference/tooling/clio/command-reference/get/actions",
                     "api-reference/tooling/clio/command-reference/get/block",
                     "api-reference/tooling/clio/command-reference/get/code",
                     "api-reference/tooling/clio/command-reference/get/currency-balance",
@@ -464,9 +463,7 @@ const sidebars: SidebarsConfig = {
                 "api-reference/tooling/nodeop/plugins/db-size-api-plugin",
                 "api-reference/tooling/nodeop/plugins/history-api-plugin",
                 "api-reference/tooling/nodeop/plugins/history-plugin",
-                "api-reference/tooling/nodeop/plugins/http-client-plugin",
                 "api-reference/tooling/nodeop/plugins/http-plugin",
-                "api-reference/tooling/nodeop/plugins/login-plugin",
                 "api-reference/tooling/nodeop/plugins/net-api-plugin",
                 "api-reference/tooling/nodeop/plugins/net-plugin",
                 "api-reference/tooling/nodeop/plugins/producer-api-plugin",
@@ -474,7 +471,6 @@ const sidebars: SidebarsConfig = {
                 "api-reference/tooling/nodeop/plugins/resource-monitor-plugin",
                 "api-reference/tooling/nodeop/plugins/state-history-plugin",
                 "api-reference/tooling/nodeop/plugins/trace-api-plugin",
-                "api-reference/tooling/nodeop/plugins/txn-test-gen-plugin",
               ],
             },
             {
@@ -482,33 +478,9 @@ const sidebars: SidebarsConfig = {
               label: "Logging",
               link: {
                 type: "doc",
-                id: "api-reference/tooling/nodeop/logging/index",
+                id: "api-reference/tooling/nodeop/native-logging",
               },
-              items: [
-                {
-                  type: "category",
-                  label: "Native Logging",
-                  link: {
-                    type: "doc",
-                    id: "api-reference/tooling/nodeop/logging/native-logging/index",
-                  },
-                  items: [
-                    "api-reference/tooling/nodeop/logging/native-logging/setup-logging.json",
-                    "api-reference/tooling/nodeop/logging/native-logging/logging-levels",
-                  ],
-                },
-                {
-                  type: "category",
-                  label: "Third-Party Logging",
-                  link: {
-                    type: "doc",
-                    id: "api-reference/tooling/nodeop/logging/third-party-logging/index",
-                  },
-                  items: [
-                    "api-reference/tooling/nodeop/logging/third-party-logging/deep-mind-logger",
-                  ],
-                },
-              ],
+              items: [],
             },
             "api-reference/tooling/nodeop/replays",
             {
@@ -540,10 +512,7 @@ const sidebars: SidebarsConfig = {
             {
               type: "category",
               label: "Features",
-              items: [
-                "api-reference/tooling/cdt/features/binary-extension",
-                "api-reference/tooling/cdt/features/return-values-from-actions",
-              ],
+              items: ["api-reference/tooling/cdt/features/binary-extension"],
             },
             {
               type: "category",
@@ -580,7 +549,6 @@ const sidebars: SidebarsConfig = {
             "api-reference/system-contracts/contracts/sysio.roa",
             "api-reference/system-contracts/build-and-deploy",
             // "api-reference/system-contracts/how-to-guides/how-to-buy-ram",
-            "api-reference/system-contracts/how-to-guides/how-to-create-issue-and-transfer-a-token",
             // "api-reference/system-contracts/how-to-guides/how-to-stake",
             // "api-reference/system-contracts/how-to-guides/how-to-vote",
             // "api-reference/system-contracts/how-to-guides/upgrading-the-sysio.system-contract",
@@ -588,18 +556,18 @@ const sidebars: SidebarsConfig = {
             "api-reference/system-contracts/how-to-guides/how-to-sign-a-multisig-transaction-with-sysio.msig",
           ],
         },
-        {
-          type: "category",
-          label: "Utilities",
-          link: {
-            type: "doc",
-            id: "api-reference/tooling/utilities/index",
-          },
-          items: [
-            "api-reference/tooling/utilities/sysio-blocklog",
-            "api-reference/tooling/utilities/trace-api-util",
-          ],
-        },
+        // {
+        //   type: "category",
+        //   label: "Utilities",
+        //   link: {
+        //     type: "doc",
+        //     id: "api-reference/tooling/utilities/index",
+        //   },
+        //   items: [
+        //     "api-reference/tooling/utilities/sysio-blocklog",
+        //     "api-reference/tooling/utilities/trace-api-util",
+        //   ],
+        // },
       ],
     },
   ],
@@ -625,6 +593,7 @@ const sidebars: SidebarsConfig = {
         "guides/how-to-get-account-information",
         "guides/hello-world-video-testnet",
         "guides/how-to-return-values-from-actions",
+        "guides/working-with-different-action-return-types",
       ],
     },
   ],

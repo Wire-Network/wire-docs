@@ -8,4 +8,4 @@
 | RPC URL          | [https://testnet-00.wire.foundation/](https://testnet-00.wire.foundation/) |
 | Hyperion         | [https://testnet-hyperion.wire.foundation/](https://testnet-hyperion.wire.foundation/) |
 | Hyperion Swagger UI Index | [https://testnet-hyperion.wire.foundation/v2/docs/static/index.html](https://testnet-hyperion.wire.foundation/v2/docs/static/index.html)
-| Explorer         | [https://explore.wire.foundation/](https://explore.wire.foundation) |
+| Explorer         | [https://hub.wire.network/](https://hub.wire.network) |

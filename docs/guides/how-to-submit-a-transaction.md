@@ -18,7 +18,7 @@ The steps below assume you have access to a **local chain** and you have authori
 :::
 
 :::warning[REMINDER]
-The install process sets up the wallet for the *root* user. To interact with clio, ensure **you are on the root user**. Run `sudo su -` to switch to the root user.
+The install process has already set up the wallet for the *root* user. To interact with clio, ensure **you are on the root user**. Run `sudo su -` to switch to the root user.
 :::
 
 ## Steps to submit a transaction(via `clio push action`)
@@ -33,7 +33,15 @@ Transfer token by pushing action on `sysio.transfer` contract.
 clio wallet unlock --name=default --password "$(cat /path/to/wallet_password_file)"
 ```
 
+Or use the install script:
+
+```sh
+/opt/wire-network/unlock_wallet.sh
+```
+
 ### Create an account
+
+You can use any public key you want. Use `clio create key --file test.txt` to generate a new key pair or use the [development key pair](/docs/getting-started/manage-local-wallet-with-clio.md#import-the-development-key).
 
 ```sh
 export PUBLIC_KEY=<your-pub-key>

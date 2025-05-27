@@ -43,7 +43,7 @@ The command above is one way of sending correctly `get` action with no parameter
 
 ```console
 error 2019-09-25T07:38:14.859 thread-0  main.cpp:3449                 main                 ] Failed with error: Assert Exception (10)
-!action_type.empty(): Unknown action action_name in contract eostutorial1
+!action_type.empty(): Unknown action action_name in contract tutorial1
 ```
 
 __Possible solution__: Verify if the action attribute `[[sysio::action]]` is used when defining and/or declaring the action `action_name` for the contract.

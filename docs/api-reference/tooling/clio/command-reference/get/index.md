@@ -18,7 +18,7 @@ Retrieves various items and information from the blockchain
 - [scope](./scope.md) - Retrieve a list of scopes and tables owned by a contract
 - [currency stats](./currency-stats.md) - Retrieve information related to standard currencies
 - [currency stats](./currency-balance.md) - Retrieve currency balance info
-- [actions](./actions.md) - Retrieve all actions with specific account name referenced in authorization or receiver
+receiver
 - [schedule](./schedule.md) - Retrieve the producer schedule
 - [accounts](./deprecated/accounts.md) - Retrieve accounts associated with a public key
 - [transaction-status](./transaction-status.md) - Retrieve the producer schedule

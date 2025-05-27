@@ -40,6 +40,4 @@ Pruning of context-free data only allows light block validation between trusted 
 * Peer-to-peer synchronization of blocks with removed context-free data from applicable transactions
 * Tool support for the actual CFD pruning within the irreversible blocks log and the state history plugin trace log
 
-:::info[Pruning Tool]
-| Node operators can perform the pruning of context-free data within a given transaction by using the [`sysio-blocklog`](../../utilities/sysio-blocklog.md) utility. For instructions on using this tool for CFD pruning, see [How to prune context-free data](../how-to/how-to-prune-context-free-data.md).
-:::
+::: -->

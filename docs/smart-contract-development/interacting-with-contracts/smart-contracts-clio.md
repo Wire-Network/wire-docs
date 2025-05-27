@@ -18,7 +18,7 @@ In the article you’ll learn how to execute actions on a contract with the `cli
 - Two new accounts `jack` and `nick`
 
 :::warning[REMINDER]
-The install process sets up the wallet for the *root* user. To interact with clio, ensure **you are on the root user**. Run `sudo su -` to switch to the root user and before proceeding with the tutorial.
+The install process has already set up the wallet for the *root* user. To interact with clio, ensure **you are on the root user**. Run `sudo su -` to switch to the root user before proceeding with the tutorial.
 :::
 
 ```sh

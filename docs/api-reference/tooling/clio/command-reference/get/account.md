@@ -37,24 +37,36 @@ clio get account sysio
 **Example Output**
 
 ```console
+created: <TIMESTAMP>
 privileged: true
 permissions: 
-     owner     1:    1 SYS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
-        active     1:    1 SYS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+     owner     1:    1 SYS5w4U1ZtLDWR1542shagcmT2kh8rDpQWJXS9AVcpvnzNtaAqC7v
+        active     1:    1 SYS5w4U1ZtLDWR1542shagcmT2kh8rDpQWJXS9AVcpvnzNtaAqC7v
+
+permission links: 
+     sysio.any: 
+
 memory: 
-     quota:        -1 bytes  used:      1.22 Mb   
+     quota:     449.3 MiB    used:      3.78 MiB  
 
-net bandwidth: (averaged over 3 days)
-     used:                -1 bytes
-     available:           -1 bytes
-     limit:               -1 bytes
+net bandwidth: 
+     used:               unlimited
+     available:          unlimited
+     limit:              unlimited
 
-cpu bandwidth: (averaged over 3 days)
-     used:                -1 us
-     available:           -1 us   
-     limit:               -1 us   
+cpu bandwidth:
+     used:               unlimited
+     available:          unlimited
+     limit:              unlimited
 
-producers:     <not voted>
+subjective cpu bandwidth:
+     used:                 0 us   
+
+SYS balances: 
+     liquid:        75496.0000 SYS
+     staked:            0.0000 SYS
+     unstaking:         0.0000 SYS
+     total:         75496.0000 SYS
 ```
 
 ---
@@ -70,64 +82,72 @@ clio get account sysio --json
 ```json
 {
   "account_name": "sysio",
+  "head_block_num": 2212,
+  "head_block_time": "2025-05-20T19:44:49.500",
   "privileged": true,
-  "last_code_update": "2018-05-23T18:00:25.500",
-  "created": "2018-03-02T12:00:00.000",
-  "ram_quota": -1,
+  "last_code_update": "2025-05-20T19:27:42.000",
+  "created": "2025-05-20T19:26:23.000",
+  "core_liquid_balance": "75496.0000 SYS",
+  "ram_quota": 471084640,
   "net_weight": -1,
   "cpu_weight": -1,
   "net_limit": {
     "used": -1,
     "available": -1,
-    "max": -1
+    "max": -1,
+    "last_usage_update_time": "2025-05-20T19:44:49.500",
+    "current_used": -1
   },
   "cpu_limit": {
     "used": -1,
     "available": -1,
-    "max": -1
+    "max": -1,
+    "last_usage_update_time": "2025-05-20T19:44:49.500",
+    "current_used": -1
   },
-  "ram_usage": 1279625,
+  "ram_usage": 3963583,
   "permissions": [{
       "perm_name": "active",
       "parent": "owner",
       "required_auth": {
         "threshold": 1,
         "keys": [{
-            "key": "SYS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+            "key": "SYS5w4U1ZtLDWR1542shagcmT2kh8rDpQWJXS9AVcpvnzNtaAqC7v",
             "weight": 1
           }
         ],
         "accounts": [],
         "waits": []
-      }
+      },
+      "linked_actions": []
     },{
       "perm_name": "owner",
       "parent": "",
       "required_auth": {
         "threshold": 1,
         "keys": [{
-            "key": "SYS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+            "key": "SYS5w4U1ZtLDWR1542shagcmT2kh8rDpQWJXS9AVcpvnzNtaAqC7v",
             "weight": 1
           }
         ],
         "accounts": [],
         "waits": []
-      }
+      },
+      "linked_actions": []
     }
   ],
   "total_resources": null,
-  "delegated_bandwidth": null,
-  "voter_info": {
-    "owner": "sysio",
-    "proxy": "",
-    "producers": [],
-    "staked": 0,
-    "last_vote_weight": "0.00000000000000000",
-    "proxied_vote_weight": "0.00000000000000000",
-    "is_proxy": 0,
-    "deferred_trx_id": 0,
-    "last_unstake_time": "1970-01-01T00:00:00",
-    "unstaking": "0.0000 SYS"
-  }
+  "self_delegated_bandwidth": null,
+  "refund_request": null,
+  "voter_info": null,
+  "rex_info": null,
+  "subjective_cpu_bill_limit": {
+    "used": 0,
+    "available": 0,
+    "max": 0,
+    "last_usage_update_time": "2000-01-01T00:00:00.000",
+    "current_used": 0
+  },
+  "sysio_any_linked_actions": []
 }
 ```

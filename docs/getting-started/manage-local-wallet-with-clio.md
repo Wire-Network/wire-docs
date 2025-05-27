@@ -1,7 +1,9 @@
 ---
 sidebar_position: 2
-id: create-development-wallet
-title: Create Development Wallet
+id: manage-local-wallet-with-clio
+title: Manage Local Wallet with clio
+
+
 ---
 
 
@@ -10,34 +12,14 @@ title: Create Development Wallet
 - You have successfully installed Wire Sysio and Wire CDT on your computer and you have a local chain running. See [Install Dependencies & Start a local node](./install-dependencies.md) article.
 
 :::warning[REMINDER]
-The install process sets up the wallet for the *root* user. To interact with clio, ensure **you are on the root user**. Run `sudo su -` to switch to the root user and before proceeding with the tutorial.
+The install process has already set up the wallet for the *root* user. To interact with clio, ensure **you are on the root user**. Run `sudo su -` to switch to the root user before proceeding with the tutorial.
 :::
 
 ## Overview
 
 Wallets store public-private key pairs, which are needed for signing operations performed on the blockchain. They can be accessed through the use of `clio` command line tool. This section explains how to create, manage, and unlock wallets using the `clio` CLI, including generating and importing keys into wallets. For more information on `clio` commands and usage, refer to [clio's CLI Reference](../api-reference/tooling/clio/command-reference/index.md).
 
-<!-- ## Prerequisites -->
-
-## Create a Wallet
-
-To create a wallet using `clio`, you can either print the password to the console or save it in a specific file. For simplicity and recommended **only for development**, use the `--to-console` option:
-
-```bash
-clio wallet create --to-console
-```
-
-:::tip
-For production environments, it is recommended to use the `--file` option to avoid having your wallet password recorded in your bash history.
-:::
-
-```bash
-clio wallet create --file my-secret-pass.txt
-```
-
-In both cases, ensure you save the password securely, as it will be needed later in the tutorial.
-
-> **Note the location of `my-secret-pass.txt`. You will need it later**.
+We have already created a wallet during the installation process. This is the `default` wallet. You can [create additional wallets](#create-a-wallet) if you want to keep your keys separate, giving you greater control over how different key sets are managed.
 
 ## Open the Wallet
 
@@ -53,7 +35,7 @@ Run the following to return a list of wallets.
 clio wallet list
 ```
 
-and it will return
+Output:
 
 ```bash
 Wallets:
@@ -70,9 +52,17 @@ The `kiod` wallet(s) have been opened, but is still locked.
 clio wallet unlock
 ```
 
-You will be prompted for your wallet password you saved earlier, paste it and press enter. You could also use a one-liner below:
+You will be prompted for your wallet password that was saved when the wallet was first created (during installation process with `wire-cli`), paste it and press enter.:
 
-`clio wallet unlock --password $(cat /path/to/password_file)`
+```sh
+clio wallet unlock --password $(cat /opt/wire-network/secrets/wallet_password.txt)
+```
+
+You could also use the unlock script:
+
+```sh
+/opt/wire-network/unlock_wallet.sh
+```
 
 Execute the command below:
 
@@ -91,9 +81,9 @@ Wallets:
 
 The asterisk (\*) next to the name means that the wallet is currently *unlocked*.
 
-## Import keys into your wallet​
+## Create and Import keys into your wallet​
 
-To generating a key pair directly within the wallet, you could use `clio wallet create_key` command.
+To generate a key pair directly within the wallet, you could use `clio wallet create_key` command.
 
 ```bash
 clio wallet create_key
@@ -103,6 +93,12 @@ Output:
 
 ```bash
 Created new private key with a public key of: "SYS8PEJ5FM42xLpHK...X6PymQu97KrGDJQY5Y"
+```
+
+You can check your key pairs with the following command:
+
+```sh
+clio wallet private_keys --password "$(cat /opt/wire-network/secrets/wallet_password.txt)"
 ```
 
 :::warning[IMPORTANT]
@@ -115,15 +111,25 @@ You could set it as environment variable:
 
 :::
 
+---
+
 ## Import the Development Key​
 
 Every new Wire chain has a default system user called `sysio`. This account is used to setup the chain by deploying system contracts that handle essential functions related to resource management, governance and consensus of the chain. Every new Wire chain also comes with a development key, and this key is the same and it is used to sign transactions on behalf of the `sysio` user.
+
+:::info[NOTE]
+`wire-cli` has already generated— and securely stored a unique `sysio` key at
+/opt/wire-network/secrets/sysio_key.txt.
+:::
+
+You can still use the development key for testing purposes and creating new accounts, which we will explore in future tutorials.
+To import the development key into your wallet, run the following command:
 
 ```bash
 clio wallet import
 ```
 
-You'll be prompted for a private key, enter the `sysio` development key provided below:
+You'll be prompted for a private key, enter the private key below:
 
 ```bash
 5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
@@ -136,6 +142,22 @@ Public key: SYS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
 **Never use the development key for a production account!** Doing so will most certainly result in the loss of access to your account.
 
 :::
+
+## Create a Wallet
+
+To create a wallet using `clio`, you can either print the password to the console or save it in a specific file. For simplicity and recommended **only for development**, use the `--to-console` option:
+
+```bash
+clio wallet create --name=extra-wallet --to-console
+```
+
+:::tip
+For production environments, it is strongly recommended to use the `--file` option to avoid having your wallet password recorded in your shell history.
+:::
+
+```bash
+clio wallet create --name=extra-wallet --file my-secret-pass.txt
+```
 
 ## Reference
 
