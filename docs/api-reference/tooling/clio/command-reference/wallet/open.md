@@ -1,3 +1,8 @@
+---
+id: open
+title: open
+---
+
 ## Description
 
 Opens an existing wallet

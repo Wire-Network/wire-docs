@@ -1,3 +1,8 @@
+---
+id: sign
+title: sign
+---
+
 ## Description
 
 Sign a transaction

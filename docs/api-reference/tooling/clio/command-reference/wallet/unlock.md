@@ -1,3 +1,8 @@
+---
+id: unlock
+title: unlock
+---
+
 ## Description
 
 Unlocks a wallet

@@ -1,3 +1,8 @@
+---
+id: keys
+title: keys
+---
+
 ## Description
 
 List of public keys from all unlocked wallets. These are the keys that could be used to sign transactions.

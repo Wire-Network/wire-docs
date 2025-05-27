@@ -1,30 +1,26 @@
+---
+id: import
+title: import
+---
+
+## Description
+
+Imports private key into wallet. This command will launch `kiod` if it is not already running.
+
 ## Command
 
 ```sh
 clio wallet import [OPTIONS]
 ```
 
-**Where**
-
-* [OPTIONS] = See Options in  [Command Usage](#command-usage) section below.
-
-**Note**: The arguments and options enclosed in square brackets are optional.
-
-## Description
-
-Imports private key into wallet. This command will launch `kiod` if it is not already running.
-
-## Command Usage
-
-The following information shows the different positionals and options you can use with the `clio wallet import` command:
-
 ### Positional Arguments
 
-- none
+None
 
 ### Options
 
-- `-h,--help` - Print this help message and exit
+* `-h,--help` - Print this help message and exit
+
 * `-n, --name` _TEXT_ - The name of the wallet to import key into.
 * `--private-key` _TEXT_ - Private key in WIF format to import.
 

@@ -593,6 +593,7 @@ const sidebars: SidebarsConfig = {
         "guides/how-to-get-account-information",
         "guides/hello-world-video-testnet",
         "guides/how-to-return-values-from-actions",
+        "guides/working-with-different-action-return-types",
       ],
     },
   ],
