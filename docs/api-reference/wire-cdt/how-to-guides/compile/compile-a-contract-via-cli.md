@@ -1,5 +1,5 @@
 <!-- ---
-content_title: How to compile a smart contract via CLI
+title: How to compile a smart contract via CLI
 --- -->
 
 ## Overview

@@ -1,5 +1,5 @@
 <!-- ---
-content_title: How to modify data in a multi-index table
+title: How to modify data in a multi-index table
 --- -->
 
 ## Overview

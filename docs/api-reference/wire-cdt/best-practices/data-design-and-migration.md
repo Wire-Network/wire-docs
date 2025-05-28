@@ -1,5 +1,5 @@
 ---
-content_title: Data design and migration
+title: Data design and migration
 ---
 
 
@@ -26,11 +26,11 @@ If you want to keep the existing data there are two ways to do it:
 
 ### 2.1. Using binary extensions
 
-To learn how to modify the structure using binary extensions read this [tutorial](../tutorials/binary-extension.md).
+To learn how to modify the structure using binary extensions, read this [article](/docs/api-reference/tooling/cdt/features/binary-extension.md).
 
 ### 2.2. Using ABI variants
 
-To learn how to modify the structure using ABI variants read this [tutorial](../tutorials/abi-variants.md).
+To learn how to modify the structure using ABI variants, read this [tutorial](../tutorials/abi-variants.md).
 
 ### 2.3. Migrate the existing data to a second table
 

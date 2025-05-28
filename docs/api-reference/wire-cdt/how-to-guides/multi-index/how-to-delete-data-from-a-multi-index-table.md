@@ -1,5 +1,5 @@
 <!-- ---
-content_title: How to delete data from a multi-index table
+title: How to delete data from a multi-index table
 --- -->
 
 ## Overview

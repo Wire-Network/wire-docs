@@ -1,5 +1,5 @@
 ---
-content_title: Block Production Explained
+title: Block Production Explained
 ---
 
 For simplicity of the explanation let's consider the following notations:

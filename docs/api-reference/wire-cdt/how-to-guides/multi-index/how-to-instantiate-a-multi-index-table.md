@@ -1,5 +1,5 @@
 <!-- ---
-content_title: How to instantiate a multi-index table
+title: How to instantiate a multi-index table
 --- -->
 
 ## Overview

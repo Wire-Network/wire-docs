@@ -1,8 +1,6 @@
-<!-- ---
-content_title: Tutorials
-link_text: Tutorials
---- -->
+---
+title: CDT Tutorials
+---
 
-- [Binary Extension](binary-extension.md)
 - [ABI Variants](abi-variants.md)
 - [Create An ABI File](create-an-abi-file.md)

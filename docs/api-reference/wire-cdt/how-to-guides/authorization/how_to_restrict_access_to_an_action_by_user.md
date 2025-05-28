@@ -1,5 +1,5 @@
 <!-- ---
-content_title: How To Perform Authorization Checks
+title: How To Perform Authorization Checks
 link_text: How To Perform Authorization Checks
 --- -->
 
@@ -25,14 +25,14 @@ See the following code reference guides for functions which can be used to imple
 
 The following steps show how to check authorization for `user` account for the `hi` action. There are three ways to accomplish an authorization check in a smart contract action implementation. You can use any of the methods provided below depending on your needs:
 
-- [Overview](#overview)
-- [Before you begin](#before-you-begin)
-- [Code Reference](#code-reference)
-- [Procedure](#procedure)
-  - [1. Use check(has\_auth(...)...)](#1-use-checkhas_auth)
-  - [2. Use require\_auth](#2-use-require_auth)
-  - [3. Use require\_auth2](#3-use-require_auth2)
-- [Summary](#summary)
+* [Overview](#overview)
+* [Before you begin](#before-you-begin)
+* [Code Reference](#code-reference)
+* [Procedure](#procedure)
+  * [1. Use check(has\_auth(...)...)](#1-use-checkhas_auth)
+  * [2. Use require\_auth](#2-use-require_auth)
+  * [3. Use require\_auth2](#3-use-require_auth2)
+* [Summary](#summary)
 
 ### 1. Use check(has_auth(...)...)
 

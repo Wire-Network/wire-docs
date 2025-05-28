@@ -1,5 +1,5 @@
 <!-- ---
-content_title: Manually write/edit an ABI file
+title: Manually write/edit an ABI file
 link_text: Manually write/edit an ABI file
 --- -->
 

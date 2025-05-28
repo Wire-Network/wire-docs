@@ -1,5 +1,5 @@
 <!-- ---
-content_title: How to iterate and retrieve from multi-index table
+title: How to iterate and retrieve from multi-index table
 --- -->
 
 ## Overview

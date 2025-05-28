@@ -1,5 +1,5 @@
 <!-- ---
-content_title: ABI/Code generator attributes
+title: ABI/Code generator attributes
 link_text: ABI/Code generator attributes
 --- -->
 

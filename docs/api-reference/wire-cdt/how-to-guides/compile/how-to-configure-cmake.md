@@ -1,5 +1,5 @@
 <!-- ---
-content_title: How to configure CMake
+title: How to configure CMake
 --- -->
 
 ## Overview

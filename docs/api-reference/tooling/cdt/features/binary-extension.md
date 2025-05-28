@@ -366,15 +366,15 @@ Find below their corresponding sections in the `.abi` files:
 
 Now, let's start up a blockchain instance, compile this smart contract, and test it out.
 
-```
+```sh
 ~/binary_extension_contract $ cdt-cpp binary_extension_contract.cpp -o binary_extension_contract.wasm
 ```
 
-```
+```sh
 ~/binary_extension_contract $ clio set contract sysio ./
 ```
 
-```
+```sh
 Reading WASM from /Users/john.debord/binary_extension_contract/binary_extension_contract.wasm...
 Publishing contract...
 executed transaction: 6c5c7d869a5be67611869b5f300bc452bc57d258d11755f12ced99c7d7fe154c  4160 bytes  729 us
@@ -512,15 +512,15 @@ struct [[sysio::table]] structure {
 
 Next, let's upgrade the contract and try to read from our table and write to our table the original way:
 
-```
+```sh
 ~/binary_extension_contract $ cdt-cpp binary_extension_contract.cpp -o binary_extension_contract.wasm
 ```
 
-```
+```sh
 ~/binary_extension_contract $ clio set contract sysio ./
 ```
 
-```
+```sh
 Reading WASM from /Users/john.debord/binary_extension_contract/binary_extension_contract.wasm...
 Publishing contract...
 executed transaction: b8ea485842fa5645e61d35edd97e78858e062409efcd0a4099d69385d9bc6b3e  4408 bytes  664 us
@@ -529,11 +529,11 @@ executed transaction: b8ea485842fa5645e61d35edd97e78858e062409efcd0a4099d69385d9
 warning: transaction executed locally, but may not be confirmed by the network yet
 ```
 
-```
+```sh
 ~/binary_extension_contract $ clio push action sysio printbyp '{"primary_key":"sysio.name"}' -p sysio
 ```
 
-```
+```sh
 Error 3050003: sysio_assert_message assertion failure
 Error Details:
 assertion failure with message: read
@@ -541,11 +541,11 @@ assertion failure with message: read
 
 Whoops! We aren't able to read the data we've previously written to our table!
 
-```
+```sh
 ~/binary_extension_contract $ clio push action sysio regpkey '{"primary_key":"sysio.name2"}' -p sysio
 ```
 
-```
+```sh
 Error 3015014: Pack data exception
 Error Details:
 Missing field 'secondary_key' in input object while processing struct 'regpkey'
@@ -670,11 +670,11 @@ Note the `$` after the types now; this indicates that this type is an `sysio::bi
 
 Now, let's upgrade the contract again and try to read/write from/to our table:
 
-```
+```sh
 ~/binary_extension_contract $ clio set contract sysio ./
 ```
 
-```
+```sh
 Reading WASM from /Users/john.debord/binary_extension_contract/binary_extension_contract.wasm...
 Publishing contract...
 executed transaction: 497584d4e43ec114dbef83c134570492893f49eacb555d0cd47d08ea4a3a72f7  4696 bytes  648 us
@@ -683,11 +683,11 @@ executed transaction: 497584d4e43ec114dbef83c134570492893f49eacb555d0cd47d08ea4a
 warning: transaction executed locally, but may not be confirmed by the network yet
 ```
 
-```
+```sh
 ~/binary_extension_contract $ clio push action sysio printbyp '{"primary_key":"sysio.name"}' -p sysio
 ```
 
-```
+```sh
 executed transaction: 6108f3206e1824fe3a1fdcbc2fe733f38dc07ae3d411a1ccf777ecef56ddec97  104 bytes  224 us
 #         sysio <= sysio::printbyp              {"primary_key":"sysio.name"}
 [(sysio,printbyp)->sysio]: CONSOLE OUTPUT BEGIN =====================
@@ -699,11 +699,11 @@ executed transaction: 6108f3206e1824fe3a1fdcbc2fe733f38dc07ae3d411a1ccf777ecef56
 warning: transaction executed locally, but may not be confirmed by the network yet
 ```
 
-```
+```sh
 ~/binary_extension_contract $ clio push action sysio regpkey '{"primary_key":"sysio.name2"}' -p sysio
 ```
 
-```
+```sh
 executed transaction: 75a135d1279a9c967078b0ebe337dc0cd58e1ccd07e370a899d9769391509afc  104 bytes  227 us
 #         sysio <= sysio::regpkey               {"primary_key":"sysio.name2"}
 [(sysio,regpkey)->sysio]: CONSOLE OUTPUT BEGIN =====================

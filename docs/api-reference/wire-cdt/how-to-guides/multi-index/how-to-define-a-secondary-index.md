@@ -1,5 +1,5 @@
 <!-- ---
-content_title: How to define a secondary index
+title: How to define a secondary index
 --- -->
 
 ## Overview

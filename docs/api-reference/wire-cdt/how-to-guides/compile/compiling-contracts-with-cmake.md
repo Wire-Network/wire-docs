@@ -1,5 +1,5 @@
 <!-- ---
-content_title: How to compile a smart contract with CMake
+title: How to compile a smart contract with CMake
 --- -->
 
 ## Overview

@@ -1,5 +1,5 @@
 <!-- ---
-content_title: How to insert data into a multi-index table
+title: How to insert data into a multi-index table
 --- -->
 
 ## Overview

@@ -1,5 +1,5 @@
 <!-- ---
-content_title: How to iterate and retrieve from multi-index table based on secondary index
+title: How to iterate and retrieve from multi-index table based on secondary index
 --- -->
 
 ## Overview
