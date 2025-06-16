@@ -5,6 +5,8 @@ import { tailwindLoader } from "./plugins/docusaurus-tailwindcss-loader";
 import type * as Plugin from "@docusaurus/types/src/plugin";
 import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
 import type * as Redocusaurus from "redocusaurus";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
 
 // prism themes
 
@@ -37,6 +39,15 @@ const config: Config = {
   // Set the production url of your site here
   url: "https://docs.wire.network",
   baseUrl: "/",
+  stylesheets: [
+    {
+      href: "https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css",
+      type: "text/css",
+      integrity:
+        "sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM",
+      crossorigin: "anonymous",
+    },
+  ],
   plugins: [
     "@docusaurus/theme-live-codeblock",
     tailwindLoader,
@@ -103,6 +114,8 @@ const config: Config = {
           sidebarPath: "./sidebars.ts",
           editUrl: "https://github.com/Wire-Network/wire-docs/edit/master",
           docItemComponent: "@theme/ApiItem",
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [rehypeKatex],
         },
         blog: false,
         sitemap: {
