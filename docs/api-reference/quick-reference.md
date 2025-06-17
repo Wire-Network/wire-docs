@@ -18,7 +18,12 @@ title: 'Quick API Reference'
 
 ## SDK API References
 
-- [SDK Core](https://Wire-Network.github.io/sdk-core/)
+- [SDK Core](https://www.npmjs.com/package/@wireio/core)
+- [SDK WNS](https://www.npmjs.com/package/@wireio/wns)
+- [Wire UI Component Library](https://www.npmjs.com/package/@wireio/ui-library)
+- [Angular-based UI components for Wire](https://www.npmjs.com/package/@wireio/ui-angular) – Angular-based UI components for Wire
+- [Toolkit for creating and parsing Ricardian templates](https://www.npmjs.com/package/@wireio/ricardian-template-toolkit)
+- [CLI package for easy install of Wire](https://www.npmjs.com/package/@wireio/wire-cli)
 
 ## System Contract Action References
 

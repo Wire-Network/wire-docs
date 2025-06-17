@@ -438,25 +438,15 @@ const sidebars: SidebarsConfig = {
             id: "api-reference/tooling/nodeop/index",
           },
           items: [
-            "api-reference/tooling/nodeop/nodeop-apis",
+            "api-reference/tooling/nodeop/block-production-explained",
+            "api-reference/tooling/nodeop/storage-and-read-modes",
+            "api-reference/tooling/nodeop/context-free-data",
             "api-reference/tooling/nodeop/nodeop-cli",
-            {
-              type: "category",
-              label: "Concepts",
-              link: {
-                type: "doc",
-                id: "api-reference/tooling/nodeop/concepts/index",
-              },
-              items: [
-                "api-reference/tooling/nodeop/concepts/context-free-data",
-                "api-reference/tooling/nodeop/concepts/storage-and-read-modes",
-              ],
-            },
+            "api-reference/tooling/nodeop/nodeop-apis",
             {
               type: "category",
               label: "Plugins",
               items: [
-                // "api-reference/tooling/nodeop/plugins/block-producing-explained",
                 "api-reference/tooling/nodeop/plugins/blockvault-client-plugin",
                 "api-reference/tooling/nodeop/plugins/chain-api-plugin",
                 "api-reference/tooling/nodeop/plugins/chain-plugin",
