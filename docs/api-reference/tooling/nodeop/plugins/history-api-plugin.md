@@ -1,3 +1,9 @@
+---
+title: history_api_plugin
+tags:
+  - deprecated
+---
+
 :::warning
 | The `history_plugin` that the `history_api_plugin` depends upon is deprecated and will no longer be maintained. Please use the [`state_history_plugin`](state-history-plugin.md) or the [`trace_api_plugin`](trace-api-plugin.md) instead.
 :::
@@ -8,17 +14,17 @@ The `history_api_plugin` exposes functionality from the [`history_plugin`](histo
 
 It provides four RPC API endpoints:
 
-* get_actions
-* get_transaction
-* get_key_accounts
-* get_controlled_accounts
+* `get_actions`
+* `get_transaction`
+* `get_key_accounts`
+* `get_controlled_accounts`
 
 The four actions listed above are used by the following `clio` commands (matching order):
 
-* get actions
-* get transaction
-* get accounts
-* get servants
+* `clio get actions`
+* `clio get transaction`
+* `clio get accounts`
+* `clio get servants`
 
 ## Usage
 

@@ -1,3 +1,9 @@
+---
+title: history_plugin
+tags:
+  - deprecated
+---
+
 :::warning
 | The `history_plugin` is deprecated and will no longer be maintained. Please use the [`state_history_plugin`](state-history-plugin.md) or the [`trace_api_plugin`](trace-api-plugin.md) instead.
 :::

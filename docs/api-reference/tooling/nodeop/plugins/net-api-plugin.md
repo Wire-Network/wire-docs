@@ -1,3 +1,7 @@
+---
+title: net_api_plugin
+---
+
 ## Description
 
 The `net_api_plugin` exposes functionality from the `net_plugin` to the RPC API interface managed by the `http_plugin`. Node operators can use the `net_api_plugin` to manage the p2p connections of an active node.
@@ -9,10 +13,10 @@ The `net_api_plugin` provides four RPC API endpoints:
 * connections
 * status
 
-See [Net API Reference Documentation](https://developers.eos.io/manuals/eos/latest/nodeop/plugins/net_api_plugin/api-reference/index).
+See [Net API Reference Documentation](/docs/api-reference/net-api).
 
-:::caution
-| This plugin exposes endpoints that allow management of p2p connections. Running this plugin on a publicly accessible node is not recommended as it can be exploited.
+:::warning
+| This plugin exposes endpoints that allow management of p2p connections. Running this plugin on a publicly accessible node is **NOT** recommended as it can be exploited.
 :::
 
 ## Usage

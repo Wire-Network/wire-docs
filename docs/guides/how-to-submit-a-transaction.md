@@ -134,7 +134,7 @@ echo '{
 
 * Alternatively, you can also create a JSON snippet that uses clear text JSON for `data` field.
 
-:::caution
+:::warning
 | Be aware that if a clear text `data` field is used, `clio` needs to fetch the smart contract's ABI using `nodeop` API. This operation has an **overall performance overhead for both `clio` and `nodeop`.** On the other hand, if hex data is used in the `data` field then the ABI fetching is not executed and thus the total time to send and execute the transaction is faster.
 :::
 

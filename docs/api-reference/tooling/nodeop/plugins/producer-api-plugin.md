@@ -1,3 +1,7 @@
+---
+title: producer_api_plugin
+---
+
 ## Description
 
 The `producer_api_plugin` exposes a number of endpoints for the [`producer_plugin`](producer-plugin.md) to the RPC API interface managed by the [`http_plugin`](http-plugin.md).

@@ -1,3 +1,6 @@
+---
+title: state_history_plugin
+---
 
 ## Description
 
