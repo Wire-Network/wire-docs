@@ -3,46 +3,59 @@ id: set-code
 title: set code
 ---
 
-## Description
-
-Sets or updates an account's code on the blockchain.
-
-## Positional Arguments
-
-* `account` _TEXT_ - The account to set code for (**required**)
-* `code-file` _TEXT_ - The fullpath containing the contract WAST or WASM (**required**)
-
-## Options
-
-`-h,--help` Print this help message and exit
-`-a,--abi` _TEXT_ - The ABI for the contract
-
-`-c,--clear` Remove contract on an account
-
-`--suppress-duplicate-check`  Don't check for duplicate
-
-`-x,--expiration` _TEXT_ - set the time in seconds before a transaction expires, defaults to 30s
-
-`-f,--force-unique` - force the transaction to be unique. this will consume extra bandwidth and remove any protections against accidently issuing the same transaction multiple times
-
-`-s,--skip-sign` Specify if unlocked wallet keys should be used to sign transaction
-
-`-j,--json` print result as JSON
-
-`-d,--dont-broadcast` - Don't broadcast transaction to the network (just print to stdout)
-
-`--return-packed` used in conjunction with --dont-broadcast to get the packed transaction
-
-`-r,--ref-block` _TEXT_         set the reference block num or block id used for TAPOS (Transaction as Proof-of-Stake)
-
-`-p,--permission`  _Type:Text_ - An account and permission level to authorize, as in 'account@permission' (defaults to 'account@active')
-
-* `-r,--ref-block` _TEXT_         set the reference block num or block id used for TAPOS (Transaction as Proof-of-Stake)
-* `-p,--permission`  _TEXT_ - An account and permission level to authorize, as in 'account@permission' (defaults to 'account@active')
-* `--max-cpu-usage-ms` _UINT_ - set an upper limit on the milliseconds of CPU usage budget, for the execution of the transaction (defaults to 0 which means no limit)
-* `--max-net-usage` _UINT_ - set an upper limit on the net usage budget, in bytes, for the transaction (defaults to 0 which means no limit)
-* `--delay-sec` _UINT_ - set the delay_sec seconds, defaults to 0s
+## Command
 
 ```sh
-clio set code someaccount1 ./path/to/wasm
+clio set code <account> <code-file> [OPTIONS]
 ```
+
+## Description
+
+Sets or updates an account's smart contract code on the blockchain. Use this command to deploy or update a contract by setting the WASM (or WAST) file and its optional ABI.
+
+## Synopsis
+
+```sh
+clio set code
+  account <TEXT>                    # REQUIRED: The account to set code for
+  code-file <TEXT>                  # REQUIRED: The full path containing the contract WAST or WASM
+  [-h, --help]                      # Print help message and exit
+  [-a, --abi <TEXT>]                # Specify the ABI for the contract
+  [-c, --clear]                     # Remove contract code from the account
+  [--suppress-duplicate-check]      # Do not check for duplicate code
+  [-x, --expiration <TEXT>]         # Set transaction expiration in seconds (default: 30s)
+  [-f, --force-unique]              # Force transaction uniqueness (extra bandwidth required)
+  [-s, --skip-sign]                 # Use unlocked wallet keys to sign the transaction
+  [-j, --json]                      # Print result as JSON
+  [-d, --dont-broadcast]            # Do not broadcast the transaction (prints to stdout)
+  [--return-packed]                 # With --dont-broadcast, return the packed transaction
+  [-r, --ref-block <TEXT>]          # Set the reference block number or block ID for TAPOS
+  [-p, --permission <TEXT>]         # Authorize with account@permission (default: account@active)
+  [--max-cpu-usage-ms <UINT>]        # Set upper limit on CPU usage in milliseconds (default: no limit)
+  [--max-net-usage <UINT>]           # Set upper limit on network usage in bytes (default: no limit)
+  [--delay-sec <UINT>]               # Set a delay in seconds before execution (default: 0s)
+```
+
+## Examples
+
+1. **Deploy contract code to an account:**
+
+    ```sh
+    clio set code someaccount1 ./path/to/contract.wasm
+    ```
+
+2. **Deploy contract code with an associated ABI:**
+
+    ```sh
+    clio set code someaccount1 ./path/to/contract.wasm -a ./path/to/contract.abi
+    ```
+
+3. **Remove contract code from an account:**
+
+    ```sh
+    clio set code someaccount1 -c -p someaccount1@active
+    ```
+
+## Resources
+
+* [Accounts and Permissions](/docs/smart-contract-development/accounts-permissions.md)
