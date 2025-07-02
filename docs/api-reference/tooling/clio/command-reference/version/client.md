@@ -1,10 +1,11 @@
+---
+title: version client
+sidebar_label: version client
+---
+
 ## Description
 
 Retrieve version information of the client
-
-## Positional Arguments
-
-none
 
 ## Usage
 

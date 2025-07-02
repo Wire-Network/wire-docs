@@ -2,6 +2,9 @@
 title: Storage and Read Modes
 ---
 
+
+## Overview
+
 The Wire platform stores blockchain information in various data structures at various stages of a transaction's lifecycle. The producing node is the `nodeop` instance run by the node operator who is currently creating blocks for the blockchain (which changes every 6 seconds, producing 12 blocks in sequence before switching to another producer). Check out the [Block Producing Explained](/docs/api-reference/tooling/nodeop/block-production-explained.md) section for more information.
 
 ## Blockchain State and Storage
