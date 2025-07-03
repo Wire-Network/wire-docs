@@ -177,10 +177,6 @@ class [[sysio::contract]] multi_index_example : public contract {
 | A full example project demonstrating the instantiation and usage of multi-index table can be found [here](https://github.com/Wire-Network/cdt/blob/main/examples/multi_index_example).
 :::
 
-## Summary
-
-In conclusion, the above instructions show how to define and instantiate a multi-index table instance.
-
 ## Next Steps
 
 * You can [insert data in the multi-index table](./how-to-insert-data-into-a-multi-index-table).

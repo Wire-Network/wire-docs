@@ -5,23 +5,13 @@ This how-to guide provides instructions on how to update an account keys for a W
 
 The example uses `clio` to update the keys for the **alice** account.
 
-## Before you Begin
-
-Make sure you meet the following requirements:
+## Prerequisites
 
 * Install the currently supported version of `clio.`
   
 :::info[Note]
 | The `clio` tool and `kiod` are bundled with the Wire software. [Installing Wire core](/docs/getting-started/install-dependencies.md) will install the `clio` and `kiod` command line tools.
 :::
-
-## Reference
-
-See the following reference guides for command line usage and related options:
-
-* [clio create key](../command-reference/create/key.md) command
-* [clio wallet import](../command-reference/wallet/import.md) command
-* [clio set account](../command-reference/set/set-account.md) command
 
 ## Procedure
 
@@ -107,6 +97,10 @@ cpu bandwidth:
      limit:              xxx
 ```
 
-## Summary
+## Reference
 
-In conclusion, by following these instructions you are able to change the keys used by an account.
+See the following reference guides for command line usage and related options:
+
+* [clio create key](../command-reference/create/key.md) command
+* [clio wallet import](../command-reference/wallet/import.md) command
+* [clio set account](../command-reference/set/set-account.md) command

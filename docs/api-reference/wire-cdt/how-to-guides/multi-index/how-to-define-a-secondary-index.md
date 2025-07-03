@@ -119,9 +119,6 @@ Now you have instantiated the `testtab` as a multi-index table which has a prima
 | A full example project demonstrating the instantiation and usage of multi-index table can be found [here](https://github.com/Wire-Network/cdt/blob/main/examples/multi_index_example).
 :::
 
-## Summary
-
-In conclusion, the above instructions show how to define a secondary index for a multi-index table.
 
 ## Next Steps
 

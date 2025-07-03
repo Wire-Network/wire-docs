@@ -2,24 +2,35 @@
 title: Replay from a blocks.log file
 ---
 
-Once you have obtained a copy of the `blocks.log` file which you wish to replay the blockchain from, copy it to your `data/blocks` directory, backing up any existing contents if you wish to keep them, and remove the `blocks.index`, `forkdb.dat`, `shared_memory.bin`, and `shared_memory.meta`.
+## Overview
 
-The table below sumarizes the actions you should take for each of the files enumerated above:
+This guide explains how to replay the blockchain by using a specific `blocks.log` file. By replacing your existing log and state files with a downloaded `blocks.log` and clearing associated state data, you can reconstruct the blockchain state without performing a full p2p synchronization.
 
-Folder name             | File name          | Action
------------------------ | ------------------ | ------
-data/blocks             | blocks.index       | Remove
-data/blocks             | blocks.log         | Replace this file with the `blocks.log` you want to replay
-data/state              | fork_db.dat        | Remove
-data/blocks/reversible  | shared_memory.bin  | Remove
-data/blocks/reversible  | shared_memory.meta | Remove
+## Before You Begin
 
-You can use `blocks-dir = "blocks"` in the `config.ini` file, or use the `--blocks-dir` command line option, to specify where to find the `blocks.log` file to replay.
+* Ensure that your local `nodeop` instance is not running -> `pidof nodeop` should return nothing.
+* Back up your current contents in the `data/blocks` and `data/state` directories if you wish to preserve them.
+* Obtain the `blocks.log` file you intend to replay the blockchain from.
+
+## Steps
+
+### Prepare the `blocks` directory
+
+Once you have onbtained a copy of the `blocks.log` file you wish to replay from, simply replace the current `data/blocks/blocks.log` with it, and remove the following files:
+  
+* `data/blocks/blocks.index`
+* `data/state/fork_db.dat`
+* `data/blocks/reversible/shared_memory.bin`
+* `data/blocks/reversible/shared_memory.meta`
+
+You can define the location of your `blocks.log` file for replay by setting `blocks-dir = "blocks"` in your `config.ini` file or by passing the `--blocks-dir` option on the command line.
+
+### 3. Launch `nodeop` in Replay Mode
 
 ```sh
 nodeop --replay-blockchain \
-  --plugin sysio::producer_plugin  \
+  --plugin sysio::producer_plugin \
   --plugin sysio::chain_api_plugin \
-  --plugin sysio::http_plugin      \
+  --plugin sysio::http_plugin \
   >> nodeop.log 2>&1 &
 ```

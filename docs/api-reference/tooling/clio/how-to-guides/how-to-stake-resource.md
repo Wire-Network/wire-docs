@@ -12,13 +12,10 @@ This how-to guide provides instructions on how to stake resources, NET and/or CP
   * What an [account](/docs/introduction/glossary.md#account) is.
   * What [NET bandwidth](/docs/introduction/glossary.md#net) is.
   * What [CPU bandwidth](/docs/introduction/glossary.md#cpu) is.
-  * The [`delegatebw` clio sub-command](../command-reference/system/system-delegatebw.md).
 
 ## Command Reference
 
 See the following reference guides for command line usage and related options for the `clio` command:
-
-* The [`delegatebw` clio sub-command](../command-reference/system/system-delegatebw.md).
 
 ## Procedure
 
@@ -31,7 +28,6 @@ The following steps show:
   - [1. Stake NET bandwidth](#1-stake-net-bandwidth)
   - [2. Stake CPU bandwidth](#2-stake-cpu-bandwidth)
   - [3. Stake NET and CPU bandwidth](#3-stake-net-and-cpu-bandwidth)
-- [Summary](#summary)
 
 ### 1. Stake NET bandwidth
 
@@ -112,6 +108,3 @@ executed transaction: 5487afafd67bf459a20fcc2dbc5d0c2f0d1f10e33123eaaa07088046fd
 | An account can stake resources to itself, that is, `bob` account can be substituted in the above examples with `alice`, provided `alice` account holds sufficient `SYS` tokens. That means `alice` account stakes resources to itself.
 :::
 
-## Summary
-
-In conclusion, the above instructions show how to stake CPU and/or NET bandwidth from one account to another or to itself.

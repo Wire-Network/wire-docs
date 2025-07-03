@@ -2,20 +2,25 @@
 title: Replay or resync with full history
 ---
 
-## Goal
+## Overview
 
-This procedure records the entire chain history.
+This guide explains how to replay or resync your node so that it captures the entire blockchain history. Following these steps will allow you to reconstruct the full chain state, including every historical transaction.
 
-## Before you begin
+## Prerequisites
 
-* Make sure [Wire core](/docs/getting-started/install-dependencies.md) is installed.
-* Learn about [Using Nodeop](../usage/index.md).
-* Get familiar with [state_history_plugin](../plugins/state-history-plugin.md).
+* You have a local instance of `nodeop` running.
+* You are familiar with [state_history_plugin](../plugins/state-history-plugin.md).
 
 ## Steps
 
-1. Get a block log and place it in `data/blocks`, or get a genesis file and use the `--genesis-json` option
+### Step 1
 
-2. Make sure `data/state` does not exist, or use the `--replay-blockchain` option
+Get a `blocks.log` and place it in `data/blocks`, or get a genesis file and use the `--genesis-json` option
 
-3. Start `nodeop` with the options listed in the [`state_history_plugin`](../plugins/state-history-plugin.md)
+### Step 2
+
+Remove `data/state`, or use the `--replay-blockchain` option
+
+### Step 3
+
+Start `nodeop` with the options listed in the [`state_history_plugin`](../plugins/state-history-plugin.md)

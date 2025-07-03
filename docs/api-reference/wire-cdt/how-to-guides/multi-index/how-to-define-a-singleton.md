@@ -147,9 +147,6 @@ __singleton_example.cpp__
 | A full example project demonstrating the instantiation and usage of singleton can be found [here](https://github.com/Wire-Network/cdt/blob/main/examples/multi_index_example).
 :::
 
-## Summary
-
-In conclusion, the above instructions show how to define a singleton.
 
 ## Next Steps
 

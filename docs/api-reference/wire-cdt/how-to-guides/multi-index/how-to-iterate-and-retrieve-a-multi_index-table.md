@@ -142,9 +142,6 @@ __multi_index_example.cpp__
 | A full example project demonstrating the instantiation and usage of multi-index table can be found [here](https://github.com/Wire-Network/cdt/blob/main/examples/multi_index_example).
 :::
 
-## Summary
-
-In conclusion, the above instructions show how to iterate and retrieve a multi-index table.
 
 ## Next Steps
 

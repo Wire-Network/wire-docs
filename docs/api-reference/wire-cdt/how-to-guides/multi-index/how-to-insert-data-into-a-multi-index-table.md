@@ -62,10 +62,6 @@ Use the `emplace` method to make the insertion if the user object is not already
 | A full example project demonstrating the instantiation and usage of multi-index table can be found [here](https://github.com/Wire-Network/cdt/blob/main/examples/multi_index_example).
 :::
 
-## Summary
-
-In conclusion, the above instructions show how to insert data in a multi-index table.
-
 ## Next Steps
 
 * You can [iterate and retrieve newly inserted data](./how-to-iterate-and-retrieve-a-multi_index-table) from the multi-index table.

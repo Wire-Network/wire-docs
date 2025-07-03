@@ -84,7 +84,3 @@ multi_index_example::mod_action modaction("multiindexex"_n, {get_self(), 1});
 ```
 
 For a full example see the [multi_index example contract](https://github.com/Wire-Network/cdt/blob/main/examples/multi_index_example).
-
-## Summary
-
-In conclusion, the above instructions show how to create and use action wrapper in a smart contract.

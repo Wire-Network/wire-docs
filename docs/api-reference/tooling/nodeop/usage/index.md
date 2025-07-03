@@ -8,4 +8,3 @@ This section explains how to use `nodeop`, lists its configuration options, desc
 * [Configuration](nodeop-configuration.md) - CLI vs. `config.ini` options; `nodeop` example.
 * [Node Setups](node-setups/index.md) - Producing vs. non-producing nodes setup.
 * [Development Environment](/docs/getting-started/getting-started-intro.md) - Setting up a development/test environment.
-* [How to Guides](../how-to/how-to-configure-state-storage.md) - How to configure  the `nodeop` `backing store`.

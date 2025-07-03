@@ -413,13 +413,11 @@ const sidebars: SidebarsConfig = {
             "api-reference/tooling/nodeop/replays",
             {
               type: "category",
-              label: "How-To",
+              label: "Nodeop Guides",
               items: [
-                "api-reference/tooling/nodeop/how-to/how-to-configure-state-storage",
+                "api-reference/tooling/nodeop/how-to/how-to-generate-a-snapshot",
                 "api-reference/tooling/nodeop/how-to/how-to-create-snapshot-with-full-history",
                 "api-reference/tooling/nodeop/how-to/how-to-fast-start-without-old-history",
-                "api-reference/tooling/nodeop/how-to/how-to-generate-a-blocks.log",
-                "api-reference/tooling/nodeop/how-to/how-to-generate-a-snapshot",
                 "api-reference/tooling/nodeop/how-to/how-to-replay-from-a-blocks.log",
                 "api-reference/tooling/nodeop/how-to/how-to-replay-from-a-snapshot",
                 "api-reference/tooling/nodeop/how-to/how-to-replay-or-resync-with-full-history",

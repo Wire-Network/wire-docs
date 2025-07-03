@@ -25,14 +25,13 @@ See the following code reference guides for functions which can be used to imple
 
 The following steps show how to check authorization for `user` account for the `hi` action. There are three ways to accomplish an authorization check in a smart contract action implementation. You can use any of the methods provided below depending on your needs:
 
-* [Overview](#overview)
-* [Before you begin](#before-you-begin)
-* [Code Reference](#code-reference)
-* [Procedure](#procedure)
-  * [1. Use check(has\_auth(...)...)](#1-use-checkhas_auth)
-  * [2. Use require\_auth](#2-use-require_auth)
-  * [3. Use require\_auth2](#3-use-require_auth2)
-* [Summary](#summary)
+- [Overview](#overview)
+- [Before you begin](#before-you-begin)
+- [Code Reference](#code-reference)
+- [Procedure](#procedure)
+  - [1. Use check(has\_auth(...)...)](#1-use-checkhas_auth)
+  - [2. Use require\_auth](#2-use-require_auth)
+  - [3. Use require\_auth2](#3-use-require_auth2)
 
 ### 1. Use check(has_auth(...)...)
 
@@ -83,6 +82,3 @@ void hi( name user ) {
 | Note that this time, as well as previous method, you can not customize the yielded error message, it will be a generic authorization error message.
 :::
 
-## Summary
-
-In conclusion, the above instructions show how to perform authorization checks in a smart contract.

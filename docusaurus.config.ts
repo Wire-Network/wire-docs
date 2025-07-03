@@ -196,6 +196,10 @@ const config: Config = {
       },
       items: [
         {
+          type: "docsVersionDropdown",
+          versions: ["current", "5.1.0"],
+        },
+        {
           label: "Developers Portal",
           type: "docSidebar",
           sidebarId: "contentSidebar",
@@ -213,11 +217,6 @@ const config: Config = {
           sidebarId: "guidesReferenceSidebar",
           position: "left",
         },
-        // {
-        //   to: "https://www.wire.network/updates.html",
-        //   label: "News",
-        //   position: "left",
-        // },
       ],
     },
     footer: {

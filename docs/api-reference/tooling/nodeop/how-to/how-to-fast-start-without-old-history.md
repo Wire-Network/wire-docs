@@ -1,32 +1,51 @@
 ---
-title: Fast start without previous history
+title: Fast Start Without Previous History
 ---
 
-## Goal
+## Overview
 
-This procedure records the current chain state and future history, without previous historical data on the local chain.
+This tutorial records the current chain state and future history, without previous historical data on the local chain.
 
 ## Before you begin
 
-* Make sure [Wire core](/docs/getting-started/install-dependencies.md) is installed.
+* Install the currently supported version of `clio`.
+
+:::info
+| The `clio` tool and `kiod` are bundled with the Wire software. [Installing Wire core](/docs/getting-started/install-dependencies.md) will install the `clio` and `kiod` command line tools.
+:::
+
 * Learn about [Using Nodeop](../usage/index.md).
 * Get familiar with [state_history_plugin](../plugins/state-history-plugin.md).
 
 ## Steps
 
-1. Get the following:
-   * A portable snapshot (`data/snapshots/snapshot-xxxxxxx.bin`)
-   * Optional: a block log which includes the block the snapshot was taken at
+### Step 1: Create a snapshot of the current chain state
 
-2. Make sure `data/state` does not exist
+   ```sh
+   curl http://localhost:8887/v1/producer/create_snapshot
+   ```
 
-3. Start `nodeop` with the `--snapshot` option, and the options listed in the [`state_history_plugin`](../plugins/state-history-plugin.md).
+A snapshot will be saved at `/opt/wire-network/blockproducer/data/snapshots/snapshot-xxxxxxx.bin`.
 
-4. Look for `Placing initial state in block n` in the log, where n is the start block number.
+### Step 2: Remove `data/state` directory
 
-5. If using a database filler, start the filler with `--fpg-create` (if PostgreSQL), `--fill-skip-to n`, and `--fill-trim`. Replace `n` with the value above.
+:::danger
+Removing state history files will cause the node to lose all previous history. This is a destructive operation and should only be done if you are sure you do not need the old history.
+:::
 
-6. Do not stop `nodeop` until it has received at least 1 block from the network, or it won't be able to restart.
+```sh
+rm -rf /opt/wire-network/blockproducer/data/state
+rm -rf /opt/wire-network/chain-api/data/state
+```
+
+### Step 3: Run `./start.sh` with --snapshot option
+
+```sh
+cd /opt/wire-network/blockproducer
+./start.sh --snapshot data/snapshots/snapshot-xxxxxxx.bin
+```
+
+Do not stop `nodeop` until it has received at least 1 block from the network, or it won't be able to restart. Tail the logs `/opt/blockproducer/data/nodeop.log`.
 
 ## Notes
 
@@ -34,10 +53,6 @@ If `nodeop` fails to receive blocks from the network, then try the above using `
 
 :::warning[Caution when using `net_api_plugin`]
 | Either use a firewall to block access to your `http-server-address`, or change it to `localhost:8888` to disable remote access.
-:::
-
-:::info
-| If you run a database filler after this point, use the `--fill-trim` option when restarting. Only use `--fpg-create` and `--fill-skip-to` the first time.
 :::
 
 :::info

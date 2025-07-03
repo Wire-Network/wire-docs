@@ -120,9 +120,6 @@ Now you have instantiated a multi-index table, and assigned to `testtab` variabl
 | A full example project demonstrating the instantiation and usage of multi-index table can be found [here](https://github.com/Wire-Network/cdt/blob/main/examples/multi_index_example).
 :::
 
-## Summary
-
-In conclusion, the above instructions show how to define a primary index for a multi-index table.
 
 ## Next Steps
 

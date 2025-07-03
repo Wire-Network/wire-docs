@@ -29,6 +29,3 @@ Follow the following steps to compile your contract.
 * the compiled binary wasm: `hello.wasm`,
 * and the generated ABI file: `hello.abi`.
 
-## Summary
-
-In conclusion, the above instructions show how to compile a smart contract with CMake.

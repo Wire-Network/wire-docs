@@ -58,9 +58,6 @@ Check to see if the user exists and use `erase`(...) method to delete the row fr
 | A full example project demonstrating the instantiation and usage of multi-index table can be found [here](https://github.com/Wire-Network/cdt/blob/master/examples/multi_index_example).
 :::
 
-## Summary
-
-In conclusion, the above instructions show how to delete data from a multi-index table.
 
 ## Next Steps
 
