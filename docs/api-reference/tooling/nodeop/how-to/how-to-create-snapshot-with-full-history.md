@@ -1,5 +1,5 @@
 ---
-title: Create a snapshot with full state history
+title: Create a Snapshot with Full State History
 ---
 
 ## Overview
@@ -8,22 +8,10 @@ This tutorial creates a database containing the chain state, with full history s
 
 ## Prerequisites
 
-* Install the currently supported version of `clio`.
-
-:::info
-| The `clio` tool and `kiod` are bundled with the Wire software. [Installing Wire core](/docs/getting-started/install-dependencies.md) will install the `clio` and `kiod` command line tools.
-:::
-
-* Learn about [Using Nodeop](../usage/index.md).
-* Get familiar with [state_history_plugin](../plugins/state-history-plugin.md).
+* You must have a local instance of [nodeop](../index.md) running. For instructions on setting up a local chain, please refer to [Install Dependencies](/docs/getting-started/install-dependencies.md) article.
+* Ensure that the [state_history_plugin](../plugins/state-history-plugin.md) and [producer_api_plugin](../plugins/producer-api-plugin.md) are both enabled on your `nodeop` instance; Producer API must be accessible via HTTP on port 8887. If you followed standard installation with `wire-cli`, `producer_api_plugin` is already enabled and configured at `/opt/wire-network/blockproducer/config/config.ini` and `state_history_plugin` is enabled in `/opt/wire-network/chain-api/config/config.ini`.
 
 ## Steps
-
-* Enable the `producer_api_plugin` on a node with full state-history.  
-
-:::danger `producer_api_plugin`
-| Either use a firewall to block access to `http-server-address`, or change it to `localhost:8888` to disable remote access.
-:::
 
 * Create a portable snapshot:
 

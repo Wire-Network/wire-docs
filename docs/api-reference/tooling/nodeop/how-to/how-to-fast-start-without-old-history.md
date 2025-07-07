@@ -4,7 +4,7 @@ title: Fast Start Without Previous History
 
 ## Overview
 
-This tutorial records the current chain state and future history, without previous historical data on the local chain.
+This tutorial demonstrates how to capture the current chain state and future history, without previous historical data on the local chain.
 
 ## Before you begin
 
@@ -45,16 +45,19 @@ cd /opt/wire-network/blockproducer
 ./start.sh --snapshot data/snapshots/snapshot-xxxxxxx.bin
 ```
 
-Do not stop `nodeop` until it has received at least 1 block from the network, or it won't be able to restart. Tail the logs `/opt/blockproducer/data/nodeop.log`.
+Do not stop `nodeop` until it has received *at least 1 block* from the network, or it won't be able to restart. Tail the logs `/opt/blockproducer/data/nodeop.log`.
 
 ## Notes
 
-If `nodeop` fails to receive blocks from the network, then try the above using `net_api_plugin`. Use `clio net disconnect` and `clio net connect` to reconnect nodes which timed out.
+If `nodeop` fails to receive blocks from the network, then try the above using `net_api_plugin`. Use [`clio net disconnect`](/docs/api-reference/tooling/clio/command-reference/net/disconnect.md) and [`clio net connect`](/docs/api-reference/tooling/clio/command-reference/net/connect.md) to reconnect nodes which timed out.
+
+You must have the `net_api_plugin` enabled on your `nodeop` instance. That plugin is **not** enabled `/opt/wire-network/blockproducer/config/config.ini` by default, so you will need to stop your node and edit the `config.ini` file to enable it:
+
+```ini
+# ....previous plugins ...
+plugin = sysio::net_api_plugin
+```
 
 :::warning[Caution when using `net_api_plugin`]
-| Either use a firewall to block access to your `http-server-address`, or change it to `localhost:8888` to disable remote access.
-:::
-
-:::info
-| On large chains, this procedure creates a delta record that is too large for javascript processes to handle. 64-bit C++ processes can handle the large record. If using a database filler, `fill-pg` and `fill-lmdb` break up the large record into smaller records when filling databases.
+| Use use a firewall to block access to your `http-server-address` despite port 8887 not being exposed to the public by default. The `net_api_plugin` is not intended for public use and should only be used in a secure environment.
 :::

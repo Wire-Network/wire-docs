@@ -15,7 +15,7 @@ The `net_api_plugin` provides four RPC API endpoints:
 
 See [Net API Reference Documentation](/docs/api-reference/net-api).
 
-:::warning
+:::danger
 | This plugin exposes endpoints that allow management of p2p connections. Running this plugin on a publicly accessible node is **NOT** recommended as it can be exploited.
 :::
 
@@ -29,7 +29,7 @@ plugin = sysio::net_api_plugin
 ```sh
 # command-line
 nodeop ... --plugin sysio::net_api_plugin
-```
+``` 
 
 ## Options
 

@@ -2,25 +2,22 @@
 title: net peers
 ---
 
-## Description
-
-Returns a list with the status of all peer connections. This command allows a node operator to check the status of a node's peer connections.
-
 ## Command
 
 ```sh
 clio net peers [OPTIONS]
 ```
 
-**Note:** The arguments and options enclosed in square brackets are optional.
+## Description
 
-### Positional Arguments
+Returns a list with the status of all peer connections. This command allows a node operator to check the status of a node's peer connections.
 
-* `host` _TEXT_ REQUIRED - The hostname:port to disconnect from
+## Synopsis
 
-### Options
-
-* `-h,--help` - Print this help message and exit
+```sh
+clio net peers
+  [-h, --help]            # Print this help message and exit
+```
 
 ## Usage
 
@@ -37,84 +34,73 @@ clio net peers [OPTIONS]
 
 The following examples demonstrate how to use the `clio net peers` command:
 
-* List the status of all peer connections for a local node listening at http address `http://127.0.0.1:8001`:
+* List the status of all peer connections for a local node listening at http address `http://127.0.0.1:8887`:
 
 ```sh
-clio -u http://127.0.0.1:8001 net peers
+clio -u http://127.0.0.1:8887 net peers
 ```
 
 **Output:**
 
 ```json
 [{
-    "peer": "",
+    "peer": "devnet-0:4444",
+    "remote_ip": "123.456.78.90",
+    "remote_port": "4444",
     "connecting": false,
     "syncing": false,
+    "is_bp_peer": false,
+    "is_socket_open": true,
+    "is_blocks_only": false,
+    "is_transactions_only": false,
     "last_handshake": {
-      "network_version": 1210,
-      "chain_id": "60fb0eb4742886af8a0e147f4af6fd363e8e8d8f18bdf73a10ee0134fec1c551",
-      "node_id": "58ed23173cd4ed89ae90c2e65f5c29bb51e233e78d730d72220b6d84543bfc08",
+      "network_version": 1212,
+      "chain_id": "0da1bd053a2a63f23cc37bf6df539923a9e0c22632a67390147448174f3bea18",
+      "node_id": "5fb300c286806faf369f2c7e6129719e1ccf3f4baaa06b9e77cd095f39718480",
       "key": "SYS1111111111111111111111111111111114T1Anm",
-      "time": "1621013128445696000",
+      "time": "1751910927896359786",
       "token": "0000000000000000000000000000000000000000000000000000000000000000",
       "sig": "SIG_K1_111111111111111111111111111111111111111111111111111111111111111116uk5ne",
-      "p2p_address": "127.0.0.1:9005 - 58ed231",
-      "last_irreversible_block_num": 127,
-      "last_irreversible_block_id": "0000007f97323fae098048ae41f22a99238afc5db56cad17f50304919d21e1c2",
-      "head_num": 128,
-      "head_id": "0000008072eb0fc043770e44a5db5dedfbd86db9aa5c41b28618f1b9343c2d22",
-      "os": "osx",
-      "agent": "SYS Test Agent",
-      "generation": 4
+      "p2p_address": "192.168.50.250:4444 - 5fb300c",
+      "last_irreversible_block_num": 6593,
+      "last_irreversible_block_id": "000019c199a7d6b662dc5a25ee46b80cbe37f5bbde7d86a34a853d0009eeda6a",
+      "head_num": 6594,
+      "head_id": "000019c2e87658b61119ba1831c0a47e29c685382521769cefdbdd547b71a30d",
+      "os": "linux",
+      "agent": "sysio",
+      "generation": 2
     }
   },{
-    "peer": "",
+    "peer": "devnet-1:4444",
+    "remote_ip": "123.456.78.91",
+    "remote_port": "4444",
     "connecting": false,
     "syncing": false,
+    "is_bp_peer": false,
+    "is_socket_open": false,
+    "is_blocks_only": false,
+    "is_transactions_only": false,
     "last_handshake": {
-      "network_version": 1210,
-      "chain_id": "60fb0eb4742886af8a0e147f4af6fd363e8e8d8f18bdf73a10ee0134fec1c551",
-      "node_id": "2101bd8d770e8eabb3e69cb981db4350b494a04cd5b7a7cea0cd3070aa722306",
+      "network_version": 0,
+      "chain_id": "0000000000000000000000000000000000000000000000000000000000000000",
+      "node_id": "0000000000000000000000000000000000000000000000000000000000000000",
       "key": "SYS1111111111111111111111111111111114T1Anm",
-      "time": "1621013129884873000",
+      "time": 0,
       "token": "0000000000000000000000000000000000000000000000000000000000000000",
       "sig": "SIG_K1_111111111111111111111111111111111111111111111111111111111111111116uk5ne",
-      "p2p_address": "127.0.0.1:9017 - 2101bd8",
-      "last_irreversible_block_num": 129,
-      "last_irreversible_block_id": "0000008117074454dbaa7e8662c6f3d6918e776cc063c45f52b37bdc945ddc5d",
-      "head_num": 130,
-      "head_id": "0000008248cc3498b4bbf14a183711d9a73a36517a8069367a343bd4060fed14",
-      "os": "osx",
-      "agent": "SYS Test Agent",
-      "generation": 3
+      "p2p_address": "",
+      "last_irreversible_block_num": 0,
+      "last_irreversible_block_id": "0000000000000000000000000000000000000000000000000000000000000000",
+      "head_num": 0,
+      "head_id": "0000000000000000000000000000000000000000000000000000000000000000",
+      "os": "",
+      "agent": "",
+      "generation": 0
     }
-  },{
-
-  ...
-
-  },{
-    "peer": "",
-    "connecting": false,
-    "syncing": false,
-    "last_handshake": {
-      "network_version": 1210,
-      "chain_id": "60fb0eb4742886af8a0e147f4af6fd363e8e8d8f18bdf73a10ee0134fec1c551",
-      "node_id": "d9eb85085d09581521d0ec53b87a9657d0176c74fdf8657c56b09a91b3821c6f",
-      "key": "SYS1111111111111111111111111111111114T1Anm",
-      "time": "1621013127894327000",
-      "token": "0000000000000000000000000000000000000000000000000000000000000000",
-      "sig": "SIG_K1_111111111111111111111111111111111111111111111111111111111111111116uk5ne",
-      "p2p_address": "127.0.0.1:9002 - d9eb850",
-      "last_irreversible_block_num": 125,
-      "last_irreversible_block_id": "0000007d9a3b9cf6a61776ba1bbce226754aefcad664338d2acb5be34cc53a5b",
-      "head_num": 126,
-      "head_id": "0000007eccafd4f32a437b5fd8b111b326e2da8d0bcb832036984841b81ab64e",
-      "os": "osx",
-      "agent": "SYS Test Agent",
-      "generation": 4
-    }
-  }
+  ....
 ]
 ```
 
-**Note:** The `last_handshake` field contains the chain state of each connected peer as of the last handshake message with the node. For more information read the [Handshake Message](https://developers.eos.io/welcome/latest/protocol/network_peer_protocol#421-handshake-message) in the _Network Peer Protocol_ document.
+**Note:** The `last_handshake` field contains the chain state of each connected peer as of the last handshake message with the node.
+
+<!-- For more information read the [Handshake Message](https://developers.eos.io/welcome/latest/protocol/network_peer_protocol#421-handshake-message) in the _Network Peer Protocol_ document. -->

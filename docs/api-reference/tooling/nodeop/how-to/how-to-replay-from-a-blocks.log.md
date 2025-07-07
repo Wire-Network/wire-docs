@@ -1,5 +1,5 @@
 ---
-title: Replay from a blocks.log file
+title: Replay From a blocks.log File
 ---
 
 ## Overview

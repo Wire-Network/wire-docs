@@ -2,23 +2,23 @@
 title: net connect
 ---
 
-## Description
-
-Start a new connection to a specified peer. A node operator can use this command to instruct a node to connect to another peer **without restarting** the node.
-
 ## Command
 
 ```sh
 clio net connect [OPTIONS] host
 ```
 
-### Positional Arguments
+## Description
 
-* `host` _TEXT_ REQUIRED - The hostname:port to connect to
+Start a new connection to a specified peer. A node operator can use this command to instruct a node to connect to another peer **without restarting** the node.
 
-### Options
+## Synopsis
 
-* `-h,--help` - Print this help message and exit
+```sh
+clio net connect
+  host <TEXT>             # REQUIRED: The hostname:port of the peer to connect to
+  [-h, --help]            # Print this help message and exit
+```
 
 ## Requirements
 
@@ -36,10 +36,10 @@ Make sure you meet the following requirements:
 
 The following examples demonstrate how to use the `clio net connect` command:
 
-* Instruct default local node (listening at default http address `http://127.0.0.1:8888`) to connect to peer node listening at p2p address `localhost:9002`:
+* Instruct default local node (listening at default http address `http://127.0.0.1:8887`) to connect to peer node listening at p2p address `devnet-0:4444` (where `devnet-0` is mapped to `123.456.78.90` in `/etc/hosts`):
 
 ```sh
-clio net connect localhost:9002
+clio net connect devnet-0:4444
 ```
 
 **Output:**
@@ -48,10 +48,10 @@ clio net connect localhost:9002
 "added connection"
 ```
 
-* Instruct local node listening at http address `http://127.0.0.1:8001` to connect to peer node listening at p2p address `localhost:9002`:
+* Instruct local node listening at http address `http://127.0.0.1:8887` to connect to peer node listening at p2p address `devnet-0:4444`:
 
 ```sh
-clio -u http://127.0.0.1:8001 net connect localhost:9002
+clio -u http://127.0.0.1:8887 net connect devnet-0:4444
 ```
 
 **Output:**

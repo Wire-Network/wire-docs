@@ -1,9 +1,6 @@
 ---
 title: net disconnect
 ---
-## Description
-
-Close an existing connection to a specified peer. A node operator can use this command to instruct a node to disconnect from another peer without restarting the node.
 
 ## Command
 
@@ -11,15 +8,17 @@ Close an existing connection to a specified peer. A node operator can use this c
 clio net disconnect [OPTIONS] host
 ```
 
-**Note:** The arguments and options enclosed in square brackets are optional.
+## Description
 
-### Positional Arguments
+Close an existing connection to a specified peer. A node operator can use this command to instruct a node to disconnect from another peer without restarting the node.
 
-* `host` _TEXT_ REQUIRED - The hostname:port to disconnect from
+## Synopsis
 
-### Options
-
-* `-h,--help` - Print this help message and exit
+```sh
+clio net disconnect
+  host <TEXT>            # REQUIRED: The hostname:port to disconnect from
+  [-h, --help]           # Print this help message and exit
+```
 
 ## Usage
 
@@ -37,22 +36,10 @@ clio net disconnect [OPTIONS] host
 
 The following examples demonstrate how to use the `clio net disconnect` command
 
-* Instruct default local node (listening at default http address `http://127.0.0.1:8888`) to disconnect from peer node listening at p2p address `localhost:9002`
+* Instruct local node listening at http address `http://127.0.0.1:8887` to disconnect from peer node listening at p2p address `devnet-0:4444` (where `devnet-0` is mapped to `123.456.78.90` in `/etc/hosts`):
 
   ```sh
-  clio net disconnect localhost:9002
-  ```
-
-  **Output:**
-
-  ```console
-  "connection removed"
-  ```
-
-* Instruct local node listening at http address `http://127.0.0.1:8001` to disconnect from peer node listening at p2p address `localhost:9002`:
-
-  ```sh
-  clio -u http://127.0.0.1:8001 net disconnect localhost:9002
+  clio -u http://127.0.0.1:8887 net disconnect devnet-0:4444
   ```
   
   **Output:**

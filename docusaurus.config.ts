@@ -195,10 +195,10 @@ const config: Config = {
         src: "https://wire.foundation/favicon.ico",
       },
       items: [
-        {
-          type: "docsVersionDropdown",
-          versions: ["current", "5.1.0"],
-        },
+        // {
+        //   type: "docsVersionDropdown",
+        //   versions: ["current", "5.1.0"],
+        // },
         {
           label: "Developers Portal",
           type: "docSidebar",

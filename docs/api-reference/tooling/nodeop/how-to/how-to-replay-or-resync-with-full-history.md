@@ -1,5 +1,5 @@
 ---
-title: Replay or resync with full history
+title: Replay or Resync with Full History
 ---
 
 ## Overview

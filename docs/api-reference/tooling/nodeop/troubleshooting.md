@@ -10,7 +10,7 @@ title: Nodeop Troubleshooting
 
 If you get an error such as `St9exception: content of memory does not match data expected by executable` when trying to start `nodeop`, try restarting `nodeop` with one of the following options (you can use `nodeop --help` to get a full listing of these).
 
-```
+```txt
 Command Line Options for sysio::chain_plugin:
     --fix-reversible-blocks               recovers reversible block database if 
                                           that database is in a bad state

@@ -2,35 +2,23 @@
 title: Producing Node Setup
 ---
 
-:::info[System contracts required]
-| These instructions assume you want to launch a producing node on a network with **system contracts loaded**. These instructions will not work on a default development node using native functionality, or one without system contracts loaded.
-:::
-
-## Goal
+## Overview
 
 This section describes how to set up a producing node within the network. A producing node, as its name implies, is a node that is configured to produce blocks in a Wire-based blockchain. This functionality if provided through the `producer_plugin` as well as other [Nodeop Plugins](../../plugins/index.md).
 
-## Before you begin
+:::info
+For an example configuration of a producing node's `config.ini`, refer to [wire-cli repo](https://github.com/Wire-Network/wire-cli/blob/master/blockproducer/config/config.ini).
+:::
+
+## Prerequisites
 
 * [Install the Wire software](/docs/getting-started/install-dependencies.md) before starting this section.
 * Know how to pass [Nodeop options](../../usage/nodeop-options.md) to enable or disable functionality.
+* These instructions assume you want to launch a producing node on a network with deployed [**system contracts**](https://github.com/Wire-Network/wire-system-contracts).
 
 ## Steps
 
-Please follow the steps below to set up a producing node:
-
-* [Goal](#goal)
-* [Before you begin](#before-you-begin)
-* [Steps](#steps)
-  * [1. Register your account as a producer](#1-register-your-account-as-a-producer)
-  * [2. Set Producer Name](#2-set-producer-name)
-  * [3. Set the Producer's signature-provider](#3-set-the-producers-signature-provider)
-    * [Using a Key](#using-a-key)
-    * [Using Kiod](#using-kiod)
-  * [4. Define a peers list](#4-define-a-peers-list)
-  * [5. Load the Required Plugins](#5-load-the-required-plugins)
-
-### 1. Register your account as a producer
+### Step 1. Register your account as a producer
 
 In order for your account to be eligible as a producer, you will need to register the account as a producer:
 
@@ -38,7 +26,7 @@ In order for your account to be eligible as a producer, you will need to registe
 clio system regproducer accountname1 SYS1234534...sdhuds http://producer.site Antarctica
 ```
 
-### 2. Set Producer Name
+### Step 2. Set Producer Name
 
 Set the `producer-name` option in `config.ini` to your account, as follows:
 
@@ -49,7 +37,7 @@ Set the `producer-name` option in `config.ini` to your account, as follows:
 producer-name = youraccount
 ```
 
-### 3. Set the Producer's signature-provider
+### Step 3. Set the Producer's signature-provider
 
 You will need to set the private key for your producer. The public key should have an authority for the producer account defined above.
 
@@ -59,7 +47,7 @@ You will need to set the private key for your producer. The public key should ha
 * `provider-spec` - It's a string formatted like `<provider-type>:<data>`
 * `provider-type` - KEY or KIOD
 
-#### Using a Key
+#### Step 3.1: Using a Key
 
 ```console
 # config.ini:
@@ -70,9 +58,9 @@ signature-provider = PUBLIC_SIGNING_KEY=KEY:PRIVATE_SIGNING_KEY
 //signature-provider SYS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV=KEY:5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
 ```
 
-#### Using Kiod
+#### Step 3.2: Using Kiod
 
-You can also use `kiod` instead of hard-defining keys.
+You can also use `kiod` instead of keys.
 
 ```console
 # config.ini:
@@ -83,7 +71,7 @@ signature-provider = KIOD:<data>
 //SYS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV=KIOD:https://127.0.0.1:88888
 ```
 
-### 4. Define a peers list
+### Step 4: Define a peers list
 
 ```console
 # config.ini:
@@ -92,7 +80,7 @@ signature-provider = KIOD:<data>
 p2p-peer-address = 123.255.78.9:9876
 ```
 
-### 5. Load the Required Plugins
+### Step 5: Load the Required Plugins
 
 In your [config.ini](../index.md), confirm the following plugins are loading or append them if necessary.
 

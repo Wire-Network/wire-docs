@@ -1,5 +1,5 @@
 ---
-title: Generate a snapshot
+title: Generate a Snapshot
 ---
 
 
@@ -13,8 +13,8 @@ You can create a snapshot by using the [`create_snapshot` API endpoint](/docs/ap
 
 ## Prerequisites
 
-* You have a local instance of `nodeop` running.
-* You have the `producer_api_plugin` enabled on your `nodeop` instance and Producer API is accessible via HTTP on port 8887.
+* You must have a local instance of [nodeop](../index.md) running. For instructions on setting up a local chain, please refer to [Install Dependencies](/docs/getting-started/install-dependencies.md) article.
+* Ensure that the [`producer_api_plugin`](../plugins/producer-api-plugin.md) is enabled on your `nodeop` instance and Producer API is accessible via HTTP on port 8887. If you followed standard installation with `wire-cli`, that plugin is already enabled and configured at `/opt/wire-network/blockproducer/config/config.ini`.
 
 ## Generate the Snapshot
 
