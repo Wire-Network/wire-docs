@@ -15,21 +15,11 @@ import BrowserWindow from '@site/src/components/BrowserWindow';
 
 ### Step 1: Access the Wire Hub
 
-Begin by navigating to the [Wire Hub](https://hub.wire.network) website.
-
-<BrowserWindow url="https://hub.wire.network/">
-      <img src="/img/hub.png" alt="=hub page" />
-
- </BrowserWindow>
-
-### Step 2: Click *Manage*
-
-In the navigation bar click *Manage*:
+Begin by navigating to the [Node Owner Dashboard](https://hub.wire.network/explore/node-owner) on the Wire Hub website.
 
 <BrowserWindow url="https://hub.wire.network/explore/node-owner">
-      <img src="/img/hub-policy-init.png" alt="hub-policy-init" />
-
- </BrowserWindow>
+      <img src="/img/node-owner-dashboard-new.png" alt="hub-policy-init" />
+</BrowserWindow>
 
 ### Step 2: Copy Account Contract's Username and Keys
 
