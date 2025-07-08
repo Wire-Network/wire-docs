@@ -50,7 +50,7 @@ clio set action permission
 :::
 
 * You have access to a local Wire node.
-* You have a `sysio` account and access to the account's private key.
+* You have authority over the `sysio` account and access to the account's private key.
 
 ## Examples
 

@@ -4,7 +4,7 @@ title: Create a Snapshot with Full State History
 
 ## Overview
 
-This tutorial creates a database containing the chain state, with full history since the genesis state.
+This tutorial demonstrates how to create a complete snapshot of your blockchain state that includes full historical data since genesis. This snapshot can be used to restore a node with complete chain history, making it useful for setting up new nodes that need access to all historical transactions and account states. The process involves creating a snapshot and backing up the snapshot along with state history files.
 
 ## Prerequisites
 

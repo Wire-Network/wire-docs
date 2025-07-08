@@ -8,18 +8,20 @@ This guide explains how to replay or resync your node so that it captures the en
 
 ## Prerequisites
 
-* You have a local instance of `nodeop` running.
+* You have a local instance of `nodeop` launched but not running - `pidof nodeop` should return nothing.
 * You are familiar with [state_history_plugin](../plugins/state-history-plugin.md).
 
 ## Steps
 
 ### Step 1
 
-Get a `blocks.log` and place it in `data/blocks`, or get a genesis file and use the `--genesis-json` option
+Get a `blocks.log` and place it in `data/blocks`.
+
+If you cannot get a third-party `blocks.log`, you can use the genesis file and pass the `--genesis-json` option when starting `nodeop` in [Step 3](#step-3).
 
 ### Step 2
 
-Remove `data/state`, or use the `--replay-blockchain` option
+Remove `data/state` and use the `--replay-blockchain` option.
 
 ### Step 3
 

@@ -99,7 +99,6 @@ Config Options for sysio::state_history_plugin:
 
 ## How-To Guides
 
-* [How to fast start without history on existing chains](../how-to/how-to-fast-start-without-old-history.md)
-* [How to replay or resync with full history](../how-to/how-to-replay-or-resync-with-full-history.md)
+* [How to fast start without previous history](../how-to/how-to-fast-start-without-old-history.md)
 * [How to create a portable snapshot with full state history](../how-to/how-to-create-snapshot-with-full-history.md)
-* [How to restore a portable snapshot with full state history](../how-to/how-to-restore-snapshot-with-full-history.md)
+* [How to restore from portable snapshot with full state history](../how-to/how-to-restore-snapshot-with-full-history.md)

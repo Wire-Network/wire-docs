@@ -20,9 +20,9 @@ The `sysio.code` permission is a special authority flag that enables a smart con
 :::
 
 * You have access to a local Wire node.
-* You have a `sysio` account and access to the account's private key.
-* You have created an account (e.g., `alice`) and imported its private key.
-* You are familiar with the basic `clio set account` commands. For reference, see [set account] /tooling/clio/command-reference/set/set-account.md).
+* You have authority over the `sysio` account and access to the account's private key.
+* You have created an account (e.g., `alice`) and imported its private key. For more information, see [how to create an account](/docs/guides/how-to-create-an-account.md).
+* You are familiar with the basic `clio set account` commands. For reference, see [set account](/docs/api-reference/tooling/clio/command-reference/set/set-account.md).
 
 :::warning[REMINDER]
 The install process has already set up the wallet for the *root* user. To interact with clio, ensure **you are on the root user**. Run `sudo su -` to switch to the root user before proceeding with the tutorial.
@@ -36,7 +36,7 @@ Before adding the `sysio.code` permission, check the current permission authorit
 clio get account alice
 ```
 
-## Step 2: Add sysio.code permission to `alice`s account
+## Step 2: Add sysio.code permission to `alice`'s account
 
 To enable inline actions for your contract, you need to add the `sysio.code` permission to the desired permission (typically `active`). Use this command:
 
@@ -44,7 +44,7 @@ To enable inline actions for your contract, you need to add the `sysio.code` per
 clio set account permission alice active --add-code -p alice@active
 ```
 
-**Where:**
+**Arguments:**
 
 * `alice` is the account you want to update.
 * `active` is the permission where you want to add `sysio.code`.

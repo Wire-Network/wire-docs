@@ -1,4 +1,31 @@
-# Nodeop Configuration Document
+# Nodeop Configuration
+
+## Overview
+
+`nodeop` is the core command line interface (CLI) application for running a SYSIO blockchain node. This comprehensive reference documents all available configuration options, command-line arguments, and plugin configurations for the `nodeop` application.
+
+The `nodeop` CLI can be started manually from the command line or through automated scripts and systemd services. Its behavior is determined by which plugins are loaded and how they are configured. The application supports two main categories of options:
+
+- **Nodeop-specific options**: Core application settings for data directories, configuration files, logging, and basic node operation
+- **Plugin-specific options**: Configuration parameters that control the behavior of individual plugins like chain processing, HTTP API, P2P networking, and more
+
+This documentation provides complete reference information for all available options, including default values, parameter types, and usage examples. Whether you're setting up a new node, configuring a production environment, or troubleshooting existing deployments, this guide covers all aspects of `nodeop` configuration.
+
+## Options
+
+All CLI options and `config.ini` options can be found by running `nodeop --help`.
+
+Each `config.ini` option has a corresponding CLI option. However, not all CLI options are available in `config.ini`. For instance, most plugin-specific options that perform actions are not available in `config.ini`, such as `--delete-state-history` from `state_history_plugin`.
+
+For example, the CLI option `--plugin sysio::chain_api_plugin` can also be set by adding `plugin = sysio::chain_api_plugin` in `config.ini`.
+
+### nodeop-specific Options
+
+Nodeop-specific options are used mainly for housekeeping purposes, such as setting the directory where the blockchain data resides, specifying the name of the `nodeop` configuration file, setting the name and path of the logging configuration file, etc. These options can **only** be configured from the command line.
+
+### Plugin-Specific Options
+
+Plugin-specific options control the behavior of the [`nodeop` plugins](./plugins/index.md). Every plugin-specific option has a unique name, so it can be specified in any order within the command line or `config.ini` file. When specifying one or more plugin-specific option(s), the applicable plugin(s) must also be enabled using the `--plugin` option or else the corresponding option(s) will be ignored.
 
 ## Application Options
 

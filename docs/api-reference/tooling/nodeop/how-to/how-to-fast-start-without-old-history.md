@@ -4,18 +4,22 @@ title: Fast Start Without Previous History
 
 ## Overview
 
-This tutorial demonstrates how to capture the current chain state and future history, without previous historical data on the local chain.
+This tutorial demonstrates how to create a snapshot of your current blockchain state and restart your `nodeop` node from that snapshot, effectively discarding all previous historical data. This approach is useful for reducing storage requirements and speeding up node startup by removing old blockchain history while maintaining current account states and smart contract data. The process involves creating a snapshot, removing old state files, and restarting with the snapshot.
 
-## Before you begin
+:::danger[Important Consideration]
+This process will permanently delete all historical blockchain data from your local node. Only proceed if you are certain you do not need access to previous transaction history, account states, or other historical information.
+:::
 
-* Install the currently supported version of `clio`.
+## Prerequisites
+
+- Install the currently supported version of `clio`.
 
 :::info
 | The `clio` tool and `kiod` are bundled with the Wire software. [Installing Wire core](/docs/getting-started/install-dependencies.md) will install the `clio` and `kiod` command line tools.
 :::
 
-* Learn about [Using Nodeop](../usage/index.md).
-* Get familiar with [state_history_plugin](../plugins/state-history-plugin.md).
+- Learn about [Using Nodeop](../usage/index.md).
+- Get familiar with [state_history_plugin](../plugins/state-history-plugin.md).
 
 ## Steps
 

@@ -1,5 +1,5 @@
 ---
-title: Restore Snapshot with Full State History
+title: Restore From Snapshot with Full State History
 ---
 
 ## Overview
@@ -8,7 +8,7 @@ This guide details how to restore an existing snapshot along with its full state
 
 ## Prerequisites
 
-* You have a local instance of `nodeop` running.
+* You have a local instance of `nodeop` launched but not running - `pidof nodeop` should return nothing.
 * You are familiar with the [state_history_plugin](../plugins/state-history-plugin.md).
 
 ## Steps

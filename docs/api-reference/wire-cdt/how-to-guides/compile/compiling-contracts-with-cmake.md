@@ -28,4 +28,3 @@ Follow the following steps to compile your contract.
 
 * the compiled binary wasm: `hello.wasm`,
 * and the generated ABI file: `hello.abi`.
-

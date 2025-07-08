@@ -18,7 +18,7 @@ As shown in the tutorial below, you can assign a custom permission — such as `
 
 :::
 
-* You have a `sysio`, `bob` and `scontract1` accounts and access to their `active` private keys.
+* You have authority over the `sysio`, `bob` and `scontract1` accounts and access to their `active` private keys.
 * You have created a custom permission. See [clio set account permission](/docs/api-reference/tooling/clio/command-reference/set/set-account.md) or use the following command:
 
 ```sh
