@@ -6,7 +6,7 @@ title: block
 ## Command
 
 ```sh
-clio get block [OPTIONS] block
+clio get block block [OPTIONS]
 ```
 
 ## Description

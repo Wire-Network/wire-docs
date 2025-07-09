@@ -5,7 +5,7 @@ id: actions
 ## Command
 
 ```sh
-clio get actions [OPTIONS] account_name [pos] [offset]
+clio get actions account_name [pos] [offset] [OPTIONS]
 ```
 
 ## Description

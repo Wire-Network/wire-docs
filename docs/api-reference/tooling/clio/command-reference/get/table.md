@@ -6,7 +6,7 @@ title: table
 ## Command
 
 ```sh
-clio get table [OPTIONS] account scope table
+clio get table account scope table [OPTIONS]
 ```
 
 ## Description

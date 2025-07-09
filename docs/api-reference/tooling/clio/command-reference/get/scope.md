@@ -6,7 +6,7 @@ title: scope
 ## Command
 
 ```sh
-clio get scope [OPTIONS] contract
+clio get scope contract [OPTIONS]
 ```
 
 ## Description

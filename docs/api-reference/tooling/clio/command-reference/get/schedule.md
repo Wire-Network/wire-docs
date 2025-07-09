@@ -1,5 +1,6 @@
 ---
 id: schedule
+title: schedule
 ---
 
 ## Command
