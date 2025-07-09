@@ -3,29 +3,35 @@ id: currency-stats
 title: currency stats
 ---
 
+## Command
+
+```sh
+clio get currency stats contract symbol [OPTIONS]
+```
+
 ## Description
 
 Retrieve the stats of for a given currency.
 
-## Positional Arguments
+## Synopsis
 
-- `contract` _TEXT_  - The contract that operates the currency
+```sh
+clio get currency stats
+  contract <TEXT>         # REQUIRED: The contract that operates the currency
+  symbol <TEXT>           # REQUIRED: The symbol for the currency if the contract operates multiple currencies
+  [-h, --help]            # Print this help message and exit
+  [-j, --json]            # Output in JSON format
+```
 
-- `symbol` _TEXT_ - The symbol for the currency if the contract operates multiple currencies
+## Examples
 
-## Options
-
-- `-h,--help`                  Print this help message and exit
-
-- `-j,--json`                  Output in JSON format
-
-## Example
-
-Get stats of the SYS token from the `sysio.token` contract.
+### Get stats of the SYS token from the `sysio.token` contract
 
 ```sh
 clio get currency stats sysio.token SYS
 ```
+
+**Output:**
 
 ```json
 {

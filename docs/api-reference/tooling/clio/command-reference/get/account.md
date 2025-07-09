@@ -1,40 +1,37 @@
 ---
 id: account
+title: account
 ---
+
+## Command
+
+```sh
+clio get account name [core-symbol] [OPTIONS]
+```
 
 ## Description
 
 Retrieve an account from the blockchain.
 
-## Command
+## Synopsis
 
-```bash
-clio get account [OPTIONS] name [core-symbol]
+```sh
+clio get account
+  name <TEXT>             # REQUIRED: The name of the account to retrieve
+  core-symbol <TEXT>      # OPTIONAL: The expected core symbol of the chain you are querying
+  [-h, --help]            # Print this help message and exit
+  [-j, --json]            # Output in JSON format
 ```
-
-**Note**: The arguments and options enclosed in square brackets are optional.
-
-### Positional Arguments
-
-* `name` _TEXT_ - The name of the account to retrieve
-
-* `core-symbol`(_optional_) _TEXT_ - The expected core symbol of the chain you are querying
-
-### Options
-
-* `-h,--help` Print this help message and exit
-
-* `-j,--json` - Output in JSON format
 
 ## Examples
 
-1. Retrieve info for `sysio` account
+### Retrieve info for `sysio` account
 
-```shell
+```sh
 clio get account sysio
 ```
 
-**Example Output**
+**Output:**
 
 ```console
 created: <TIMESTAMP>
@@ -69,15 +66,13 @@ SYS balances:
      total:         75496.0000 SYS
 ```
 
----
-
-1. Get JSON data for `sysio` account
+### Retrieve info for `sysio` account in JSON format
 
 ```sh
 clio get account sysio --json
 ```
 
-**Example Output**
+**Output:**
 
 ```json
 {

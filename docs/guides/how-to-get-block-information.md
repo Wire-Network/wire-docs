@@ -2,7 +2,6 @@
 
 ## Prerequisites
 
-* Familiarize yourself with the [`clio get block`](/docs/api-reference/tooling/clio/command-reference/get/block.md) command and its parameters.
 * Install the currently supported version of `clio`.
 
 :::info[Note]

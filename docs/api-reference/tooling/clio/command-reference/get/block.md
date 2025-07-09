@@ -1,35 +1,43 @@
 ---
 id: block
+title: block
 ---
+
+## Command
+
+```sh
+clio get block [OPTIONS] block
+```
 
 ## Description
 
 Retrieves a full block from the blockchain
 
-## Positional Arguments
+## Synopsis
 
-- `block` _TEXT_ - The number **or** ID of the block to retrieve
+```sh
+clio get block
+  block <TEXT>            # REQUIRED: The number **or** ID of the block to retrieve
+  [--header-state]        # Get block header state from fork database instead
+  [--info]                # Get block info from the blockchain by block num only
+  [-h, --help]            # Print this help message and exit
+```
 
-## Options
+## Examples
 
-- `--header-state` - Get block header state from fork database instead
-- `--info` - Get block info from the blockchain by block num only
-
-## Example
-
-### Get the full block
+### Get the full block by block number
 
 ```sh
 clio get block 1
 ```
 
-or
+### Get the full block by block ID
 
 ```sh
 clio get block 0000000130d70e94e0022fd2fa035cabb9e542c34ea27f572ac90b5a7aa3d891
 ```
 
-This will output a block object similar to the following:
+**Output:**
 
 ```json
 {
@@ -57,7 +65,7 @@ This will output a block object similar to the following:
 clio get block --info 1
 ```
 
-This will output a block info object similar to the following:
+**Output:**
 
 ```json
 {

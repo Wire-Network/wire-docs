@@ -1,26 +1,34 @@
 ---
 id: info
+title: info
 ---
+
+## Command
+
+```sh
+clio get info [OPTIONS]
+```
 
 ## Description
 
 Gets current blockchain information.
 
-## Position Parameters
+## Synopsis
 
-This command does not accept any parameters.
+```sh
+clio get info
+  [-h, --help]            # Print this help message and exit
+```
 
-## Options
+## Examples
 
-- `-h, --help`                   Print this help message and exit
-
-## Example
+### Get current blockchain state information
 
 ```sh
 clio get info
 ```
 
-This command simply returns the current blockchain state information.
+**Output:**
 
 ```json
 {

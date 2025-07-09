@@ -43,7 +43,7 @@ leap-util block-log make-index --blocks-dir=/opt/wire-network/blockproducer/data
 leap-util block-log make-index --blocks-dir=/opt/wire-network/chain-api/data/blocks/
 ```
 
-If you are doing a replay on a chain API(non-producing) node with enabled state history plugin, you will also need to remove the `data/blocks/state-history` directory.
+If you are doing a replay on a chain API(non-producing) node with enabled `state_history_plugin`, you will also need to remove the `data/blocks/state-history` directory.
 
 ```sh
 rm -rf data/blocks/state-history

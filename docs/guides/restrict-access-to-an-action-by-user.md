@@ -13,51 +13,84 @@ This guide provides instructions how to perform authorization checks in a smart 
 
 ## Steps
 
-Refer to the [hello contracts source code](https://github.com/wire-io/wire-contracts/blob/main/contracts/hello/hello.cpp) for the complete example.
+Get the [`hello-world-contract` source code](https://github.com/Wire-Network/guides/tree/master/hello-world-contract). For more information on how to build and deploy the contract, refer to the [hello-world-contract guide](/docs/smart-contract-development/hello-world-contract-short.md).
 
-The following steps show how to check authorization for `user` account for the `hi` action. There are three ways to accomplish an authorization check in a smart contract action implementation. You can use any of the methods provided below depending on your needs:
+The following methods can be used to check authorization for the `user` account in the `hi` action. All methods ensure that only account passed as argument to the action can execute the action.
 
-### 1. Use check(has_auth(...)...)
+### Method 1: `check(has_auth(...))`
 
-The following code example enforces the action `hi` to be executed only by the account that is sent as parameter to the action, no matter what permission the account uses to sign the transaction (e.g. owner, active, code).
+#### Key Difference
 
-```cpp
-#include <capi/sysio/action.h>
+Allows custom error messages while accepting _any_ permission level.
 
-void hi( name user ) {
-   check(has_auth(user), "User is not authorized to perform this action.");
-   print( "Hello, ", name{user} );
+```cpp title="guides/hello-world-contract/hello.cpp"
+#include <hello.hpp>
+
+void hello::hi(name user) {
+    check(has_auth(user), "User is not authorized to perform this action.");
+
+    print("Hello, ", user);
 }
 ```
 
-### 2. Use `require_auth`
+#### Example - `check(has_auth(...))`
 
-The below code enforces the action `hi` to be executed only by the account that is sent as parameter to the action, no matter what permission the account uses to sign the transaction (e.g. owner, active, code).
+```txt
+sudo clio push action hello hi '["alice"]' -p bob@active
 
-```cpp
+failed transaction: 04d5e1f811ff16a7ba4f7934961f85e86a15c1a4e67e533abf14cf68c960a658  <unknown> bytes  <unknown> us
+error [timestamp]T13:52:31.978 clio      main.cpp:699                  print_result         ] soft_except->to_detail_string(): 3050003 sysio_assert_message_exception: sysio_assert_message assertion failure
+assertion failure with message: User is not authorized to perform this action.
+    {"s":"User is not authorized to perform this action."}
+    nodeop  cf_system.cpp:14 sysio_assert
+hello <= hello::hi pending console output: 
+    {"console":"","account":"hello","action":"hi","receiver":"hello"}
+    nodeo
+```
+
+### Method 2: `require_auth()`
+
+#### Key Difference
+
+Similar to `check(has_auth(...))`, but uses generic error messages.
+
+```cpp title="guides/hello-world-contract/hello.cpp"
+#include <hello.hpp>
+
 void hi( name user ) {
    require_auth( user );
-   print( "Hello, ", name{user} );
+   print( "Hello, ", user );
 }
 ```
 
-:::info
-| Note that this time you can not customize the yielded error message, it will be a generic authorization error message.
-:::
+#### Example - plain `require_auth`
 
-### 3. Use `require_auth2`
+```txt
+clio push action hello hi '["alice"]' -p bob@active
 
-The below code is enforces the action `hi` to be executed only by the account that is sent as parameter to the action and only if the permission used to sign the transaction is the 'active' one. In other words, if the same user uses the transaction with a different permission (e.g. code, owner) the execution of the action is halted.
-
-```cpp
-#include <capi/sysio/action.h>
-
-void hi( name user ) {
-   require_auth2(user.value, "active"_n.value);
-   print( "Hello, ", name{user} );
-}
+failed transaction: 05f8ddc0001d8eb5ee152e687871e131d6c8033f2066ab5c454d8aa5771a3e9a  <unknown> bytes  <unknown> us
+error [timestamp]T13:28:32.697 clio      main.cpp:699                  print_result         ] soft_except->to_detail_string(): 3090004 missing_auth_exception: Missing required authority
+missing authority of alice
 ```
 
-:::info
-| Note that this time, as well as previous method, you can not customize the yielded error message, it will be a generic authorization error message.
-:::
+You could also use `require_auth` to restrict access to a specific permission level (e.g., only `active` permission).
+
+```cpp title="guides/hello-world-contract/hello.cpp"
+#include <hello.hpp>
+
+void hello::hi(name user) {
+   require_auth(permission_level{user, "active"_n});
+   print("Hello, ", user);
+}
+
+```
+
+#### Example - `require_auth` with specific permission level
+
+```txt
+clio push action hello hi '["bob"]' -p bob@owner 
+
+failed transaction: 8b815490718d3e53ddc22db06d433a7265f5a9475d501f0aedf04aafb3e1d075  <unknown> bytes  <unknown> us
+error [timestamp]T13:29:35.740 clio      main.cpp:699                  print_result         ] soft_except->to_detail_string(): 3090004 missing_auth_exception: Missing required authority
+missing authority of bob/active
+```

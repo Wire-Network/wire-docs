@@ -1,34 +1,37 @@
 ---
 id: block_trace
+title: block_trace
 ---
+
+## Command
+
+```sh
+clio get block_trace block [OPTIONS]
+```
 
 ## Description
 
 Retrieves a block from the trace logs.
 
-## Positional Arguments
-  
-`block` TEXT REQUIRED         The number of the block to retrieve
-
-## Options
-
-`-h,--help` UINT   Print this help message and exit
-
-**Command**
+## Synopsis
 
 ```sh
-clio get block_trace <block_num>
+clio get block_trace
+  block <TEXT>            # REQUIRED: The number of the block to retrieve
+  [-h, --help]            # Print this help message and exit
 ```
 
-**Output**
+## Examples
 
-## Example
+### Get block trace for block number 3511000
 
 ```sh
 clio get block_trace 3511000
 ```
 
-```sh
+**Output:**
+
+```json
 {
   "id": "003592d8a37a13122cc769c1468a8510a8d1eae933abffc9bea7a8ba6f893d8a",
   "number": 3511000,

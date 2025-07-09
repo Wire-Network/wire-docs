@@ -2,11 +2,11 @@
 title: Nodeop Common Setups
 ---
 
-`Nodeop` generally runs in two modes:
+`nodeop` generally runs in two modes:
 
- * [Producing Node](producing-node.md)
- * [Non-Producing Node](non-producing-node.md)
+* [Producing Node](producing-node.md)
+* [Non-Producing Node](non-producing-node.md)
 
-`Producing Nodes` are configured for block production. They connect to the peer-to-peer network and actively produce new blocks. Loose transactions are also validated and relayed. On mainnet, `Producing Nodes` only produce blocks if their assigned block producer is part of an active schedule.
+_Producing Nodes_ are configured for block production. They connect to the peer-to-peer network and actively produce new blocks. Loose transactions are also validated and relayed. On mainnet, _Producing Nodes_ only produce blocks if their assigned block producer is part of an active schedule.
 
-`Non-Producing Nodes` connect to the peer-to-peer network but do not actively produce new blocks; they are useful for acting as proxy nodes, relaying API calls, validating transactions, broadcasting information to other nodes, etc. `Non-Producing Nodes` are also useful for monitoring the blockchain state.
+_Non-Producing Nodes_ connect to the peer-to-peer network but do not actively produce new blocks; they are useful for acting as proxy nodes, relaying API calls, validating transactions, broadcasting information to other nodes, etc. _Non-Producing Nodes_ are also useful for monitoring the blockchain state.

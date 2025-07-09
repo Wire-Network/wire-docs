@@ -2,23 +2,33 @@
 id: schedule
 ---
 
+## Command
+
+```sh
+clio get schedule [OPTIONS]
+```
+
 ## Description
 
 Retrieve the producer schedule.
 
-## Options
+## Synopsis
 
-- `-h,--help`                  Print this help message and exit
+```sh
+clio get schedule
+  [-h, --help]            # Print this help message and exit
+  [-j, --json]            # Output in JSON format
+```
 
-- `-j,--json`                  Output in JSON format
+## Examples
 
-## Example
+### Get current producer schedule
 
 ```sh
 clio get schedule
 ```
 
-This command simply returns the current producer schedule.
+**Output:**
 
 ```json
 {
