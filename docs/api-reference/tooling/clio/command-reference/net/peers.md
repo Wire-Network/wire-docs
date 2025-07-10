@@ -10,13 +10,13 @@ clio net peers [OPTIONS]
 
 ## Description
 
-Returns a list with the status of all peer connections. This command allows a node operator to check the status of a node's peer connections.
+Returns a list with the status of all peer connections. 
 
 ## Synopsis
 
 ```sh
 clio net peers
-  [-h, --help]            # Print this help message and exit
+  [-h | --help]                    # Print this help message and exit
 ```
 
 ## Usage

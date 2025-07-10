@@ -4,6 +4,10 @@ id: how-to-deploy-a-smart-contract
 
 # Deploy a Smart Contract
 
+## Overview
+
+This guide provides instructions to deploy a smart contract.
+
 ## Prerequisites
 
 * Install the currently supported version of `clio`
@@ -16,16 +20,18 @@ id: how-to-deploy-a-smart-contract
 The install process has already set up the wallet for the *root* user. To interact with clio, ensure **you are on the root user**. Run `sudo su -` to switch to the root user.
 :::
 
-* Unlock your wallet
+* Make sure your wallet is unlocked.
 
-`clio wallet unlock --name=default --password "$(cat path/to/password-file)"`
+```sh
+clio wallet unlock --name=default --password "$(cat path/to/password-file)"
+```
 
 ## Steps
 
 Execute:
 
 ```sh
-clio set contract contract_account contract_folder [wasm-file] [abi-file]
+clio set contract <contract_account> <contract_folder> [wasm-file] [abi-file]
 ```
 
 Replace the `contract_folder` with the path that points to your contract folder.

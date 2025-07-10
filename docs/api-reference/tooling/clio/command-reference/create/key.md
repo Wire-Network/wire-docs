@@ -1,5 +1,6 @@
 ---
 id: key
+title: key
 ---
 
 ## Command
@@ -16,10 +17,10 @@ Creates a new keypair and either prints the public and private keys to the scree
 
 ```sh
 clio create key
-  [-h, --help]             # Print this help message and exit
-  [--r1]                   # Generate a key using the R1 curve, instead of the K1 curve
-  [-f, --file] <TEXT>      # Name of file to write private/public key output to. (Must be set, unless "--to-console" is passed)
-  [--to-console]           # Print private/public keys to console
+  [-h | --help]                    # Print this help message and exit
+  [--r1]                           # Generate a key using the R1 curve, instead of the K1 curve
+  [--file <filename>]              # Name of file to write private/public key output to. (Must be set, unless "--to-console" is passed)
+  [--to-console]                   # Print private/public keys to console
 ```
 
 ## Examples

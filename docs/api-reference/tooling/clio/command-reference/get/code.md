@@ -6,7 +6,7 @@ title: code
 ## Command
 
 ```sh
-clio get code name [OPTIONS]
+clio get code <name> [OPTIONS]
 ```
 
 ## Description
@@ -17,11 +17,11 @@ Retrieves the code and ABI for an account.
 
 ```sh
 clio get code
-  name <TEXT>             # REQUIRED: The name of the account whose code should be retrieved
-  [-c, --code] <TEXT>     # The name of the file to save the contract .wast to
-  [-a, --abi] <TEXT>      # The name of the file to save the contract .abi to
-  [--wasm]                # Save contract as wasm
-  [-h, --help]            # Print this help message and exit
+  <name>                           # REQUIRED: The name of the account whose code should be retrieved
+  [--code <filename>]              # The name of the file to save the contract .wast to
+  [--abi <filename>]               # The name of the file to save the contract .abi to
+  [--wasm]                         # Save contract as wasm
+  [-h, --help]                     # Print this help message and exit
 ```
 
 ## Examples

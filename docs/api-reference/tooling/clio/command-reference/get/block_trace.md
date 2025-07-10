@@ -17,8 +17,8 @@ Retrieves a block from the trace logs.
 
 ```sh
 clio get block_trace
-  block <TEXT>            # REQUIRED: The number of the block to retrieve
-  [-h, --help]            # Print this help message and exit
+  <block>                          # REQUIRED: The number or ID of the block to retrieve
+  [-h | --help]                    # Print this help message and exit
 ```
 
 ## Examples

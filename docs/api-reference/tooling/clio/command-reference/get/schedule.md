@@ -17,8 +17,8 @@ Retrieve the producer schedule.
 
 ```sh
 clio get schedule
-  [-h, --help]            # Print this help message and exit
-  [-j, --json]            # Output in JSON format
+  [-h | --help]                    # Print this help message and exit
+  [-j | --json]                    # Output in JSON format
 ```
 
 ## Examples

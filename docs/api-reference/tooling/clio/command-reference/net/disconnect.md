@@ -5,19 +5,19 @@ title: net disconnect
 ## Command
 
 ```sh
-clio net disconnect [OPTIONS] host
+clio net disconnect <host> [OPTIONS]
 ```
 
 ## Description
 
-Close an existing connection to a specified peer. A node operator can use this command to instruct a node to disconnect from another peer without restarting the node.
+Close an existing connection to a specified peer. A node operator can use this command to instruct a node to disconnect from another peer.
 
 ## Synopsis
 
 ```sh
 clio net disconnect
-  host <TEXT>            # REQUIRED: The hostname:port to disconnect from
-  [-h, --help]           # Print this help message and exit
+  <host>                           # REQUIRED: The hostname:port to disconnect from
+  [-h | --help]                    # Print this help message and exit
 ```
 
 ## Usage

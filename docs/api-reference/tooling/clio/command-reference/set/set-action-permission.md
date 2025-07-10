@@ -6,7 +6,7 @@ title: set action permission
 ## Command
 
 ```sh
-clio set action permission account code type requirement [OPTIONS] 
+clio set action permission <account> <code> <action> <requirement> [OPTIONS]
 ```
 
 ## Description
@@ -17,28 +17,32 @@ Set parameters dealing with account permissions
 
 ```sh
 clio set action permission
-  account <TEXT>                    # REQUIRED: The account to set/delete a permission authority
-  code <TEXT>                       # REQUIRED: The account that owns the code for the action
-  type <TEXT>                       # REQUIRED: The type of the action
-  requirement <TEXT>                # REQUIRED: [delete] NULL, [set/update] The permission name required for executing the action
-  [-h, --help]                      # Print this help message and exit
-  [-x, --expiration <UINT>]          # Set expiration time in seconds before a transaction expires (default: 30s)
-  [-f, --force-unique]               # Force the transaction to be unique (consumes extra bandwidth)
-  [-s, --skip-sign]                  # Skip signing the transaction with unlocked wallet keys
-  [-j, --json]                       # Print the result in JSON format
-  [--json-file <TEXT>]               # Save the result in JSON format to a file
-  [-d, --dont-broadcast]             # Do not broadcast the transaction (prints to stdout instead)
-  [--return-packed]                  # Used with --dont-broadcast to get the packed transaction
-  [-r, --ref-block <TEXT>]           # Set the reference block number or block ID for TAPOS
-  [--use-old-rpc]                    # Use old RPC push_transaction instead of the new RPC send_transaction
-  [--use-old-send-rpc]               # Use old RPC send_transaction instead of new /v1/chain/send_transaction2
-  [-p, --permission <TEXT>]          # Authorize with account@permission (default: 'account@active')
-  [--max-cpu-usage-ms <UINT>]        # Set the upper limit on CPU usage in milliseconds (default: no limit)
-  [--max-net-usage <UINT>]           # Set the upper limit on network usage in bytes (default: no limit)
-  [--delay-sec <UINT>]               # Set a delay in seconds before execution (default: 0s)
-  [-t, --return-failure-trace]       # Return partial traces on failed transactions
-  [--retry-irreversible]             # Request node to retry transaction until it is irreversible or expires (blocking call)
-  [--retry-num-blocks <UINT>]        # Request node to retry transaction until included in a block of given height (blocking call)
+  <account>                          # REQUIRED: The account to set/delete a permission authority for
+  <code>                             # REQUIRED: The account that owns the code for the action
+  <action>                           # REQUIRED: The name of the action [use ALL for all actions]
+  <requirement>                      # REQUIRED: The permission name required for executing the given action [use NULL to delete]
+  [-h | --help]                      # Print this help message and exit
+  [--help-all]                       # Show all help
+  [[-x | --expiration] <seconds>]    # set the time in seconds before a transaction expires, defaults to 30s
+  [-f | --force-unique]              # force the transaction to be unique. this will consume extra bandwidth and remove any protections against accidently issuing the same transaction multiple times
+  [-s | --skip-sign]                 # Specify if unlocked wallet keys should be used to sign transaction
+  [-j | --json]                      # print result as JSON
+  [--json-file <filename>]           # save result in json format into a file
+  [-d | --dont-broadcast]            # don't broadcast transaction to the network (just print to stdout)
+  [-u | --unpack-action-data]        # unpack all action data within transaction, needs interaction with nodeop unless --abi-file. used in conjunction with --dont-broadcast
+  [--return-packed]                  # used in conjunction with --dont-broadcast to get the packed transaction
+  [[-r | --ref-block] <block>]       # set the reference block num or block id used for TAPOS (Transaction as Proof-of-Stake)
+  [--use-old-rpc]                    # use old RPC push_transaction, rather than new RPC send_transaction
+  [--use-old-send-rpc]               # use old RPC send_transaction, rather than new RPC /v1/chain/send_transaction2
+  [--compression <type>]             # compression for transaction 'none' or 'zlib'
+  [[-p | --permission] <account@perm>] # an account and permission level to authorize, as in 'account@permission' (defaults to 'account@active')
+  [--max-cpu-usage-ms <ms>]          # set an upper limit on the milliseconds of cpu usage budget, for the execution of the transaction (defaults to 0 which means no limit)
+  [--max-net-usage <bytes>]          # set an upper limit on the net usage budget, in bytes, for the transaction (defaults to 0 which means no limit)
+  [--delay-sec <seconds>]            # set the delay_sec seconds, defaults to 0s
+  [[-t | --return-failure-trace] <boolean>] # return partial traces on failed transactions
+  [--retry-irreversible <boolean>]   # request node to retry transaction until it is irreversible or expires, blocking call
+  [--retry-num-blocks <blocks>]      # request node to retry transaction until in a block of given height, blocking call
+  [--sign-with <keys>]               # the public key or json array of public keys to sign with
 ```
 
 ## Requirements
@@ -54,19 +58,23 @@ clio set action permission
 
 ## Examples
 
-1. Set permission on a _hi_ action deployed to the _scontract1_ account so that the _bob_ account's `active` permission and _customp1_ permission are authorized:
+The following examples demonstrate how to use the `clio set action permission` command:
 
-```shell
+### Set permission on a hi action
+
+Set permission on a _hi_ action deployed to the _scontract1_ account so that the _bob_ account's `active` permission and _customp1_ permission are authorized:
+
+```sh
 clio set action permission bob scontract1 hi customp1 -p bob@active
 ```
 
 **Where**
 
-* `bob` = The name of the account to link the custom permission authority.
-* `scontract1`= The name of the account which owns the smart contract.
-* `hi` = The name of the action to link to a permission.
-* `customp1` = The permission used to authorize the transaction.
-* `-p bob@active` = The permission used to authorize setting the permissions.
+* `bob` - The name of the account to link the custom permission authority.
+* `scontract1` - The name of the account which owns the smart contract.
+* `hi` - The name of the action to link to a permission.
+* `customp1` - The permission used to authorize the transaction.
+* `-p bob@active` - The permission used to authorize setting the permissions.
 
 **Example Output**
 
@@ -75,19 +83,21 @@ executed transaction: 4eb4cf3aea232d46e0e949bc273c3f0575be5bdba7b61851ab51d927cf
 #         sysio <= sysio::linkauth              {"account":"bob","code":"scontract1","type":"hi","requirement":"customp1"}
 ```
 
-1. Set permissions on a _bye_ action deployed to the _scontract1_ account so that the _bob_ account's `active` permission and _customp2_ permission are authorized:
+### Set permission on a bye action
 
-```shell
+Set permissions on a _bye_ action deployed to the _scontract1_ account so that the _bob_ account's `active` permission and _customp2_ permission are authorized:
+
+```sh
 clio set action permission bob scontract1 bye customp2 -p bob@active
 ```
 
 **Where**
 
-* `bob` = The name of the account to link the custom permission authority.
-* `scontract1`= The name of the account which owns the smart contract.
-* `bye` = The name of the action to link to a permission.
-* `customp2` = The permission used to authorize the transaction.
-* `-p bob@active` = The permission used to authorize setting the permissions.
+* `bob` - The name of the account to link the custom permission authority.
+* `scontract1` - The name of the account which owns the smart contract.
+* `bye` - The name of the action to link to a permission.
+* `customp2` - The permission used to authorize the transaction.
+* `-p bob@active` - The permission used to authorize setting the permissions.
 
 **Example Output**
 
@@ -96,19 +106,21 @@ executed transaction: 4eb4cf3aea232d46e0e949bc273c3f0575be5bdba7b61851ab51d927cf
 #         sysio <= sysio::linkauth              {"account":"bob","code":"scontract1","type":"bye","requirement":"customp2"}
 ```
 
-1. To remove the customp1 permission from the _hi_ action:
+### Remove permission from an action
 
-```shell
+To remove the customp1 permission from the _hi_ action:
+
+```sh
 clio set action permission bob scontract1 hi NULL -p bob@active
 ```
 
 **Where**
 
-* `bob` = The name of the account to link the custom permission authority.
-* `scontract1`= The name of the account which owns the smart contract.
-* `hi` = The name of the action to link to a permission.
-* `NULL` = Remove the permission.
-* `-p bob@active` = The permission used to authorize the transaction.
+* `bob` - The name of the account to link the custom permission authority.
+* `scontract1` - The name of the account which owns the smart contract.
+* `hi` - The name of the action to link to a permission.
+* `NULL` - Remove the permission.
+* `-p bob@active` - The permission used to authorize the transaction.
 
 **Example Output**
 
@@ -121,4 +133,4 @@ executed transaction: 50fe754760a1b8bd0e56f57570290a3f5daa509c090deb54c81a721ee7
 
 * [Accounts and Permissions](/docs/smart-contract-development/accounts-permissions.md) protocol document.
 
-<!-- * [Creating and Linking Custom Permissions](https://developers.eos.io/welcome/v2.1/smart-contract-guides/linking-custom-permission) tutorial. -->
+* [Creating and Linking Custom Permissions](/docs/guides/how-to-set-custom-permission.md) tutorial.

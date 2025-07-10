@@ -6,7 +6,7 @@ title: account
 ## Command
 
 ```sh
-clio get account name [core-symbol] [OPTIONS]
+clio get account <name> [core-symbol] [OPTIONS]
 ```
 
 ## Description
@@ -17,10 +17,10 @@ Retrieve an account from the blockchain.
 
 ```sh
 clio get account
-  name <TEXT>             # REQUIRED: The name of the account to retrieve
-  core-symbol <TEXT>      # OPTIONAL: The expected core symbol of the chain you are querying
-  [-h, --help]            # Print this help message and exit
-  [-j, --json]            # Output in JSON format
+  <name>                           # REQUIRED: The name of the account to be retrieved
+  [core-symbol]                    # OPTIONAL: The expected core symbol of the chain you are querying
+  [-h | --help]                    # Print this help message and exit
+  [-j | --json]                    # Output in JSON format
 ```
 
 ## Examples

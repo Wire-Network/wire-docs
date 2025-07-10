@@ -6,7 +6,7 @@ title: transaction_trace
 ## Command
 
 ```sh
-clio get transaction_trace id [OPTIONS]
+clio get transaction_trace <transaction_id> [OPTIONS]
 ```
 
 ## Description
@@ -17,8 +17,8 @@ Retrieves a transaction from the trace logs.
 
 ```sh
 clio get transaction_trace
-  id <TEXT>               # REQUIRED: ID of the transaction to retrieve
-  [-h, --help]            # Print this help message and exit
+  <transaction_id>                 # REQUIRED: ID of the transaction to retrieve
+  [-h | --help]                    # Print this help message and exit
 ```
 
 ## Examples

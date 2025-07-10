@@ -3,38 +3,53 @@ id: push-transaction
 title: push transaction
 ---
 
+## Command
+
+```sh
+clio push transaction <transaction> [OPTIONS]
+```
 
 ## Description
 
 Push an arbitrary JSON transaction
 
-## Positional Arguments
+## Synopsis
 
-- `transaction` (text) The JSON of the transaction to push, or the name of a JSON file containing the transaction
+```sh
+clio push transaction
+  <transaction>                      # REQUIRED: The JSON of the transaction to push, or the name of a JSON file containing the transaction
+  [-h | --help]                      # Print this help message and exit
+  [--help-all]                       # Show all help
+  [--signature]                      # append a signature to the transaction; repeat this option to append multiple signatures
+  [[-x | --expiration] <seconds>]    # set the time in seconds before a transaction expires, defaults to 30s
+  [-f | --force-unique]              # force the transaction to be unique. this will consume extra bandwidth and remove any protections against accidently issuing the same transaction multiple times
+  [-s | --skip-sign]                 # Specify if unlocked wallet keys should be used to sign transaction
+  [-j | --json]                      # print result as JSON
+  [--json-file <filename>]           # save result in json format into a file
+  [-d | --dont-broadcast]            # don't broadcast transaction to the network (just print to stdout)
+  [-u | --unpack-action-data]        # unpack all action data within transaction, needs interaction with nodeop unless --abi-file. used in conjunction with --dont-broadcast
+  [--return-packed]                  # used in conjunction with --dont-broadcast to get the packed transaction
+  [[-r | --ref-block] <block>]       # set the reference block num or block id used for TAPOS (Transaction as Proof-of-Stake)
+  [--use-old-rpc]                    # use old RPC push_transaction, rather than new RPC send_transaction
+  [--use-old-send-rpc]               # use old RPC send_transaction, rather than new RPC /v1/chain/send_transaction2
+  [--compression <type>]             # compression for transaction 'none' or 'zlib'
+  [[-p | --permission] <account@perm>] # an account and permission level to authorize, as in 'account@permission'
+  [--max-cpu-usage-ms <ms>]          # set an upper limit on the milliseconds of cpu usage budget, for the execution of the transaction (defaults to 0 which means no limit)
+  [--max-net-usage <bytes>]          # set an upper limit on the net usage budget, in bytes, for the transaction (defaults to 0 which means no limit)
+  [--delay-sec <seconds>]            # set the delay_sec seconds, defaults to 0s
+  [[-t | --return-failure-trace] <boolean>] # return partial traces on failed transactions
+  [--retry-irreversible <boolean>]   # request node to retry transaction until it is irreversible or expires, blocking call
+  [--retry-num-blocks <blocks>]      # request node to retry transaction until in a block of given height, blocking call
+  [--sign-with <keys>]               # the public key or json array of public keys to sign with
+  [--dry-run]                        # specify a transaction is dry-run
+  [--read]                           # specify a transaction is read-only
+```
 
-## Options
+## Examples
 
-`-h,--help` - Print this help message and exit
+The following examples demonstrate how to use the `clio push transaction` command:
 
-`-x,--expiration` - set the time in seconds before a transaction expires, defaults to 30s
-
-`-f,--force-unique` - force the transaction to be unique. this will consume extra bandwidth and remove any protections against accidently issuing the same transaction multiple times
-
-`-s,--skip-sign` - Specify if unlocked wallet keys should be used to sign transaction
-
-`-j,--json` - print result as JSON
-
-`-d,--dont-broadcast` - don't broadcast transaction to the network (just print to stdout)
-
-`-p,--permission` _Type: Text_ - An account and permission level to authorize, as in 'account@permission'
-
-`--max-cpu-usage-ms` _UINT_ - set an upper limit on the milliseconds of CPU usage budget, for the execution of the transaction (defaults to 0 which means no limit)
-
-`--max-net-usage` _UINT_ - set an upper limit on the net usage budget, in bytes, for the transaction (defaults to 0 which means no limit)
-
-`--delay-sec` _UINT_ - set the delay_sec seconds, defaults to 0s
-
-## Example
+### Push a JSON transaction
 
 ```sh
 clio push transaction '{
@@ -65,7 +80,7 @@ clio push transaction '{
 }' -p sysio@active
 ```
 
-## Output
+**Output:**
 
 ```json
 {

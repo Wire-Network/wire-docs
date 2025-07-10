@@ -6,7 +6,7 @@ title: scope
 ## Command
 
 ```sh
-clio get scope contract [OPTIONS]
+clio get scope <contract> [OPTIONS]
 ```
 
 ## Description
@@ -17,13 +17,13 @@ Retrieves a list of scopes and tables owned by a contract.
 
 ```sh
 clio get scope
-  contract <TEXT>         # REQUIRED: The contract who owns the table
-  [-t, --table] <TEXT>    # The name of the table as filter
-  [-l, --limit] <UINT>    # The maximum number of rows to return
-  [-L, --lower] <TEXT>    # lower bound of scope
-  [-U, --upper] <TEXT>    # upper bound of scope
-  [-r, --reverse]         # Iterate in reverse order
-  [-h, --help]            # Print this help message and exit
+  <contract>                       # REQUIRED: The contract who owns the table
+  [[-t | --table] <table_name>]    # The name of the table as filter
+  [[-l | --limit] <rows>]          # The maximum number of rows to return
+  [[-L | --lower] <scope>]         # lower bound of scope
+  [[-U | --upper] <scope>]         # upper bound of scope
+  [-r | --reverse]                 # Iterate in reverse order
+  [-h | --help]                    # Print this help message and exit
 ```
 
 ## Examples

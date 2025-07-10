@@ -5,7 +5,7 @@ title: net connect
 ## Command
 
 ```sh
-clio net connect [OPTIONS] host
+clio net connect <host> [OPTIONS]
 ```
 
 ## Description
@@ -16,8 +16,8 @@ Start a new connection to a specified peer. A node operator can use this command
 
 ```sh
 clio net connect
-  host <TEXT>             # REQUIRED: The hostname:port of the peer to connect to
-  [-h, --help]            # Print this help message and exit
+  <host>                           # REQUIRED: The hostname:port of the peer to connect to
+  [-h | --help]                    # Print this help message and exit
 ```
 
 ## Requirements

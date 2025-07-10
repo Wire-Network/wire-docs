@@ -6,7 +6,7 @@ title: block
 ## Command
 
 ```sh
-clio get block block [OPTIONS]
+clio get block <block_num_or_id> [OPTIONS]
 ```
 
 ## Description
@@ -17,10 +17,10 @@ Retrieves a full block from the blockchain
 
 ```sh
 clio get block
-  block <TEXT>            # REQUIRED: The number **or** ID of the block to retrieve
-  [--header-state]        # Get block header state from fork database instead
-  [--info]                # Get block info from the blockchain by block num only
-  [-h, --help]            # Print this help message and exit
+  <block_num_or_id>                # REQUIRED: The number or ID of the block to retrieve
+  [--header-state]                 # Get block header state from fork database instead
+  [--info]                         # Get block info from the blockchain by block num only
+  [-h | --help]                    # Print this help message and exit
 ```
 
 ## Examples

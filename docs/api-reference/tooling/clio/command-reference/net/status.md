@@ -5,19 +5,19 @@ title: net status
 ## Command
 
 ```sh
-clio net status [OPTIONS] host
+clio net status <host> [OPTIONS]
 ```
 
 ## Description
 
-Returns the status of a connected peer. This command allows a node operator to check the status of a node's connected peer.
+Returns the status of a connected peer.
 
 ## Synopsis
 
 ```sh
 clio net status
-  host <TEXT>             # REQUIRED: The hostname:port of the peer to query
-  [-h, --help]            # Print this help message and exit
+  <host>                           # REQUIRED: The hostname:port of the peer to query
+  [-h | --help]                    # Print this help message and exit
 ```
 
 ## Usage

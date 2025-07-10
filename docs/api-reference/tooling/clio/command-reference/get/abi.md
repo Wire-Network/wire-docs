@@ -6,7 +6,7 @@ title: abi
 ## Command
 
 ```sh
-clio get abi name [OPTIONS]
+clio get abi <name> [OPTIONS]
 ```
 
 ## Description
@@ -17,9 +17,9 @@ Retrieves the ABI for an account.
 
 ```sh
 clio get abi
-  name <TEXT>             # REQUIRED: The name of the account whose ABI should be retrieved
-  [-f, --file] <TEXT>     # The name of the file to save the contract .abi to instead of writing to console
-  [-h, --help]            # Print this help message and exit
+  <name>                           # REQUIRED: The name of the account whose ABI should be retrieved
+  [--file <filename>]              # The name of the file to save the contract .abi to instead of writing to console
+  [-h, --help]                     # Print this help message and exit
 ```
 
 ## Examples

@@ -6,7 +6,7 @@ title: account
 ## Command
 
 ```sh
-clio create account creator name OwnerKey [ActiveKey] [OPTIONS]
+clio create account <creator> <name> <owner_key> [active_key] [OPTIONS]
 ```
 
 ## Description
@@ -17,24 +17,24 @@ Create a new account on the blockchain (assumes system contract does not restric
 
 ```sh
 clio create account
-  creator <TEXT>           # REQUIRED: The name of the account creating the new account
-  name <TEXT>              # REQUIRED: The name of the new account
-  OwnerKey <TEXT>          # REQUIRED: The owner public key or permission level for the new account
-  ActiveKey <TEXT>         # OPTIONAL: The active public key or permission level for the new account
-  [-h, --help]             # Print this help message and exit
-  [-x, --expiration]       # set the time in seconds before a transaction expires, defaults to 30s
-  [-f, --force-unique]     # force the transaction to be unique. this will consume extra bandwidth and remove any protections against accidently issuing the same transaction multiple times
-  [-s, --skip-sign]        # Specify if unlocked wallet keys should be used to sign transaction
-  [-j, --json]             # print result as JSON
-  [--json-file] <TEXT>     # save result in json format into a file
-  [-d, --dont-broadcast]   # don't broadcast transaction to the network (just print to stdout)
-  [--return-packed]        # used in conjunction with --dont-broadcast to get the packed transaction
-  [-r, --ref-block] <TEXT> # set the reference block num or block id used for TAPOS (Transaction as Proof-of-Stake)
-  [--use-old-rpc]          # use old RPC push_transaction, rather than new RPC send_transaction
-  [-p, --permission] <TEXT> # An account and permission level to authorize, as in 'account@permission' (defaults to 'creator@active')
-  [--max-cpu-usage-ms] <UINT> # set an upper limit on the milliseconds of CPU usage budget, for the execution of the transaction (defaults to 0 which means no limit)
-  [--max-net-usage] <UINT> # set an upper limit on the net usage budget, in bytes, for the transaction (defaults to 0 which means no limit)
-  [--delay-sec] <UINT>     # set the delay_sec seconds, defaults to 0s
+  <creator>                         # REQUIRED: The name of the account creating the new account
+  <name>                            # REQUIRED: The name of the new account
+  <owner_key>                       # REQUIRED: The owner public key or permission level for the new account
+  [active_key]                      # OPTIONAL: The active public key or permission level for the new account
+  [-h | --help]                    # Print this help message and exit
+  [[-x | --expiration] <seconds>]  # set the time in seconds before a transaction expires, defaults to 30s
+  [-f | --force-unique]            # force the transaction to be unique. this will consume extra bandwidth and remove any protections against accidently issuing the same transaction multiple times
+  [-s | --skip-sign]               # Specify if unlocked wallet keys should be used to sign transaction
+  [-j | --json]                    # print result as JSON
+  [--json-file <filename>]         # save result in json format into a file
+  [-d | --dont-broadcast]          # don't broadcast transaction to the network (just print to stdout)
+  [--return-packed]                # used in conjunction with --dont-broadcast to get the packed transaction
+  [[-r | --ref-block] <block>]     # set the reference block num or block id used for TAPOS (Transaction as Proof-of-Stake)
+  [--use-old-rpc]                  # use old RPC push_transaction, rather than new RPC send_transaction
+  [[-p | --permission] <account@perm>] # An account and permission level to authorize, as in 'account@permission' (defaults to 'creator@active')
+  [--max-cpu-usage-ms <ms>]        # set an upper limit on the milliseconds of CPU usage budget, for the execution of the transaction (defaults to 0 which means no limit)
+  [--max-net-usage <bytes>]        # set an upper limit on the net usage budget, in bytes, for the transaction (defaults to 0 which means no limit)
+  [--delay-sec <seconds>]          # set the delay_sec seconds, defaults to 0s
 ```
 
 ## Examples

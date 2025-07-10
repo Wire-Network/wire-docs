@@ -203,6 +203,7 @@ const sidebars: SidebarsConfig = {
                   items: [
                     "api-reference/tooling/clio/command-reference/get/abi",
                     "api-reference/tooling/clio/command-reference/get/account",
+                    "api-reference/tooling/clio/command-reference/get/deprecated/accounts",
                     "api-reference/tooling/clio/command-reference/get/block",
                     "api-reference/tooling/clio/command-reference/get/code",
                     "api-reference/tooling/clio/command-reference/get/currency-balance",
@@ -216,8 +217,6 @@ const sidebars: SidebarsConfig = {
                     "api-reference/tooling/clio/command-reference/get/block_trace",
                     "api-reference/tooling/clio/command-reference/get/deprecated/transaction_id",
                     "api-reference/tooling/clio/command-reference/get/deprecated/transaction",
-                    "api-reference/tooling/clio/command-reference/get/deprecated/servants",
-                    "api-reference/tooling/clio/command-reference/get/deprecated/accounts",
                   ],
                 },
                 {

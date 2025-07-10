@@ -17,7 +17,7 @@ Gets current blockchain information.
 
 ```sh
 clio get info
-  [-h, --help]            # Print this help message and exit
+  [-h | --help]                    # Print this help message and exit
 ```
 
 ## Examples

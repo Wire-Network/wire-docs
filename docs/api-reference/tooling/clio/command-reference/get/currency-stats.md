@@ -6,7 +6,7 @@ title: currency stats
 ## Command
 
 ```sh
-clio get currency stats contract symbol [OPTIONS]
+clio get currency stats <contract> <symbol> [OPTIONS]
 ```
 
 ## Description
@@ -17,10 +17,10 @@ Retrieve the stats of for a given currency.
 
 ```sh
 clio get currency stats
-  contract <TEXT>         # REQUIRED: The contract that operates the currency
-  symbol <TEXT>           # REQUIRED: The symbol for the currency if the contract operates multiple currencies
-  [-h, --help]            # Print this help message and exit
-  [-j, --json]            # Output in JSON format
+  <contract>                       # REQUIRED: The contract that operates the currency
+  <symbol>                         # REQUIRED: The symbol for the currency if the contract operates multiple currencies
+  [-h | --help]                    # Print this help message and exit
+  [-j | --json]                    # Output in JSON format
 ```
 
 ## Examples

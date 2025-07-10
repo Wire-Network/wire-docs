@@ -3,22 +3,30 @@ id: pack-transaction
 title: pack_transaction
 ---
 
-# pack-transaction
+## Command
+
+```sh
+clio convert pack_transaction <transaction> [OPTIONS]
+```
 
 ## Description
 
 This command is used to convert transaction from a plain signed JSON to its binary(packed) representation.
 
-## Positional arguments
+## Synopsis
 
-- `transaction` _TEXT_ - The plain signed json (string)
+```sh
+clio convert pack_transaction
+  <transaction>                    # REQUIRED: The plain signed JSON transaction string
+  [-h | --help]                     # Print this help message and exit
+  [--pack-action-data]             # Pack all action data within transaction, needs interaction with nodeop
+```
 
-## Options
+## Examples
 
-- `-h,--help` - Print this help message and exit
-- `--pack-action-data` - Pack all action data within transaction, needs interaction with `nodeop`
+The following examples demonstrate how to use the `clio convert pack_transaction` command:
 
-## Usage
+### Pack a signed transaction to binary format
 
 ```sh
 clio convert pack_transaction '{
@@ -44,7 +52,7 @@ clio convert pack_transaction '{
 }'
 ```
 
-## Output
+**Output:**
 
 ```json
 {

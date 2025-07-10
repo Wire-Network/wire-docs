@@ -6,7 +6,7 @@ title: transaction-status
 ## Command
 
 ```sh
-clio get transaction-status id [OPTIONS]
+clio get transaction-status <transaction_id> [OPTIONS]
 ```
 
 ## Description
@@ -17,8 +17,8 @@ Retrieves transaction status information.
 
 ```sh
 clio get transaction-status
-  id <TEXT>               # REQUIRED: ID of the transaction
-  [-h, --help]            # Print this help message and exit
+  <transaction_id>                 # REQUIRED: ID of the transaction
+  [-h | --help]                    # Print this help message and exit
 ```
 
 ## Examples
