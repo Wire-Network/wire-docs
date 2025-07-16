@@ -3,25 +3,35 @@ id: lock-all
 title: lock_all
 ---
 
+## Command
+
+```sh
+clio wallet lock_all [OPTIONS]
+```
+
 ## Description
 
 Locks all unlocked wallets
 
-## Positional Arguments
+## Synopsis
 
-None
+```sh
+clio wallet lock_all
+  [-h | --help]                     # Print this help message and exit
+  [--help-all]                      # Show all help
+```
 
-## Options
+## Examples
 
-None
+The following examples demonstrate how to use the `clio wallet lock_all` command:
 
-## Usage
+### Lock all unlocked wallets
 
 ```sh
 clio wallet lock_all
 ```
 
-## Output
+**Output:**
 
 ```console
 Locked All Wallets

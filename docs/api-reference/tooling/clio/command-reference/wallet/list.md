@@ -3,25 +3,35 @@ id: list
 title: list
 ---
 
+## Command
+
+```sh
+clio wallet list [OPTIONS]
+```
+
 ## Description
 
 Lists opened wallets, * = unlocked
 
-## Positional Arguments
+## Synopsis
 
-None
+```sh
+clio wallet list
+  [-h | --help]                     # Print this help message and exit
+  [--help-all]                      # Show all help
+```
 
-## Options
+## Examples
 
-None
+The following examples demonstrate how to use the `clio wallet list` command:
 
-## Usage
+### List all wallets
 
 ```sh
 clio wallet list
 ```
 
-## Outputs
+**Output:**
 
 ```console
 Wallets:
@@ -31,10 +41,4 @@ Wallets:
 ]
 ```
 
-or when there are no wallets:
-
-```console
-Wallets:
-[
-]
-```
+**Note:** The asterisk (*) indicates that the wallet is unlocked.

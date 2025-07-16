@@ -3,25 +3,35 @@ id: keys
 title: keys
 ---
 
+## Command
+
+```sh
+clio wallet keys [OPTIONS]
+```
+
 ## Description
 
-List of public keys from all unlocked wallets. These are the keys that could be used to sign transactions.
+List of public keys from all unlocked wallets.
 
-## Positional Arguments
+## Synopsis
 
-None.
+```sh
+clio wallet keys
+  [-h | --help]                     # Print this help message and exit
+  [--help-all]                      # Show all help
+```
 
-## Options
+## Examples
 
-None.
+The following examples demonstrate how to use the `clio wallet keys` command:
 
-## Usage
+### List all public keys from unlocked wallets
 
 ```sh
 clio wallet keys
 ```
 
-## Outputs
+**Output:**
 
 ```console
 [[
@@ -30,3 +40,5 @@ clio wallet keys
   ]
 ]
 ```
+
+**Note:** The asterisk (*) indicates that the wallet is unlocked.

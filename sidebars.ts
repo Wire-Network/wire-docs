@@ -298,8 +298,8 @@ const sidebars: SidebarsConfig = {
                     "api-reference/tooling/clio/command-reference/system/system-unregproxy",
                   ],
                 },
-                "api-reference/tooling/clio/command-reference/validate/validate-signatures",
-                "api-reference/tooling/clio/command-reference/version/client",
+                "api-reference/tooling/clio/command-reference/validate-signatures",
+                "api-reference/tooling/clio/command-reference/version-client",
                 {
                   type: "category",
                   label: "wallet",

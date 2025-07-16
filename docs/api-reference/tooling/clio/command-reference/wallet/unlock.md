@@ -3,28 +3,42 @@ id: unlock
 title: unlock
 ---
 
+## Command
+
+```sh
+clio wallet unlock [OPTIONS]
+```
+
 ## Description
 
-Unlocks a wallet
+Unlock wallet
 
-## Positional Arguments
+## Synopsis
 
-None
+```sh
+clio wallet unlock
+  [-h | --help]                     # Print this help message and exit
+  [--help-all]                      # Show all help
+  [[-n | --name] <wallet_name>]     # The name of the wallet to unlock
+  [--password <password>]           # The password returned by wallet create
+```
 
-## Options
+## Examples
 
-- `-n, --name` _TEXT_ - The name of the wallet to unlock.
-- `--password` _TEXT_ - The password returned by wallet create.
+The following examples demonstrate how to use the `clio wallet unlock` command:
 
-## Usage
-
-To unlock a wallet, specify the password provided when it was created.
+### Unlock a wallet with password
 
 ```sh
 clio wallet unlock -n second-wallet --password PW5Ji6JUrLjhKAVn68nmacLxwhvtqUAV18J7iycZppsPKeoGGgBEw
 ```
 
-## Outputs
+**Where:**
+
+- `-n second-wallet` - Specifies the wallet to unlock
+- `--password` - Provides the password returned when the wallet was created
+
+**Output:**
 
 ```console
 Unlocked: 'second-wallet'
