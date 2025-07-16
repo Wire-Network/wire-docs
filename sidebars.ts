@@ -348,7 +348,6 @@ const sidebars: SidebarsConfig = {
             id: "api-reference/tooling/kiod/index",
           },
           items: [
-            "api-reference/tooling/kiod/usage",
             {
               type: "category",
               label: "Plugins",
@@ -361,10 +360,7 @@ const sidebars: SidebarsConfig = {
                 "api-reference/tooling/kiod/plugins/wallet-plugin",
               ],
             },
-            // "api-reference/tooling/kiod/security",
             "api-reference/tooling/kiod/wallet-specification",
-            "api-reference/tooling/kiod/troubleshooting",
-            "api-reference/tooling/kiod/faq",
           ],
         },
         {
