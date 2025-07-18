@@ -34,7 +34,7 @@ import rehypeKatex from "rehype-katex";
 const config: Config = {
   title: "Wire Docs",
   tagline: "Official Wire Network Documentation",
-  favicon: "https://wire.foundation/favicon.ico",
+  favicon: "https://bucket.gitgo.app/frontend-assets/icons/favicon.png",
 
   // Set the production url of your site here
   url: "https://docs.wire.network",
@@ -187,12 +187,12 @@ const config: Config = {
       disableSwitch: false,
       respectPrefersColorScheme: false,
     },
-    image: "https://wire.foundation/favicon.ico",
+    image: "https://bucket.gitgo.app/frontend-assets/icons/favicon.png",
     navbar: {
       title: "Wire Docs",
       logo: {
         alt: "Wire Network",
-        src: "https://wire.foundation/favicon.ico",
+        src: "https://bucket.gitgo.app/frontend-assets/icons/favicon.png",
       },
       items: [
         // {
@@ -222,7 +222,7 @@ const config: Config = {
     footer: {
       logo: {
         alt: "Wire Network Logo",
-        src: "https://wire.foundation/favicon.ico",
+        src: "https://bucket.gitgo.app/frontend-assets/icons/favicon.png",
         width: 80,
         height: 80,
       },

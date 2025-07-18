@@ -1,5 +1,11 @@
 ---
 title: Usage
+tags:
+  - kiod
+  - usage
+  - configuration
+  - CLI
+  - wallet setup
 ---
 
 :::tip[Recommended Usage]

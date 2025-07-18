@@ -519,6 +519,7 @@ const sidebars: SidebarsConfig = {
         "guides/sysio-code-tutorial",
         "guides/how-to-set-custom-permission",
         "guides/restrict-access-to-an-action-by-user",
+        // "guides/how-to-create-and-use-action-wrappers",
       ],
     },
   ],

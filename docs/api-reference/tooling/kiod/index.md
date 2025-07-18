@@ -1,5 +1,9 @@
 ---
 title: Kiod
+tags:
+  - kiod
+  - wallet
+  - key-management
 ---
 
 ## Introduction
