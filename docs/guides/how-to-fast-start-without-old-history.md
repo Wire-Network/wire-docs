@@ -18,8 +18,8 @@ This process will permanently delete all historical blockchain data from your lo
 | The `clio` tool and `kiod` are bundled with the Wire software. [Installing Wire core](/docs/getting-started/install-dependencies.md) will install the `clio` and `kiod` command line tools.
 :::
 
-- Learn about [Using Nodeop](../usage/index.md).
-- Get familiar with [state_history_plugin](../plugins/state-history-plugin.md).
+- Learn about [Using Nodeop](/docs/api-reference/tooling/nodeop/usage/index.md).
+  - Get familiar with [state_history_plugin](/docs/api-reference/tooling/nodeop/plugins/state-history-plugin.md).
 
 ## Steps
 

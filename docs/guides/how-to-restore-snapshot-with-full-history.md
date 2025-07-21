@@ -9,7 +9,7 @@ This guide details how to restore an existing snapshot along with its full state
 ## Prerequisites
 
 * You have a local instance of `nodeop` launched but not running - `pidof nodeop` should return nothing.
-* You are familiar with the [state_history_plugin](../plugins/state-history-plugin.md).
+* You are familiar with the [state_history_plugin](/docs/api-reference/tooling/nodeop/plugins/state-history-plugin.md).
 
 ## Steps
 
@@ -20,7 +20,7 @@ This guide details how to restore an existing snapshot along with its full state
 
 2. Remove the `data/state` directory.
 
-3. Start nodeop with the `--snapshot` option along with the options specified in the [state_history_plugin](../plugins/state-history-plugin.md).
+3. Start nodeop with the `--snapshot` option along with the options specified in the [state_history_plugin](/docs/api-reference/tooling/nodeop/plugins/state-history-plugin.md).
 
 4. Allow nodeop to run until it has received at least one block from the network, ensuring it can fully restart.
 

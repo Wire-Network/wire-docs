@@ -9,7 +9,7 @@ This guide explains how to replay or resync your node so that it captures the en
 ## Prerequisites
 
 * You have a local instance of `nodeop` launched but not running - `pidof nodeop` should return nothing.
-* You are familiar with [state_history_plugin](../plugins/state-history-plugin.md).
+* You are familiar with [state_history_plugin](/docs/api-reference/tooling/nodeop/plugins/state-history-plugin.md).
 
 ## Steps
 
@@ -25,4 +25,4 @@ Remove `data/state` and use the `--replay-blockchain` option.
 
 ### Step 3
 
-Start `nodeop` with the options listed in the [`state_history_plugin`](../plugins/state-history-plugin.md)
+Start `nodeop` with the options listed in the [`state_history_plugin`](/docs/api-reference/tooling/nodeop/plugins/state-history-plugin.md)

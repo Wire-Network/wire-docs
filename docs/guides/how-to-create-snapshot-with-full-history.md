@@ -8,8 +8,8 @@ This tutorial demonstrates how to create a complete snapshot of your blockchain 
 
 ## Prerequisites
 
-* You must have a local instance of [nodeop](../index.md) running. For instructions on setting up a local chain, please refer to [Install Dependencies](/docs/getting-started/install-dependencies.md) article.
-* Ensure that the [state_history_plugin](../plugins/state-history-plugin.md) and [producer_api_plugin](../plugins/producer-api-plugin.md) are both enabled on your `nodeop` instance; Producer API must be accessible via HTTP on port 8887. If you followed standard installation with `wire-cli`, `producer_api_plugin` is already enabled and configured at `/opt/wire-network/blockproducer/config/config.ini` and `state_history_plugin` is enabled in `/opt/wire-network/chain-api/config/config.ini`.
+* You must have a local instance of [nodeop](/docs/api-reference/tooling/nodeop/index.md) running. For instructions on setting up a local chain, please refer to [Install Dependencies](/docs/getting-started/install-dependencies.md) article.
+* Ensure that the [state_history_plugin](/docs/api-reference/tooling/nodeop/plugins/state-history-plugin.md) and [producer_api_plugin](/docs/api-reference/tooling/nodeop/plugins/producer-api-plugin.md) are both enabled on your `nodeop` instance; Producer API must be accessible via HTTP on port 8887. If you followed standard installation with `wire-cli`, `producer_api_plugin` is already enabled and configured at `/opt/wire-network/blockproducer/config/config.ini` and `state_history_plugin` is enabled in `/opt/wire-network/chain-api/config/config.ini`.
 
 ## Steps
 

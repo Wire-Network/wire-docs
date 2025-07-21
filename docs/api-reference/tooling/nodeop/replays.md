@@ -56,6 +56,6 @@ Use this option to specify the location of the `blocks.log` file directory (abso
 
 ## Resources
 
-- [How To Generate a Snapshot](how-to/how-to-generate-a-snapshot.md)
-- [How To Replay from a Blocks Log](how-to/how-to-replay-from-a-blocks.log.md)
-- [How to Replay from a Snapshot](how-to/how-to-replay-from-a-snapshot.md)
+- [How To Generate a Snapshot](/docs/guides/how-to-generate-a-snapshot.md)
+- [How To Replay from a Blocks Log](/docs/guides/how-to-replay-from-a-blocks.log.md)
+- [How to Replay from a Snapshot](/docs/guides/how-to-replay-from-a-snapshot.md)
