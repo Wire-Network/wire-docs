@@ -1,0 +1,28 @@
+---
+title: Compile a smart contract with CMake
+---
+
+## Overview
+
+This guide provides instructions to compile a smart contract with CMake.
+
+## Prerequisites
+
+* You have the source of the contract saved in a local folder, e.g. `./examples/hello/`
+
+## Steps
+
+1. Navigate to the hello folder in examples (`./examples/hello`), you should then see the `./src/hello.cpp` file
+2. Run following commands:
+
+    ```sh
+    mkdir build
+    cd build
+    cmake ..
+    make
+    ```
+
+3. Verify the following two files were generated:
+
+* the compiled binary wasm: `hello.wasm`,
+* and the generated ABI file: `hello.abi`.
