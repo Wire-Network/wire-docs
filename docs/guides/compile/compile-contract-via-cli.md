@@ -58,5 +58,4 @@ Relevant tools and methods:
 
 ## Next Steps
 
-- [Compile with CMake](./compiling-contracts-with-cmake) for build system integration.
-- [Configure CMake](./how-to-configure-cmake) for project setup.
+- [Compile with CMake](./compile-contract-with-cmake) for build system integration.

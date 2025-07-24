@@ -1,5 +1,5 @@
 ---
-title: Compile Smart Contracts with CMake
+title: Compile A Smart Contract with CMake
 ---
 
 ## Overview
@@ -112,5 +112,4 @@ Relevant tools and methods:
 
 ## Next Steps
 
-- [Compile via CLI](./compile-a-contract-via-cli) for alternative compilation methods.
-- [Deploy your compiled contract](/docs/guides/deployment) to the blockchain.
+- [Compile via CLI](./compile-contract-via-cli) for alternative compilation methods.

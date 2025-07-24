@@ -539,8 +539,8 @@ const sidebars: SidebarsConfig = {
           type: "category",
           label: "Contract Compilation",
           items: [
-            "guides/compile/how-to-configure-cmake",
-            "guides/compile/compile-a-contract-via-cli",
+            "guides/compile/compile-contract-via-cli",
+            "guides/compile/compile-contract-with-cmake",
           ],
         },
       ],
