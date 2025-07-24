@@ -166,3 +166,94 @@ hr {
   color: #56b6c2;
 }
 
+/* Enhanced diff highlighting that works well in both light and dark themes */
+.code-block-diff-add-line {
+  background-color: rgba(76, 175, 80, 0.15);  /* Subtle green with transparency */
+  border-left: 3px solid #4caf50;  /* Green border for visual emphasis */
+  display: block;
+  margin: 0 -40px;
+  padding: 0 40px;
+  position: relative;
+}
+
+.code-block-diff-add-line::before {
+  position: absolute;
+  left: 8px;
+  padding-right: 8px;
+  content: '+';
+  color: #4caf50;
+  font-weight: bold;
+}
+
+.code-block-diff-remove-line {
+  background-color: rgba(244, 67, 54, 0.15);  /* Subtle red with transparency */
+  border-left: 3px solid #f44336;  /* Red border for visual emphasis */
+  display: block;
+  margin: 0 -40px;
+  padding: 0 40px;
+  position: relative;
+}
+
+.code-block-diff-remove-line::before {
+  position: absolute;
+  left: 8px;
+  padding-right: 8px;
+  content: '-';
+  color: #f44336;
+  font-weight: bold;
+}
+
+/* Light theme: Much more prominent and visible highlighting */
+[data-theme="light"] .code-block-diff-add-line {
+  background-color: rgba(76, 175, 80, 0.25);  /* Much more visible green background */
+  border-left: 4px solid #2e7d32;  /* Thicker, darker green border */
+  box-shadow: inset 0 0 0 1px rgba(76, 175, 80, 0.1);  /* Additional subtle border */
+}
+
+[data-theme="light"] .code-block-diff-add-line::before {
+  color: #1b5e20;  /* Darker green for better contrast */
+  font-weight: bold;
+  font-size: 1.1em;  /* Slightly larger plus sign */
+}
+
+[data-theme="light"] .code-block-diff-remove-line {
+  background-color: rgba(244, 67, 54, 0.25);  /* Much more visible red background */
+  border-left: 4px solid #c62828;  /* Thicker, darker red border */
+  box-shadow: inset 0 0 0 1px rgba(244, 67, 54, 0.1);  /* Additional subtle border */
+}
+
+[data-theme="light"] .code-block-diff-remove-line::before {
+  color: #b71c1c;  /* Darker red for better contrast */
+  font-weight: bold;
+  font-size: 1.1em;  /* Slightly larger minus sign */
+}
+
+/* Dark theme: Keep current subtle but visible highlighting */
+[data-theme="dark"] .code-block-diff-add-line {
+  background-color: rgba(76, 175, 80, 0.2);
+  border-left-color: #66bb6a;
+}
+
+[data-theme="dark"] .code-block-diff-add-line::before {
+  color: #66bb6a;
+}
+
+[data-theme="dark"] .code-block-diff-remove-line {
+  background-color: rgba(244, 67, 54, 0.2);
+  border-left-color: #ef5350;
+}
+
+[data-theme="dark"] .code-block-diff-remove-line::before {
+  color: #ef5350;
+}
+
+/**
+ * use magic comments to mark diff blocks
+ */
+pre code:has(.code-block-diff-add-line) {
+  padding-left: 40px!important;
+}
+
+pre code:has(.code-block-diff-remove-line) {
+  padding-left: 40px!important;
+}

@@ -261,6 +261,16 @@ const config: Config = {
       theme: prismThemes.dracula,
       darkTheme: prismThemes.palenight,
       additionalLanguages: ["bash", "json"],
+      magicComments: [
+        {
+          className: "code-block-diff-add-line",
+          line: "diff-add",
+        },
+        {
+          className: "code-block-diff-remove-line",
+          line: "diff-remove",
+        },
+      ],
     },
     algolia: {
       appId: "17BRJEIISS",
