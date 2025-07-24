@@ -2,22 +2,39 @@
 id: private-keys
 title: private_keys
 ---
+
+## Command
+
+```sh
+clio wallet private_keys [OPTIONS]
+```
+
 ## Description
 
-It is possible to query for the public and private key pairs of an individual wallet. The wallet must already be unlocked and you must give the password again
+List of private keys from an unlocked wallet in wif or PVT_R1 format.
 
-## Positional Arguments
+## Synopsis
 
-None
-
-## Options
-
-`-n,--name` _TEXT_ - The name of the wallet to list keys from, otherwise - default
-
-`--password` _TEXT_ - The password returned by wallet create
-
-## Usage
-
-```javascript
+```sh
 clio wallet private_keys
+  [-h | --help]                     # Print this help message and exit
+  [--help-all]                      # Show all help
+  [[-n | --name] <wallet_name>]     # The name of the wallet to list keys from (defaults to "default")
+  [--password <password>]           # The password returned by wallet create
+```
+
+## Examples
+
+The following examples demonstrate how to use the `clio wallet private_keys` command:
+
+### List private keys from default wallet
+
+```sh
+clio wallet private_keys --password PW5Ji6JUrLjhKAVn68nmacLxwhvtqUAV18J7iycZppsPKeoGGgBEw
+```
+
+### List private keys from specific wallet
+
+```sh
+clio wallet private_keys -n mywallet --password PW5Ji6JUrLjhKAVn68nmacLxwhvtqUAV18J7iycZppsPKeoGGgBEw
 ```

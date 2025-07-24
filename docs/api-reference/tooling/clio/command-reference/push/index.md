@@ -5,7 +5,14 @@ title: push
 
 
 ## Description
+
 Pushes arbitrary transactions to the blockchain.
+
+## Command
+
+```sh
+clio push SUBCOMMAND
+```
 
 ## Commands
 

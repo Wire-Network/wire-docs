@@ -2,8 +2,6 @@
 
 ## Nodeop `v5.1.0`
 
-**Nodeop** APIs:
-
 - [Chain API](/docs/api-reference/chain-api): Provides access to the blockchain information and interaction with the blockchain
 - [Producer API](/docs/api-reference/producer-api/): Provides access to a producer node
 - [Net API](/docs/api-reference/net-api/): Provides access to the blockchain's network

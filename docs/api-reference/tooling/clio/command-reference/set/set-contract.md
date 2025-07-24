@@ -3,95 +3,65 @@ id: set-contract
 title: set contract
 ---
 
-## Description
-
-Creates or updates the contract on an account.
-
 ## Command
 
 ```sh
-clio set contract account [OPTIONS] account contract-dir [authority] [parent]
+clio set contract <account> [contract-dir] [wasm-file] [abi-file] [OPTIONS]
 ```
 
-## Positional Arguments
+## Description
 
--`account`     _TEXT_ - The account to publish a contract for
+Create or update the contract on an account
 
--`contract-dir` _TEXT_- The path containing the .wasm and .abi
+## Synopsis
 
--`wast-file`  _TEXT_  - The file containing the contract WAST or WASM
+```sh
+clio set contract
+  <account>                          # REQUIRED: The account to publish a contract for
+  <contract-dir>                     # The path to the directory containing the .wasm and .abi (REQUIRED for create/update; omit only with `--clear`)
+  [wasm-file]                        # OPTIONAL: The file containing the contract WASM relative to contract-dir
+  [abi-file]                         # OPTIONAL: The ABI for the contract relative to contract-dir
+  [-h | --help]                      # Print this help message and exit
+  [--help-all]                       # Show all help
+  [[-a | --abi] <filename>]          # the ABI for the contract relative to contract-dir
+  [-c | --clear]                     # Remove contract on an account
+  [--suppress-duplicate-check]       # Don't check for duplicate
+  [[-x | --expiration] <seconds>]    # set the time in seconds before a transaction expires, defaults to 30s
+  [-f | --force-unique]              # force the transaction to be unique. this will consume extra bandwidth and remove any protections against accidently issuing the same transaction multiple times
+  [-s | --skip-sign]                 # Specify if unlocked wallet keys should be used to sign transaction
+  [-j | --json]                      # print result as JSON
+  [--json-file <filename>]           # save result in json format into a file
+  [-d | --dont-broadcast]            # don't broadcast transaction to the network (just print to stdout)
+  [-u | --unpack-action-data]        # unpack all action data within transaction, needs interaction with nodeop unless --abi-file. used in conjunction with --dont-broadcast
+  [--return-packed]                  # used in conjunction with --dont-broadcast to get the packed transaction
+  [[-r | --ref-block] <block>]       # set the reference block num or block id used for TAPOS (Transaction as Proof-of-Stake)
+  [--use-old-rpc]                    # use old RPC push_transaction, rather than new RPC send_transaction
+  [--use-old-send-rpc]               # use old RPC send_transaction, rather than new RPC /v1/chain/send_transaction2
+  [--compression <type>]             # compression for transaction 'none' or 'zlib'
+  [[-p | --permission] <account@perm>] # an account and permission level to authorize, as in 'account@permission' (defaults to 'account@active')
+  [--max-cpu-usage-ms <ms>]          # set an upper limit on the milliseconds of cpu usage budget, for the execution of the transaction (defaults to 0 which means no limit)
+  [--max-net-usage <bytes>]          # set an upper limit on the net usage budget, in bytes, for the transaction (defaults to 0 which means no limit)
+  [--delay-sec <seconds>]            # set the delay_sec seconds, defaults to 0s
+  [[-t | --return-failure-trace] <boolean>] # return partial traces on failed transactions
+  [--retry-irreversible <boolean>]   # request node to retry transaction until it is irreversible or expires, blocking call
+  [--retry-num-blocks <blocks>]      # request node to retry transaction until in a block of given height, blocking call
+  [--sign-with <keys>]               # the public key or json array of public keys to sign with
+```
 
--`abi-file`  _TEXT_   - The ABI for the contract
+## Examples
 
--[OPTIONS]  See Options in [below](#options).
+The following examples demonstrate how to use the `clio set contract` command:
 
-**Note**: The arguments and options enclosed in square brackets are optional.
+### Deploy a contract for a company account
 
-## Options
+See [company-contract](/docs/smart-contract-development/company-contract#4-deploy-the-contract)
 
-`-h, --help`  
-Print this help message and exit.
+### Clear a contract from an account
 
-`-a, --abi TEXT`  
-The ABI for the contract relative to contract-dir.
+```sh
+ clio set contract company -p company@active --clear
+```
 
-`-c, --clear`  
-Remove contract on an account.
+## Resources
 
-`--suppress-duplicate-check`  
-Don't check for duplicate.
-
-`-x, --expiration TEXT`  
-Set the time in seconds before a transaction expires, defaults to 30s.
-
-`-f, --force-unique`  
-Force the transaction to be unique. This will consume extra bandwidth and remove any protections against accidentally issuing the same transaction multiple times.
-
-`-s, --skip-sign`  
-Specify if unlocked wallet keys should be used to sign transaction.
-
-`-j, --json`  
-Print result as JSON.
-
-`--json-file TEXT`  
-Save result in JSON format into a file.
-
-`-d, --dont-broadcast`  
-Don't broadcast transaction to the network (just print to stdout).
-
-`--return-packed`  
-Used in conjunction with `--dont-broadcast` to get the packed transaction.
-
-`-r, --ref-block TEXT`  
-Set the reference block num or block id used for TAPOS (Transaction as Proof-of-Stake).
-
-`--use-old-rpc`  
-Use old RPC `push_transaction`, rather than new RPC `send_transaction`.
-
-`--use-old-send-rpc`  
-Use old RPC `send_transaction`, rather than new RPC `/v1/chain/send_transaction2`.
-
-`-p, --permission TEXT ...`  
-An account and permission level to authorize, as in `'account@permission'` (defaults to `'account@active'`).
-
-`--max-cpu-usage-ms UINT`  
-Set an upper limit on the milliseconds of CPU usage budget for the execution of the transaction (defaults to `0`, which means no limit).
-
-`--max-net-usage UINT`  
-Set an upper limit on the net usage budget, in bytes, for the transaction (defaults to `0`, which means no limit).
-
-`--delay-sec UINT`  
-Set the `delay_sec` seconds, defaults to `0s`.
-
-`-t, --return-failure-trace BOOLEAN`  
-Return partial traces on failed transactions.
-
-`--retry-irreversible BOOLEAN`  
-Request node to retry transaction until it is irreversible or expires, blocking call.
-
-`--retry-num-blocks UINT`  
-Request node to retry transaction until in a block of given height, blocking call.
-
-## Example
-
-[company-contract](/docs/smart-contract-development/company-contract#4-deploy-the-contract)
+- [Accounts and Permissions](/docs/smart-contract-development/accounts-permissions.md)

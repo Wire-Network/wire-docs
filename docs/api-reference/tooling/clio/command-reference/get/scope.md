@@ -1,30 +1,40 @@
 ---
 id: scope
+title: scope
 ---
+
+## Command
+
+```sh
+clio get scope <contract> [OPTIONS]
+```
 
 ## Description
 
 Retrieves a list of scopes and tables owned by a contract.
 
-## Positional Arguments
+## Synopsis
 
-- `[contract]` _TEXT_ - The contract who owns the table.
+```sh
+clio get scope
+  <contract>                       # REQUIRED: The contract who owns the table
+  [[-t | --table] <table_name>]    # The name of the table as filter
+  [[-l | --limit] <rows>]          # The maximum number of rows to return
+  [[-L | --lower] <scope>]         # lower bound of scope
+  [[-U | --upper] <scope>]         # upper bound of scope
+  [-r | --reverse]                 # Iterate in reverse order
+  [-h | --help]                    # Print this help message and exit
+```
 
-## Options
+## Examples
 
-- `-t,--table` _TEXT_ - The name of the table as filter.
-- `-l,--limit` _UINT_ - The maximum number of rows to return.
-- `-L,--lower` _TEXT_ - lower bound of scope.
-- `-U,--upper` _TEXT_ - upper bound of scope.
-- `-r,--reverse` - Iterate in reverse order.
+### Get scopes and tables owned by the `sysio.token` contract
 
-## Example
-
-```bash
+```sh
 clio get scope sysio.token
 ```
 
-## Output
+**Output:**
 
 ```json
 {

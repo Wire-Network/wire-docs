@@ -1,3 +1,7 @@
+---
+title: chain_api_plugin
+---
+
 ## Description
 
 The `chain_api_plugin` exposes functionality from the [`chain_plugin`](chain-plugin.md) to the RPC API interface managed by the [`http_plugin`](http-plugin.md).

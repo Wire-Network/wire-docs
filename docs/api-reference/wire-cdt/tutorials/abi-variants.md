@@ -108,7 +108,7 @@ Now you can deploy the contract and it will be backwards compatible with the pre
 
 ### Preconditions
 
-- It is assumed you deployed the contract defined in [this section](../how-to-guides/multi-index/how-to-instantiate-a-multi-index-table.md) and now you are going to change its table structure.
+- It is assumed you deployed the contract defined in [this section](/docs/guides/multi-index/how-to-instantiate-a-multi-index-table.md) and now you are going to change its table structure.
 
 To modify an existing table structure, you must combine the use of `std::variant` with ABI extensions. For detailed guidance, please consult the [binary extensions documentation](/docs/api-reference/tooling/cdt/features/binary-extension.md). You will add another field to the table called `variant_field` which can store either of the following data `int8_t`, `int16_t`, and `int32_t`. You can do it by adding below data member to the table structure:
 

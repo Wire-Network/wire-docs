@@ -8,13 +8,13 @@ Plugins extend the core functionality implemented in `nodeop`. Some plugins are 
 
 For information on specific plugins, just select from the list below:
 
-* [`blockvault_client_plugin`](blockvault-client-plugin.md)
 * [`chain_api_plugin`](chain-api-plugin.md)
 * [`chain_plugin`](chain-plugin.md)
 * [`db_size_api_plugin`](db-size-api-plugin.md)
 * [`history_api_plugin`](history-api-plugin.md)
 * [`history_plugin`](history-plugin.md)
 * [`http_plugin`](http-plugin.md)
+* [`http_client_plugin`](http-client-plugin.md)
 * [`net_api_plugin`](net-api-plugin.md)
 * [`net_plugin`](net-plugin.md)
 * [`producer_plugin`](producer-plugin.md)

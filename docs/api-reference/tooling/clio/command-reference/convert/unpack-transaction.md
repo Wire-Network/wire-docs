@@ -3,20 +3,30 @@ id: unpack-transaction
 title: unpack_transaction
 ---
 
+## Command
+
+```sh
+clio convert unpack_transaction <transaction> [OPTIONS]
+```
+
 ## Description
 
 This command is used to convert transaction to a plain signed JSON.
 
-## Positional Arguments
+## Synopsis
 
-- `transaction` _TEXT_ - The packed transaction JSON (string containing packed_trx and optionally compression fields.)
+```sh
+clio convert unpack_transaction
+  <transaction>                    # REQUIRED: The packed transaction to unpack
+  [-h | --help]                    # Print this help message and exit
+  [--unpack-action-data]           # Unpack all action data within transaction, needs interaction with nodeop
+```
 
-## Options
+## Examples
 
-- `-h,--help` - Print this help message and exit
-- `--unpack-action-data` - Unpack all action data within transaction, needs interaction with `nodeop`
+The following examples demonstrate how to use the `clio convert unpack_transaction` command:
 
-## Usage
+### Unpack a packed transaction to JSON format
 
 ```sh
 clio convert unpack_transaction '{
@@ -29,7 +39,7 @@ clio convert unpack_transaction '{
 }'
 ```
 
-## Output
+**Output:**
 
 ```json
 {

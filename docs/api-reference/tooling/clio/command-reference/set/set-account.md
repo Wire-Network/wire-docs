@@ -6,130 +6,104 @@ title: set account
 ## Command
 
 ```sh
-clio set account permission [OPTIONS] account permission [authority] [parent]
+clio set account permission <account> <permission> [authority] [parent] [OPTIONS]
 ```
-
-**Where**
-
-* account - The name of the account you want to set.
-* permission - The name of the permission you want to set.
-* authority - May be a public key, JSON string or filename defining the authority.
-* parent - The parent of this permission, defaults to `active`.
-
-* [OPTIONS]  See Options in [Command Usage](#command-usage) section below.
-
-**Note**: The arguments and options enclosed in square brackets are optional.
 
 ## Description
 
-Set or update blockchain account state. Can be used to set parameters dealing with account permissions.
+Set or update blockchain account state. This command manages an account's permission authorities, allowing you to set, update, or delete permissions; add or remove the `sysio.code` permission.
 
-## Command Usage
+## Synopsis
 
-The following information shows the different positionals and options you can use with the `clio set account` command:
+```sh
+clio set account permission
+  <account>                          # REQUIRED: The account to set/delete a permission authority for
+  <permission>                       # REQUIRED: The permission name to set/delete an authority for
+  [authority]                        # OPTIONAL: To delete a permission, set the authority parameter to NULL; leave it empty when using --add-code/--remove-code flags.To create or update a permission, authority must be one of: a public key, a JSON-formatted authority object, or a filename containing that JSON. 
+  [parent]                           # OPTIONAL: Parent permission name when creating a new permission (defaults to "active")
+  [-h | --help]                      # Print this help message and exit
+  [--help-all]                       # Show all help
+  [--add-code]                       # Add 'sysio.code' permission to specified permission authority
+  [--remove-code]                    # Remove 'sysio.code' permission from specified permission authority
+  [[-x | --expiration] <seconds>]    # set the time in seconds before a transaction expires, defaults to 30s
+  [-f | --force-unique]              # force the transaction to be unique. this will consume extra bandwidth and remove any protections against accidently issuing the same transaction multiple times
+  [-s | --skip-sign]                 # Specify if unlocked wallet keys should be used to sign transaction
+  [-j | --json]                      # print result as JSON
+  [--json-file <filename>]           # save result in json format into a file
+  [-d | --dont-broadcast]            # don't broadcast transaction to the network (just print to stdout)
+  [-u | --unpack-action-data]        # unpack all action data within transaction, needs interaction with nodeop unless --abi-file. used in conjunction with --dont-broadcast
+  [--return-packed]                  # used in conjunction with --dont-broadcast to get the packed transaction
+  [[-r | --ref-block] <block>]       # set the reference block num or block id used for TAPOS (Transaction as Proof-of-Stake)
+  [--use-old-rpc]                    # use old RPC push_transaction, rather than new RPC send_transaction
+  [--use-old-send-rpc]               # use old RPC send_transaction, rather than new RPC /v1/chain/send_transaction2
+  [--compression <type>]             # compression for transaction 'none' or 'zlib'
+  [[-p | --permission] <account@perm>] # an account and permission level to authorize, as in 'account@permission' (defaults to 'account@active')
+  [--max-cpu-usage-ms <ms>]          # set an upper limit on the milliseconds of cpu usage budget, for the execution of the transaction (defaults to 0 which means no limit)
+  [--max-net-usage <bytes>]          # set an upper limit on the net usage budget, in bytes, for the transaction (defaults to 0 which means no limit)
+  [--delay-sec <seconds>]            # set the delay_sec seconds, defaults to 0s
+  [[-t | --return-failure-trace] <boolean>] # return partial traces on failed transactions
+  [--retry-irreversible <boolean>]   # request node to retry transaction until it is irreversible or expires, blocking call
+  [--retry-num-blocks <blocks>]      # request node to retry transaction until in a block of given height, blocking call
+```
 
-### Positional Arguments
+**`auth` Schema**
 
-* `account` _TEXT_ REQUIRED The account to set/delete a permission authority for
+```json title="authority JSON Schema"
+{
+  "threshold":      <INTEGER [1-2^32): the threshold that must be met to satisfy this authority>,
+  "keys": [         <keys must be alpha-numerically sorted by their string representations and unique>
+    ...
+    {
+      "key":        <STRING: SYS.IO compatible Public Key>,
+      "weight":     <INTEGER [1-2^16): a signature from this key contributes this to satisfying the threshold>
+    }
+    ...
+  ],
+  "accounts": [     <accounts must be alpha-numerically sorted by their permission (actor, then permission) and unique>
+    ...
+    {
+      "permission": {
+        "actor":      <STRING: account name of the delegated signer>,
+        "permission": <STRING: permission level on the account that must be satisfied>,
+      },
+      "weight":     <INTEGER [1-2^16): satisfying the delegation contributes this to satisfying the threshold>
+    }
+    ...
+  ],
+  "waits": [        <waits must be sorted by wait_sec, largest first, and be unique>
+    ...
+    {
+      "wait_sec":   <INTEGER [1-2^32): seconds of delay which qualifies as passing this wait>
+      "weight":     <INTEGER [1-2^16): satisfying the delay contributes this to satisfying the threshold>
+    }
+    ...
+  ]
+}
 
-* `permission` _TEXT_ REQUIRED The permission name to set/delete an authority for
-* `authority` _TEXT_ [delete] NULL, [create/update] public key, JSON string or filename defining the authority, [code] contract name
-* `parent` _TEXT_ [create] The permission name of this parents permission, defaults to 'active'
-
-### Options
-
-* `-h,--help` Print this help message and exit
-
-* `--add-code` [code] Add 'sysio.code' permission to specified permission authority
-* `--remove-code` [code] Remove 'sysio.code' permission from specified permission authority
-* `-x`,`--expiration` Set the time in seconds before a transaction expires, defaults to 30s
-* `-f`,`--force-unique` Force the transaction to be unique. this will consume extra bandwidth and remove any protections against accidently issuing the same transaction multiple times
-* `-s`,`--skip-sign` Specify if unlocked wallet keys should be used to sign transaction
-* `-j`,`--json` Print result as json
-* `--json-file` _TEXT_ Save result in json format into a file
-* `-d`,`--dont-broadcast` Don't broadcast transaction to the network (just print to stdout)
-* `--return-packed` Used in conjunction with --dont-broadcast to get the packed transaction
-* `-r`,`--ref-block` _TEXT_ Set the reference block num or block id used for TAPOS (Transaction as Proof-of-Stake)
-* `--use-old-rpc` Use old RPC push_transaction, rather than new RPC send_transaction
-* `-p`,`--permission` _TEXT_ An account and permission level to authorize, as in 'account@permission' (defaults to 'account@active')
-* `--max-cpu-usage-ms` _UINT_ Set an upper limit on the milliseconds of CPU usage budget, for the execution of the transaction (defaults to 0 which means no limit)
-* `--max-net-usage` _UINT_ Set an upper limit on the net usage budget, in bytes, for the transaction (defaults to 0 which means no limit)
-* `--delay-sec` _UINT_ Set the delay_sec seconds, defaults to 0s
-
-## Requirements
-
-* Install the currently supported version of `clio`.
-
-:::note
-| The `clio` tool is bundled with the Wire software. [Installing Wire core](/docs/getting-started/install-dependencies.md) will install the `clio` and `kiod` command line tools.
-:::
-
-* You have a `sysio` account and access to the account's private key.
+```
 
 ## Examples
 
-1. Update the `active` permission key:
+The following examples demonstrate how to use the `clio set account permission` command:
 
-```shell
+### Update the active permission key
+
+```sh
 clio set account permission alice active SYS5zG7PsdtzQ9achTdRtXwHieL7yyigBFiJDRAQonqBsfKyL3XhC -p alice@owner
 ```
 
-**Where**
+### Add the sysio.code permission to the active permission of account alice
 
-* `alice` = The name of the account to update the key.
-* `active`= The name of the permission to update the key.
-* `SYS5zG7PsdtzQ9achTdRtXwHieL7yyigBFiJDRAQonqBsfKyL3XhC` = The new public key for the authority.
-* `-p alice@owner` = The permission used to authorize the transaction.
-
-**Example Output**
-
-```shell
-executed transaction: ab5752ecb017f166d56e7f4203ea02631e58f06f2e0b67103b71874f608793e3  160 bytes  231 us
-#         sysio <= sysio::updateauth            {"account":"alice","permission":"active","parent":"owner","auth":{"threshold":1,"keys":[{"key":"E...
+```sh
+clio set account permission alice active alice --add-code -p alice@active
 ```
 
-1. Add the `sysio.code` permission to the contract account `active` permission to enable calling inline actions by the contract account's `active` permission:
+### Add a custom permission to account alice
 
-```shell
-clio set account permission alice active --add-code -p alice@active
-```
-
-**Where**
-
-* `alice` = The name of the account to add `sysio.code`.
-* `active`= The name of the permission to add `sysio.code`.
-* `--add-code` = Tells the command to add `sysio.code`.
-* `-p alice@active` = The permission used to authorize the transaction.
-
-**Example Output**
-
-```shell
-executed transaction: ab5752ecb017f166d56e7f4203ea02631e58f06f2e0b67103b71874f608793e3  160 bytes  231 us
-#         sysio <= sysio::updateauth            {"account":"alice","permission":"active","parent":"owner","auth":{"threshold":1,"keys":[{"key":"E...
-```
-
-1. Add a custom permission to the **alice** account:
-
-```shell
+```sh
 clio set account permission alice customp SYS58wmANoBtT7RdPgMRCGDb37tcCQswfwVpj6NzC55D247tTMU9D active -p alice@active
-```
-
-**Where**
-
-* `alice` = The name of the account you are adding a custom permission to.
-* `customp`= The name of the custom permission.
-* `SYS58wmANoBtT7RdPgMRCGDb37tcCQswfwVpj6NzC55D247tTMU9D` = The public key of the custom permission.
-* `active` = The parent of the custom permission.
-* `-p alice@active` = The permission used to authorize the transaction.
-
-**Example Output**
-
-```shell
-executed transaction: 69c5297571ce3503edb9a1fd8a2f2a5cc1805ad19197a8751ca09093487c3cf8  160 bytes  134 us
-#         sysio <= sysio::updateauth            {"account":"alice","permission":"customp","parent":"active","auth":{"threshold":1,"keys":[{"key":"SYS...```
 ```
 
 ## Resources
 
-* [Accounts and Permissions](/docs/smart-contract-development/accounts-permissions.md) protocol document.
-<!-- * [Creating and Linking Custom Permissions](https://developers.eos.io/welcome/v2.1/smart-contract-guides/linking-custom-permission) tutorial. -->
+* [Accounts and Permissions](/docs/smart-contract-development/accounts-permissions.md)

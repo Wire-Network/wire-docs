@@ -3,106 +3,90 @@ id: create
 title: create
 ---
 
-## Description
-
-Creates a wallet with the specified name. If no name is given, the wallet will be created with the name 'default'
-
-## Positional Arguments
-
-None
-
-## Options
-
-- `-n, --name` _TEXT_ - The name of the new wallet
-- `-f, --file` _TEXT_ - Name of file to write wallet password output to. (Must be set, unless "--to-console" is passed
-- `--to-console` - Print password to console
-
 ## Command
 
+```sh
 clio wallet create [OPTIONS]
+```
 
-## Command Usage
+## Description
 
-The following information shows the different positionals and options you can use with the `clio wallet create` command:
+Create a new wallet locally
 
-### Positional Arguments
+## Synopsis
 
-- none
-
-### Options
-
-`-h`, `--help` - Print this help message and exit
-`-n`, `--name` _TEXT_ - The name of the new wallet, if blank the name is `default`
-`-f`, `--file` _TEXT_ - Name of file to write wallet password output to. Must be set, unless "--to-console" is passed
-`--to-console` - Print password to console.
-
-## Requirements
-
-- Install the currently supported version of `clio` and `kiod`.
-
-:::note
-| The `clio` tool is bundled with the Wire software. [Installing Wire core](/docs/getting-started/install-dependencies.md) will install the `clio` and `kiod` command line tools.
-:::
+```sh
+clio wallet create
+  [-h | --help]                     # Print this help message and exit
+  [--help-all]                      # Show all help
+  [[-n | --name] <wallet_name>]     # The name of the new wallet (defaults to "default")
+  [[-f | --file] <filename>]        # Name of file to write wallet password output to (must be set, unless --to-console is passed)
+  [--to-console]                    # Print password to console
+```
 
 ## Examples
 
-1. Create a new wallet called `default` and output the wallet password to the screen
+The following examples demonstrate how to use the `clio wallet create` command:
 
-```shell
-clio wallet create  --to-console
+### Create a default wallet and output password to console
+
+```sh
+clio wallet create --to-console
 ```
 
-**Where**
-`--to-console` = Tells the `clio wallet create` command to print the wallet password to the console.
+**Where:**
 
-**Example Output**
+- `--to-console` - Tells the command to print the wallet password to the console
 
-```shell
+**Output:**
+
+```console
 Creating wallet: default
 Save password to use in the future to unlock this wallet.
 Without password imported keys will not be retrievable.
 "PW5HuN7hkCBdMNQAa8z3NuThp3LSDtjv77odQYs5t2wgghJq4MUxo"
 ```
 
-1. Create a new wallet called `my_wallet` and output the wallet password to a file called `my_wallet_password.txt`
+### Create a named wallet and save password to file
 
-```shell
-clio wallet create --name my_wallet --file my_wallet_passwords.txt 
+```sh
+clio wallet create --name my_wallet --file my_wallet_password.txt
 ```
 
-**Where**
-`--name` my_wallet = Tells the `clio wallet create` command to create a wallet called `my_wallet_password.txt`
-`--file` my_wallet_passwords.txt = Tells the `clio wallet create` command to store the password in a file called `my_wallet_password.txt`.
+**Where:**
 
-**Example Output**
+- `--name my_wallet` - Creates a wallet called "my_wallet"
+- `--file my_wallet_password.txt` - Saves the password to a file
 
-```shell
+**Output:**
+
+```console
 Creating wallet: my_wallet
 Save password to use in the future to unlock this wallet.
 Without password imported keys will not be retrievable.
-saving password to my_wallet_passwords.txt
+saving password to my_wallet_password.txt
 ```
 
-```shell
-cat my_wallet_passwords.txt
-```
+### Verify wallet creation
 
-**Example Output**
-
-```shell
-PW5JZaEQXoTKWZRg313aTYS7iNh2jMH4Xs7zWS3vrTZ4p5hCSFGFH(base)
-```
-
-```shell
+```sh
 clio wallet list
 ```
 
-**Example Output**
+**Output:**
 
-```shell
+```console
 Wallets:
 [
   "default *",
   "my_wallet *"
 ]
 ```
+
+## Requirements
+
+- Install the currently supported version of `clio` and `kiod`.
+
+:::note
+The `clio` tool is bundled with the Wire software. [Installing Wire core](/docs/getting-started/install-dependencies.md) will install the `clio` and `kiod` command line tools.
+:::

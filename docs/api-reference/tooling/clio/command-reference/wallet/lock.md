@@ -3,32 +3,49 @@ id: lock
 title: lock
 ---
 
+## Command
+
+```sh
+clio wallet lock [OPTIONS]
+```
+
 ## Description
 
-Locks a wallet
+Lock wallet
 
-## Positional Arguments
+## Synopsis
 
-None
+```sh
+clio wallet lock
+  [-h | --help]                     # Print this help message and exit
+  [--help-all]                      # Show all help
+  [[-n | --name] <wallet_name>]     # The name of the wallet to lock
+```
 
-## Options
+## Examples
 
-- `-n, --name` _TEXT_ - The name of the wallet to lock
+The following examples demonstrate how to use the `clio wallet lock` command:
 
-## Usage
+### Lock the default wallet
 
 ```sh
 clio wallet lock
 ```
 
-or
+**Output:**
+
+```console
+Locked: 'default'
+```
+
+### Lock a specific wallet
 
 ```sh
 clio wallet lock -n second-wallet
 ```
 
-## Outputs
+**Output:**
 
 ```console
-Locked: 'default'
+Locked: 'second-wallet'
 ```

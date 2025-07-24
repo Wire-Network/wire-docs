@@ -5,6 +5,8 @@ import { tailwindLoader } from "./plugins/docusaurus-tailwindcss-loader";
 import type * as Plugin from "@docusaurus/types/src/plugin";
 import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
 import type * as Redocusaurus from "redocusaurus";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
 
 // prism themes
 
@@ -32,11 +34,20 @@ import type * as Redocusaurus from "redocusaurus";
 const config: Config = {
   title: "Wire Docs",
   tagline: "Official Wire Network Documentation",
-  favicon: "https://wire.foundation/favicon.ico",
+  favicon: "https://bucket.gitgo.app/frontend-assets/icons/favicon.png",
 
   // Set the production url of your site here
   url: "https://docs.wire.network",
   baseUrl: "/",
+  stylesheets: [
+    {
+      href: "https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css",
+      type: "text/css",
+      integrity:
+        "sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM",
+      crossorigin: "anonymous",
+    },
+  ],
   plugins: [
     "@docusaurus/theme-live-codeblock",
     tailwindLoader,
@@ -103,6 +114,8 @@ const config: Config = {
           sidebarPath: "./sidebars.ts",
           editUrl: "https://github.com/Wire-Network/wire-docs/edit/master",
           docItemComponent: "@theme/ApiItem",
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [rehypeKatex],
         },
         blog: false,
         sitemap: {
@@ -174,14 +187,18 @@ const config: Config = {
       disableSwitch: false,
       respectPrefersColorScheme: false,
     },
-    image: "https://wire.foundation/favicon.ico",
+    image: "https://bucket.gitgo.app/frontend-assets/icons/favicon.png",
     navbar: {
       title: "Wire Docs",
       logo: {
         alt: "Wire Network",
-        src: "https://wire.foundation/favicon.ico",
+        src: "https://bucket.gitgo.app/frontend-assets/icons/favicon.png",
       },
       items: [
+        // {
+        //   type: "docsVersionDropdown",
+        //   versions: ["current", "5.1.0"],
+        // },
         {
           label: "Developers Portal",
           type: "docSidebar",
@@ -200,17 +217,12 @@ const config: Config = {
           sidebarId: "guidesReferenceSidebar",
           position: "left",
         },
-        // {
-        //   to: "https://www.wire.network/updates.html",
-        //   label: "News",
-        //   position: "left",
-        // },
       ],
     },
     footer: {
       logo: {
         alt: "Wire Network Logo",
-        src: "https://wire.foundation/favicon.ico",
+        src: "https://bucket.gitgo.app/frontend-assets/icons/favicon.png",
         width: 80,
         height: 80,
       },
@@ -249,6 +261,16 @@ const config: Config = {
       theme: prismThemes.dracula,
       darkTheme: prismThemes.palenight,
       additionalLanguages: ["bash", "json"],
+      magicComments: [
+        {
+          className: "code-block-diff-add-line",
+          line: "diff-add",
+        },
+        {
+          className: "code-block-diff-remove-line",
+          line: "diff-remove",
+        },
+      ],
     },
     algolia: {
       appId: "17BRJEIISS",

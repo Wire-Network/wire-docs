@@ -38,7 +38,7 @@ npm clear
 
 <table>
   <tr>
-    <td><img src="https://wire.foundation/favicon.ico" alt="Wire Network" width="50"/></td>
+    <td><img src="https://bucket.gitgo.app/frontend-assets/icons/favicon.png" alt="Wire Network" width="50"/></td>
     <td>
       <strong>Wire Network</strong><br>
       <a href="https://www.wire.network/">Website</a> |

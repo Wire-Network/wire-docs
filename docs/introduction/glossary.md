@@ -313,6 +313,17 @@ The REX (Resource Exchange) is a CPU and Network resource rental market in which
 
 A REX extension.
 
+## TaPoS (Transaction as Proof of Stake)
+
+TaPoS is a mechanish that requires every transaction to include part of the hash of a recent block header. This hash serves two purposes:
+
+- prevents a replay of a transaction on forks that do not include the referenced block;
+- signals the network that a particular user and their stake are on a specific fork.
+
+Over time all users end up directly confirming the blockchain which makes it difficult to forge counterfeit chains as the counterfeit would not be able to migrate transactions from the legitimate chain.
+
+Source: [TaPoS](https://github.com/EOSIO/Documentation/blob/master/TechnicalWhitePaper.md#transaction-as-proof-of-stake-tapos)
+
 ## Updog 🐕
 
 The mechanism/process for exchanging data between chains. It is responsible for block production schedule and verification of Node Operators.

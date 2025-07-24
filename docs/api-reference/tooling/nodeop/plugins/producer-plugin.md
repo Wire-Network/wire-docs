@@ -1,3 +1,6 @@
+---
+title: producer_plugin
+---
 
 ## Description
 
@@ -125,4 +128,4 @@ plugin = sysio::chain_plugin [operations] [options]
 nodeop ... --plugin sysio::chain_plugin [operations] [options]
 ```
 
-For details about how blocks are produced please read the following [block producing explainer](block-producing-explained.md).
+For details about how blocks are produced please read the following [block producing explainer](../block-production-explained.md).

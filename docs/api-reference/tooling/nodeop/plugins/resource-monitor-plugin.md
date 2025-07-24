@@ -1,3 +1,6 @@
+---
+title: resource_monitor_plugin
+---
 
 ## Overview
 
