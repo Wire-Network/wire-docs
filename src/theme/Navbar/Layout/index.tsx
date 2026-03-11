@@ -7,6 +7,7 @@ import {
 } from "@docusaurus/theme-common/internal";
 import { translate } from "@docusaurus/Translate";
 import NavbarMobileSidebar from "@theme/Navbar/MobileSidebar";
+import AnnouncementBar from "@theme/AnnouncementBar";
 import type { Props } from "@theme/Navbar/Layout";
 
 import styles from "./styles.module.css";
@@ -28,28 +29,34 @@ export default function NavbarLayout({ children }: Props): JSX.Element {
   const mobileSidebar = useNavbarMobileSidebar();
   const { navbarRef, isNavbarVisible } = useHideableNavbar(hideOnScroll);
   return (
-    <nav
+    <div
       ref={navbarRef}
-      aria-label={translate({
-        id: "theme.NavBar.navAriaLabel",
-        message: "Main",
-        description: "The ARIA label for the main navigation",
-      })}
       className={clsx(
-        "navbar fixed top-0 z-50 w-full bg-white dark:border-b dark:border-[var(--ifm-toc-border-color)] dark:bg-darkest",
+        "fixed top-0 z-50 w-full",
         hideOnScroll && [
           styles.navbarHideable,
           !isNavbarVisible && styles.navbarHidden,
-        ],
-        {
-          "navbar--dark": style === "dark",
-          "navbar--primary": style === "primary",
-          "navbar-sidebar--show": mobileSidebar.shown,
-        }
+        ]
       )}>
-      {children}
-      <NavbarBackdrop onClick={mobileSidebar.toggle} />
-      <NavbarMobileSidebar />
-    </nav>
+      <AnnouncementBar />
+      <nav
+        aria-label={translate({
+          id: "theme.NavBar.navAriaLabel",
+          message: "Main",
+          description: "The ARIA label for the main navigation",
+        })}
+        className={clsx(
+          "navbar w-full bg-white dark:border-b dark:border-[var(--ifm-toc-border-color)] dark:bg-darkest",
+          {
+            "navbar--dark": style === "dark",
+            "navbar--primary": style === "primary",
+            "navbar-sidebar--show": mobileSidebar.shown,
+          }
+        )}>
+        {children}
+        <NavbarBackdrop onClick={mobileSidebar.toggle} />
+        <NavbarMobileSidebar />
+      </nav>
+    </div>
   );
 }

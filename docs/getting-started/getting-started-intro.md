@@ -24,7 +24,7 @@ The Wire platform is supported on the following environments:
 
 **Linux Distributions**:
 
-- Ubuntu v22 & v20
+- Ubuntu v24
 
 ## System Info
 

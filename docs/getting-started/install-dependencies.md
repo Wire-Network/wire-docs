@@ -19,9 +19,7 @@ tags:
 
 Currently supported versions:
 
-- Ubuntu 22.04 Jammy
-
-- Ubuntu 20.04 Focal
+- Ubuntu 24.04 Noble
 
 ***
 

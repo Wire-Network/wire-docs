@@ -30,7 +30,7 @@ const sidebars: SidebarsConfig = {
         // "introduction/wns-trx-flow",
         // "introduction/deposits",
         "introduction/glossary",
-        "introduction/network-information",
+        // "introduction/network-information",
       ],
     },
 
@@ -92,21 +92,21 @@ const sidebars: SidebarsConfig = {
         },
       ],
     },
-    {
-      type: "category",
-      link: {
-        type: "generated-index",
-      },
-      collapsed: false,
-      label: "Wire Hub",
-      items: [
-        "wire-hub/connect-to-a-rpc",
-        "wire-hub/inspect-transaction",
-        "wire-hub/connect-a-wallet",
-        "wire-hub/create-wire-testnet-account",
-        "wire-hub/request-a-policy",
-      ],
-    },
+    // {
+    //   type: "category",
+    //   link: {
+    //     type: "generated-index",
+    //   },
+    //   collapsed: false,
+    //   label: "Wire Hub",
+    //   items: [
+    //     "wire-hub/connect-to-a-rpc",
+    //     "wire-hub/inspect-transaction",
+    //     "wire-hub/connect-a-wallet",
+    //     "wire-hub/create-wire-testnet-account",
+    //     "wire-hub/request-a-policy",
+    //   ],
+    // },
   ],
 
   apiReferenceSidebar: [

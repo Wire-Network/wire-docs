@@ -8,7 +8,6 @@ import {
 } from "@docusaurus/theme-common";
 import { useKeyboardNavigation } from "@docusaurus/theme-common/internal";
 import SkipToContent from "@theme/SkipToContent";
-import AnnouncementBar from "@theme/AnnouncementBar";
 import Navbar from "../Navbar";
 import Footer from "@theme/Footer";
 import LayoutProvider from "@theme/Layout/Provider";
@@ -33,8 +32,6 @@ export default function Layout(props: Props): JSX.Element {
       <PageMetadata title={title} description={description} />
 
       <SkipToContent />
-
-      <AnnouncementBar />
 
       <Navbar />
 
