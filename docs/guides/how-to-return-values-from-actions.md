@@ -1,3 +1,8 @@
+---
+id: how-to-return-values-from-actions
+description: Learn how to implement and use return values from smart contract actions in Wire.
+---
+
 # How to Return Values from Actions
 
 ## Overview

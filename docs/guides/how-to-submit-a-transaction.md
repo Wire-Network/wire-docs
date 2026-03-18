@@ -1,5 +1,7 @@
 ---
+id: how-to-submit-a-transaction
 title: Submit a Transaction
+description: Learn how to submit transactions to the Wire blockchain using clio push action and push transaction commands.
 ---
 
 ## Overview

@@ -1,3 +1,8 @@
+---
+id: how-to-create-and-use-action-wrappers
+description: Learn how to create and use action wrappers for type-safe cross-contract action calls in Wire smart contracts.
+---
+
 # How to Create and Use Action Wrappers
 
 ## Overview

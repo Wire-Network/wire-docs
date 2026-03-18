@@ -1,7 +1,7 @@
 ---
 id: how-to-create-a-wallet
+description: Learn how to create a default or named wallet using clio to securely store your private keys.
 ---
-
 
 # Create a Wallet
 

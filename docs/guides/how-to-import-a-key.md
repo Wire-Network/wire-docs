@@ -1,5 +1,6 @@
 ---
 id: how-to-import-a-key
+description: Learn how to import private keys into your wallet using clio for signing transactions.
 ---
 
 # Import a Key Pair

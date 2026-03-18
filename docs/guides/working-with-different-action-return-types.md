@@ -1,3 +1,8 @@
+---
+id: working-with-different-action-return-types
+description: Learn how to work with various return types including strings, integers, and structs in Wire smart contract actions.
+---
+
 # Working with Different Action Return Types
 
 ## Prerequisites

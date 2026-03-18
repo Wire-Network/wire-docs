@@ -1,6 +1,7 @@
 ---
 id: sysio-code-tutorial
 title: sysio.code Tutorial
+description: Learn how to use the sysio.code permission to enable inline actions in your smart contracts.
 ---
 
 ## Overview
@@ -107,14 +108,16 @@ Add the following code to `inlinecontract.cpp`:
 ```cpp
 #include <sysio/sysio.hpp>
 
-class [[sysio::contract]] inlinecontract : public sysio::contract {
+using namespace sysio;
+
+class [[sysio::contract]] inlinecontract : public contract {
 public:
-   using sysio::contract::contract;
+   using contract::contract;
 
    [[sysio::action]]
    void testinl(name user) {
-      sysio::action(
-         sysio::permission_level{ get_self(), "active"_n },
+      action(
+         permission_level{ get_self(), "active"_n },
          get_self(),
          "inlinecall"_n,
          std::make_tuple(user)
@@ -123,7 +126,7 @@ public:
 
    [[sysio::action]]
    void inlinecall(name user) {
-      sysio::print("Inline action executed for: ", user);
+      print("Inline action executed for: ", user);
    }
 };
 ```

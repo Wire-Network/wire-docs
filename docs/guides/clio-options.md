@@ -1,5 +1,6 @@
 ---
 id: clio-options
+description: Learn about the command-line options available in clio for connecting to nodeop instances, managing wallets, and troubleshooting.
 ---
 
 # `clio` options

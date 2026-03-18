@@ -1,3 +1,8 @@
+---
+id: how-to-get-account-information
+description: Learn how to retrieve account information including permissions, resources, and balances using clio.
+---
+
 # Get Account Information
 
 ## Overview

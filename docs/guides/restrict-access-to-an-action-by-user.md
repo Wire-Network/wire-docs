@@ -1,5 +1,7 @@
 ---
+id: restrict-access-to-an-action-by-user
 title: How To Perform Authorization Checks
+description: Learn how to implement authorization checks in smart contracts using require_auth and has_auth.
 ---
 
 # Overview

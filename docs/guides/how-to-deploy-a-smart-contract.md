@@ -1,5 +1,6 @@
 ---
 id: how-to-deploy-a-smart-contract
+description: Learn how to deploy a compiled smart contract to the Wire blockchain using clio set contract.
 ---
 
 # Deploy a Smart Contract

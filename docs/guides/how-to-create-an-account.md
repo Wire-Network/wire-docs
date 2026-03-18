@@ -1,3 +1,8 @@
+---
+id: how-to-create-an-account
+description: Learn how to create a new account on the Wire blockchain using clio with the sysio account.
+---
+
 # Create an Account
 
 In a Wire Blockchain, creating a new account is a privilege reserved for existing account holders, who have sufficient system resources to submit a transaction and who have control over the `sysio` account, which is typically the case on a local blockchain.
