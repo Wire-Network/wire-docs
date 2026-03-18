@@ -43,7 +43,6 @@ build/
 file-tree-script.js
 fileTree.json
 
-api-reference/
 setup_action_wrappers.sh
 
 plans/*
