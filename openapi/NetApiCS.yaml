@@ -390,3 +390,84 @@ paths:
 
             response = requests.post(url, json=payload, headers=headers)
             print(response.text)
+
+  /net/bp_gossip_peers:
+    post:
+      summary: bp_gossip_peers
+      description: Returns the list of block producer gossip peers. These are peers that have registered as block producers and share their network endpoint information for direct peer-to-peer communication.
+      operationId: bp_gossip_peers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              description: Empty object - no parameters required
+            example: {}
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                description: List of block producer gossip peers
+                items:
+                  type: object
+                  properties:
+                    producer_name:
+                      type: string
+                      description: The account name of the block producer
+                    server_endpoint:
+                      type: string
+                      description: Externally available address to connect to
+                    outbound_ip_address:
+                      type: string
+                      description: Outbound IP address for firewall configuration
+                    expiration:
+                      type: string
+                      description: Block timestamp when this peer entry expires
+              examples:
+                ExampleResponse:
+                  summary: Sample Response with BP Peers
+                  value:
+                    - producer_name: "producer1"
+                      server_endpoint: "192.168.1.100:9876"
+                      outbound_ip_address: "192.168.1.100"
+                      expiration: "2025-02-07T18:50:13.000"
+                    - producer_name: "producer2"
+                      server_endpoint: "192.168.1.101:9876"
+                      outbound_ip_address: "192.168.1.101"
+                      expiration: "2025-02-07T18:50:13.000"
+                EmptyResponse:
+                  summary: Empty Response (no BP peers registered)
+                  value: []
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8080/v1/net/bp_gossip_peers" \
+              -H "Content-Type: application/json" \
+              -d '{}'
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+
+            fetch("http://localhost:8080/v1/net/bp_gossip_peers", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({})
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+
+            url = "http://localhost:8080/v1/net/bp_gossip_peers"
+            headers = {"Content-Type": "application/json"}
+
+            response = requests.post(url, json={}, headers=headers)
+            print(response.json())

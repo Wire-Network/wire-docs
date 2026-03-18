@@ -40,7 +40,7 @@ In C++, splitting class declarations and definitions into separate header (.hpp)
 
 - The `sysio/sysio.hpp` header file contains necessary classes and built-in utility functions for contract development.
 
-```cpp title="/your-contracts-workspace/company-contract/company.hpp"
+```cpp title="/your-contracts-workspace/company-contract/include/company.hpp"
 #pragma once
 
 #include <sysio/sysio.hpp>
@@ -55,7 +55,7 @@ using namespace sysio;
 
 You can use either the simplified or the long syntax for defining contracts. In this tutorial we will be using primarily the short syntax for better readability. We would also define two actions `upsertemp()` and `getallemp()`.
 
-```cpp title="/your-contracts-workspace/company-contract/company.hpp"
+```cpp title="/your-contracts-workspace/company-contract/include/company.hpp"
 #pragma once
 
 #include <sysio/sysio.hpp>
@@ -122,7 +122,7 @@ Within the employees contract class, let's add a struct named `employee` to repr
 The `primary_key()` function within the struct returns the `user.value`, which is the numeric representation of the user.
 The multi_index container named `employee_index` is defined to manage the storage of these records. It allows for efficient storing, updating, and querying of employee data based on the primary key.
 
-```cpp title="/your-contracts-workspace/company-contract/company.hpp"
+```cpp title="/your-contracts-workspace/company-contract/include/company.hpp"
 #pragma once
 
 #include <sysio/sysio.hpp>
@@ -163,7 +163,7 @@ Next let's define the implementation for the actions `upsertemp` and `getallemp`
 
 `upsertemp`  will be used for upserting an employee record. Refer to the comments within the code for more explanation of what each line/block do.
 
-```cpp title="/your-contracts-workspace/company-contract/company.cpp"
+```cpp title="/your-contracts-workspace/company-contract/src/company.cpp"
 #include <sysio/print.hpp>
 #include <company.hpp>
 
@@ -203,7 +203,7 @@ void company::upsertemp(name user, const std::string& name, const std::string& e
 
 The action below will retrieve all employee records from the employees multi-index table.
 
-```cpp title="/your-contracts-workspace/company-contract/company.cpp"
+```cpp title="/your-contracts-workspace/company-contract/src/company.cpp"
 void company::getallemp() {
     employee_index emp_table(get_self(), get_self().value);
     for (auto itr = emp_table.begin(); itr != emp_table.end(); itr++) {
@@ -238,7 +238,7 @@ In Wire ecosystem, deploying a smart contract requires an account; an account ca
 
 #### 4.1 Retrieve public key
 
-Before proceeding, make sure you have the public key available from the key pair that was created when setting up your wallet(key pair is also listed [here](#development-key-pair)). If you haven’t yet created a wallet or a key pair, you can do so by following the instructions [here](../getting-started/manage-local-wallet-with-clio.md).
+Before proceeding, make sure you have the public key available from the key pair that was created when setting up your wallet (key pair is also listed [here](../getting-started/manage-local-wallet-with-clio.md#development-key)). If you haven't yet created a wallet or a key pair, you can do so by following the instructions [here](../getting-started/manage-local-wallet-with-clio.md).
 
 ```bash
 export PUBLIC_KEY=<public-key-value>
@@ -252,19 +252,16 @@ clio create account sysio company $PUBLIC_KEY -p sysio@active
 
 #### 4.3. Issue a contract policy to `company` account
 
-`nodedaddy`'s credentials(those should be already imported in your wallet):
+`nodeownera`'s credentials(those should be already imported in your wallet from [wire-cli](/docs/getting-started/install-dependencies.md) installation):
 
-##### development key pair
-
-```txt
-PUBLIC_KEY=SYS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
-PRIVATE_KEY=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
+```bash
+clio wallet keys_by_name --password "$(cat /opt/wire-network/secrets/wallet_password.txt)" | jq '.[] | select(.[0] == "nodeownera")'
 ```
 
 Issue the policy:
 
 ```sh
-clio push action sysio.roa addpolicy '{"owner": company, "issuer": nodedaddy, "netWeight": "0.0100 SYS", "cpuWeight": "0.0100 SYS", "ramWeight": "0.0010 SYS", "timeBlock": 1, "networkGen": 0 }' -p nodedaddy@active
+clio push action sysio.roa addpolicy '{"owner": company, "issuer": nodeownera, "net_weight": "0.0100 SYS", "cpu_weight": "0.0100 SYS", "ram_weight": "0.1000 SYS", "time_block": 1, "network_gen": 0 }' -p nodeownera@active
 ```
 
 #### 4.2 Deploy the compiled contract

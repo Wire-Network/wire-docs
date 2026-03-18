@@ -10,7 +10,7 @@ This guide provides instructions for iterating and retrieving data from a multi-
 
 - Before proceeding, ensure that **you have completed the Getting Started section** and that you have followed the [Getting Started Documentation Diagram](/docs/getting-started/getting-started-intro.md).
 - This page assumes you are familiar with [Smart Contract Basics](/docs/smart-contract-development/smart-contract-basics).
-- A multi-index `testab` table instance which stores `user` objects indexed by the primary key which is of type `sysio::name`. Consult the section [How to instantiate a multi-index table](./how-to-instantiate-a-multi-index-table.md) to learn how to set it up.
+- A multi-index `testtab` table instance which stores `user` objects indexed by the primary key which is of type `sysio::name`. Consult the section [How to instantiate a multi-index table](./how-to-instantiate-a-multi-index-table.md) to learn how to set it up.
 
 ## Steps
 

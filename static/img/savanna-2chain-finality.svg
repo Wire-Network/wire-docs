@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 450">
+  <defs>
+    <style>
+      /* Dark mode (default) */
+      .bg { fill: #1a1d23; }
+      .text-light { fill: #e0e0e0; font-family: 'JetBrains Mono', monospace; }
+      .text-green { fill: #4ade80; font-family: 'JetBrains Mono', monospace; }
+      .text-yellow { fill: #fbbf24; font-family: 'JetBrains Mono', monospace; }
+      .text-cyan { fill: #67e8f9; font-family: 'JetBrains Mono', monospace; }
+      .box-cyan { fill: #164e63; stroke: #67e8f9; stroke-width: 3; rx: 6; }
+      .box-light { fill: #374151; stroke: #9ca3af; stroke-width: 2; rx: 6; }
+      .box-green-outline { fill: none; stroke: #4ade80; stroke-width: 3; rx: 6; }
+      .box-yellow-outline { fill: none; stroke: #fbbf24; stroke-width: 3; rx: 6; }
+      .qc-box { fill: #14532d; stroke: #4ade80; stroke-width: 1; rx: 3; }
+      .lib-box { fill: #854d0e; stroke: #fbbf24; stroke-width: 2; rx: 4; }
+      .pipeline-green { fill: #14532d; stroke: #4ade80; stroke-width: 1; rx: 4; }
+      .pipeline-cyan { fill: #164e63; stroke: #67e8f9; stroke-width: 1; rx: 4; }
+      .pipeline-yellow { fill: #854d0e; stroke: #fbbf24; stroke-width: 1; rx: 4; }
+      .pipeline-purple { fill: #581c87; stroke: #c084fc; stroke-width: 1; rx: 4; }
+      .arrow { stroke: #9ca3af; stroke-width: 2; fill: none; }
+      .arrow-yellow { stroke: #fbbf24; stroke-width: 2; fill: none; stroke-dasharray: 5,5; }
+      .caption { fill: #9ca3af; font-family: 'JetBrains Mono', monospace; letter-spacing: 2px; }
+      .arrow-head { fill: #9ca3af; }
+      .arrow-head-yellow { fill: #fbbf24; }
+
+      /* Light mode */
+      @media (prefers-color-scheme: light) {
+        .bg { fill: #f6f8fa; }
+        .text-light { fill: #1a1d23; }
+        .text-green { fill: #16a34a; }
+        .text-yellow { fill: #ca8a04; }
+        .text-cyan { fill: #0891b2; }
+        .box-cyan { fill: #e0f2fe; stroke: #0891b2; }
+        .box-light { fill: #f3f4f6; stroke: #6b7280; }
+        .box-green-outline { stroke: #16a34a; }
+        .box-yellow-outline { stroke: #ca8a04; }
+        .qc-box { fill: #dcfce7; stroke: #16a34a; }
+        .lib-box { fill: #fef3c7; stroke: #ca8a04; }
+        .pipeline-green { fill: #dcfce7; stroke: #16a34a; }
+        .pipeline-cyan { fill: #e0f2fe; stroke: #0891b2; }
+        .pipeline-yellow { fill: #fef3c7; stroke: #ca8a04; }
+        .pipeline-purple { fill: #f3e8ff; stroke: #9333ea; }
+        .arrow { stroke: #6b7280; }
+        .caption { fill: #6b7280; }
+        .arrow-head { fill: #6b7280; }
+      }
+    </style>
+  </defs>
+
+  <rect class="bg" width="950" height="450"/>
+
+  <!-- Time arrow -->
+  <text x="50" y="40" class="text-light" font-size="14">Time → (0.5s per block)</text>
+
+  <!-- Block Bn -->
+  <rect x="50" y="60" width="100" height="70" class="box-cyan"/>
+  <text x="100" y="95" class="text-cyan" font-size="18" text-anchor="middle" font-weight="bold">B<tspan baseline-shift="sub" font-size="12">n</tspan></text>
+  <text x="100" y="120" class="text-light" font-size="10" text-anchor="middle">t=0s</text>
+
+  <!-- Arrow -->
+  <line x1="150" y1="95" x2="180" y2="95" class="arrow"/>
+  <polygon points="180,90 195,95 180,100" class="arrow-head"/>
+
+  <!-- Block Bn+1 -->
+  <rect x="200" y="70" width="100" height="60" class="box-light"/>
+  <rect x="200" y="70" width="100" height="60" class="box-green-outline"/>
+  <text x="250" y="95" class="text-light" font-size="16" text-anchor="middle" font-weight="bold">B<tspan baseline-shift="sub" font-size="10">n+1</tspan></text>
+  <rect x="210" y="105" width="80" height="18" class="qc-box"/>
+  <text x="250" y="118" class="text-green" font-size="9" text-anchor="middle">Strong QC on B<tspan baseline-shift="sub" font-size="7">n</tspan></text>
+  <text x="250" y="145" class="text-light" font-size="10" text-anchor="middle">t=0.5s</text>
+
+  <!-- Arrow -->
+  <line x1="300" y1="95" x2="330" y2="95" class="arrow"/>
+  <polygon points="330,90 345,95 330,100" class="arrow-head"/>
+
+  <!-- Block Bn+2 -->
+  <rect x="350" y="60" width="120" height="75" class="box-light"/>
+  <rect x="350" y="60" width="120" height="75" class="box-yellow-outline"/>
+  <text x="410" y="85" class="text-light" font-size="16" text-anchor="middle" font-weight="bold">B<tspan baseline-shift="sub" font-size="10">n+2</tspan></text>
+  <rect x="360" y="100" width="100" height="18" class="qc-box"/>
+  <text x="410" y="113" class="text-green" font-size="9" text-anchor="middle">Strong QC on B<tspan baseline-shift="sub" font-size="7">n+1</tspan></text>
+  <text x="410" y="150" class="text-light" font-size="10" text-anchor="middle">t=1.0s</text>
+
+  <!-- Curved arrow from Bn+2 to Bn -->
+  <path d="M 410 60 Q 410 20, 100 20 Q 60 20, 60 60" class="arrow-yellow"/>
+  <polygon points="55,55 60,70 65,55" class="arrow-head-yellow"/>
+
+  <!-- Arrow -->
+  <line x1="470" y1="95" x2="500" y2="95" class="arrow"/>
+  <polygon points="500,90 515,95 500,100" class="arrow-head"/>
+
+  <!-- Block Bn+3 -->
+  <rect x="520" y="70" width="100" height="50" class="box-light"/>
+  <text x="570" y="100" class="text-light" font-size="16" text-anchor="middle" font-weight="bold">B<tspan baseline-shift="sub" font-size="10">n+3</tspan></text>
+  <text x="570" y="135" class="text-light" font-size="10" text-anchor="middle">t=1.5s</text>
+
+  <!-- Arrow -->
+  <line x1="620" y1="95" x2="650" y2="95" class="arrow"/>
+  <polygon points="650,90 665,95 650,100" class="arrow-head"/>
+
+  <!-- Block Bn+4 -->
+  <rect x="670" y="70" width="100" height="50" class="box-light"/>
+  <text x="720" y="100" class="text-light" font-size="16" text-anchor="middle" font-weight="bold">B<tspan baseline-shift="sub" font-size="10">n+4</tspan></text>
+  <text x="720" y="135" class="text-light" font-size="10" text-anchor="middle">t=2.0s</text>
+
+  <!-- 2-chain rule explanation -->
+  <text x="50" y="200" class="text-yellow" font-size="13">2-chain rule: B<tspan baseline-shift="sub" font-size="10">n</tspan> is FINAL when B<tspan baseline-shift="sub" font-size="10">n+2</tspan> has Strong QC on B<tspan baseline-shift="sub" font-size="10">n+1</tspan></text>
+
+  <!-- LIB box -->
+  <rect x="50" y="220" width="100" height="30" class="lib-box"/>
+  <text x="100" y="240" class="text-yellow" font-size="12" text-anchor="middle">LIB = B<tspan baseline-shift="sub" font-size="9">n</tspan></text>
+
+  <!-- Pipeline section -->
+  <text x="50" y="290" class="text-light" font-size="14">Pipeline: concurrent finality stages</text>
+
+  <!-- Pipeline boxes -->
+  <rect x="50" y="310" width="130" height="35" class="pipeline-green"/>
+  <text x="115" y="333" class="text-green" font-size="11" text-anchor="middle">PROPOSE B<tspan baseline-shift="sub" font-size="8">n+3</tspan></text>
+
+  <rect x="200" y="310" width="130" height="35" class="pipeline-cyan"/>
+  <text x="265" y="333" class="text-cyan" font-size="11" text-anchor="middle">VOTE B<tspan baseline-shift="sub" font-size="8">n+2</tspan></text>
+
+  <rect x="350" y="310" width="130" height="35" class="pipeline-yellow"/>
+  <text x="415" y="333" class="text-yellow" font-size="11" text-anchor="middle">AGGREGATE B<tspan baseline-shift="sub" font-size="8">n+1</tspan></text>
+
+  <rect x="500" y="310" width="130" height="35" class="pipeline-purple"/>
+  <text x="565" y="333" fill="#c084fc" font-size="11" text-anchor="middle" font-family="'JetBrains Mono', monospace">FINALIZE B<tspan baseline-shift="sub" font-size="8">n</tspan></text>
+
+  <!-- Explanation -->
+  <text x="50" y="380" class="text-light" font-size="12" font-style="italic">Each block slot simultaneously advances four pipeline stages — this is why 1s finality is achievable.</text>
+
+  <!-- Caption -->
+  <text x="475" y="430" class="caption" font-size="12" text-anchor="middle">FIGURE 6 — 2-CHAIN FINALITY RULE AND PIPELINED EXECUTION</text>
+</svg>

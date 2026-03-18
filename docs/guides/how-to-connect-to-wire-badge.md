@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-You have installed Wire Hackaton App.
+You have installed Wire Hackathon App.
 
 - [iOS app](https://apps.apple.com/app/wire-hackathon/id6741440702)
 - [Android app](https://bucket.gitgo.app/android-app/app-release.apk)

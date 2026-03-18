@@ -2339,19 +2339,393 @@ paths:
               schema:
                 description: Returns Nothing
 
-  "/push_block":
+  "/get_consensus_parameters":
     post:
-      description: Sends a block to the blockchain.
-      operationId: push_block
+      description: Returns the current consensus parameters, including chain configuration and WASM configuration settings.
+      operationId: get_consensus_parameters
       requestBody:
         content:
           application/json:
             schema:
-              $ref: refs/Block.yaml
+              type: object
+              description: Empty object - no parameters required
+            example: {}
       responses:
         "200":
           description: OK
           content:
             application/json:
               schema:
-                description: void
+                type: object
+                properties:
+                  chain_config:
+                    type: object
+                    description: Chain configuration parameters (varies based on activated protocol features)
+                    properties:
+                      max_block_net_usage:
+                        type: integer
+                      target_block_net_usage_pct:
+                        type: integer
+                      max_transaction_net_usage:
+                        type: integer
+                      base_per_transaction_net_usage:
+                        type: integer
+                      net_usage_leeway:
+                        type: integer
+                      context_free_discount_net_usage_num:
+                        type: integer
+                      context_free_discount_net_usage_den:
+                        type: integer
+                      max_block_cpu_usage:
+                        type: integer
+                      target_block_cpu_usage_pct:
+                        type: integer
+                      max_transaction_cpu_usage:
+                        type: integer
+                      min_transaction_cpu_usage:
+                        type: integer
+                      max_transaction_lifetime:
+                        type: integer
+                      deferred_trx_expiration_window:
+                        type: integer
+                      max_transaction_delay:
+                        type: integer
+                      max_inline_action_size:
+                        type: integer
+                      max_inline_action_depth:
+                        type: integer
+                      max_authority_depth:
+                        type: integer
+                  wasm_config:
+                    type: object
+                    description: WebAssembly configuration parameters
+                    properties:
+                      max_mutable_global_bytes:
+                        type: integer
+                      max_table_elements:
+                        type: integer
+                      max_section_elements:
+                        type: integer
+                      max_linear_memory_init:
+                        type: integer
+                      max_func_local_bytes:
+                        type: integer
+                      max_nested_structures:
+                        type: integer
+                      max_symbol_bytes:
+                        type: integer
+                      max_module_bytes:
+                        type: integer
+                      max_code_bytes:
+                        type: integer
+                      max_pages:
+                        type: integer
+                      max_call_depth:
+                        type: integer
+              examples:
+                ExampleResponse:
+                  summary: Sample Response for Get Consensus Parameters
+                  value:
+                    chain_config:
+                      max_block_net_usage: 1048576
+                      target_block_net_usage_pct: 1000
+                      max_transaction_net_usage: 524288
+                      base_per_transaction_net_usage: 12
+                      net_usage_leeway: 500
+                      context_free_discount_net_usage_num: 20
+                      context_free_discount_net_usage_den: 100
+                      max_block_cpu_usage: 200000
+                      target_block_cpu_usage_pct: 1000
+                      max_transaction_cpu_usage: 150000
+                      min_transaction_cpu_usage: 100
+                      max_transaction_lifetime: 3600
+                      deferred_trx_expiration_window: 600
+                      max_transaction_delay: 3888000
+                      max_inline_action_size: 524287
+                      max_inline_action_depth: 4
+                      max_authority_depth: 6
+                    wasm_config:
+                      max_mutable_global_bytes: 1024
+                      max_table_elements: 1024
+                      max_section_elements: 8192
+                      max_linear_memory_init: 65536
+                      max_func_local_bytes: 8192
+                      max_nested_structures: 1024
+                      max_symbol_bytes: 8192
+                      max_module_bytes: 20971520
+                      max_code_bytes: 20971520
+                      max_pages: 528
+                      max_call_depth: 251
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8888/v1/chain/get_consensus_parameters" \
+              -H "Content-Type: application/json" \
+              -d '{}'
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+            fetch("http://localhost:8888/v1/chain/get_consensus_parameters", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({})
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+            url = "http://localhost:8888/v1/chain/get_consensus_parameters"
+            headers = {"Content-Type": "application/json"}
+            response = requests.post(url, json={}, headers=headers)
+            print(response.json())
+
+  "/get_finalizer_info":
+    post:
+      description: Returns information about the active and pending finalizer policies, as well as the last tracked votes for each finalizer. This endpoint is relevant for Savanna consensus mechanism.
+      operationId: get_finalizer_info
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              description: Empty object - no parameters required
+            example: {}
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  active_finalizer_policy:
+                    type: object
+                    description: Current active finalizer policy
+                  pending_finalizer_policy:
+                    type: object
+                    description: Current pending finalizer policy (empty if not existing)
+                  last_tracked_votes:
+                    type: array
+                    description: Last tracked vote information for each finalizer in active and pending policies
+                    items:
+                      type: object
+                      properties:
+                        finalizer_name:
+                          type: string
+                        vote_timestamp:
+                          type: string
+                        block_num:
+                          type: integer
+              examples:
+                ExampleResponse:
+                  summary: Sample Response for Get Finalizer Info
+                  value:
+                    active_finalizer_policy:
+                      generation: 1
+                      threshold: 15
+                      finalizers:
+                        - description: "bp1"
+                          weight: 1
+                          public_key: "PUB_BLS_..."
+                    pending_finalizer_policy: null
+                    last_tracked_votes: []
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8888/v1/chain/get_finalizer_info" \
+              -H "Content-Type: application/json" \
+              -d '{}'
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+            fetch("http://localhost:8888/v1/chain/get_finalizer_info", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({})
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+            url = "http://localhost:8888/v1/chain/get_finalizer_info"
+            headers = {"Content-Type": "application/json"}
+            response = requests.post(url, json={}, headers=headers)
+            print(response.json())
+
+  "/get_raw_block":
+    post:
+      description: Returns the raw signed block data for a specific block. Unlike get_block, this returns the block in its serialized binary form.
+      operationId: get_raw_block
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - block_num_or_id
+              properties:
+                block_num_or_id:
+                  type: string
+                  description: Provide a block number or a block id
+            example:
+              block_num_or_id: "100"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                description: The raw signed block data
+              examples:
+                ExampleResponse:
+                  summary: Sample Response for Get Raw Block
+                  value:
+                    timestamp: "2025-02-06T17:24:00.500"
+                    producer: "sysio"
+                    confirmed: 0
+                    previous: "0000006318de4f9088fd3ebcc5f9a7d4e84b9eca2b4e77d5d59c6c56c33d8e81"
+                    transaction_mroot: "0000000000000000000000000000000000000000000000000000000000000000"
+                    action_mroot: "8d4a06622e2fc4e9403c6dbdc83a0e0b9db1b1e18b2a4d1f5c4e8fa9c2d6b3a1"
+                    schedule_version: 0
+                    producer_signature: "SIG_K1_..."
+                    transactions: []
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8888/v1/chain/get_raw_block" \
+              -H "Content-Type: application/json" \
+              -d '{"block_num_or_id": "100"}'
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+            fetch("http://localhost:8888/v1/chain/get_raw_block", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ block_num_or_id: "100" })
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+            url = "http://localhost:8888/v1/chain/get_raw_block"
+            payload = {"block_num_or_id": "100"}
+            headers = {"Content-Type": "application/json"}
+            response = requests.post(url, json=payload, headers=headers)
+            print(response.json())
+
+  "/get_block_header":
+    post:
+      description: Returns the block header information for a specific block, optionally including block extensions.
+      operationId: get_block_header
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - block_num_or_id
+              properties:
+                block_num_or_id:
+                  type: string
+                  description: Provide a block number or a block id
+                include_extensions:
+                  type: boolean
+                  description: If true, includes block extensions (requires reading entire block from disk)
+                  default: false
+            example:
+              block_num_or_id: "100"
+              include_extensions: false
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: Block ID (hash)
+                  signed_block_header:
+                    type: object
+                    description: The signed block header
+                    properties:
+                      timestamp:
+                        type: string
+                      producer:
+                        type: string
+                      confirmed:
+                        type: integer
+                      previous:
+                        type: string
+                      transaction_mroot:
+                        type: string
+                      action_mroot:
+                        type: string
+                      schedule_version:
+                        type: integer
+                      producer_signature:
+                        type: string
+                  block_extensions:
+                    type: array
+                    description: Block extensions (only present if include_extensions is true)
+                    items:
+                      type: array
+              examples:
+                ExampleResponse:
+                  summary: Sample Response for Get Block Header
+                  value:
+                    id: "0000006460e32d086102050bea6aa3667c6b028661ee3f670558177e3eb9cf89"
+                    signed_block_header:
+                      timestamp: "2025-02-06T17:24:00.500"
+                      producer: "sysio"
+                      confirmed: 0
+                      previous: "0000006318de4f9088fd3ebcc5f9a7d4e84b9eca2b4e77d5d59c6c56c33d8e81"
+                      transaction_mroot: "0000000000000000000000000000000000000000000000000000000000000000"
+                      action_mroot: "8d4a06622e2fc4e9403c6dbdc83a0e0b9db1b1e18b2a4d1f5c4e8fa9c2d6b3a1"
+                      schedule_version: 0
+                      producer_signature: "SIG_K1_..."
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8888/v1/chain/get_block_header" \
+              -H "Content-Type: application/json" \
+              -d '{"block_num_or_id": "100", "include_extensions": false}'
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+            fetch("http://localhost:8888/v1/chain/get_block_header", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ block_num_or_id: "100", include_extensions: false })
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+            url = "http://localhost:8888/v1/chain/get_block_header"
+            payload = {"block_num_or_id": "100", "include_extensions": False}
+            headers = {"Content-Type": "application/json"}
+            response = requests.post(url, json=payload, headers=headers)
+            print(response.json())

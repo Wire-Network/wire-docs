@@ -62,9 +62,9 @@ A part of the block which holds metadata related to the block. In a Wire block h
 
 The block log is an append-only log of blocks written to disk and contains all the irreversible blocks.
 
-## Node Operator
+## Block Producer
 
-A Node Operator Producer is an identifiable entity composed of one or more individuals that express interest in participating in running a Wire network. By participating it is meant these entities will provide a full node, gather transactions, verify their validity, add them into blocks, and propose and confirm these blocks. A Node Operator is generally required to have experience with system administration and security as it is expected that their full-node have constant availability.
+A Block Producer is a synonym for [Node Operator](#node-operator).
 
 ## Node Operator Schedule
 
@@ -226,6 +226,13 @@ NET is required to store transactions on a Wire based blockchain. The amount of 
 ## Nodeop
 
 `nodeop` is the core Wire node daemon that can be configured with plugins to run a node. Example uses are block production, dedicated API endpoints, and local development.
+
+## Node Operator
+
+A Node Operator is an identifiable entity composed of one or more individuals that express interest in participating in running a Wire network. By participating it is meant these entities will provide a full node, gather transactions, verify their validity, add them into blocks, and propose and confirm these blocks. A Node Operator is generally required to have experience with system administration and security as it is expected that their full-node have constant availability.
+
+**Synonyms** Block Producer, BP
+**Related** [Block Producer](#block-producer)
 
 ## Non-Producing Node
 

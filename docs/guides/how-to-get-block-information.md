@@ -29,12 +29,12 @@ clio get block [--info] <block_number_or_id>
 
 Some examples are provided below:
 
-* Query a testnet to retrieve full block information about block number `110000` or block ID `0001adaf4206cf1e77a5042caeed1741f5c8a37441a287cddfb9ac19180d5b64`:
+* Query your local chain to retrieve full block information about block number `110000`:
 
 **Example Output**
 
 ```sh
-clio -u https://testnet-hyperion.wire.foundation get block 110000 | jq .
+clio -u http://localhost:8888 get block 110000 | jq .
 ```
 
 ```json
@@ -55,12 +55,12 @@ clio -u https://testnet-hyperion.wire.foundation get block 110000 | jq .
 }
 ```
 
-* Query the testnet to retrieve full block information about block ID `0001adb09b790f991773d65fb535f686583f19d28c044fdc2e57cb16134600fa`:
+* Query your local chain to retrieve full block information about block ID `0001adaf4206cf1e77a5042caeed1741f5c8a37441a287cddfb9ac19180d5b64`:
 
 **Example Output**
 
 ```sh
-clio -u https://testnet-hyperion.wire.foundation get block 0001adaf4206cf1e77a5042caeed1741f5c8a37441a287cddfb9ac19180d5b64
+clio -u http://localhost:8888 get block 0001adaf4206cf1e77a5042caeed1741f5c8a37441a287cddfb9ac19180d5b64
 ```
 
 ```json
@@ -81,12 +81,12 @@ clio -u https://testnet-hyperion.wire.foundation get block 0001adaf4206cf1e77a50
 }
 ```
 
-* Query a local chain(omit the `-u` option) to retrieve partial block information about block number `3355`:
+* Query a local chain (omit the `-u` option) to retrieve partial block information about block number `3355`:
 
 **Example Output**
 
 ```sh
-clio get block --info 3355011
+clio get block --info 3355
 ```
 
 ```json

@@ -49,7 +49,7 @@ Upon successful compilation, you will see a `hello` folder with `hello.abi` and 
 
 ### 3. Deploy the Contract
 
-Before deploying, ensure you have an account to deploy the contract to. Create an account if necessary and replace `PUBLIC_KEY` with the development key used in Manage Local Wallet with clio guide (see [Import Keys](../getting-started/manage-local-wallet-with-clio.md#import-the-development-key); key pair is also listed [here](#development-key-pair)). Your wallet must be also unlocked before using it(see [Unlock a wallet](../getting-started/manage-local-wallet-with-clio.md#unlock-a-wallet))
+Before deploying, ensure you have an account to deploy the contract to. Create an account if necessary and replace `PUBLIC_KEY` with the development key used in Manage Local Wallet with clio guide (see [Import Keys](../getting-started/manage-local-wallet-with-clio.md#import-the-development-key); key pair is also listed [here](../getting-started/manage-local-wallet-with-clio.md#development-key)). Your wallet must be also unlocked before using it (see [Unlock a wallet](../getting-started/manage-local-wallet-with-clio.md#unlock-a-wallet)).
 
 #### 3.1. Create an account using `clio`
 
@@ -61,30 +61,27 @@ This command enables the `sysio` system account to create a new account named `h
 
 #### 3.2. Issue a contract policy to `hello` account
 
-`nodedaddy`'s credentials(those should be already imported in your wallet):
+`nodeownera`'s credentials(those should be already imported in your wallet from [wire-cli](/docs/getting-started/install-dependencies.md) installation):
 
-##### Development key pair
-
-```txt
-PUBLIC_KEY=SYS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
-PRIVATE_KEY=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
+```bash
+clio wallet keys_by_name --password "$(cat /opt/wire-network/secrets/wallet_password.txt)" | jq '.[] | select(.[0] == "nodeownera")'
 ```
 
 Issue the policy:
 
 ```sh
-clio push action sysio.roa addpolicy '{"owner": hello, "issuer": nodedaddy,  "netWeight": "0.0100 SYS", "cpuWeight": "0.0100 SYS", "ramWeight": "0.0010 SYS", "timeBlock": 1, "networkGen": 0 }' -p nodedaddy@active
+clio push action sysio.roa addpolicy '{"owner": hello, "issuer": nodeownera,  "net_weight": "0.0100 SYS", "cpu_weight": "0.0100 SYS", "ram_weight": "0.1000 SYS", "time_block": 1, "network_gen": 0 }' -p nodeownera@active
 ```
 
 #### 3.3. Run deploy script
 
 ```bash
-sudo ./deploy.sh
+./deploy.sh
 ```
 
 ### 4. Push a Transaction
 
-#### 4.1. Create `bob`'s account
+#### 4.1. Create `bob`'s account (if not already created)
 
 ```bash
 clio create account sysio bob $PUBLIC_KEY -p sysio@active
@@ -93,7 +90,7 @@ clio create account sysio bob $PUBLIC_KEY -p sysio@active
 #### 4.2. Issue a policy to `bob`
 
 ```bash
-clio push action sysio.roa addpolicy '{"owner": bob, "issuer": nodedaddy,  "netWeight": "0.0100 SYS", "cpuWeight": "0.0100 SYS", "ramWeight": "0.0010 SYS", "timeBlock": 1, "networkGen": 0 }' -p nodedaddy@active
+clio push action sysio.roa addpolicy '{"owner": bob, "issuer": nodeownera,  "net_weight": "0.0100 SYS", "cpu_weight": "0.0100 SYS", "ram_weight": "0.1000 SYS", "time_block": 1, "network_gen": 0 }' -p nodeownera@active
 ```
 
 #### 4.3. Invoke the `hi` action
@@ -145,12 +142,10 @@ This will result in an authorization error since `bob` is trying to execute an a
 
 CLI output:
 
-![missing-authority](/img/clio-failed-trx-auth.png)
+![missing-authority](/img/missing-authority.png)
 
----
-
-## Bonus ⭐️
+<!-- ## Bonus ⭐️
 
 ### Inspect the contract on Wire Hub Block Explorer
 
-Feel free to explore your contract on [Wire Hub Block Explorer](https://hub.wire.network). Use this [guide](/docs/wire-hub/connect-to-a-rpc.md) to connect to your chain and inspect the contract.
+Feel free to explore your contract on [Wire Hub Block Explorer](https://hub.wire.network). Use this [guide](/docs/wire-hub/connect-to-a-rpc.md) to connect to your chain and inspect the contract. -->

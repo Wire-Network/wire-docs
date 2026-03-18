@@ -50,10 +50,16 @@ paths:
                 properties:
                   free_bytes:
                     type: integer
+                    description: Free bytes available in the database
                   used_bytes:
                     type: integer
+                    description: Bytes currently in use
                   size:
                     type: integer
+                    description: Total size of the database
+                  reclaimable_bytes:
+                    type: integer
+                    description: Bytes that can be reclaimed
                   indices:
                     type: array
                     items:

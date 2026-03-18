@@ -4,12 +4,22 @@ title: How To Perform Authorization Checks
 
 # Overview
 
-This guide provides instructions how to perform authorization checks in a smart contract.
+This guide provides instructions on how to perform authorization checks in a smart contract.
 
 ## Prerequisites
 
-1. You have the sources of a contract with a `hi` action defined and implemented.
-2. The `hi` action has defined one input parameter `user` of type `name`.
+* Install the currently supported version of `clio`
+
+:::info
+| The `clio` tool is bundled with the Wire software. [Installing Wire Core](/docs/getting-started/install-dependencies.md) will also install the clio tool.
+:::
+
+:::warning[REMINDER]
+The install process has already set up the wallet for the *root* user. To interact with clio, ensure **you are on the root user**. Run `sudo su -` to switch to the root user.
+:::
+
+* You have the sources of a contract with a `hi` action defined and implemented.
+* The `hi` action has defined one input parameter `user` of type `name`.
 
 ## Steps
 
@@ -36,7 +46,7 @@ void hello::hi(name user) {
 #### Example - `check(has_auth(...))`
 
 ```txt
-sudo clio push action hello hi '["alice"]' -p bob@active
+clio push action hello hi '["alice"]' -p bob@active
 
 failed transaction: 04d5e1f811ff16a7ba4f7934961f85e86a15c1a4e67e533abf14cf68c960a658  <unknown> bytes  <unknown> us
 error [timestamp]T13:52:31.978 clio      main.cpp:699                  print_result         ] soft_except->to_detail_string(): 3050003 sysio_assert_message_exception: sysio_assert_message assertion failure
@@ -45,7 +55,7 @@ assertion failure with message: User is not authorized to perform this action.
     nodeop  cf_system.cpp:14 sysio_assert
 hello <= hello::hi pending console output: 
     {"console":"","account":"hello","action":"hi","receiver":"hello"}
-    nodeo
+    nodeop
 ```
 
 ### Method 2: `require_auth()`

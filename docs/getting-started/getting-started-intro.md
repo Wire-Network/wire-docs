@@ -32,9 +32,8 @@ The subsequent tutorials([hello world contract](../smart-contract-development/he
 
 | Component          | Version |
 | ------------------ | ------- |
-| Wire Sysio Core Version | 5.1.0   |
-| Wire CDT                | 4.0.1   |
-| sysio.contracts    | 3.3.0   |
+| Wire Sysio Core Version | 6.0.0-dev   |
+| Wire CDT                | 4.1.1   |
 
 ## Development Experience
 
@@ -74,5 +73,5 @@ The resources mentioned above are developed, offered, and maintained *by third p
 ## Code Reference
 
 - [wire-sysio](https://github.com/Wire-Network/wire-sysio)
+  - [system-contracts](https://github.com/Wire-Network/wire-sysio/tree/master/contracts)
 - [wire-cdt](https://github.com/Wire-Network/wire-cdt)
-- [wire-system-contracts](https://github.com/Wire-Network/wire-system-contracts)

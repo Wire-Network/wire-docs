@@ -1,0 +1,85 @@
+<svg viewBox="0 0 1000 220" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" style="width:100%;display:block;margin:0 auto;border-radius:8px;">
+  <defs>
+    <style>
+      /* Dark mode (default) */
+      .bg { fill: #0d1117; }
+      .text-label { fill: #8b949e; font-family: monospace; }
+      .text-main { fill: #e6edf3; font-family: monospace; }
+      .text-legacy { fill: #f78166; font-family: monospace; }
+      .text-savanna { fill: #3fb950; font-family: monospace; }
+      .text-caption { fill: #8b949e; font-family: monospace; }
+      .tick-blue { stroke: #1f6feb; }
+      .legacy-bar { fill: rgba(247,129,102,0.15); stroke: #f78166; }
+      .savanna-bar { fill: rgba(63,185,80,0.2); stroke: #3fb950; }
+      .lib-line { stroke: #f78166; }
+
+      /* Light mode */
+      @media (prefers-color-scheme: light) {
+        .bg { fill: #f6f8fa; }
+        .text-label { fill: #57606a; }
+        .text-main { fill: #1f2328; }
+        .text-legacy { fill: #cf222e; }
+        .text-savanna { fill: #1a7f37; }
+        .text-caption { fill: #57606a; }
+        .tick-blue { stroke: #0969da; }
+        .legacy-bar { fill: rgba(207,34,46,0.1); stroke: #cf222e; }
+        .savanna-bar { fill: rgba(26,127,55,0.15); stroke: #1a7f37; }
+        .lib-line { stroke: #cf222e; }
+      }
+    </style>
+    <linearGradient id="bp1g" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#58a6ff" stop-opacity="0.7"/><stop offset="100%" stop-color="#58a6ff" stop-opacity="0.3"/></linearGradient>
+    <linearGradient id="bp2g" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3fb950" stop-opacity="0.7"/><stop offset="100%" stop-color="#3fb950" stop-opacity="0.3"/></linearGradient>
+    <linearGradient id="bp3g" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d2a8ff" stop-opacity="0.7"/><stop offset="100%" stop-color="#d2a8ff" stop-opacity="0.3"/></linearGradient>
+    <linearGradient id="bp1g-light" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0969da" stop-opacity="0.5"/><stop offset="100%" stop-color="#0969da" stop-opacity="0.2"/></linearGradient>
+    <linearGradient id="bp2g-light" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a7f37" stop-opacity="0.5"/><stop offset="100%" stop-color="#1a7f37" stop-opacity="0.2"/></linearGradient>
+    <linearGradient id="bp3g-light" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#8250df" stop-opacity="0.5"/><stop offset="100%" stop-color="#8250df" stop-opacity="0.2"/></linearGradient>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L0,8 L10,4 z" fill="#f78166"/>
+    </marker>
+    <marker id="arr-light" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L0,8 L10,4 z" fill="#cf222e"/>
+    </marker>
+  </defs>
+  <!-- Background -->
+  <rect class="bg" width="1000" height="220"/>
+  <!-- Labels -->
+  <g>
+    <text x="15" y="35" class="text-label" font-size="12">BP-A</text>
+    <text x="15" y="90" class="text-label" font-size="12">BP-B</text>
+    <text x="15" y="155" class="text-label" font-size="12">BP-C</text>
+  </g>
+  <!-- BP-A produces 12 blocks -->
+  <rect x="70" y="18" width="280" height="32" rx="4" fill="url(#bp1g)" stroke="#58a6ff" stroke-width="1"/>
+  <text x="210" y="39" class="text-main" font-size="12" text-anchor="middle">Blocks 1–12 (6s slot)</text>
+  <!-- individual block ticks -->
+  <line x1="93" y1="18" x2="93" y2="50" class="tick-blue" stroke-width="0.5"/>
+  <line x1="116" y1="18" x2="116" y2="50" class="tick-blue" stroke-width="0.5"/>
+  <line x1="139" y1="18" x2="139" y2="50" class="tick-blue" stroke-width="0.5"/>
+  <line x1="162" y1="18" x2="162" y2="50" class="tick-blue" stroke-width="0.5"/>
+  <line x1="185" y1="18" x2="185" y2="50" class="tick-blue" stroke-width="0.5"/>
+  <line x1="208" y1="18" x2="208" y2="50" class="tick-blue" stroke-width="0.5"/>
+  <line x1="231" y1="18" x2="231" y2="50" class="tick-blue" stroke-width="0.5"/>
+  <line x1="254" y1="18" x2="254" y2="50" class="tick-blue" stroke-width="0.5"/>
+  <line x1="277" y1="18" x2="277" y2="50" class="tick-blue" stroke-width="0.5"/>
+  <line x1="300" y1="18" x2="300" y2="50" class="tick-blue" stroke-width="0.5"/>
+  <line x1="323" y1="18" x2="323" y2="50" class="tick-blue" stroke-width="0.5"/>
+  <!-- BP-B blocks -->
+  <rect x="355" y="18" width="280" height="32" rx="4" fill="url(#bp2g)" stroke="#3fb950" stroke-width="1"/>
+  <text x="495" y="39" class="text-main" font-size="12" text-anchor="middle">Blocks 13–24 (6s slot)</text>
+  <!-- BP-C blocks -->
+  <rect x="640" y="18" width="280" height="32" rx="4" fill="url(#bp3g)" stroke="#d2a8ff" stroke-width="1"/>
+  <text x="780" y="39" class="text-main" font-size="12" text-anchor="middle">Blocks 25–36 (6s slot)</text>
+  <!-- dots -->
+  <text x="940" y="42" class="text-label" font-size="20">…</text>
+  <!-- Legacy finality bar -->
+  <rect x="70" y="68" width="580" height="26" rx="4" class="legacy-bar" stroke-width="1" stroke-dasharray="5,4"/>
+  <text x="360" y="86" class="text-legacy" font-size="11" text-anchor="middle">Legacy: ~360 block confirmations needed → ~3 minutes to finality</text>
+  <!-- LIB arrow -->
+  <text x="55" y="118" class="text-label" font-size="10">LIB</text>
+  <line x1="70" y1="114" x2="650" y2="114" class="lib-line" stroke-width="1.5" marker-end="url(#arr)"/>
+  <!-- Savanna bar -->
+  <rect x="70" y="138" width="50" height="26" rx="4" class="savanna-bar" stroke-width="1"/>
+  <text x="130" y="156" class="text-savanna" font-size="11">Savanna: 2 blocks → 1s</text>
+  <!-- Caption -->
+  <text x="500" y="200" class="text-caption" font-size="10" text-anchor="middle" letter-spacing="0.15em">FIGURE 1 — DPOS BLOCK SCHEDULE VS. FINALITY WINDOWS (LEGACY VS. SAVANNA)</text>
+</svg>

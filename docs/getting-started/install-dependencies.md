@@ -38,11 +38,11 @@ npm i -g @wireio/wire-cli
 To start a local node, run:
 
 ```sh
-sudo wire-cli install --g --enable-roa
+sudo wire-cli install -g
 ```
 
 :::info
-It is important to note that we are *intentially* using wire-cli to launch a full-scale Wire blockchain environment. This is a multi-node setup(blockproducer and chain-api) with deployed system contracts, resource management, including contract policies, as well as protocol features, etc. and identical to testnet configuration setup.
+It is important to note that we are *intentially* using wire-cli to launch a full-scale Wire blockchain environment. This is a multi-node setup(**blockproducer**, **bp-relay**, and **chain-api**) with deployed system contracts, resource management, including contract policies, all very similar to a testnet configuration setup.
 :::
 
 ##### Verify installation
@@ -56,7 +56,7 @@ nodeop --full-version
 You should see a semantic version string followed by a commit hash with no errors. For example:
 
 ```console
-v5.1.0-1fd21e2b206a5a97d2c41b4afefa42b25c5c15be
+v1.0.0-dev-345c51c7b89a6821d4f351f3bdbd0838d8314ea2
 ```
 
 :::info
@@ -77,7 +77,7 @@ or
 ```sh
 cdt-cpp --version
 
-Expected Output -> cdt-cpp version 4.0.1
+Expected Output -> cdt-cpp version 4.1.1
 ```
 
 :::info
@@ -93,7 +93,7 @@ Wire CDT is located at `/usr/opt` with symlinks to each of its executable in `/u
 ##### Uninstall Wire Sysio and Wire CDT
 
 ```sh
-sudo wire-cli uninstall --y 
+sudo wire-cli uninstall -y 
 ```
 
 :::danger
@@ -112,11 +112,9 @@ tail -f /opt/wire-network/blockproducer/data/nodeop.log
 You should see some output in the console similar to:
 
 ```bash
-info  [timestamp] nodeop producer_plugin.cpp:2293 produce_block ] Produced block b50adde5943bdde1... #44 at [timestamp] signed by sysio [trxs: 0, lib: 43, confirmed: 0]
-info  [timestamp] nodeop producer_plugin.cpp:2293 produce_block ] Produced block 39b2a4fef9db084f... #45 at [timestamp] signed by sysio [trxs: 0, lib: 44, confirmed: 0]
-info  [timestamp] nodeop producer_plugin.cpp:2293 produce_block ] Produced block cd23d3646d0166dc... #46 at [timestamp] signed by sysio [trxs: 0, lib: 45, confirmed: 0]
-info  [timestamp] nodeop producer_plugin.cpp:2293 produce_block ] Produced block 14bd99c3c3ffd441... #47 at [timestamp] signed by sysio [trxs: 0, lib: 46, confirmed: 0]
-info  [timestamp] nodeop producer_plugin.cpp:2293 produce_block ] Produced block 2e5fb9d0f2dce119... #48 at [timestamp] signed by sysio [trxs: 0, lib: 47, confirmed: 0]
+info  [timestamp] nodeop          controller.cpp:2375  log_applied          ] Produced block 14e5cb41b06b7020... #4246 @ [timestamp] signed by sysio [trxs: 0, lib: 4244, net: 0, cpu: 100 us, elapsed: 82 us, producing time: 462421 us]
+info  [timestamp] nodeop          controller.cpp:2375  log_applied          ] Produced block c9bb3eb9c65b6971... #4247 @ [timestamp] signed by sysio [trxs: 0, lib: 4245, net: 0, cpu: 100 us, elapsed: 90 us, producing time: 462358 us]
+info  [timestamp] nodeop          controller.cpp:2375  log_applied          ] Produced block a505dcb166388262... #4248 @ 2026-03-16T15:56:46.500 signed by sysio [trxs: 0, lib: 4246, net: 0, cpu: 100 us, elapsed: 81 us, producing time: 462054 us]
 ```
 
 Verify the `[timestamp]` is a recent one and that you aren't looking at a stale logs.
@@ -159,26 +157,26 @@ import BrowserWindow from '@site/src/components/BrowserWindow';
 <BrowserWindow url="http://localhost:8888/v1/chain/get_info">
      ```json
        {
-          "server_version": "1fd21e2b",
-          "chain_id": "4b6ea11bff557dbaef04100a15ee8b5864bd0daf4103b98468bdb297356951fa",
-          "head_block_num": 1920,
-          "last_irreversible_block_num": 1919,
-          "last_irreversible_block_id": "0000077f97d283793011d0e11d270e2c3bcc0c9c2634a2620c96b55988780b0f",
-          "head_block_id": "0000078034dc84be41b08732fe8e0b40639db355f70b1ebcc4246fd69e669d53",
-          "head_block_time": "2025-04-17T16:47:14.500",
-          "head_block_producer": "sysio",
-          "virtual_block_cpu_limit": 1361215,
-          "virtual_block_net_limit": 7149134,
-          "block_cpu_limit": 100000,
-          "block_net_limit": 1048576,
-          "server_version_string": "v5.1.0",
-          "fork_db_head_block_num": 1920,
-          "fork_db_head_block_id": "0000078034dc84be41b08732fe8e0b40639db355f70b1ebcc4246fd69e669d53",
-          "server_full_version_string": "v5.1.0-1fd21e2b206a5a97d2c41b4afefa42b25c5c15be",
-          "total_cpu_weight": 500,
-          "total_net_weight": 500,
-          "earliest_available_block_num": 1,
-          "last_irreversible_block_time": "2025-04-17T16:47:14.000"
+        "server_version": "345c51c7",
+        "chain_id": "fc14abfad38fd1977d5096e4bd12bfe5dd1154e971743a5a222040951f7a7306",
+        "head_block_num": 777,
+        "last_irreversible_block_num": 775,
+        "last_irreversible_block_id": "000003072d65064754524a9afc1644747158b6168b69f5333e157aa9584d9ed9",
+        "head_block_id": "00000309975f63927f8a268a6c4f90dc0dcf1fcd6aa973245e68480e910793b1",
+        "head_block_time": "2026-03-18T17:24:59.500",
+        "head_block_producer": "sysio",
+        "virtual_block_cpu_limit": 434132,
+        "virtual_block_net_limit": 2278612,
+        "block_cpu_limit": 200000,
+        "block_net_limit": 1048576,
+        "server_version_string": "v1.0.0-dev",
+        "fork_db_head_block_num": 777,
+        "fork_db_head_block_id": "00000309975f63927f8a268a6c4f90dc0dcf1fcd6aa973245e68480e910793b1",
+        "server_full_version_string": "v1.0.0-dev-345c51c7b89a6821d4f351f3bdbd0838d8314ea2",
+        "total_cpu_weight": 500,
+        "total_net_weight": 500,
+        "earliest_available_block_num": 1,
+        "last_irreversible_block_time": "2026-03-18T17:24:58.500"
       }
    ```
  </BrowserWindow>
@@ -205,7 +203,7 @@ When wire-cli is trying to install the binaries and you are getting an error sim
 Reading package lists... Done
 Building dependency tree... Done
 Reading state information... Done
-Note, selecting 'wire-sysio' instead of './wire-sysio-5.1.0_amd64.deb'
+Note, selecting 'wire-sysio' instead of './wire-sysio-6.0.0-dev_amd64.deb'
 Some packages could not be installed. This may mean that you have
 requested an impossible situation or if you are using the unstable
 distribution that some required packages have not yet been created

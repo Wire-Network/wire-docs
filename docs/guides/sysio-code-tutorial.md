@@ -141,7 +141,7 @@ cdt-cpp -abigen  -contract inlinecontract -o inlinecontract/inlinecontract.wasm 
 Create an account called  `inlinectr`:
 
 ```sh
-clio create account sysio inlinectr SYS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV SYS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV -p sysio@active
+clio create account sysio inlinectr SYS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV -p sysio@active
 ```
 
 Then, deploy your contract by setting the contract code on your account:
@@ -153,8 +153,24 @@ clio set contract inlinectr inline-contract -p inlinectr
 Give `inlinectr` a policy:
 
 ```sh
-clio push action sysio.roa addpolicy '{"owner": inlinectr, "issuer": nodedaddy, "netWeight": "0.0100 SYS", "cpuWeight": "0.0100 SYS", "ramWeight": "0.0100 SYS", "timeBlock": 1, "networkGen": 0 }' -p nodedaddy@active
+clio push action sysio.roa addpolicy '{"owner": inlinectr, "issuer": nodeownera, "net_weight": "0.0100 SYS", "cpu_weight": "0.0100 SYS", "ram_weight": "0.0100 SYS", "time_block": 1, "network_gen": 0 }' -p nodeownera@active
 ```
+
+## Step 5: Add sysio.code Permission to Contract Account
+
+The contract needs `sysio.code` permission to execute inline actions. Add it to `inlinectr`:
+
+```sh
+clio set account permission inlinectr active --add-code -p inlinectr@active
+```
+
+Verify the permission was added:
+
+```sh
+clio get account inlinectr
+```
+
+You should see `inlinectr@sysio.code` listed under the `active` permission.
 
 ## Step 6: Test the Inline Actions
 

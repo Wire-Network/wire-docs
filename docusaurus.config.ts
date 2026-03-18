@@ -271,6 +271,11 @@ const config: Config = {
       additionalLanguages: ["bash", "json"],
       magicComments: [
         {
+          className: "theme-code-block-highlighted-line",
+          line: "highlight-next-line",
+          block: { start: "highlight-start", end: "highlight-end" },
+        },
+        {
           className: "code-block-diff-add-line",
           line: "diff-add",
         },

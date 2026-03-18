@@ -1,28 +1,48 @@
-## Goal
+# Get Table Information
 
-Query infomation of a table
+## Overview
 
-## Before you begin
+This guide explains how to query data from a smart contract's multi-index table using the `clio get table` command.
+
+## Prerequisites
 
 * Install the currently supported version of `clio`
 
+:::info
+| The `clio` tool is bundled with the Wire software. [Installing Wire Core](/docs/getting-started/install-dependencies.md) will also install the clio tool.
+:::
+
+:::warning[REMINDER]
+The install process has already set up the wallet for the *root* user. To interact with clio, ensure **you are on the root user**. Run `sudo su -` to switch to the root user.
+:::
+
 * Understand the following:
   * What is an [account](/docs/introduction/glossary.md#account). See also [Accounts and Permissions](/docs/smart-contract-development/accounts-permissions.md)
-  * What is a [table](/docs/introduction/glossary.md#account) and understanding [scope](/docs/smart-contract-development/state-data.md#scope).
+  * What is a [table](/docs/introduction/glossary.md#tables) and understanding [scope](/docs/smart-contract-development/state-data.md#scope).
 
 ## Command
 
 ```sh
-clio get table <account> <scope> <table>
+clio get table <contract> <scope> <table>
 ```
 
+### Parameters
+
+| Parameter | Description |
+|-----------|-------------|
+| `contract` | The account name where the contract is deployed |
+| `scope` | The scope within the contract |
+| `table` | The name of the table to query |
+
 ## Example
+
+Query the `abihash` table from the `sysio` contract:
 
 ```sh
 clio get table sysio sysio abihash
 ```
 
-Output:
+**Example Output:**
 
 ```json
 {
@@ -34,4 +54,22 @@ Output:
   "more": false,
   "next_key": ""
 }
-````
+```
+
+### Additional Options
+
+Limit the number of rows returned:
+
+```sh
+clio get table sysio sysio abihash --limit 3
+```
+
+Query with a lower bound:
+
+```sh
+clio get table sysio sysio abihash --lower sysio
+```
+
+## Reference
+
+* [clio get table](/docs/api-reference/tooling/clio/command-reference/get/table.md)

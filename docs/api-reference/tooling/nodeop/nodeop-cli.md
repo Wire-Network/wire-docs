@@ -53,8 +53,8 @@ Plugin-specific options control the behavior of the [`nodeop` plugins](./plugins
   If the value is empty, it is set to the value of blocks dir.  
 - **`--blocks-archive-dir arg`**: the location of the blocks archive directory (absolute path or relative to blocks dir).  
   If the value is empty, blocks files beyond the retained limit will be deleted. All files in the archive directory are completely under user's control, i.e. they won't be accessed by nodeop anymore.  
-- **`--state-dir arg (="state")`**: the location of the state directory (absolute path or relative to application data dir)  
-- **`--state-log arg (=0)`**: Maintain a block state log, using the same configuration as the block log.  
+- **`--state-dir arg (="state")`**: the location of the state directory (absolute path or relative to application data dir)
+- **`--finalizers-dir arg (="finalizers")`**: the location of the finalizers safety data directory (absolute path or relative to application data dir)
 - **`--protocol-features-dir arg (="protocol_features")`**: the location of the protocol_features directory (absolute path or relative to application config dir)  
 - **`--checkpoint arg`**: Pairs of [BLOCK_NUM,BLOCK_ID] that should be enforced as checkpoints.  
 - **`--wasm-runtime runtime (=sys-vm-jit)`**: Override default WASM runtime ("sys-vm-jit", "sys-vm")  
@@ -65,7 +65,8 @@ Plugin-specific options control the behavior of the [`nodeop` plugins](./plugins
 - **`--chain-state-db-size-mb arg (=1024)`**: Maximum size (in MiB) of the chain state database  
 - **`--chain-state-db-guard-size-mb arg (=128)`**: Safely shut down node when free space remaining in the chain state database drops below this size (in MiB).  
 - **`--signature-cpu-billable-pct arg (=50)`**: Percentage of actual signature recovery cpu to bill. Whole number percentages, e.g. 50 for 50%  
-- **`--chain-threads arg (=2)`**: Number of worker threads in controller thread pool  
+- **`--chain-threads arg (=2)`**: Number of worker threads in controller thread pool
+- **`--vote-threads arg`**: Number of worker threads in vote processor thread pool. If set to 0, voting disabled, votes are not propagated on P2P network. Defaults to 4 on producer nodes.
 - **`--contracts-console`**: print contract's output to console  
 - **`--deep-mind`**: print deeper information about chain operations  
 - **`--actor-whitelist arg`**: Account added to actor whitelist (may specify multiple times)  
@@ -93,10 +94,11 @@ Plugin-specific options control the behavior of the [`nodeop` plugins](./plugins
   In "locked" mode database is preloaded, locked into memory, and will use huge pages if available.  
 - **`--sys-vm-oc-cache-size-mb arg (=1024)`**: Maximum size (in MiB) of the SYS VM OC code cache  
 - **`--sys-vm-oc-compile-threads arg (=1)`**: Number of threads to use for SYS VM OC tier-up  
-- **`--sys-vm-oc-enable arg (=auto)`**: Enable SYS VM OC tier-up runtime ('auto', 'all', 'none').  
-  'auto' - SYS VM OC tier-up is enabled for sysio.* accounts, read-only trxs, and except on producers applying blocks.  
-  'all'  - SYS VM OC tier-up is enabled for all contract execution.  
-  'none' - SYS VM OC tier-up is completely disabled.  
+- **`--sys-vm-oc-enable arg (=auto)`**: Enable SYS VM OC tier-up runtime ('auto', 'all', 'none').
+  'auto' - SYS VM OC tier-up is enabled for sysio.* accounts, read-only trxs, and except on producers applying blocks.
+  'all'  - SYS VM OC tier-up is enabled for all contract execution.
+  'none' - SYS VM OC tier-up is completely disabled.
+- **`--sys-vm-oc-whitelist arg (=wire)`**: SYS VM OC tier-up whitelist account suffixes for tier-up runtime 'auto'.
 - **`--enable-account-queries arg (=0)`**: enable queries to find accounts by various metadata.  
 - **`--transaction-retry-max-storage-size-gb arg`**: Maximum size (in GiB) allowed to be allocated for the Transaction Retry feature. Setting above 0 enables this feature.  
 - **`--transaction-retry-interval-sec arg (=20)`**: How often, in seconds, to resend an incoming transaction to network if not seen in a block. Needs to be at least twice as large as p2p-dedup-cache-expire-time-sec.  
@@ -180,18 +182,26 @@ Plugin-specific options control the behavior of the [`nodeop` plugins](./plugins
   `p2p.trx.example:9876:trx`  
   `p2p.blk.example:9876:blk`
 
-- **`--p2p-max-nodes-per-host arg (=1)`**: Maximum number of client nodes from any single IP address.
+- **`--p2p-max-nodes-per-host arg (=1)`**: Maximum number of client nodes from any single /24 (IPv4) or /48 (IPv6) subnet.
 
 - **`--p2p-accept-transactions arg (=1)`**: Allow transactions received over p2p network to be evaluated and relayed if valid.
 
-- **`--p2p-auto-bp-peer arg`**: The account and public p2p endpoint of a block producer node to automatically connect to when the it is in producer schedule proximity.  
-  Syntax: `account,host:port`  
-  Example:  
-  `producer1,p2p.example:9876`  
-  `producer2,p2p.trx.example:9876:trx`  
+- **`--p2p-disable-block-nack arg (=0)`**: Disable block notice and block nack. All blocks received will be broadcast to all peers unless already received.
+
+- **`--p2p-auto-bp-peer arg`**: The account and public p2p endpoint of a block producer node to automatically connect to when it is in producer schedule. Not gossipped.
+  Syntax: `bp_account,host:port`
+  Example:
+  `producer1,p2p.example:9876`
+  `producer2,p2p.trx.example:9876:trx`
   `producer3,p2p.blk.example:9876:blk`
 
-- **`--agent-name arg (=Example Test Agent)`**: The name supplied to identify this node amongst the peers.
+- **`--p2p-bp-gossip-endpoint arg`**: The BP account, inbound connection endpoint, outbound connection IP address. The BP account is the producer name. Used to retrieve peer-key from on-chain peerkeys table registered on-chain via regpeerkey action. The inbound connection endpoint is typically the listen endpoint of this node. The outbound connection IP address is typically the IP address of this node. Peer will use this value to allow access through firewall. Private key of peer-key should be configured via signature-provider.
+  Syntax: `bp_account,inbound_endpoint,outbound_ip_address`
+  Example:
+  `myprod,myhostname.com:9876,198.51.100.1`
+  `myprod,myhostname2.com:9876,[2001:0db8:85a3:0000:0000:8a2e:0370:7334]`
+
+- **`--agent-name arg (=Wire Agent)`**: The name supplied to identify this node amongst the peers.
 
 - **`--allowed-connection arg (=any)`**: Can be 'any' or 'producers' or 'specified' or 'none'. If 'specified', peer-key must be specified at least once. If only 'producers', peer-key is not required. 'producers' and 'specified' may be combined.
 
@@ -213,18 +223,19 @@ Plugin-specific options control the behavior of the [`nodeop` plugins](./plugins
 
 - **`--sync-peer-limit arg (=3)`**: Number of peers to sync from
 
-- **`--use-socket-read-watermark arg (=0)`**: Enable experimental socket read watermark optimization
-
-- **`--peer-log-format arg (=["${_name}" - ${_cid} ${_ip}:${_port}] )`**: The string used to format peers when logging messages about them. Variables are escaped with `${<variable name>}`.  
-  Available Variables:  
-  `_name` — self-reported name  
-  `_cid` — assigned connection id  
-  `_id` — self-reported ID (64 hex characters)  
-  `_sid` — first 8 characters of _peer.id  
-  `_ip` — remote IP address of peer  
-  `_port` — remote port number of peer  
-  `_lip` — local IP address connected to peer  
+- **`--peer-log-format arg (=["${_peer} - ${_sid}" - ${_cid} ${_ip}:${_port}] )`**: The string used to format peers when logging messages about them. Variables are escaped with `${<variable name>}`.
+  Available Variables:
+  `_peer` — endpoint name
+  `_name` — self-reported name
+  `_cid` — assigned connection id
+  `_id` — self-reported ID (64 hex characters)
+  `_sid` — first 8 characters of _peer.id
+  `_ip` — remote IP address of peer
+  `_port` — remote port number of peer
+  `_lip` — local IP address connected to peer
   `_lport` — local port number connected to peer
+  `_agent` — first 15 characters of agent-name of peer
+  `_nver` — p2p protocol version
 
 - **`--p2p-keepalive-interval-ms arg (=10000)`**: Peer heartbeat keepalive message interval in milliseconds
 
@@ -246,6 +257,67 @@ Plugin-specific options control the behavior of the [`nodeop` plugins](./plugins
   - an absolute path to a file containing a valid JSON-encoded ABI  
   - a relative path from `data-dir` to a file containing a valid JSON-encoded ABI
 
-- **`--trace-no-abis`**: Use to indicate that the RPC responses will not use ABIs.  
-  Failure to specify this option when there are no trace-rpc-abi configuations will result in an Error.  
-  This option is mutually exclusive with trace-rpc-api
+- **`--trace-no-abis`**: Use to indicate that the RPC responses will not use ABIs.
+  Failure to specify this option when there are no trace-rpc-abi configurations will result in an Error.
+  This option is mutually exclusive with trace-rpc-abi
+
+## Config Options for `sysio::producer_plugin`
+
+- **`-e, --enable-stale-production`**: Enable block production, even if the chain is stale.
+- **`-x, --pause-on-startup`**: Start this node in a state where production is paused.
+- **`--production-pause-vote-timeout-ms arg (=6000)`**: Received vote timeout. If no vote from producer-name finalizers or other finalizers then pauses block production. 0 disables.
+- **`--max-transaction-time arg (=499)`**: Setting this value (in milliseconds) will restrict the allowed transaction execution time to a value potentially lower than the on-chain consensus max_transaction_cpu_usage value.
+- **`--max-irreversible-block-age arg (=-1)`**: Limits the maximum age (in seconds) of the DPOS Irreversible Block for a chain this node will produce blocks on (use negative value to indicate unlimited).
+- **`--max-reversible-blocks arg (=3600)`**: Maximum allowed reversible blocks beyond irreversible before block production is paused. Specify 0 to disable. Default 3600 blocks.
+- **`-p, --producer-name arg`**: ID of producer controlled by this node (e.g. inita; may specify multiple times).
+- **`--greylist-account arg`**: Account that cannot access extended CPU/NET virtual resources.
+- **`--greylist-limit arg (=1000)`**: Limit (between 1 and 1000) on the multiple that CPU/NET virtual resources can extend during low usage (only enforced subjectively; use 1000 to not enforce any limit).
+- **`--produce-block-offset-ms arg (=450)`**: The minimum time to reserve at the end of a production round for blocks to propagate to the next block producer.
+- **`--max-block-cpu-usage-threshold-us arg (=5000)`**: Threshold of CPU block production to consider block full; when within threshold of max-block-cpu-usage block can be produced immediately.
+- **`--max-block-net-usage-threshold-bytes arg (=1024)`**: Threshold of NET block production to consider block full; when within threshold of max-block-net-usage block can be produced immediately.
+- **`--subjective-cpu-leeway-us arg (=31000)`**: Time in microseconds allowed for a transaction that starts with insufficient CPU quota to complete and cover its CPU usage.
+- **`--subjective-account-max-failures arg (=3)`**: Sets the maximum amount of failures that are allowed for a given account per window size.
+- **`--subjective-account-max-failures-window-size arg (=1)`**: Sets the window size in number of blocks for subjective-account-max-failures.
+- **`--subjective-account-decay-time-minutes arg (=1440)`**: Sets the time to return full subjective cpu for accounts.
+- **`--subjective-account-cpu-allowed-us arg (=300000)`**: Sets the maximum allowed CPU, above account CPU, that can be used by an authorizing account within subjective-account-decay-time-minutes.
+- **`--incoming-transaction-queue-size-mb arg (=1024)`**: Maximum size (in MiB) of the incoming transaction queue. Exceeding this value will subjectively drop transaction with resource exhaustion.
+- **`--disable-subjective-account-billing arg`**: Account which is excluded from subjective CPU billing.
+- **`--disable-subjective-payer-billing arg (=0)`**: Disable subjective CPU billing for all contract payer accounts.
+- **`--disable-subjective-p2p-billing arg (=1)`**: Disable subjective CPU billing for P2P transactions.
+- **`--disable-subjective-api-billing arg (=1)`**: Disable subjective CPU billing for API transactions.
+- **`--snapshots-dir arg (="snapshots")`**: the location of the snapshots directory (absolute path or relative to application data dir).
+- **`--read-only-threads arg`**: Number of worker threads in read-only execution thread pool. Defaults to 0 if configured as producer, otherwise defaults to 3. Max 128.
+- **`--read-only-write-window-time-us arg (=200000)`**: Time in microseconds the write window lasts.
+- **`--read-only-read-window-time-us arg (=60000)`**: Time in microseconds the read window lasts.
+
+## Config Options for `sysio::resource_monitor_plugin`
+
+- **`--resource-monitor-interval-seconds arg (=2)`**: Time in seconds between two consecutive checks of resource usage. Should be between 1 and 300.
+- **`--resource-monitor-space-threshold arg (=90)`**: Threshold in terms of percentage of used space vs total space. If used space is above (threshold - 5%), a warning is generated. Unless resource-monitor-not-shutdown-on-threshold-exceeded is enabled, a graceful shutdown is initiated if used space is above the threshold. The value should be between 6 and 99.
+- **`--resource-monitor-space-absolute-gb arg`**: Absolute threshold in gibibytes of remaining space; applied to each monitored directory. If remaining space is less than value for any monitored directories then threshold is considered exceeded. Overrides resource-monitor-space-threshold value.
+- **`--resource-monitor-not-shutdown-on-threshold-exceeded`**: Used to indicate nodeop will not shutdown when threshold is exceeded.
+- **`--resource-monitor-warning-interval arg (=30)`**: Number of resource monitor intervals between two consecutive warnings when the threshold is hit. Should be between 1 and 450.
+
+## Config Options for `sysio::signature_provider_manager_plugin`
+
+- **`--signature-provider-kiod-timeout arg (=5)`**: Limits the maximum time (in milliseconds) that is allowed for sending requests to a kiod provider for signing.
+- **`--signature-provider arg`**: Signature provider spec formatted as (check docs for details): `<name>,<chain-kind>,<key-type>,<public-key>,<private-key-provider-spec>`
+
+## Config Options for `sysio::state_history_plugin`
+
+- **`--state-history-dir arg (="state-history")`**: the location of the state-history directory (absolute path or relative to application data dir).
+- **`--state-history-retained-dir arg`**: the location of the state history retained directory (absolute path or relative to state-history dir).
+- **`--state-history-archive-dir arg`**: the location of the state history archive directory (absolute path or relative to state-history dir). If the value is empty string, blocks files beyond the retained limit will be deleted. All files in the archive directory are completely under user's control, i.e. they won't be accessed by nodeop anymore.
+- **`--state-history-stride arg`**: split the state history log files when the block number is the multiple of the stride. When the stride is reached, the current history log and index will be renamed `*-history-<start num>-<end num>.log/index` and a new current history log and index will be created with the most recent blocks. All files following this format will be used to construct an extended history log.
+- **`--max-retained-history-files arg`**: the maximum number of history file groups to retain so that the blocks in those files can be queried. When the number is reached, the oldest history file would be moved to archive dir or deleted if the archive dir is empty. The retained history log files should not be manipulated by users.
+- **`--trace-history`**: enable trace history.
+- **`--chain-state-history`**: enable chain state history.
+- **`--finality-data-history`**: enable finality data history.
+- **`--state-history-endpoint arg (=127.0.0.1:8080)`**: the endpoint upon which to listen for incoming connections. Caution: only expose this port to your internal network.
+- **`--state-history-unix-socket-path arg`**: the path (relative to data-dir) to create a unix socket upon which to listen for incoming connections.
+- **`--trace-history-debug-mode`**: enable debug mode for trace history.
+- **`--state-history-log-retain-blocks arg`**: if set, periodically prune the state history files to store only configured number of most recent blocks.
+
+## Command Line Options for `sysio::state_history_plugin`
+
+- **`--delete-state-history`**: clear state history files.

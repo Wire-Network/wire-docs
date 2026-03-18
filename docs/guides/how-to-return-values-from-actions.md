@@ -88,13 +88,13 @@ action_response namecheck::checkwithrv( name nm ) {
 #### Create an account
 
 ```sh
-clio create account sysio namecheck SYS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV SYS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV  -p sysio@active
+clio create account sysio namecheck PUB_K1_6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5BoDq63 -p sysio@active
 ```
 
 #### Issue a policy
 
 ```sh
-clio push action sysio.roa addpolicy '{"owner": namecheck, "issuer": nodedaddy, "netWeight": "0.0100 SYS", "cpuWeight": "0.0100 SYS", "ramWeight": "0.0050 SYS", "timeBlock": 1, "networkGen": 0 }' -p nodedaddy@active
+clio push action sysio.roa addpolicy '{"owner": namecheck, "issuer": nodeownera, "net_weight": "0.0100 SYS", "cpu_weight": "0.0100 SYS", "ram_weight": "0.0050 SYS", "time_block": 1, "network_gen": 0 }' -p nodeownera@active
 ```
 
 #### Build & Deploy
@@ -110,12 +110,32 @@ clio set contract namecheck ./namecheck -p namecheck@active -x 3600
 To invoke the `checkwithrv` action, use the `clio` CLI tool.
 
 ```sh
-sudo clio push action namecheck checkwithrv '["hello"]' -p bob@active 
-
-sudo clio push action namecheck checkwithrv '["hi", "bob", "I love you"]' -p bob@active
+clio push action namecheck checkwithrv '["hello"]' -p namecheck@active
 ```
 
-See the different messages returned by the two actions
+**Example Output:**
+
+```sh
+executed transaction: ...  104 bytes  200 us
+#     namecheck <= namecheck::checkwithrv     {"nm":"hello"}
+=>                                return value: {"id":1,"status":{"first":0,"second":"Validation has passed."}}
+```
+
+Try with a different name:
+
+```sh
+clio push action namecheck checkwithrv '["world"]' -p namecheck@active
+```
+
+**Example Output:**
+
+```sh
+executed transaction: ...  104 bytes  200 us
+#     namecheck <= namecheck::checkwithrv     {"nm":"world"}
+=>                                return value: {"id":1,"status":{"first":1,"second":"Input param `name` is not \"hello\"."}}
+```
+
+Notice the different return values based on the input
 
 <!-- :::info
 The action return values are only available to clients sending the action via the RPC API. Currently, there is no support for an inline action to be able to use the return value, because inline actions don't execute synchronously.

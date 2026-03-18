@@ -326,3 +326,142 @@ paths:
 
             response = requests.post(url, json=payload, headers=headers)
             print(response.text)
+
+  /trace_api/get_transaction_trace:
+    post:
+      summary: get_transaction_trace
+      description: Returns the trace information for a specific transaction by its ID. This endpoint searches for the block containing the transaction and returns the full transaction trace.
+      operationId: get_transaction_trace
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - id
+              properties:
+                id:
+                  type: string
+                  description: The transaction ID (hash) to retrieve the trace for. Must be between 8 and 64 characters.
+                  minLength: 8
+                  maxLength: 64
+            example:
+              id: "02ca32345cc025052c8fe119516aa6086e14a333eddc4433283ecf50374e2b06"
+      responses:
+        "200":
+          description: OK - Transaction trace found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: Transaction ID
+                  block_num:
+                    type: integer
+                    description: Block number containing this transaction
+                  block_time:
+                    type: string
+                    description: Block timestamp
+                  producer_block_id:
+                    type: string
+                    description: Block ID as produced
+                  status:
+                    type: string
+                    description: Transaction status (executed, soft_fail, hard_fail, delayed, expired)
+                  cpu_usage_us:
+                    type: integer
+                    description: CPU usage in microseconds
+                  net_usage_words:
+                    type: integer
+                    description: Net usage in words
+                  actions:
+                    type: array
+                    description: List of action traces
+                    items:
+                      type: object
+                      properties:
+                        receiver:
+                          type: string
+                        account:
+                          type: string
+                        action:
+                          type: string
+                        authorization:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              actor:
+                                type: string
+                              permission:
+                                type: string
+                        data:
+                          type: object
+              examples:
+                ExampleResponse:
+                  summary: Sample Transaction Trace
+                  value:
+                    id: "02ca32345cc025052c8fe119516aa6086e14a333eddc4433283ecf50374e2b06"
+                    block_num: 12345
+                    block_time: "2025-02-07T18:50:13.000"
+                    producer_block_id: "0000303939c5b8b5c6d7e8f9..."
+                    status: "executed"
+                    cpu_usage_us: 250
+                    net_usage_words: 12
+                    actions:
+                      - receiver: "sysio.token"
+                        account: "sysio.token"
+                        action: "transfer"
+                        authorization:
+                          - actor: "alice"
+                            permission: "active"
+                        data:
+                          from: "alice"
+                          to: "bob"
+                          quantity: "1.0000 SYS"
+                          memo: "test transfer"
+        "400":
+          description: Error - Bad or missing transaction ID
+        "404":
+          description: Error - Transaction ID not found in trace log files or transaction trace missing
+        "500":
+          description: Error - Exceptional condition while processing request
+      x-codeSamples:
+        - lang: Shell
+          label: cURL
+          source: |
+            curl -X POST "http://localhost:8080/v1/trace_api/get_transaction_trace" \
+              -H "Content-Type: application/json" \
+              -d '{"id": "02ca32345cc025052c8fe119516aa6086e14a333eddc4433283ecf50374e2b06"}'
+        - lang: Node.js
+          label: Node.js
+          source: |
+            const fetch = require('node-fetch');
+
+            const payload = {
+              id: "02ca32345cc025052c8fe119516aa6086e14a333eddc4433283ecf50374e2b06"
+            };
+
+            fetch("http://localhost:8080/v1/trace_api/get_transaction_trace", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(payload)
+            })
+              .then(res => res.json())
+              .then(console.log)
+              .catch(console.error);
+        - lang: Python
+          label: Python
+          source: |
+            import requests
+
+            url = "http://localhost:8080/v1/trace_api/get_transaction_trace"
+            payload = {
+              "id": "02ca32345cc025052c8fe119516aa6086e14a333eddc4433283ecf50374e2b06"
+            }
+            headers = {"Content-Type": "application/json"}
+
+            response = requests.post(url, json=payload, headers=headers)
+            print(response.json())

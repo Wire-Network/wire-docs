@@ -25,12 +25,12 @@ The install process has already set up the wallet for the *root* user. To intera
 
 ## Use Case
 
-Transfer token by pushing action on `sysio.transfer` contract.
+Transfer token by pushing action on `sysio.token` contract.
 
 ### Unlock Wallet
 
 ```sh
-clio wallet unlock --name=default --password "$(cat /path/to/wallet_password_file)"
+clio wallet unlock --name=default --password "$(cat /opt/wire-network/secrets/wallet_password.txt)"
 ```
 
 Or use the install script:
@@ -41,7 +41,7 @@ Or use the install script:
 
 ### Create an account
 
-You can use any public key you want. Use `clio create key --file test.txt` to generate a new key pair or use the [development key pair](/docs/getting-started/manage-local-wallet-with-clio.md#import-the-development-key).
+You can use any public key you want. Use `clio create key --file test.txt` to generate a new key pair or use the [development key](/docs/getting-started/manage-local-wallet-with-clio.md#development-key).
 
 ```sh
 export PUBLIC_KEY=<your-pub-key>
@@ -71,9 +71,6 @@ clio get account han
 ....
 SYS balances: 
      liquid:            1.0000 SYS
-     staked:            0.0000 SYS
-     unstaking:         0.0000 SYS
-     total:             1.0000 SYS
 ```
 
 ## Steps to submit a transaction(via `clio push transaction`)
@@ -85,7 +82,7 @@ Transfer token by submitting a JSON transaction.
 ### Unlock Wallet
 
 ```sh
-clio wallet unlock --name=default --password "$(cat /path/to/wallet_password_file)"
+clio wallet unlock --name=default --password "$(cat /opt/wire-network/secrets/wallet_password.txt)"
 ```
 
 ### Create the transaction as JSON snippet

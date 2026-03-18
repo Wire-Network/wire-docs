@@ -1,16 +1,28 @@
 # Get Account Information
 
+## Overview
+
+This guide explains how to retrieve account information using the `clio get account` command.
+
 ## Prerequisites
 
 * Install the currently supported version of `clio`
 
-:::note
+:::info
 | The `clio` tool is bundled with the Wire software. [Installing Wire core](/docs/getting-started/install-dependencies.md) will install the `clio` and `kiod` command line tools.
 :::
+
+:::warning[REMINDER]
+The install process has already set up the wallet for the *root* user. To interact with clio, ensure **you are on the root user**. Run `sudo su -` to switch to the root user.
+:::
+
+## Command
 
 ```sh
 clio get account <account-name>
 ```
+
+## Example
 
 ```console
 created: 2024-11-11T18:28:34.000
@@ -41,9 +53,6 @@ subjective cpu bandwidth:
 
 SYS balances: 
      liquid:            9.0000 SYS
-     staked:            0.0000 SYS
-     unstaking:         0.0000 SYS
-     total:             9.0000 SYS
 ```
 
 :::info[Account Fields]

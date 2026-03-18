@@ -1,14 +1,74 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Sora:wght@100..800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap");
+/* Wire Network Brand Guide 2026 - Typography */
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap");
+
+/* Avenir Next - Self-hosted */
+@font-face {
+  font-family: "Avenir Next";
+  src: url("/fonts/AvenirNextCyr-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Avenir Next";
+  src: url("/fonts/AvenirNextCyr-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Avenir Next";
+  src: url("/fonts/AvenirNextCyr-Demi.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Avenir Next";
+  src: url("/fonts/AvenirNextCyr-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Explicit font assignments after Tailwind reset */
+html,
+body {
+  font-family: "Manrope", sans-serif !important;
+}
+
+/* Dark mode background colors - Carbon */
+[data-theme="dark"] {
+  background-color: #0B1016 !important;  /* Carbon */
+}
+
+[data-theme="dark"] html,
+[data-theme="dark"] body,
+[data-theme="dark"] #__docusaurus,
+[data-theme="dark"] .main-wrapper,
+[data-theme="dark"] .docusaurus-wrapper,
+[data-theme="dark"] [class*="docMainContainer"],
+[data-theme="dark"] [class*="docPage"],
+[data-theme="dark"] main,
+[data-theme="dark"] article {
+  background-color: #0B1016 !important;  /* Carbon */
+}
+
 h1,
 h2,
 h3,
-h4 {
+h4,
+h5,
+h6 {
+  font-family: "Avenir Next", sans-serif !important;
   @apply font-bold;
 }
 
@@ -36,8 +96,25 @@ h6 {
   @apply text-lg;
 }
 
-a {
-  @apply text-blue;
+/* Links in documentation content */
+.theme-doc-markdown a,
+.markdown a,
+article a {
+  color: var(--wire-cobalt);
+}
+
+.theme-doc-markdown a:hover,
+.markdown a:hover,
+article a:hover {
+  color: var(--wire-horizon);
+}
+
+/* Ensure button links have white text */
+a.bg-button-gradient,
+a[class*="bg-button"],
+a[class*="bg-blue"],
+a[class*="bg-cobalt"] {
+  color: #ffffff !important;
 }
 
 .theme-doc-markdown ul {
@@ -96,17 +173,35 @@ hr {
 } */
 
 :root {
-  --font-body: "Montserrat", sans-serif;
-  --font-heading: "Sora", sans-serif;
+  /* Wire Network Brand Guide 2026 - Core Tokens */
+  --wire-bg: #020406;                /* Obsidian - Primary background */
+  --wire-surface: #0B1016;           /* Carbon - Secondary surfaces */
+  --wire-frame: #171F29;             /* Gunmetal - Frames and structure */
+  --wire-text-primary: #E8EDF4;      /* Platinum - Primary text */
+  --wire-text-secondary: #B2BCC8;    /* Sterling - Secondary text */
+  --wire-border: rgba(232, 237, 244, 0.12);
+  --wire-surface-alpha: rgba(255, 255, 255, 0.045);
+  --wire-cobalt: #2F6BFF;            /* Signal Blue - CTAs and active states */
+  --wire-horizon: #7EA5FF;           /* Horizon Blue - Hover and diagrams */
+  --wire-gradient-metal: linear-gradient(135deg, #F9FBFD 0%, #E1E6EC 18%, #ADB5BF 36%, #F0F3F7 52%, #979FA8 72%, #D7DCE2 100%);
 
-  --ifm-color-primary: #3d7cff;
-  --ifm-color-primary-dark: #1d67ff;
-  --ifm-color-primary-darker: #0e5cff;
-  --ifm-color-primary-darkest: #0048dd;
-  --ifm-color-primary-light: #5d91ff;
-  --ifm-color-primary-lighter: #6c9cff;
-  --ifm-color-primary-lightest: #9cbcff;
+  /* Typography */
+  --font-body: "Manrope", sans-serif;
+  --font-heading: "Avenir Next", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+
+  /* Infima overrides - Light mode */
+  --ifm-color-primary: #2F6BFF;
+  --ifm-color-primary-dark: #1a5bff;
+  --ifm-color-primary-darker: #0a4ff5;
+  --ifm-color-primary-darkest: #0040d6;
+  --ifm-color-primary-light: #4a7fff;
+  --ifm-color-primary-lighter: #7EA5FF;
+  --ifm-color-primary-lightest: #a8c2ff;
   --ifm-code-font-size: 95%;
+  --ifm-font-family-base: var(--font-body);
+  --ifm-heading-font-family: var(--font-heading);
+  --ifm-font-family-monospace: var(--font-mono);
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
@@ -120,17 +215,35 @@ hr {
   color: #ffda6a !important;
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* Fix: Add space at top of sidebar menu to prevent announcement bar overlap */
+.theme-doc-sidebar-menu {
+  padding-top: 1rem;
+}
+
+/* Wire Network Brand Guide 2026 - Dark Mode (Primary Theme) */
 [data-theme="dark"] {
-  --ifm-color-primary: #3d7cff;
-  --ifm-color-primary-dark: #1d67ff;
-  --ifm-color-primary-darker: #0e5cff;
-  --ifm-color-primary-darkest: #0048dd;
-  --ifm-color-primary-light: #5d91ff;
-  --ifm-color-primary-lighter: #6c9cff;
-  --ifm-color-primary-lightest: #9cbcff;
+  /* Core brand colors */
+  /* Background: Carbon | Outer/navbar: Obsidian | Items: Gunmetal */
+  --ifm-background-color: var(--wire-surface);         /* Carbon #0B1016 for body */
+  --ifm-background-surface-color: var(--wire-frame);   /* Gunmetal #171F29 for items */
+  --ifm-color-primary: #2F6BFF;
+  --ifm-color-primary-dark: #1a5bff;
+  --ifm-color-primary-darker: #0a4ff5;
+  --ifm-color-primary-darkest: #0040d6;
+  --ifm-color-primary-light: #4a7fff;
+  --ifm-color-primary-lighter: #7EA5FF;
+  --ifm-color-primary-lightest: #a8c2ff;
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-font-color-base: var(--wire-text-primary);
+  --ifm-font-color-secondary: var(--wire-text-secondary);
+  --ifm-heading-color: var(--wire-text-primary);
+  --ifm-navbar-background-color: var(--wire-bg);       /* Obsidian #020406 for navbar */
+  --ifm-footer-background-color: var(--wire-bg);       /* Obsidian #020406 for footer */
+  --ifm-card-background-color: var(--wire-frame);      /* Gunmetal for cards */
+  --ifm-toc-border-color: var(--wire-border);
+  --ifm-color-emphasis-200: var(--wire-frame);
+  --ifm-color-emphasis-300: var(--wire-frame);
+  --docusaurus-highlighted-code-line-bg: rgba(47, 107, 255, 0.15);
 }
 
 :root {
@@ -266,4 +379,113 @@ pre code:has(.code-block-diff-add-line) {
 
 pre code:has(.code-block-diff-remove-line) {
   padding-left: 40px!important;
+}
+
+/* Stats Grid Component */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.stat-card {
+  background: #f5f7fa;  /* Light gray background for light mode */
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: border-color 0.2s ease;
+}
+
+.stat-card:hover {
+  border-color: var(--ifm-color-primary);
+}
+
+.stat-value {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--ifm-color-primary);
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ifm-color-emphasis-600);
+}
+
+[data-theme="dark"] .stat-card {
+  background: var(--wire-frame);  /* Gunmetal for item backgrounds */
+  border-color: var(--wire-border);
+}
+
+[data-theme="dark"] .stat-label {
+  color: var(--wire-text-secondary);
+}
+
+/* Wire Network Brand Guide 2026 - Additional Dark Mode Styles */
+[data-theme="dark"] .navbar {
+  border-bottom: 1px solid var(--wire-border);
+}
+
+[data-theme="dark"] .menu {
+  background: var(--wire-bg);  /* Obsidian background */
+}
+
+[data-theme="dark"] .footer {
+  border-top: 1px solid var(--wire-border);
+}
+
+/* Metallic silver treatment for logo/brand elements */
+.navbar__logo img,
+.footer__logo img {
+  filter: brightness(1.1) contrast(1.05);
+}
+
+[data-theme="dark"] .navbar__logo img,
+[data-theme="dark"] .footer__logo img {
+  filter: brightness(1.2) contrast(1.1) drop-shadow(0 0 1px rgba(255,255,255,0.1));
+}
+
+/* Code blocks - premium dark treatment */
+[data-theme="dark"] pre {
+  background: var(--wire-frame) !important;  /* Gunmetal for code blocks */
+  border: 1px solid var(--wire-border);
+}
+
+[data-theme="dark"] code {
+  background: var(--wire-frame);  /* Gunmetal for inline code */
+}
+
+/* Links - Cobalt with Horizon on hover */
+a {
+  color: var(--wire-cobalt);  /* #2F6BFF */
+}
+
+a:hover {
+  color: var(--wire-horizon);  /* #7EA5FF */
+}
+
+[data-theme="dark"] a {
+  color: var(--wire-cobalt);
+}
+
+[data-theme="dark"] a:hover {
+  color: var(--wire-horizon);
+}
+
+/* Buttons/CTAs - Signal Blue */
+[data-theme="dark"] .button--primary {
+  background: var(--wire-cobalt);
+  border-color: var(--wire-cobalt);
+}
+
+[data-theme="dark"] .button--primary:hover {
+  background: var(--wire-horizon);
+  border-color: var(--wire-horizon);
 }

@@ -20,7 +20,7 @@ mkdir -p returndemo && cd returndemo
 ### 2\. Create the contract file `returndemo.cpp`
 
 ```cpp
-#include <sysio.hpp>
+#include <sysio/sysio.hpp>
 #include <string>
 #include <vector>
 
@@ -70,7 +70,7 @@ In Wire ecosystem, deploying a smart contract requires an account; an account ca
 
 #### 4.1 Retrieve public key
 
-Before proceeding, make sure you have the public key available from the key pair that was created when setting up your wallet(key pair is also listed [here](#development-key-pair)). If you haven’t yet created a wallet or a key pair, you can do so by following the instructions [here](/docs/getting-started/manage-local-wallet-with-clio.md).
+Before proceeding, make sure you have the public key available from the key pair that was created when setting up your wallet (key pair is also listed [here](/docs/getting-started/manage-local-wallet-with-clio.md#development-key)). If you haven't yet created a wallet or a key pair, you can do so by following the instructions [here](/docs/getting-started/manage-local-wallet-with-clio.md).
 
 ```bash
 export PUBLIC_KEY=<public-key-value>
@@ -84,22 +84,19 @@ clio create account sysio returndemo $PUBLIC_KEY -p sysio@active
 
 #### 4.3. Issue a contract policy to `returndemo` account
 
-`nodedaddy`'s credentials(those should be already imported in your wallet):
+`nodeownera`'s credentials(those should be already imported in your wallet from [wire-cli](/docs/getting-started/install-dependencies.md) installation):
 
-##### development key pair
-
-```txt
-PUBLIC_KEY=SYS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
-PRIVATE_KEY=5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3
+```bash
+clio wallet keys_by_name --password "$(cat /opt/wire-network/secrets/wallet_password.txt)" | jq '.[] | select(.[0] == "nodeownera")'
 ```
 
 Issue the policy:
 
 ```sh
-clio push action sysio.roa addpolicy '{"owner": returndemo, "issuer": nodedaddy, "netWeight": "0.0100 SYS", "cpuWeight": "0.0100 SYS", "ramWeight": "0.0010 SYS", "timeBlock": 1, "networkGen": 0 }' -p nodedaddy@active
+clio push action sysio.roa addpolicy '{"owner": returndemo, "issuer": nodeownera, "net_weight": "0.0100 SYS", "cpu_weight": "0.0100 SYS", "ram_weight": "0.0010 SYS", "time_block": 1, "network_gen": 0 }' -p nodeownera@active
 ```
 
-#### 4.2 Deploy the compiled contract
+#### 4.4 Deploy the compiled contract
 
 ```bash
                  [account]     [WASM dir]  [permission level] 

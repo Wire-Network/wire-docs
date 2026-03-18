@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 650">
+  <defs>
+    <style>
+      /* Dark mode (default) */
+      .bg { fill: #1a1d23; }
+      .text-light { fill: #e0e0e0; font-family: 'JetBrains Mono', monospace; }
+      .text-green { fill: #4ade80; font-family: 'JetBrains Mono', monospace; }
+      .text-red { fill: #f87171; font-family: 'JetBrains Mono', monospace; }
+      .text-yellow { fill: #fbbf24; font-family: 'JetBrains Mono', monospace; }
+      .text-cyan { fill: #67e8f9; font-family: 'JetBrains Mono', monospace; }
+      .text-orange { fill: #fb923c; font-family: 'JetBrains Mono', monospace; }
+      .box-decision { fill: #1e3a5f; stroke: #67e8f9; stroke-width: 2; }
+      .box-strong { fill: #14532d; stroke: #4ade80; stroke-width: 3; rx: 8; }
+      .box-weak { fill: #854d0e; stroke: #fbbf24; stroke-width: 3; rx: 8; }
+      .box-abstain { fill: #7f1d1d; stroke: #f87171; stroke-width: 3; rx: 8; }
+      .box-start { fill: #3b0764; stroke: #c084fc; stroke-width: 2; rx: 20; }
+      .arrow { fill: none; stroke: #9ca3af; stroke-width: 2; }
+      .arrow-yes { fill: none; stroke: #4ade80; stroke-width: 2; }
+      .arrow-no { fill: none; stroke: #f87171; stroke-width: 2; }
+      .arrow-head { fill: #9ca3af; }
+      .arrow-head-yes { fill: #4ade80; }
+      .arrow-head-no { fill: #f87171; }
+      .caption { fill: #9ca3af; font-family: 'JetBrains Mono', monospace; letter-spacing: 2px; }
+
+      /* Light mode */
+      @media (prefers-color-scheme: light) {
+        .bg { fill: #f6f8fa; }
+        .text-light { fill: #1a1d23; }
+        .text-green { fill: #16a34a; }
+        .text-red { fill: #dc2626; }
+        .text-yellow { fill: #ca8a04; }
+        .text-cyan { fill: #0891b2; }
+        .text-orange { fill: #ea580c; }
+        .box-decision { fill: #e0f2fe; stroke: #0891b2; }
+        .box-strong { fill: #dcfce7; stroke: #16a34a; }
+        .box-weak { fill: #fef3c7; stroke: #ca8a04; }
+        .box-abstain { fill: #fee2e2; stroke: #dc2626; }
+        .box-start { fill: #f3e8ff; stroke: #9333ea; }
+        .arrow { stroke: #6b7280; }
+        .arrow-yes { stroke: #16a34a; }
+        .arrow-no { stroke: #dc2626; }
+        .arrow-head { fill: #6b7280; }
+        .arrow-head-yes { fill: #16a34a; }
+        .arrow-head-no { fill: #dc2626; }
+        .caption { fill: #6b7280; }
+      }
+    </style>
+  </defs>
+
+  <rect class="bg" width="950" height="650"/>
+
+  <!-- Start node -->
+  <rect x="375" y="20" width="200" height="40" class="box-start"/>
+  <text x="475" y="45" class="text-light" font-size="14" text-anchor="middle">Receive Block B</text>
+
+  <!-- Arrow to Monotony -->
+  <line x1="475" y1="60" x2="475" y2="90" class="arrow"/>
+  <polygon points="470,90 475,105 480,90" class="arrow-head"/>
+
+  <!-- Monotony Check (Diamond) -->
+  <polygon points="475,110 595,165 475,220 355,165" class="box-decision"/>
+  <text x="475" y="158" class="text-cyan" font-size="11" text-anchor="middle">Monotony Check</text>
+  <text x="475" y="175" class="text-light" font-size="9" text-anchor="middle">B.ts > last_vote.ts?</text>
+
+  <!-- Monotony NO -> Abstain -->
+  <line x1="355" y1="165" x2="180" y2="165" class="arrow-no"/>
+  <polygon points="180,160 165,165 180,170" class="arrow-head-no"/>
+  <text x="268" y="155" class="text-red" font-size="11" text-anchor="middle">NO</text>
+
+  <rect x="50" y="140" width="115" height="50" class="box-abstain"/>
+  <text x="108" y="170" class="text-red" font-size="14" text-anchor="middle" font-weight="bold">ABSTAIN</text>
+
+  <!-- Monotony YES -> Liveness -->
+  <line x1="475" y1="220" x2="475" y2="250" class="arrow-yes"/>
+  <polygon points="470,250 475,265 480,250" class="arrow-head-yes"/>
+  <text x="490" y="240" class="text-green" font-size="11">YES</text>
+
+  <!-- Liveness Check (Diamond) -->
+  <polygon points="475,270 610,335 475,400 340,335" class="box-decision"/>
+  <text x="475" y="323" class="text-cyan" font-size="11" text-anchor="middle">Liveness Check</text>
+  <text x="475" y="340" class="text-light" font-size="9" text-anchor="middle">B.qc_ts > lock.ts?</text>
+
+  <!-- Liveness NO -> Safety Check -->
+  <line x1="340" y1="335" x2="200" y2="335" class="arrow-no"/>
+  <polygon points="200,330 185,335 200,340" class="arrow-head-no"/>
+  <text x="270" y="325" class="text-red" font-size="11" text-anchor="middle">NO</text>
+
+  <!-- Safety Check (Diamond) -->
+  <polygon points="115,335 185,380 115,425 45,380" class="box-decision"/>
+  <text x="115" y="373" class="text-cyan" font-size="9" text-anchor="middle">Safety</text>
+  <text x="115" y="388" class="text-light" font-size="8" text-anchor="middle">extends lock?</text>
+
+  <!-- Safety NO -> Abstain -->
+  <line x1="45" y1="380" x2="20" y2="380" class="arrow-no"/>
+  <line x1="20" y1="380" x2="20" y2="165" class="arrow-no"/>
+  <line x1="20" y1="165" x2="50" y2="165" class="arrow-no"/>
+  <text x="30" y="275" class="text-red" font-size="10">NO</text>
+
+  <!-- Safety YES -> Weak Vote -->
+  <line x1="115" y1="425" x2="115" y2="510" class="arrow-yes"/>
+  <polygon points="110,510 115,525 120,510" class="arrow-head-yes"/>
+  <text x="130" y="470" class="text-green" font-size="11">YES</text>
+
+  <!-- Weak Vote (from Safety) -->
+  <rect x="40" y="530" width="150" height="50" class="box-weak"/>
+  <text x="115" y="560" class="text-yellow" font-size="14" text-anchor="middle" font-weight="bold">WEAK VOTE</text>
+
+  <!-- Liveness YES -> QC Catchup Check -->
+  <line x1="475" y1="400" x2="475" y2="430" class="arrow-yes"/>
+  <polygon points="470,430 475,445 480,430" class="arrow-head-yes"/>
+  <text x="490" y="420" class="text-green" font-size="11">YES</text>
+
+  <!-- QC Catchup Check (Diamond) -->
+  <polygon points="475,450 620,515 475,580 330,515" class="box-decision"/>
+  <text x="475" y="500" class="text-cyan" font-size="10" text-anchor="middle">QC Caught Up?</text>
+  <text x="475" y="517" class="text-light" font-size="8" text-anchor="middle">last_vote.ts ≤ B.qc_ts</text>
+  <text x="475" y="532" class="text-light" font-size="8" text-anchor="middle">&amp; no branch switch?</text>
+
+  <!-- QC Catchup YES -> Strong Vote -->
+  <line x1="620" y1="515" x2="720" y2="515" class="arrow-yes"/>
+  <polygon points="720,510 735,515 720,520" class="arrow-head-yes"/>
+  <text x="670" y="505" class="text-green" font-size="11" text-anchor="middle">YES</text>
+
+  <rect x="740" y="490" width="160" height="50" class="box-strong"/>
+  <text x="820" y="520" class="text-green" font-size="14" text-anchor="middle" font-weight="bold">STRONG VOTE</text>
+
+  <!-- QC Catchup NO -> Weak Vote -->
+  <line x1="475" y1="580" x2="475" y2="600" class="arrow-no"/>
+  <line x1="475" y1="600" x2="280" y2="600" class="arrow-no"/>
+  <line x1="280" y1="600" x2="280" y2="555" class="arrow-no"/>
+  <polygon points="275,555 280,540 285,555" class="arrow-head-no"/>
+  <text x="380" y="590" class="text-red" font-size="11" text-anchor="middle">NO</text>
+
+  <rect x="205" y="490" width="150" height="50" class="box-weak"/>
+  <text x="280" y="520" class="text-yellow" font-size="14" text-anchor="middle" font-weight="bold">WEAK VOTE</text>
+
+  <!-- Legend -->
+  <text x="740" y="50" class="text-light" font-size="12" font-weight="bold">Legend</text>
+
+  <rect x="740" y="65" width="15" height="15" class="box-strong"/>
+  <text x="765" y="77" class="text-light" font-size="10">Strong Vote - advances LIB</text>
+
+  <rect x="740" y="90" width="15" height="15" class="box-weak"/>
+  <text x="765" y="102" class="text-light" font-size="10">Weak Vote - maintains liveness</text>
+
+  <rect x="740" y="115" width="15" height="15" class="box-abstain"/>
+  <text x="765" y="127" class="text-light" font-size="10">Abstain - no vote emitted</text>
+
+  <!-- Caption -->
+  <text x="475" y="635" class="caption" font-size="12" text-anchor="middle">FIGURE 7 — FINALIZER VOTING DECISION TREE (BASED ON FINALIZER.CPP LOGIC)</text>
+</svg>

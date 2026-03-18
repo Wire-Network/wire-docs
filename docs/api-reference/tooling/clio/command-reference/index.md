@@ -6,6 +6,7 @@ Documentation for all `clio` main commands
 
 ## Commands
 
+- [generate-completion](./generate-completion/index.md) - Generate shell completion script
 - [version](./version-client.md) - Retrieve version information
 - [create](./create/index.md) - Create various items, on and off the blockchain
 - [convert](./convert/index.md) - Pack and unpack transactions
@@ -18,6 +19,5 @@ Documentation for all `clio` main commands
 - [sign](./sign.md) - Sign a transaction
 - [push](./push/index.md) - Push arbitrary transactions to the blockchain
 - [multisig](./multisig/index.md) - Multisig contract commands
-- [system](./system/index.md) - Send `sysio.system` contract action to the blockchain.
-
-<!-- - []() - Wrap contract commands -->
+- [wrap](./wrap/index.md) - Wrap contract commands
+- [system](./system/index.md) - Send `sysio.system` contract action to the blockchain

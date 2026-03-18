@@ -12,9 +12,9 @@ This guide provides instructions to create and use an action wrapper in a smart 
 - A smart contract named `multiexample`, defined in file `multiexample.hpp` with a resource policy.
 
 ```sh
-sudo clio create account sysio multiindex SYS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV SYS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV -p sysio@active
+clio create account sysio multiindex PUB_K1_6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5BoDq63 -p sysio@active
 
-sudo clio push action sysio.roa addpolicy '{"owner": multiindex, "issuer": nodedaddy, "netWeight": "0.0100 SYS", "cpuWeight": "0.0100 SYS", "ramWeight": "1.0000 SYS", "timeBlock": 1, "networkGen": 0 }' -p nodedaddy@active
+sudo clio push action sysio.roa addpolicy '{"owner": multiindex, "issuer": nodeownera, "net_weight": "0.0100 SYS", "cpu_weight": "0.0100 SYS", "ram_weight": "1.0000 SYS", "time_block": 1, "network_gen": 0 }' -p nodeownera@active
 ```
 
 ## Contract Code
@@ -353,7 +353,7 @@ void multi_index_example::set(name user) {
 
 ---
 
-### 8. Build the Contract
+### 6. Build the Contract
 
 Compile your contract by running:
 
@@ -363,17 +363,17 @@ Compile your contract by running:
 
 ---
 
-### 9. Deploy the Contract
+### 7. Deploy the Contract
 
 Deploy the contract to the blockchain with:
 
 ```bash
-sudo ./deploy.sh
+./deploy.sh
 ```
 
 ---
 
-### 10. Test the Action Wrapper
+### 8. Test the Action Wrapper
 
 Push actions to the contract to verify that the action wrapper works as expected:
 
@@ -387,5 +387,3 @@ clio push action multiindex mod '["alice", 200]' -p multiindex@active
 # Check the result
 clio push action multiindex print '["alice"]' -p multiindex@active
 ```
-
-Use [https://hub.wire.network/](https://hub.wire.network/) to inspect the contract's table and observe row changes as you submit the actions via clio.

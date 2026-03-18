@@ -35,6 +35,8 @@ This tutorial uses the **alice** account as an example. Replace `alice` with you
 
 Create a new key pair for the permission you want to update. Using `--to-console` will output the private and public keys directly to the console.
 
+**Legacy format (default):**
+
 ```sh
 clio create key --to-console
 ```
@@ -42,9 +44,28 @@ clio create key --to-console
 **Example Output:**
 
 ```sh
-Private key: 5JvdXZ6TkKvpZxYvpF5TLvuyiFTzUUW4YF67u1MfD4F2vDv2ina
-Public key: SYS6nVfXcwEqZTxrrJCYBcePP9tVpqaH8ReKkBJxv9MuUuiZ46a4N
+Private key: 5JfChKSga69mbeYhQviEBGyUbaTJ4hupULsDh3EMCrExMNnABB9
+Public key: SYS6zsBXoPwDA5j674Hq1iSS19WP3fBm35BkXVU3iVrBQhanKGSKB
 ```
+
+**New format (recommended):**
+
+Use the `--k1` flag to generate keys with the new `PVT_K1_` and `PUB_K1_` prefixes:
+
+```sh
+clio create key --k1 --to-console
+```
+
+**Example Output:**
+
+```sh
+Private key: PVT_K1_9NgM6WJUDNBMY6TePThYjozoRJTHzUsJ9jGrMyLcRPLGAekgg
+Public key: PUB_K1_5MRLMBaYQuiYAXVFcc4W3uZ4N4FxzH6qkVg7wm1uvbZ3rFWfXK
+```
+
+:::tip
+You can also use `--r1` to generate keys using the R1 curve (used by iPhone secure enclave) instead of the K1 curve (Bitcoin-compatible).
+:::
 
 :::important
 Save both the private and public keys. You'll need the private key for wallet import and the public key for permission updates.
@@ -55,14 +76,18 @@ Save both the private and public keys. You'll need the private key for wallet im
 Import the newly generated private key into your wallet:
 
 ```sh
-clio wallet import --private-key 5JvdXZ6TkKvpZxYvpF5TLvuyiFTzUUW4YF67u1MfD4F2vDv2ina
+clio wallet import --private-key PVT_K1_9NgM6WJUDNBMY6TePThYjozoRJTHzUsJ9jGrMyLcRPLGAekgg
 ```
 
 **Example Output:**
 
 ```sh
-imported private key for: SYS6nVfXcwEqZTxrrJCYBcePP9tVpqaH8ReKkBJxv9MuUuiZ46a4N
+imported private key for: SYS6zsBXoPwDA5j674Hq1iSS19WP3fBm35BkXVU3iVrBQhanKGSKB
 ```
+
+:::note
+The import command always outputs the public key in legacy `SYS` format, regardless of which private key format you use. Both legacy format (`5J...`) and new format (`PVT_K1_...`) private keys are accepted.
+:::
 
 ### Step 3: Update Account Permission
 
@@ -73,7 +98,7 @@ clio set account permission alice active '{
   "threshold": 1,
   "keys": [
     {
-      "key": "SYS6nVfXcwEqZTxrrJCYBcePP9tVpqaH8ReKkBJxv9MuUuiZ46a4N",
+      "key": "PUB_K1_5MRLMBaYQuiYAXVFcc4W3uZ4N4FxzH6qkVg7wm1uvbZ3rFWfXK",
       "weight": 1
     }
   ],
@@ -86,15 +111,15 @@ clio set account permission alice active '{
 
 * `alice`: The account name to update
 * `active`: The permission level to update (can be `active`, `owner`, or custom permissions)
-* `{ "threshold": 1, keys: [{key: "SYS6nVfXcwEqZTxrrJCYBcePP9tVpqaH8ReKkBJxv9MuUuiZ46a4N", weight: 1}], "accounts": [], "waits": []}` - authorization object with the **new** key
+* `{ "threshold": 1, keys: [...], "accounts": [], "waits": []}` - authorization object with the **new** key
 * `-p alice@owner`: The permission used to authorize the transaction (requires `owner` permission)
 
 **Example Output:**
 
 ```sh
 executed transaction: cc2226e7751db645acb74de93a82e7e34f6fdead0cd32078d875393b3da0d57e  160 bytes  322 us
-#         sysio <= sysio::updateauth            {"account":"alice","permission":"active","parent":"owner","auth":{"threshold":1,"keys":[{"key":"SYS6...
-warning: transaction executed locally, but may not be confirmed by the network yet         ] 
+#         sysio <= sysio::updateauth            {"account":"alice","permission":"active","parent":"owner","auth":{"threshold":1,"keys":[{"key":"PUB_K1_5MRL...
+warning: transaction executed locally, but may not be confirmed by the network yet         ]
 ```
 
 ### Step 4: Verify the Update
@@ -140,7 +165,7 @@ clio set account permission alice owner '{
   "threshold": 1,
   "keys": [
     {
-      "key": "SYS6nVfXcwEqZTxrrJCYBcePP9tVpqaH8ReKkBJxv9MuUuiZ46a4N",
+      "key": "PUB_K1_5MRLMBaYQuiYAXVFcc4W3uZ4N4FxzH6qkVg7wm1uvbZ3rFWfXK",
       "weight": 1
     }
   ],

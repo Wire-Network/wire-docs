@@ -14,21 +14,27 @@ const config = {
     colors: {
       transparent: "transparent",
       white: "#ffffff",
-      dark: "#282c33",
-      darker: "#121418",
-      darkest: "#000000",
-      gray: "#9c9ea5",
-      blue: "#387ffe",
-      teal: "#44b2f5",
-      purple: {
-        light: "#ac5fe6",
-        dark: "#6a36ff",
-      },
-      info: "#59CCEC",
+      /* Wire Network Brand Guide 2026 - Core Palette */
+      obsidian: "#020406",      /* Primary background */
+      carbon: "#0B1016",        /* Secondary surfaces */
+      gunmetal: "#171F29",      /* Frames and structure */
+      platinum: "#E8EDF4",      /* Primary text */
+      sterling: "#B2BCC8",      /* Secondary text */
+      cobalt: "#2F6BFF",        /* Signal Blue - CTAs */
+      horizon: "#7EA5FF",       /* Horizon Blue - Hover */
+      /* Legacy mappings for compatibility */
+      dark: "#0B1016",          /* Maps to Carbon */
+      darker: "#020406",        /* Maps to Obsidian */
+      darkest: "#020406",       /* Maps to Obsidian */
+      gray: "#B2BCC8",          /* Maps to Sterling */
+      blue: "#2F6BFF",          /* Maps to Signal Blue */
+      teal: "#7EA5FF",          /* Maps to Horizon Blue */
+      /* Semantic colors */
+      info: "#7EA5FF",
       success: "#44E2A1",
       warning: "#E68E35",
       error: "#CB0C59",
-      headerBg: "rgba(0,0,0, var(--header-opacity))",
+      headerBg: "rgba(2,4,6, var(--header-opacity))",
     },
     extend: {
       fontFamily: {
@@ -108,23 +114,27 @@ const config = {
         "button-gradient-end": "100% 0%",
       },
       backgroundImage: {
+        /* Wire Network Brand Guide 2026 - Gradients */
         "contact-gradient":
-          "linear-gradient(to bottom right, #6a36ff 30%, #AC5FE6 100%)",
+          "linear-gradient(to bottom right, #2F6BFF 30%, #7EA5FF 100%)",
         "masthead-gradient":
-          "linear-gradient(to bottom, #000000 30%, #0c1a34 100%)",
+          "linear-gradient(to bottom, #020406 30%, #0B1016 100%)",
         "masthead-shadow":
-          "linear-gradient(to bottom, #0000, #00000080, #000, #000)",
+          "linear-gradient(to bottom, #0200, #02040680, #020406, #020406)",
         "node-tier-gradient":
-          "linear-gradient(to bottom,theme(colors.darkest),theme(colors.blue))",
+          "linear-gradient(to bottom, #020406, #2F6BFF)",
         "page-header-gradient":
-          "linear-gradient(255deg, #387FFE, 0%, #AC5FE6 100%), linear-gradient(236.21deg, #0000 29.95%, #000 99.33%)",
-        "page-title-gradient": "linear-gradient(190deg, #0000, #000)",
+          "linear-gradient(255deg, #2F6BFF 0%, #7EA5FF 100%), linear-gradient(236.21deg, #0200 29.95%, #020406 99.33%)",
+        "page-title-gradient": "linear-gradient(190deg, #0200, #020406)",
         "tile-gradient":
-          "linear-gradient(to bottom right, #6a36ff, #ac5fe6) border-box",
-        "purple-gradient":
-          "linear-gradient(112.8deg, #6a36ff -15.76%, #ac5fe6 102.86%)",
+          "linear-gradient(to bottom right, #2F6BFF, #7EA5FF) border-box",
+        "blue-gradient":
+          "linear-gradient(112.8deg, #2F6BFF -15.76%, #7EA5FF 102.86%)",
         "button-gradient":
-          "linear-gradient( 20deg, rgba(106, 54, 255, 1) 0%, rgba(172, 95, 230, 1) 40%, rgba(56, 127, 254, 1) 80%, rgba(68, 178, 245, 1) 100%)",
+          "linear-gradient(20deg, #1a5bff 0%, #2F6BFF 40%, #4a7fff 70%, #7EA5FF 100%)",
+        /* Metallic silver gradient for premium elements */
+        "metal-gradient":
+          "linear-gradient(135deg, #F9FBFD 0%, #E1E6EC 18%, #ADB5BF 36%, #F0F3F7 52%, #979FA8 72%, #D7DCE2 100%)",
       },
     },
   },

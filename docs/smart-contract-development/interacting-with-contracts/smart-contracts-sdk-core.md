@@ -14,19 +14,19 @@ Before starting this tutorial, ensure the following software is installed on you
 
 | Dependency | Version | Purpose                                                                             | Installation Link                                              |
 |------------|---------|-------------------------------------------------------------------------------------|----------------------------------------------------------------|
-| Node.js    | 18.8.0  | Runtime environment for executing JavaScript outside the browser.                   | [Install Node.js](https://nodejs.org/)                         |
-| npm        | 9.8.1   | Package manager for managing and installing JavaScript libraries.                   | Included with Node.js installation                             |
-| TypeScript | 5.1.6   | Adds static types to JavaScript to enhance developer productivity and code quality. | [Install TypeScript](https://www.npmjs.com/package/typescript) |
+| Node.js    | 24.10.0  | Runtime environment for executing JavaScript outside the browser.                   | [Install Node.js](https://nodejs.org/)                         |
+| npm        | 11.6.1   | Package manager for managing and installing JavaScript libraries.                   | Included with Node.js installation                             |
+| TypeScript | 5.7.3   | Adds static types to JavaScript to enhance developer productivity and code quality. | [Install TypeScript](https://www.npmjs.com/package/typescript) |
 
 You should also install and use [NVM](https://github.com/nvm-sh/nvm), to set a specific Node version in your project.
 
 Once installed, you can use it like:
 
 ```shell
-nvm use 18.18.0 
+nvm use 24.10.0
 ```
 
-This tutorial uses [EOS Authority Block Explorer](https://eosauthority.com/), but you can use [Wire Hub](https://hub.wire.network).
+This tutorial uses [EOS Authority Block Explorer](https://eosauthority.com/).
 
 :::warning[REMINDER]
 The install process has already set up the wallet for the *root* user. To interact with clio, ensure **you are on the root user**. Run `sudo su -` to switch to the root user before proceeding with the tutorial.
@@ -37,7 +37,7 @@ The install process has already set up the wallet for the *root* user. To intera
 ### 1. Create & set up `ts-dapp-sdk-wire`
 
 ```bash
-mkdir -p ts-dapp-sdk-wire && cd ts-dapp-sdk-wire && npm init -y && npm install --save-dev typescript@5.1.6 ts-node node-fetch && mkdir -p src && touch src/index.ts && touch .gitignore tsconfig.json && echo -e "node_modules/\ndist/" >> .gitignore
+mkdir -p ts-dapp-sdk-wire && cd ts-dapp-sdk-wire && npm init -y && npm install @wireio/core@0.3.1 && npm install --save-dev typescript@5.7.3 ts-node && mkdir -p src && touch src/index.ts && touch .gitignore tsconfig.json && echo -e "node_modules/\ndist/" >> .gitignore
 ```
 
 #### 1.1. Add `tsconfig.json`
@@ -45,26 +45,28 @@ mkdir -p ts-dapp-sdk-wire && cd ts-dapp-sdk-wire && npm init -y && npm install -
 ```json title="tsconfig.json"
 {
   "compilerOptions": {
-    "target": "ES2022",
+    "target": "ESNext",
     "module": "CommonJS",
-    "lib": ["ES2022", "DOM"],
+    "lib": ["ESNext"],
     "allowJs": true,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,           
+    "forceConsistentCasingInFileNames": true,
     "moduleResolution": "Node",
-    "strict": false,                                    
+    "strict": false,
     "outDir": "dist"
   }
 }
 ```
 
-#### 1.2. Get your private key
+#### 1.2. Get the private key for `jack` account
 
-You could output a key pair value stored in your wallet by running:
+You need the private key for the `jack` account (created in the [Company Contract Tutorial](../company-contract.md)). Output the key pairs stored in your wallet by running:
 
 ```sh
-clio wallet private_keys --password=$(cat ~/path/to/my-wallet-pass.txt)
+clio wallet keys_by_name --password "$(cat /opt/wire-network/secrets/wallet_password.txt)"
 ```
+
+Find the entry for the key you used when creating the `jack` account and copy its `private_key` value.
 
 #### 1.3. Add scripts to `package.json`
 
@@ -72,10 +74,12 @@ Modify `scripts` in `package.json` to:
 
 ```json title="package.json"
 {
+  ...
   "scripts": {
     "watch": "tsc -w",
     "exec": "node dist/index.js"
   }
+  ...
 }
 ```
 
@@ -86,9 +90,9 @@ In this section, we will set up our application to interact with our local node 
 ### 2.1. Initialize `ApiClient()`
 
 ```ts showLineNumbers title="index.ts"
-import { API, APIClient, FetchProvider, PrivateKey, SignedTransaction, Transaction, AnyAction, Action, PackedTransaction } from "@wireio/core";
+import { API, APIClient, FetchProvider, PrivateKey, SignedTransaction, Transaction, AnyAction, Action, PackedTransaction, Checksum256 } from "@wireio/core";
 
-const privateKey = "<your-private-key>"
+const privateKey = "<your-private-key>" // private key for the `jack` account
 
 const endpoint = "http://localhost:8888"
 
@@ -114,12 +118,11 @@ Open up a terminal and run `npm watch` to run TypeScript compilation in watch mo
 
 <!-- {14,20-28,36-39,45-71,73-76} showLineNumbers -->
 ```ts
-import { API, APIClient, FetchProvider, PrivateKey, SignedTransaction, Transaction, AnyAction, Action, PackedTransaction } from "@wireio/core";
+import { API, APIClient, FetchProvider, PrivateKey, SignedTransaction, Transaction, AnyAction, Action, PackedTransaction, Checksum256 } from "@wireio/core";
 
-const privateKey = "<your-private-key>"
-
+const privateKey = "<your-private-key>" // private key for the `jack` account
 const endpoint = "http://localhost:8888"
-
+const contractAccount = "company"
 
 const apiClient = new APIClient(
   { provider: new FetchProvider(endpoint) }
@@ -132,50 +135,51 @@ const apiClient = new APIClient(
         const info = await apiClient.v1.chain.get_info()
         // highlight-end
         console.log("\nBlockchain Info:");
-        console.log(JSON.stringify(info, null, 2)); 
-      
-  
+        console.log(JSON.stringify(info, null, 2));
 
         // Fetches the current state of the `employees` table from the `company` smart contract, including the number of rows and user details
         // highlight-start
         const tableRows: API.v1.GetTableRowsResponse = await apiClient.call({
             path: '/v1/chain/get_table_rows',
             params: {
-              code: "company", 
+              code: contractAccount,
               table: "employees",
-              scope: "company",
+              scope: contractAccount,
               json: true
             },
         });
         // highlight-end
         console.log(tableRows)
-      
+
         console.log(`\nEmployees Table Info:`);
         console.log(`- Number of rows: ${tableRows.rows.length}`);
         console.log(`- User emails: ${tableRows.rows.map(a => a.email).join(", ")}`);
-      
+
         // highlight-start
         // Obtains and prints the ABI (Application Binary Interface) of the `company` smart contract, detailing its methods and structures
         const abiRes: API.v1.GetAbiResponse = await apiClient.call({
           path: '/v1/chain/get_abi',
-          params: {account_name: untypedAction.account},
+          params: {account_name: contractAccount},
         });
         // highlight-end
 
-
         const { abi } = abiRes;
         console.log("\nContract ABI:");
-        console.log(JSON.stringify(abi, null, 2)); 
+        console.log(JSON.stringify(abi, null, 2));
 
         // highlight-start
-        //Constructs a transaction payload to update the details of an employee named “Jack” and constructs a signature required to authorize this transaction.
+        // Constructs a transaction payload to update the details of an employee named "Jack"
         const untypedAction: AnyAction =  {
-            account: "company",
+            account: contractAccount,
             name: "upsertemp",
             authorization: [
               {
                 actor: "jack",
-                permission: "active"
+                permission: "sysio.payer" // authorizes RAM payment (must be first)
+              },
+              {
+                actor: "jack",
+                permission: "active" // authorizes the action
               }
             ],
             data: {
@@ -193,11 +197,10 @@ const apiClient = new APIClient(
           const digest = transaction.signingDigest(info.chain_id)
           const privKey = PrivateKey.from(privateKey)
 
-          const signature = privKey.signDigest(digest).toString()
-          let signedTrx = SignedTransaction.from({ ...transaction, signatures: [signature] })
-          const packed =  PackedTransaction.fromSigned(SignedTransaction.from(signedTrx));
+          const signature = privKey.signDigest(digest.msgDigest)
+          const signedTrx = SignedTransaction.from({ ...transaction, signatures: [signature] })
+          const packed = PackedTransaction.fromSigned(signedTrx);
           // highlight-end
-
 
           // highlight-start
           // Sends the transaction to the blockchain.
@@ -208,7 +211,7 @@ const apiClient = new APIClient(
           // highlight-end
           console.log("\nTransaction Result:");
           console.log(JSON.stringify(trx, null, 2));
-      
+
 })();
 ```
 
@@ -216,7 +219,7 @@ const apiClient = new APIClient(
 
 You can inspect the `employees` table on the [EOS Block Explorer](https://eosauthority.com/account/company?network=localtest&endpoint=http:%2F%2F127.0.0.1:8888&token_symbol=EOS&scope=company&table=employees&limit=10&index_position=1&key_type=i64&reverse=0&mode=contract&sub=tables) **before** executing the script.
 
-![Table Before Update](/img/be-table-wirejs-pre-update.png)
+![Table Before Update](/img/company-table-pre-update.png)
 
 Run `npm run exec` and you should see output in the console with the logs like:
 
@@ -255,4 +258,4 @@ Blockchain Info:
 ```
 
 Check update on [EOS Block Explorer](https://eosauthority.com/account/company?network=localtest&endpoint=http:%2F%2F127.0.0.1:8888&token_symbol=EOS&scope=company&table=employees&limit=10&index_position=1&key_type=i64&reverse=0&mode=contract&sub=tables).
-![be-table-pre-update](/img/be-table-wirejs-post-update.png).
+![be-table-pre-update](/img/company-table-post-update.png).

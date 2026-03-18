@@ -5,21 +5,32 @@ id: clio-options
 # `clio` options
 
 `clio` CLI interface provides several options to customize and control its operation when interacting with the blockchain.
-Below is command options that enable you to connect to a specific `nodeop` instance, handle security for transactions, manage wallet connections, and modify verbosity for troubleshooting.
+Below are command options that enable you to connect to a specific `nodeop` instance, handle security for transactions, manage wallet connections, and modify verbosity for troubleshooting.
+
+:::warning[REMINDER]
+The install process has already set up the wallet for the *root* user. To interact with clio, ensure **you are on the root user**. Run `sudo su -` to switch to the root user.
+:::
 
 ```console
 Options:
-  -h,--help                   Print this help message and exit
-  -u,--url TEXT=http://127.0.0.1:8888/
-                              The http/https URL where nodeop is running
-  --wallet-url TEXT=unix:///home/jack/sysio-wallet/kiod.sock
-                              The http/https URL where kiod is running
-  -r,--header                 Pass specific HTTP header; repeat this option to pass multiple headers
-  -n,--no-verify              Don't verify peer certificate when using HTTPS
-  --no-auto-kiod              Don't automatically launch a kiod if one is not currently running
-  -v,--verbose                Output verbose errors and action console output
-  --print-request             Print HTTP request to STDERR
-  --print-response            Print HTTP response to STDERR
+  -h,--help              Print this help message and exit
+  --help-all             Show all help
+  -u,--url TEXT [http://127.0.0.1:8888]
+                         The http/https URL where nodeop is running
+  --wallet-url TEXT [unix:///path/to/.config/wire/kiod/data/kiod.sock]
+                         The http/https URL where kiod is running
+  --abi-file             In form of <contract name>:<abi file path>, use a local abi file
+                         for serialization and deserialization instead of getting the abi
+                         data from the blockchain; repeat this option to pass multiple
+                         abi files for different contracts
+  -r,--header            Pass specific HTTP header; repeat this option to pass multiple headers
+  -n,--no-verify         Don't verify peer certificate when using HTTPS
+  --no-auto-kiod         Don't automatically launch a kiod if one is not currently running
+  -v,--verbose           Output verbose errors and action console output
+  --print-request        Print HTTP request to STDERR
+  --print-response       Print HTTP response to STDERR
+  --http-verbose         Print HTTP verbose information to STDERR
+  --http-trace           Print HTTP debug trace information to STDERR
 ```
 
 ## Examples
@@ -28,7 +39,7 @@ Options:
 
 `clio` can connect to a specific node by using the `--url` optional argument, followed by the HTTP/HTTPS address and port number.
 
-To connect to a `nodeop` instance using `clio`, add the `-url` option followed by the instance’s URL.
+To connect to a `nodeop` instance using `clio`, add the `--url` option followed by the instance's URL.
 
 ```shell
 clio --url <instance-url>:<port> COMMAND
