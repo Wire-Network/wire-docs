@@ -1,7 +1,5 @@
-import * as React from "react";
 import { ReactNode, CSSProperties } from "react";
-// Import clsx library for conditional classes.
-import * as clsx from "clsx";
+import clsx from "clsx";
 
 interface ColumnProps {
   children: ReactNode;

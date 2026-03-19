@@ -46,19 +46,12 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
-      - name: Send Notification to Mattermost
-        env:
-          WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
-          REPO_NAME: ${{ github.repository }}
-        run: |
-          MESSAGE="**$REPO_NAME** updated on *master*"
-          CHANNEL="#cicd-notifications"
-          ICON_URL="https://static-00.iconduck.com/assets.00/document-icon-256x256-ojn5ong2.png"
-
-          curl -X POST -H 'Content-Type: application/json' \
-            --data "$(jq -n \
-              --arg text "$MESSAGE" \
-              --arg channel "$CHANNEL" \
-              --arg icon_url "$ICON_URL" \
-              '{channel: $channel, icon_url: $icon_url, text: $text}')" \
-            "$WEBHOOK_URL"
+      - name: Send Notification
+        if: always()
+        uses: Wire-Network/notification-action@v1
+        with:
+          webhook-url: ${{ secrets.WEBHOOK_URL }}
+          notification-type: 1
+          workflow-name: "Deploy Workflow"
+          job-results: "deploy:${{ job.status }}"
+          github-context: ${{ toJSON(github) }}

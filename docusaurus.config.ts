@@ -3,10 +3,10 @@ import type { Config } from "@docusaurus/types";
 import * as Preset from "@docusaurus/preset-classic";
 import { tailwindLoader } from "./plugins/docusaurus-tailwindcss-loader";
 import type * as Plugin from "@docusaurus/types/src/plugin";
-import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
 import type * as Redocusaurus from "redocusaurus";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
+import type { Options as OpenApiPluginOptions } from "./src/types/openapi-plugin";
 
 // prism themes
 
@@ -84,7 +84,7 @@ const config: Config = {
             // sidebarOptions: {
             //   groupPathsBy: "tag",
             // },
-          } satisfies OpenApiPlugin.Options,
+          } satisfies OpenApiPluginOptions,
         },
       },
     ],
@@ -93,7 +93,6 @@ const config: Config = {
   projectName: "wire-docs",
   deploymentBranch: "gh-pages",
   onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "throw",
   trailingSlash: false,
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -105,6 +104,9 @@ const config: Config = {
   themes: ["@docusaurus/theme-mermaid", "docusaurus-theme-openapi-docs"],
   markdown: {
     mermaid: true,
+    hooks: {
+      onBrokenMarkdownLinks: "throw",
+    },
   },
   presets: [
     [
@@ -258,7 +260,7 @@ const config: Config = {
             },
             {
               label: "YouTube",
-              href: "https://www.youtube.com/@wirenetwork1515",
+              href: "https://www.youtube.com/@0xWire",
             },
           ],
         },

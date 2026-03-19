@@ -21,7 +21,7 @@ const SOCIALS = [
   },
   {
     name: "youtube",
-    link: "https://www.youtube.com/@wirenetwork1515",
+    link: "https://www.youtube.com/@0xWire",
     icon: "/assets/logos/socials/youtube.svg",
   },
 ];

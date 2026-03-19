@@ -20,12 +20,10 @@ import type { AutocompleteState } from "@algolia/autocomplete-core";
 import type {
   DocSearchModal as DocSearchModalType,
   DocSearchModalProps,
-} from "@docsearch/react";
-import type {
   InternalDocSearchHit,
   StoredDocSearchHit,
-} from "@docsearch/react/dist/esm/index";
-import type { SearchClient } from "algoliasearch/lite";
+} from "@docsearch/react";
+import type { LiteClient } from "algoliasearch/lite";
 
 type DocSearchProps = Omit<
   DocSearchModalProps,
@@ -72,10 +70,8 @@ type FacetFilters = Required<
 >["facetFilters"];
 
 function mergeFacetFilters(f1: FacetFilters, f2: FacetFilters): FacetFilters {
-  const normalize = (
-    f: FacetFilters
-  ): readonly string[] | readonly (string | readonly string[])[] =>
-    typeof f === "string" ? [f] : f;
+  const normalize = (f: FacetFilters): (string | string[])[] =>
+    typeof f === "string" ? [f] : ((f as (string | string[])[]) ?? []);
   return [...normalize(f1), ...normalize(f2)] as FacetFilters;
 }
 
@@ -119,9 +115,7 @@ function DocSearch({
     }
 
     return Promise.all([
-      import("@docsearch/react/modal") as Promise<
-        typeof import("@docsearch/react")
-      >,
+      import("@docsearch/react/modal"),
       import("@docsearch/react/style"),
       import("./styles.css"),
     ]).then(([{ DocSearchModal: Modal }]) => {
@@ -194,7 +188,7 @@ function DocSearch({
     );
 
   const transformSearchClient = useCallback(
-    (searchClient: SearchClient) => {
+    (searchClient: LiteClient) => {
       searchClient.addAlgoliaAgent(
         "docusaurus",
         siteMetadata.docusaurusVersion
@@ -211,6 +205,8 @@ function DocSearch({
     onClose: closeModal,
     onInput: handleInput,
     searchButtonRef,
+    isAskAiActive: false,
+    onAskAiToggle: () => {},
   });
 
   return (
