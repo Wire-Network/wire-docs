@@ -81,3 +81,57 @@ Since both `katey@active` and `kyle@active` factors have a weight of 2, *either 
 Alternatively, it would require two acounts each with weight of 1 to satisfy the action authorization - in this case account with public key `SYS7Hnv4iBfcw2...` and `nick@active`.
 
 ![account-weights-example](../../static/img/weights-example.png)
+
+## How Authorization Works
+
+When you push a transaction, two separate checks happen:
+
+### Layer 1: The Node Checks Signatures (Before Contract Runs)
+
+When you submit an action authorized with `alice@active`:
+
+1. The node checks if `active` meets the minimum permission required for alice to call this action (based on linkauth mappings).
+2. The node verifies that the transaction's signatures cryptographically satisfy alice's active authority (correct keys, threshold met).
+
+If either check fails, the transaction is rejected. The smart contract code never executes.
+
+### Layer 2: The Contract Checks Business Logic (Inside Contract Code)
+
+If Layer 1 passes, the contract runs and calls `require_auth(from)` (or similar). This checks that the claimed actor is actually listed in the action's authorization — it does NOT re-verify signatures. It just confirms the right account authorized this action.
+
+**Why Both Are Needed:**
+
+- **Without Layer 1:** Anyone could claim to be alice without having her key. The contract would accept it.
+- **Without Layer 2:** Alice could authorize a transfer action but set `from: "bob"` in the data. The node would verify alice's signature, but the contract would move bob's tokens without checking.
+
+Layer 1 proves identity. Layer 2 enforces business rules.
+
+### require_auth vs. require_auth2
+
+Contracts have two ways to check authorization:
+
+- **`require_auth(account)`** — Checks that the account is listed as an authorizer. Doesn't care which permission was used. This is what most contracts use.
+- **`require_auth2(account, permission)`** — Checks that the account authorized with that **exact** permission name. This is a strict string match — if the action was authorized with `alice@active`, then `require_auth2(alice, "trading")` **fails**, even though active is a parent of trading. The hierarchy only applies at Layer 1.
+
+## Special Permission Names
+
+| Permission | What It Does |
+|-----------|-------------|
+| `sysio.code` | Automatically satisfied by a contract's running code. Used for inline action delegation. See [sysio.code Tutorial](/docs/guides/sysio-code-tutorial.md). |
+| `sysio.any` | When linked to an action, allows any of the account's permissions to authorize that action. |
+| `sysio.payer` | Designates a separate resource payer for an action. Must be the first authorization, and the payer must also appear with a real permission. |
+| `ex.*` | Protected namespace — only the `sysio` system account can create or modify permissions starting with "ex." (e.g., `ex.eth`, `ex.sol`). Used for external chain key bindings managed by `sysio.authex`. |
+
+## Common Pitfalls
+
+**Creating a permission but forgetting to link it.** A custom permission without a `linkauth` is never required by the system. It sits in the hierarchy doing nothing useful.
+
+**Linking a broad action and breaking your workflow.** If you link `sysio.token::transfer` to a custom permission, ALL transfers from your account require that permission (or a parent like `active`). Other contracts that transfer on your behalf may need `sysio.code` in that permission too.
+
+**Locking yourself out.** If you set your active authority to keys you don't have, you must use owner to fix it. If you lose owner too, the account is permanently inaccessible. Always test permission changes on a testnet first.
+
+**Forgetting that hierarchy flows up.** If someone has your `active` permission, they can do everything any child of active can do. A restrictive child permission doesn't prevent the parent from doing the same action.
+
+**Confusing `linkauth` direction.** `linkauth` answers: "what is the minimum permission required for THIS account to call THIS action?" It doesn't grant access to other accounts. If you want bob to act on alice's behalf, add bob's permission to alice's authority — don't use linkauth.
+
+**Confusing `require_auth2` with hierarchy.** `require_auth2(account, permission)` is an exact string match. If a contract demands `require_auth2(alice, "trading")`, you must authorize with exactly `alice@trading`. Using `alice@active` will fail, even though active is a parent of trading.

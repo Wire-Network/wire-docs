@@ -27,6 +27,8 @@ Not all system accounts contain a system contract, but each system account has i
 |sysio.stake|No|No|The account that keeps track of all SYS tokens which have been staked for NET or CPU bandwidth.|
 |sysio.vpay|No|No|The account that pays the block producers accordingly with the votes won. It assigns 0.75% of inflation based on the amount of votes a block producer won in the last 24 hours.|
 |sysio.rex|No|No|The account that keeps track of fees and balances resulted from REX related actions execution.|
+|sysio.roa|No|It contains the `sysio.roa` contract.|Resource Owners Association contract - manages resource allocation policies for accounts.|
+|sysio.authex|No|It contains the `sysio.authex` contract.|External authentication contract - enables linking external chain keys (Ethereum, Solana, Sui) to Wire accounts.|
 
 ### RAM
 
@@ -54,6 +56,8 @@ As CPU and RAM, NET is also a very important resource in Wire-based blockchains.
     - [`sysio.msig` contract](#sysiomsig-contract)
     - [`sysio.token` contract](#sysiotoken-contract)
     - [`sysio.wrap` contract](#sysiowrap-contract)
+    - [`sysio.roa` contract](#sysioroa-contract)
+    - [`sysio.authex` contract](#sysioauthex-contract)
 
 ### `sysio.bios` contract
 
@@ -182,3 +186,28 @@ The `sysio.wrap` system contract allows node owners to bypass authorization chec
 It does not grant any new powers or privileges to node owners beyond what already exists in Wire-based blockchains, but provides a more straightforward method for executing important governance-related actions, such as modifying account permissions or contract code.
 
 The only action implemented by the `sysio.wrap` system contract is the `exec` action. This action allows for execution of a transaction, which is passed to the `exec` method in the form of a packed transaction in JSON via the `trx` parameter and the `executer` account that executes the transaction. The same `executer` account will also be used to pay the RAM and CPU fees needed to execute the transaction.
+
+### `sysio.roa` contract
+
+The `sysio.roa` (Resource Owners Association) contract manages resource allocation policies for accounts on the Wire network. It allows node operators to issue resource policies to accounts, defining their NET, CPU, and RAM allocations.
+
+These are the actions implemented and publicly exposed by the `sysio.roa` contract:
+
+|Action name|Action description|
+|---|---|
+|addpolicy|Creates a new resource policy for an account.|
+|expandpolicy|Increases the resource allocations for an existing policy.|
+|activateroa|Activates the ROA system.|
+
+### `sysio.authex` contract
+
+The `sysio.authex` (External Authentication) contract enables cross-chain identity linking for the Wire network. It allows users to cryptographically prove ownership of addresses on external blockchains (Ethereum, Solana, Sui) and link them to their Wire accounts, enabling transactions to be signed with external wallets like MetaMask or Phantom.
+
+These are the actions implemented and publicly exposed by the `sysio.authex` contract:
+
+|Action name|Action description|
+|---|---|
+|createlink|Creates a cryptographic link between a Wire account and an external chain address. Grants a special `ex.eth`, `ex.sol`, or `ex.sui` permission upon successful verification.|
+|onmanualrmv|Internal notification handler that updates the links table when an `ex.*` permission is removed from an account.|
+
+For more details, see [sysio.authex](/docs/api-reference/system-contracts/contracts/sysio.authex.md).

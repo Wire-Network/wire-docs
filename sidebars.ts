@@ -86,6 +86,7 @@ const sidebars: SidebarsConfig = {
         // "smart-contract-development/block-explorer",
         "smart-contract-development/hello-world-contract-short",
         "smart-contract-development/company-contract",
+        "smart-contract-development/multi-chain-keys",
         {
           type: "category",
           label: "Interacting with Contracts",
@@ -502,6 +503,7 @@ const sidebars: SidebarsConfig = {
             "api-reference/system-contracts/contracts/sysio.token",
             "api-reference/system-contracts/contracts/sysio.wrap",
             "api-reference/system-contracts/contracts/sysio.roa",
+            "api-reference/system-contracts/contracts/sysio.authex",
             "api-reference/system-contracts/build-and-deploy",
             // "api-reference/system-contracts/how-to-guides/how-to-buy-ram",
             // "api-reference/system-contracts/how-to-guides/how-to-stake",

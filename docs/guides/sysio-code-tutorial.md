@@ -195,5 +195,40 @@ executed transaction: 1d00f751c6fb6c7a2636eecc7fec4b2d4e0baf7066cfa84e800b3d31c6
 #     inlinectr <= inlinectr::testinl           {"user":"alice"}
 #     inlinectr <= inlinectr::inlinecall        {"user":"alice"}
 >> Inline action executed for: alice
-warning: transaction executed locally, but may not be confirmed by the network yet         ] 
+warning: transaction executed locally, but may not be confirmed by the network yet         ]
 ```
+
+## Critical Security Warning
+
+:::danger
+**Adding `sysio.code` to your active permission allows the contract to act on your behalf during ANY transaction where the contract is executing — not just transactions you signed.**
+
+Example scenario:
+
+1. Alice adds `deficontract@sysio.code` to her active authority so the DEX can swap tokens for her.
+2. **Bob** (completely unrelated) calls `deficontract::somefunc()`.
+3. Inside that execution, the contract sends a transfer from alice to an attacker.
+4. Alice never signed anything. Bob's transaction triggered it.
+
+This works because `sysio.code` is satisfied whenever the contract's code is running, regardless of who started the transaction. You are trusting that the contract's code will never, under any execution path triggered by any caller, misuse your authority. If the contract is upgradeable, you are also trusting the operator to never deploy malicious code.
+:::
+
+## The Safer Approach: Scoped Permissions
+
+Instead of adding `sysio.code` to your active permission, create a dedicated permission and link it to only the actions the contract needs:
+
+**Step 1:** Create a custom permission with `sysio.code`:
+
+```bash
+clio set account permission alice dextrading \
+  '{"threshold":1,"keys":[{"key":"PUB_K1_YOUR_KEY...","weight":1}],"accounts":[{"permission":{"actor":"dexcontract","permission":"sysio.code"},"weight":1}]}' \
+  active -p alice@active
+```
+
+**Step 2:** Link it only to the specific action the contract needs:
+
+```bash
+clio set action permission alice sysio.token transfer dextrading -p alice@active
+```
+
+Now the contract can only call `sysio.token::transfer` on alice's behalf — nothing else.

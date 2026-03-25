@@ -9,10 +9,24 @@ Wire supports multiple key formats for both private and public keys. Understandi
 
 ## Overview
 
-Wire uses elliptic curve cryptography for key generation. The two primary curves supported are:
+Wire uses elliptic curve cryptography for key generation. Wire supports six key types, covering all major blockchain ecosystems:
 
-- **K1 (secp256k1)**: The same curve used by Bitcoin. This is the default and most commonly used curve.
-- **R1 (secp256r1)**: Also known as P-256 or prime256v1. Used by hardware security modules and iPhone's Secure Enclave.
+| Type | Curve/Algorithm | Use Case |
+|------|-----------------|----------|
+| **K1** (`PUB_K1_`) | secp256k1 + SHA-256 | Standard Wire keys (Bitcoin-compatible). Default and most common. |
+| **R1** (`PUB_R1_`) | secp256r1 (P-256) | Hardware security modules, iPhone Secure Enclave, Android. |
+| **WA** (`PUB_WA_`) | WebAuthn | Hardware security keys (YubiKey, etc.) |
+| **EM** (`PUB_EM_`) | secp256k1 + Keccak-256 | **Ethereum** wallets (MetaMask). Native Ethereum signing. |
+| **ED** (`PUB_ED_`) | Ed25519 | **Solana** wallets (Phantom). Public key embedded in signature. |
+| **BLS** (`PUB_BLS_`) | BLS12-381 | Consensus only (not for user transactions). |
+
+:::tip Multi-Chain Support
+The **EM key type** is fully compatible with Ethereum. An Ethereum private key produces valid `SIG_EM_` signatures that Wire accepts natively, enabling MetaMask users to sign Wire transactions.
+
+The **ED key type** is compatible with Solana's Ed25519 curve. The 32-byte public key is embedded directly in the signature blob, making ED signatures fully self-contained.
+
+You can mix key types in a single account authority. For example, an active permission could accept either a K1 key or an EM key, allowing the account to be controlled from either a Wire wallet or MetaMask.
+:::
 
 ## Key Format Types
 
@@ -33,6 +47,16 @@ The WIF format was inherited from Bitcoin. For technical details on WIF encoding
 
 The new format uses explicit prefixes that indicate the key type and curve:
 
+| Key Type | Private Key Prefix | Public Key Prefix | Signature Prefix |
+|----------|-------------------|-------------------|------------------|
+| **K1** | `PVT_K1_` | `PUB_K1_` | `SIG_K1_` |
+| **R1** | `PVT_R1_` | `PUB_R1_` | `SIG_R1_` |
+| **WA** | — | `PUB_WA_` | `SIG_WA_` |
+| **EM** | — | `PUB_EM_` | `SIG_EM_` |
+| **ED** | — | `PUB_ED_` | `SIG_ED_` |
+
+**Examples:**
+
 | Key Type | Prefix | Example |
 |----------|--------|---------|
 | **K1 Private Key** | `PVT_K1_` | `PVT_K1_2bfGi9rYsXQSXXTvJbDAPhHLQUojjaNLomdm3cEJ1XTzMqUt3V` |
@@ -41,9 +65,14 @@ The new format uses explicit prefixes that indicate the key type and curve:
 | **R1 Public Key** | `PUB_R1_` | `PUB_R1_85ZevNAVuWTrEHKt4v2agyLccgUaP3H97t4kPaYBRjL6itkdm1` |
 
 The new format is recommended because:
+
 - It's self-describing (you can tell the curve type from the prefix)
 - It's consistent across all key types
 - It avoids confusion with other blockchain key formats
+
+:::note EM and ED Keys
+EM (Ethereum) and ED (Solana) keys are managed through external wallets (MetaMask, Phantom) and linked to Wire accounts via the `sysio.authex` system contract. See [Multi-Chain Keys](/docs/smart-contract-development/multi-chain-keys.md) for details.
+:::
 
 ## Converting Between Formats
 
@@ -127,10 +156,12 @@ clio wallet import --private-key PVT_K1_2bfGi9rYsXQSXXTvJbDAPhHLQUojjaNLomdm3cEJ
 ## Security Considerations
 
 :::danger
+
 - Never share your private keys
 - Never commit private keys to version control
 - Never use the development key (`5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3`) for production accounts
 - Store private keys securely and maintain backups
+
 :::
 
 ## Reference

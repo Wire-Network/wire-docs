@@ -389,9 +389,35 @@ A set of about 100 full nodes that have expressed the desire to be selected as N
 
 Everything that is part of Wire which is not part of core, is referred to as system, e.g. system accounts, privileged accounts, system contracts. From an architectural point of view system components sit on top of the core/native components.
 
+## sysio.any
+
+A special permission name that, when linked to an action via `linkauth`, allows any of the account's permissions to authorize that action. This effectively removes the minimum permission check for that specific action.
+
+---
+
+## sysio.authex
+
+The system contract that manages binding of external chain keys (Ethereum, Solana) to Wire accounts. It creates protected `ex.*` permissions on accounts to enable signing Wire transactions with external wallets like MetaMask or Phantom.
+
+---
+
+## sysio.code
+
+A special permission that is automatically satisfied by a contract's running code. Used to enable smart contracts to execute inline actions on behalf of an account. When added to an account's authority, it allows the specified contract to act on behalf of that account during code execution.
+
+**Related**: [sysio.code Tutorial](/docs/guides/sysio-code-tutorial.md)
+
+---
+
+## sysio.payer
+
+A special permission that designates a separate resource payer for an action. Must be the first authorization in the action's authorization list, and the payer must also appear with a real permission.
+
+---
+
 ## System Contract
 
-The design of the Wire blockchain calls for a number of smart contracts that are run at a *privileged* permission level in order to support functions such as node operator registration, multi-sig, etc. These smart contracts are referred to as the system contracts and are the following, sysio.bios, sysio.system, sysio.token, sysio.msig and sysio.wrap contracts.
+The design of the Wire blockchain calls for a number of smart contracts that are run at a *privileged* permission level in order to support functions such as node operator registration, multi-sig, etc. These smart contracts are referred to as the system contracts and are the following, sysio.bios, sysio.system, sysio.token, sysio.msig, sysio.wrap, sysio.roa, and sysio.authex contracts.
 
 ## Tables
 
