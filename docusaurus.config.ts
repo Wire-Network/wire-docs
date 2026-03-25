@@ -118,6 +118,8 @@ const config: Config = {
           docItemComponent: "@theme/ApiItem",
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
+          showLastUpdateTime: true,
+          showLastUpdateAuthor: false,
         },
         blog: false,
         sitemap: {
