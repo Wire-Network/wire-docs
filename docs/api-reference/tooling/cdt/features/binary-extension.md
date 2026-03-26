@@ -1,6 +1,9 @@
 ---
 sidebar_label: sysio::binary_extension
 sidebar_position: 1
+tags:
+  - Wire CDT
+  - binary extension
 ---
 
 # `sysio::binary_extension`

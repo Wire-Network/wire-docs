@@ -1,5 +1,9 @@
 ---
 title: system newaccount
+tags:
+  - clio
+  - system
+  - accounts
 ---
 
 ## Command

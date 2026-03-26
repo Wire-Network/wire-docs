@@ -1,6 +1,10 @@
 ---
 id: sign
 title: sign
+tags:
+  - clio
+  - sign
+  - transactions
 ---
 
 ## Command

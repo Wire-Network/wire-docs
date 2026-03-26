@@ -1,6 +1,9 @@
 ---
 title: version client
 sidebar_label: version client
+tags:
+  - clio
+  - version
 ---
 
 ## Command

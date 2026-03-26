@@ -1,5 +1,9 @@
 ---
 title: Define a Singleton
+tags:
+  - guide
+  - multi-index
+  - tables
 ---
 
 ## Overview

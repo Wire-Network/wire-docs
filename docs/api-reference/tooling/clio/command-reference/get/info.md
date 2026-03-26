@@ -1,6 +1,10 @@
 ---
 id: info
 title: info
+tags:
+  - clio
+  - get
+  - blockchain
 ---
 
 ## Command

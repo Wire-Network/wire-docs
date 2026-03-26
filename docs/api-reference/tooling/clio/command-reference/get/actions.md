@@ -1,6 +1,10 @@
 ---
 id: actions
 title: actions
+tags:
+  - clio
+  - get
+  - actions
 ---
 
 ## Command

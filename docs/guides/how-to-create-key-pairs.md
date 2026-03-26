@@ -1,6 +1,10 @@
 ---
 id: how-to-create-a-key-pair
 description: Learn how to generate public and private key pairs using clio in legacy, K1, or R1 formats.
+tags:
+  - guide
+  - keys
+  - clio
 ---
 
 # Create a Key Pair

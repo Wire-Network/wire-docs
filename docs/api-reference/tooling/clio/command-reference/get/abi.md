@@ -1,6 +1,10 @@
 ---
 id: abi
 title: abi
+tags:
+  - clio
+  - get
+  - ABI
 ---
 
 ## Command

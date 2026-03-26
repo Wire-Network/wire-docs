@@ -2,6 +2,10 @@
 id: sysio-code-tutorial
 title: sysio.code Tutorial
 description: Learn how to use the sysio.code permission to enable inline actions in your smart contracts.
+tags:
+  - guide
+  - smart contracts
+  - tutorial
 ---
 
 ## Overview

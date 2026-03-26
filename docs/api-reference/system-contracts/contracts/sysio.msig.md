@@ -1,5 +1,8 @@
 ---
 id: sysio.msig
+tags:
+  - system contracts
+  - multisig
 ---
 
 # `sysio.msig`

@@ -1,3 +1,10 @@
+---
+tags:
+  - Wire CDT
+  - ABI
+  - tutorial
+---
+
 ## Overview
 
 This tutorial provides instructions to how to hand-write an ABI file. This should normally not be necessary since `cdt-cpp` can automatically generate an ABI file from your source code if it is properly annotated.

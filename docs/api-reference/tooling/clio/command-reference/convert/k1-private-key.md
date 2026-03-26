@@ -1,6 +1,10 @@
 ---
 id: k1-private-key
 title: k1_private_key
+tags:
+  - clio
+  - convert
+  - keys
 ---
 
 ## Command

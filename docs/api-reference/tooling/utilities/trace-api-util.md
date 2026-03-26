@@ -1,5 +1,8 @@
 ---
 title: trace_api_util
+tags:
+  - utilities
+  - trace API
 ---
 
 `trace_api_util` is a command-line interface (CLI) utility that allows node operators to perform low-level tasks associated with the [Trace API Plugin](../nodeop/plugins/trace-api-plugin.md). `trace_api_util` can perform one of the following operations:

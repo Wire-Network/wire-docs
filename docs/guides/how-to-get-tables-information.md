@@ -1,6 +1,10 @@
 ---
 id: how-to-get-tables-information
 description: Learn how to query data from smart contract multi-index tables using clio get table command.
+tags:
+  - guide
+  - tables
+  - clio
 ---
 
 # Get Table Information

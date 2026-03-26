@@ -1,6 +1,10 @@
 ---
 id: consensus-parameters
 title: consensus_parameters
+tags:
+  - clio
+  - get
+  - consensus
 ---
 
 ## Command

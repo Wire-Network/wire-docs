@@ -1,6 +1,9 @@
 ---
 id: multisig-approve
 title: multisig approve
+tags:
+  - clio
+  - multisig
 ---
 
 ## Command

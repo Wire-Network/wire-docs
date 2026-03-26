@@ -1,3 +1,13 @@
+---
+id: actions
+title: Actions
+tags:
+  - actions
+  - smart contracts
+  - development
+description: Understanding and defining actions in Wire smart contracts
+---
+
 # Actions
 
 An action is a specific function or operation that can be executed on a smart contract. Smart contracts are self-executing programs with predefined rules and conditions, and actions are the entry points that allow accounts or other contracts to interact with them.

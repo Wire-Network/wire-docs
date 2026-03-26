@@ -1,5 +1,9 @@
 ---
 title: http_client_plugin
+tags:
+  - nodeop
+  - plugins
+  - HTTP
 ---
 
 ## Description

@@ -2,6 +2,11 @@
 sidebar_position: 2
 id: smart-contracts-clio
 title: Using clio
+tags:
+  - clio
+  - smart contracts
+  - transactions
+  - tutorial
 description: Using clio to push transactions to a contract
 ---
 

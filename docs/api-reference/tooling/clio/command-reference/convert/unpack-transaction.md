@@ -1,6 +1,11 @@
 ---
 id: unpack-transaction
 title: unpack_transaction
+tags:
+  - clio
+  - convert
+  - unpack
+  - transactions
 ---
 
 ## Command

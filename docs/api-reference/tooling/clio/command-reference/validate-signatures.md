@@ -1,5 +1,9 @@
 ---
 title: validate signatures
+tags:
+  - clio
+  - validate
+  - signatures
 ---
 
 ## Command

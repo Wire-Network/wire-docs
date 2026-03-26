@@ -2,6 +2,12 @@
 sidebar_position: 4
 id: smart-contract-basics
 title: Smart Contract Basics
+tags:
+  - smart contracts
+  - C++
+  - development
+  - basics
+description: Learn the anatomy and basics of Wire smart contracts
 ---
 
 

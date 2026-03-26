@@ -1,6 +1,11 @@
 ---
 id: currency-balance
 title: currency balance
+tags:
+  - clio
+  - get
+  - currency
+  - tokens
 ---
 
 ## Command

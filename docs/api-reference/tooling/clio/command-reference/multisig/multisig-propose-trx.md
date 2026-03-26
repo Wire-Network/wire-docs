@@ -1,6 +1,9 @@
 ---
 id: multisig-propose-trx
 title: multisig propose_trx
+tags:
+  - clio
+  - multisig
 ---
 
 ## Command

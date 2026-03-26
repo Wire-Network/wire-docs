@@ -1,5 +1,8 @@
 ---
 title: Chain API Node Setup
+tags:
+  - nodeop
+  - non-producing node
 ---
 
 ## Overview

@@ -1,6 +1,10 @@
 ---
 id: transfer
 title: transfer
+tags:
+  - clio
+  - transfer
+  - tokens
 ---
 
 ## Command

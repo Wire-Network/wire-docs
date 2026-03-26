@@ -1,5 +1,8 @@
 ---
 id: sysio.roa
+tags:
+  - system contracts
+  - ROA
 ---
 
 # `sysio.roa`

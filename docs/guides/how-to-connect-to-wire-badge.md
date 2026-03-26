@@ -1,3 +1,11 @@
+---
+id: how-to-connect-to-wire-badge
+title: How to connect to Wire Dev Badge
+tags:
+  - guide
+  - wire badge
+---
+
 # How to connect to Wire Dev Badge
 
 ## Prerequisites

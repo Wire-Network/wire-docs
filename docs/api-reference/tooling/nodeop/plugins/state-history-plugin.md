@@ -1,5 +1,9 @@
 ---
 title: state_history_plugin
+tags:
+  - nodeop
+  - plugins
+  - state history
 ---
 
 ## Description

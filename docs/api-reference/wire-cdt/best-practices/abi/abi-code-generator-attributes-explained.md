@@ -1,7 +1,8 @@
-<!-- ---
-title: ABI/Code generator attributes
-link_text: ABI/Code generator attributes
---- -->
+---
+tags:
+  - Wire CDT
+  - ABI
+---
 
 The new ABI generator tool uses C++11 or GNU style attributes to mark `actions` and `tables`.
 

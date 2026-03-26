@@ -1,6 +1,11 @@
 ---
 id: unpack-hex
 title: unpack_hex
+tags:
+  - clio
+  - convert
+  - unpack
+  - hex
 ---
 
 ## Command

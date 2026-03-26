@@ -1,6 +1,9 @@
 ---
 id: index
 title: wrap
+tags:
+  - clio
+  - wrap
 ---
 
 ## Description

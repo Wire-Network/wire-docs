@@ -1,5 +1,8 @@
 ---
 title: Utilities
+tags:
+  - utilities
+  - tooling
 ---
 
 This section contains documentation for additional utilities that complement or extend `nodeop` and potentially other Wire software:

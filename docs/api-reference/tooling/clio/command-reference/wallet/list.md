@@ -1,6 +1,9 @@
 ---
 id: list
 title: list
+tags:
+  - clio
+  - wallet
 ---
 
 ## Command

@@ -2,6 +2,10 @@
 id: how-to-update-account-keys
 title: Update Account Keys
 description: Learn how to update the keys associated with a Wire blockchain account using clio.
+tags:
+  - guide
+  - keys
+  - accounts
 ---
 
 ## Overview

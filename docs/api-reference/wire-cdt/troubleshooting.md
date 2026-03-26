@@ -1,3 +1,8 @@
+---
+tags:
+  - Wire CDT
+  - troubleshooting
+---
 
 ## When sending an action to the blockchain you get the error below
 

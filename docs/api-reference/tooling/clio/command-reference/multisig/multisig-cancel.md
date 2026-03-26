@@ -1,6 +1,9 @@
 ---
 id: multisig-cancel
 title: multisig cancel
+tags:
+  - clio
+  - multisig
 ---
 
 ## Command

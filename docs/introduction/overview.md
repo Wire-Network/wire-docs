@@ -2,7 +2,12 @@
 id: overview
 title: Overview
 slug: /introduction/overview
-# tags: [introduction, overview, wire network]
+tags:
+  - introduction
+  - overview
+  - wire network
+  - blockchain
+  - UTL
 description: Brief introduction of Wire Network and blockchain technology
 ---
 

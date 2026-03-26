@@ -1,6 +1,9 @@
 ---
 id: multisig-exec
 title: multisig exec
+tags:
+  - clio
+  - multisig
 ---
 
 ## Command

@@ -1,6 +1,9 @@
 ---
 id: exec
 title: exec
+tags:
+  - clio
+  - wrap
 ---
 
 ## Command

@@ -1,6 +1,10 @@
 ---
 id: index
 title: get
+tags:
+  - clio
+  - get
+  - query
 ---
 
 ## Description

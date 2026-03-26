@@ -1,3 +1,10 @@
+---
+title: Nodeop Configuration
+tags:
+  - nodeop
+  - CLI
+---
+
 # Nodeop Configuration
 
 ## Overview

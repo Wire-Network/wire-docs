@@ -1,6 +1,10 @@
 ---
 id: set-key-name
 title: set_key_name
+tags:
+  - clio
+  - wallet
+  - keys
 ---
 
 ## Command

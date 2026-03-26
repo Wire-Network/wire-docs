@@ -1,5 +1,8 @@
 ---
 title: Block Production Explained
+tags:
+  - nodeop
+  - block production
 ---
 
 ## Overview

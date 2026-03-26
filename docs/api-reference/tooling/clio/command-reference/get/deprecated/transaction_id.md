@@ -1,6 +1,10 @@
 ---
 id: transaction_id
 title: transaction_id
+tags:
+  - clio
+  - get
+  - deprecated
 ---
 
 :::warning Deprecation Notice

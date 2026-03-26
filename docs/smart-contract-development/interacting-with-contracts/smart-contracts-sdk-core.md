@@ -2,6 +2,13 @@
 sidebar_position: 2
 id: smart-contracts-sdk-core
 title: Using SDK Core
+tags:
+  - sdk-core
+  - JavaScript
+  - TypeScript
+  - smart contracts
+  - tutorial
+description: Interacting with smart contracts using the sdk-core JavaScript library
 ---
 
 # Smart Contract Interactions with `sdk-core` JS library

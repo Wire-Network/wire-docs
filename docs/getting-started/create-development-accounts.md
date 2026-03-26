@@ -2,6 +2,12 @@
 sidebar_position: 6
 id: create-development-accounts
 title: Create Development Accounts
+tags:
+  - accounts
+  - development
+  - getting started
+  - clio
+description: Learn how to create development accounts on the Wire blockchain
 ---
 
 # Create Development Accounts

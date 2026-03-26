@@ -1,6 +1,10 @@
 ---
 id: key
 title: key
+tags:
+  - clio
+  - create
+  - keys
 ---
 
 ## Command

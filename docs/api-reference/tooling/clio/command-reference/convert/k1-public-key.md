@@ -1,6 +1,10 @@
 ---
 id: k1-public-key
 title: k1_public_key
+tags:
+  - clio
+  - convert
+  - keys
 ---
 
 ## Command

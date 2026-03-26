@@ -1,3 +1,11 @@
+---
+tags:
+  - clio
+  - transfer
+  - guide
+  - tokens
+---
+
 # Transfer a Token
 
 ## Prerequisites

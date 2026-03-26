@@ -1,3 +1,10 @@
+---
+title: Build and Deploy System Contracts
+tags:
+  - system contracts
+  - deployment
+---
+
 # Build and Deploy System Contracts
 
 ## Prerequisites

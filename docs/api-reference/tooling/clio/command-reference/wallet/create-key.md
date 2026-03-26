@@ -1,6 +1,10 @@
 ---
 id: create-key
 title: create_key
+tags:
+  - clio
+  - wallet
+  - keys
 ---
 
 ## Command

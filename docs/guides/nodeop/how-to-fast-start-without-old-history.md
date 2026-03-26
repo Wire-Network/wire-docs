@@ -1,5 +1,9 @@
 ---
 title: Fast Start Without Previous History
+tags:
+  - guide
+  - nodeop
+  - snapshots
 ---
 
 ## Overview

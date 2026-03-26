@@ -1,5 +1,9 @@
 ---
 title: db_size_api_plugin
+tags:
+  - nodeop
+  - plugins
+  - database
 ---
 
 ## Description

@@ -1,3 +1,10 @@
+---
+title: cdt-cc
+tags:
+  - Wire CDT
+  - compiler
+---
+
 # cdt-cc
 
 To manually compile the source code, use `cdt-cc` and `cdt-ld` as if it were __clang__ and __lld__. All the includes and options specific to Wire Sysio and CDT are baked in.

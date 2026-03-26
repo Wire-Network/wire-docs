@@ -1,5 +1,9 @@
 ---
 title: Compile A Smart Contract with CMake
+tags:
+  - guide
+  - compilation
+  - CMake
 ---
 
 ## Overview

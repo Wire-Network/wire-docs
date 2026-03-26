@@ -1,6 +1,9 @@
 ---
 id: remove-name
 title: remove_name
+tags:
+  - clio
+  - wallet
 ---
 
 ## Command

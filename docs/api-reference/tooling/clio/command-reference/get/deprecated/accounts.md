@@ -1,5 +1,10 @@
 ---
 id: accounts
+title: accounts
+tags:
+  - clio
+  - get
+  - deprecated
 ---
 
 

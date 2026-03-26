@@ -1,6 +1,9 @@
 ---
 id: multisig-unapprove
 title: multisig unapprove
+tags:
+  - clio
+  - multisig
 ---
 
 ## Command

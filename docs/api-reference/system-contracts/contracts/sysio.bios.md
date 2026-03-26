@@ -1,5 +1,8 @@
 ---
 id: sysio.bios
+tags:
+  - system contracts
+  - sysio.bios
 ---
 
 # `sysio.bios`

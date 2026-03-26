@@ -1,6 +1,9 @@
 ---
 id: quick-reference
 title: 'Quick API Reference'
+tags:
+  - API reference
+  - quick reference
 ---
 
 

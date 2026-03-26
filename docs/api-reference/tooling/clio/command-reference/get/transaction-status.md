@@ -1,6 +1,10 @@
 ---
 id: transaction-status
 title: transaction-status
+tags:
+  - clio
+  - get
+  - transactions
 ---
 
 ## Command

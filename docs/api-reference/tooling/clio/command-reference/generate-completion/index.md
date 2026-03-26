@@ -1,6 +1,10 @@
 ---
 id: index
 title: generate-completion
+tags:
+  - clio
+  - generate-completion
+  - shell
 ---
 
 ## Description

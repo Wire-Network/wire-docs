@@ -1,5 +1,9 @@
 ---
 title: system listproducers
+tags:
+  - clio
+  - system
+  - producers
 ---
 
 ## Command

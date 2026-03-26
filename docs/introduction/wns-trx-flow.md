@@ -1,6 +1,15 @@
 ---
 id: wns-trx-flow
+title: WNS Transaction Flow
 slug: /introduction/wns-trx-flow
+tags:
+  - WNS
+  - transactions
+  - cross-chain
+  - swap
+  - deposits
+  - withdrawals
+description: Understanding the transaction flow for deposits, swaps, and withdrawals in WNS
 ---
 # WNS Transaction Flow
 

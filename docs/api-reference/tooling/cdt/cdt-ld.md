@@ -1,3 +1,10 @@
+---
+title: cdt-ld
+tags:
+  - Wire CDT
+  - linker
+---
+
 # cdt-ld
 
 The cdt-ld tool is a the custom web assembly linker for Wire Sysio framework smart contracts.

@@ -1,5 +1,9 @@
 ---
 title: chain_plugin
+tags:
+  - nodeop
+  - plugins
+  - chain
 ---
 
 

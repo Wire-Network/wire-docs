@@ -1,6 +1,9 @@
 ---
 id: index
 title: multisig
+tags:
+  - clio
+  - multisig
 ---
 
 ## Description

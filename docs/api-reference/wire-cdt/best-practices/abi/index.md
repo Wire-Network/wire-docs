@@ -1,7 +1,8 @@
-<!-- ---
-title: ABI
-link_text: ABI
---- -->
+---
+tags:
+  - Wire CDT
+  - ABI
+---
 
 - [Understanding ABI Files](understanding-abi-files.md)
 - [ABI/Code generator attributes](abi-code-generator-attributes-explained.md)

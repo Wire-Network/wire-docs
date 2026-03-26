@@ -1,6 +1,10 @@
 ---
 id: scope
 title: scope
+tags:
+  - clio
+  - get
+  - tables
 ---
 
 ## Command

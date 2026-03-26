@@ -2,6 +2,12 @@
 sidebar_position: 3
 id: company-contract
 title: Create Company Contract
+tags:
+  - tutorial
+  - smart contracts
+  - C++
+  - Wire CDT
+description: Step-by-step guide to creating a company contract using Wire CDT
 ---
 
 

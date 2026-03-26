@@ -1,6 +1,10 @@
 ---
 id: remove-key
 title: remove_key
+tags:
+  - clio
+  - wallet
+  - keys
 ---
 
 ## Command

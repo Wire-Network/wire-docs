@@ -1,5 +1,8 @@
 ---
 title: Nodeop Troubleshooting
+tags:
+  - nodeop
+  - troubleshooting
 ---
 
 ### "Database dirty flag set (likely due to unclean shutdown): replay required"

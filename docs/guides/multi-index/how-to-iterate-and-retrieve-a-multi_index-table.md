@@ -1,5 +1,9 @@
 ---
 title: Iterate and Retrieve from Multi-Index Table
+tags:
+  - guide
+  - multi-index
+  - tables
 ---
 
 ## Overview

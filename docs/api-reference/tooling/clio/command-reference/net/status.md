@@ -1,5 +1,9 @@
 ---
 title: net status
+tags:
+  - clio
+  - net
+  - p2p
 ---
 
 ## Command

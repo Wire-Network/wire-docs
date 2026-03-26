@@ -2,6 +2,12 @@
 sidebar_position: 3
 id: hello-world-contract-short
 title: "Quick Start: Hello World Contract"
+tags:
+  - tutorial
+  - smart contracts
+  - hello world
+  - getting started
+description: A quick start guide to deploying your first Hello World smart contract
 ---
 
 <!-- # Hello World Contract -->

@@ -1,6 +1,10 @@
 ---
 id: push-action
 title: push action
+tags:
+  - clio
+  - push
+  - actions
 ---
 
 ## Command

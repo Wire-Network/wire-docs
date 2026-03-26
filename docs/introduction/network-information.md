@@ -1,3 +1,15 @@
+---
+id: network-information
+title: Network Information
+slug: /introduction/network-information
+tags:
+  - network
+  - testnet
+  - RPC
+  - endpoints
+description: Wire Network endpoints and connection information
+---
+
 # Network Information
 
 ## Wire Testnet

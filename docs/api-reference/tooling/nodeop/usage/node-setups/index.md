@@ -1,5 +1,8 @@
 ---
 title: Nodeop Common Setups
+tags:
+  - nodeop
+  - node setup
 ---
 
 `nodeop` generally runs in two modes:

@@ -2,6 +2,9 @@
 id: how-to-set-custom-permission
 title: Setting Custom Action Permissions
 description: Learn how to link custom permissions to smart contract actions for fine-grained access control.
+tags:
+  - guide
+  - permissions
 ---
 
 ## Overview

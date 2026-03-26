@@ -1,5 +1,9 @@
 ---
 id: how-to-config-a-multisig
+tags:
+  - clio
+  - multisig
+  - guide
 ---
 
 # Config a Multisig Account

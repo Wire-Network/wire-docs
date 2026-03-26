@@ -2,6 +2,9 @@
 sidebar_label: DIABLE_COMPRESSION_IN_TRANSACTION_MERKLE
 title: DIABLE_COMPRESSION_IN_TRANSACTION_MERKLE
 sidebar_position: 1
+tags:
+  - protocol features
+  - transactions
 ---
 
 ## Overview

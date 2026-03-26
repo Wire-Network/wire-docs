@@ -1,3 +1,9 @@
+---
+title: Native Tester Compilation
+tags:
+  - Wire CDT
+  - testing
+---
 
 As of v1.5.0 native compilation can be performed and a new set of libraries to facilitate native testing and native "scratch pad" compilation. [`cdt-cc`](../cdt-cc.md), [`cdt-cpp`](../cdt-cpp.md) and [`cdt-ld`](../cdt-ld.md) now support building "smart contracts" and unit tests natively for quick tests to help facilitate faster development (note the default implementations of a lot of the Antelope intrinsics (aka host functions) are currently asserts that state they are unavailable, these are user definable.)
 

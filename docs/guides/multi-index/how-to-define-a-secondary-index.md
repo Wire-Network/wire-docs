@@ -1,5 +1,9 @@
 ---
 title: Define a Secondary Index
+tags:
+  - guide
+  - multi-index
+  - tables
 ---
 
 ## Overview

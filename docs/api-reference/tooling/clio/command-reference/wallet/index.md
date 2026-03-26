@@ -1,5 +1,8 @@
 ---
 title: wallet
+tags:
+  - clio
+  - wallet
 ---
 
 ## Description

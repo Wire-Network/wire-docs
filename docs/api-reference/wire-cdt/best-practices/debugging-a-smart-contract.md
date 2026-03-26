@@ -1,3 +1,8 @@
+---
+tags:
+  - Wire CDT
+  - debugging
+---
 
 In order to be able to debug your smart contract, you will need to setup a local `nodeop` node. This local `nodeop` node can be run as separate private testnet or as an extension of a public testnet.  This local node also needs to be run with the contracts-console option on, either `--contracts-console` via the command line or `contracts-console = true` via the `config.ini` file and/or by setting up logging on your running node and checking the output logs.
 

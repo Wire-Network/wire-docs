@@ -1,5 +1,9 @@
 ---
 title: producer_api_plugin
+tags:
+  - nodeop
+  - plugins
+  - producer
 ---
 
 ## Description

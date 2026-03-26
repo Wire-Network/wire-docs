@@ -1,3 +1,12 @@
+---
+id: how-to-define-a-primary-index
+title: Define a Primary Index
+tags:
+  - guide
+  - multi-index
+  - tables
+---
+
 # Define a Primary Index
 
 ## Overview

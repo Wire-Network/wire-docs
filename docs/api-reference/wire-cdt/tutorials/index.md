@@ -1,5 +1,8 @@
 ---
 title: CDT Tutorials
+tags:
+  - Wire CDT
+  - tutorials
 ---
 
 - [ABI Variants](abi-variants.md)

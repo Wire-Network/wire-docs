@@ -1,6 +1,9 @@
 ---
 id: lock
 title: lock
+tags:
+  - clio
+  - wallet
 ---
 
 ## Command

@@ -1,6 +1,10 @@
 ---
 id: supported-protocol-features
 title: supported_protocol_features
+tags:
+  - clio
+  - get
+  - protocol
 ---
 
 ## Command

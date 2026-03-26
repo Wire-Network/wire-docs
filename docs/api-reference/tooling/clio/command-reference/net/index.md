@@ -1,6 +1,10 @@
 ---
 id: index
 title: net
+tags:
+  - clio
+  - net
+  - p2p
 ---
 
 

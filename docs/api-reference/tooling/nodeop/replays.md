@@ -1,5 +1,8 @@
 ---
 title: Nodeop Replays
+tags:
+  - nodeop
+  - replays
 ---
 
 ## Overview

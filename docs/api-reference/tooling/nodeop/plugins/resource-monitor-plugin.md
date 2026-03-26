@@ -1,5 +1,9 @@
 ---
 title: resource_monitor_plugin
+tags:
+  - nodeop
+  - plugins
+  - resources
 ---
 
 ## Overview

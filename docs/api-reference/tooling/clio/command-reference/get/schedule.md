@@ -1,6 +1,10 @@
 ---
 id: schedule
 title: schedule
+tags:
+  - clio
+  - get
+  - producers
 ---
 
 ## Command

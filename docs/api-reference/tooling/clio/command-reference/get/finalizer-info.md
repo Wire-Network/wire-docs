@@ -1,6 +1,10 @@
 ---
 id: finalizer-info
 title: finalizer_info
+tags:
+  - clio
+  - get
+  - finality
 ---
 
 ## Command

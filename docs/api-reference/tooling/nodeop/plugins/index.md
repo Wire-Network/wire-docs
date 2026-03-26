@@ -1,5 +1,8 @@
 ---
 title: Nodeop Plugins
+tags:
+  - nodeop
+  - plugins
 ---
 
 ## Overview

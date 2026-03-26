@@ -1,3 +1,14 @@
+---
+id: state-data
+title: State Data
+tags:
+  - state data
+  - multi-index tables
+  - smart contracts
+  - data models
+description: Understanding state data and multi-index tables in Wire smart contracts
+---
+
 # State Data
 
 There are two types of data in a smart contract: **state data** and **transient data**. State data is persistent data that is stored on the

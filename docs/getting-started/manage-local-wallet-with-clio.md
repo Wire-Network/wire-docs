@@ -2,8 +2,13 @@
 sidebar_position: 2
 id: manage-local-wallet-with-clio
 title: Manage Local Wallet with clio
-
-
+tags:
+  - wallet
+  - clio
+  - keys
+  - kiod
+  - getting started
+description: Learn how to create, manage, and unlock wallets using clio
 ---
 
 

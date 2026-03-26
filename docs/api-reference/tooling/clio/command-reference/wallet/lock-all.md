@@ -1,6 +1,9 @@
 ---
 id: lock-all
 title: lock_all
+tags:
+  - clio
+  - wallet
 ---
 
 ## Command

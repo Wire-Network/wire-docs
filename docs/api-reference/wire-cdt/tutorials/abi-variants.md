@@ -1,6 +1,10 @@
 ---
 title: ABI variants
 description: ABI variants
+tags:
+  - Wire CDT
+  - ABI
+  - variants
 ---
 
 ABI variants give the flexibility of using more than one type for a defined variable or data member.

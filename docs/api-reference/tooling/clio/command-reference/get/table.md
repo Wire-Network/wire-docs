@@ -1,6 +1,10 @@
 ---
 id: table
 title: table
+tags:
+  - clio
+  - get
+  - tables
 ---
 
 ## Command

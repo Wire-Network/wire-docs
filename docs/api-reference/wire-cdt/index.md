@@ -1,3 +1,9 @@
+---
+tags:
+  - Wire CDT
+  - smart contracts
+---
+
 # CDT (Contract Development Toolkit)
 
 Contract Development Toolkit (CDT) is a C/C++ toolchain targeting WebAssembly (WASM) and a set of tools to facilitate development of smart contracts written in C/C++ that are meant to be deployed to a [Wire](https://github.com/Wire-Network/) blockchain.

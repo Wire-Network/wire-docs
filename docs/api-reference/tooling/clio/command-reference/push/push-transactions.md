@@ -1,6 +1,10 @@
 ---
 id: push-transactions
 title: push transactions
+tags:
+  - clio
+  - push
+  - transactions
 ---
 
 ## Command

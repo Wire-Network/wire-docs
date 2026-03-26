@@ -3,6 +3,12 @@ id: savanna-implementation
 title: "Savanna Implementation Deep Dive"
 sidebar_label: Savanna Implementation
 slug: /introduction/savanna-implementation
+tags:
+  - consensus
+  - savanna
+  - implementation
+  - IBC
+  - finality
 description: Implementation details of Savanna consensus - fork database, vote threading, IBC implications, and Wire Network differences
 ---
 

@@ -1,3 +1,10 @@
+---
+title: CDT Reference Index
+tags:
+  - Wire CDT
+  - command reference
+---
+
 # CDT Reference Index
 
 - [cdt-abidiff](./cdt-abidiff.md)

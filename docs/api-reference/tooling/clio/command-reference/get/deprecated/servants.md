@@ -1,5 +1,10 @@
 ---
 id: servants
+title: servants
+tags:
+  - clio
+  - get
+  - deprecated
 ---
 
 :::warning Deprecation Notice

@@ -1,6 +1,10 @@
 ---
 id: zsh
 title: zsh
+tags:
+  - clio
+  - generate-completion
+  - zsh
 ---
 
 ## Command

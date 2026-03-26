@@ -1,6 +1,10 @@
 ---
 id: set-abi
 title: set abi
+tags:
+  - clio
+  - set
+  - ABI
 ---
 
 ## Command

@@ -3,6 +3,12 @@ id: savanna-consensus
 title: "Savanna Consensus"
 sidebar_label: What is Savanna
 slug: /introduction/savanna-consensus
+tags:
+  - consensus
+  - savanna
+  - BFT
+  - finality
+  - BLS signatures
 description: How Antelope achieved 1-second finality - BFT pipelining, BLS aggregate signatures, and the 2-chain rule
 ---
 

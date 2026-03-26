@@ -1,5 +1,9 @@
 ---
 title: Producing Node Setup
+tags:
+  - nodeop
+  - producing node
+  - block producer
 ---
 
 ## Overview

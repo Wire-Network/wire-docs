@@ -1,6 +1,11 @@
 ---
 id: pack-transaction
 title: pack_transaction
+tags:
+  - clio
+  - convert
+  - pack
+  - transactions
 ---
 
 ## Command

@@ -1,5 +1,9 @@
 ---
 title: Storage and Read Modes
+tags:
+  - nodeop
+  - storage
+  - read modes
 ---
 
 ## Overview

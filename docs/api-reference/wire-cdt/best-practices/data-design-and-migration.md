@@ -1,5 +1,9 @@
 ---
 title: Data design and migration
+tags:
+  - Wire CDT
+  - data
+  - migration
 ---
 
 

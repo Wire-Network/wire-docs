@@ -1,5 +1,9 @@
 ---
 title: trace_api_plugin
+tags:
+  - nodeop
+  - plugins
+  - trace
 ---
 
 ## Overview

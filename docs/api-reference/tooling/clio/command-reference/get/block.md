@@ -1,6 +1,10 @@
 ---
 id: block
 title: block
+tags:
+  - clio
+  - get
+  - blocks
 ---
 
 ## Command

@@ -1,6 +1,10 @@
 ---
 id: code
 title: code
+tags:
+  - clio
+  - get
+  - smart contracts
 ---
 
 ## Command

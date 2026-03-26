@@ -1,6 +1,10 @@
 ---
 id: set-account
 title: set account
+tags:
+  - clio
+  - set
+  - permissions
 ---
 
 ## Command

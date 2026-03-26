@@ -1,5 +1,9 @@
 ---
 title: Generate a Snapshot
+tags:
+  - guide
+  - nodeop
+  - snapshots
 ---
 
 

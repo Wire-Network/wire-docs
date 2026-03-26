@@ -1,3 +1,15 @@
+---
+id: deposits
+title: Deposits
+slug: /introduction/deposits
+tags:
+  - WNS
+  - deposits
+  - token wrapping
+  - cross-chain
+description: Understanding how deposits and token shadowing work in Wire Network
+---
+
 # Deposits
 
 Before users can transact with tokens on the Wire network, their tokens must be ‘shadowed’ from the origin chain. Shadowing, also known as token wrapping, is creating a digital representation of a token from one blockchain on another. For example, Ethereum (ETH) on the Wire Network is represented as Wrapped Ethereum (WETH) to enable its use within that specific ecosystem.

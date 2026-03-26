@@ -1,5 +1,9 @@
 ---
 title: net disconnect
+tags:
+  - clio
+  - net
+  - p2p
 ---
 
 ## Command

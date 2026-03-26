@@ -1,3 +1,14 @@
+---
+id: types
+title: Types
+tags:
+  - types
+  - data types
+  - smart contracts
+  - C++
+description: Understanding data types available in Wire smart contracts
+---
+
 # Types
 
 ## Basic Types

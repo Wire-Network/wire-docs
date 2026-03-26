@@ -1,6 +1,10 @@
 ---
 id: keys-by-name
 title: keys_by_name
+tags:
+  - clio
+  - wallet
+  - keys
 ---
 
 ## Command

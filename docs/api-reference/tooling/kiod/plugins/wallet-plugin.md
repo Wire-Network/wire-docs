@@ -1,5 +1,9 @@
 ---
-title: wallet_plugin 
+title: wallet_plugin
+tags:
+  - kiod
+  - plugins
+  - wallet
 ---
 The `wallet_plugin` adds access to wallet functionality from a node.
 

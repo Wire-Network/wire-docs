@@ -1,3 +1,8 @@
+---
+tags:
+  - Wire CDT
+  - best practices
+---
 
 # Naming Conventions
 

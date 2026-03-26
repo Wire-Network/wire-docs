@@ -1,3 +1,10 @@
+---
+tags:
+  - Wire CDT
+  - best practices
+  - errors
+---
+
 # Error handling
 
 Contracts can use `uint64_t` error codes as an alternative (and shorter) means of signaling error conditions, as opposed to string error messages. However, Wire Sysio and CDT reserve certain ranges of the `uint64_t` value space for their own purposes. Contract developers must be aware of the following ranges and restrictions:

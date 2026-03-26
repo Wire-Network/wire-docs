@@ -1,5 +1,8 @@
 ---
 id: sysio.boot
+tags:
+  - system contracts
+  - sysio.boot
 ---
 
 # `sysio.boot`

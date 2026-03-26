@@ -1,6 +1,10 @@
 ---
 id: import
 title: import
+tags:
+  - clio
+  - wallet
+  - keys
 ---
 
 ## Command

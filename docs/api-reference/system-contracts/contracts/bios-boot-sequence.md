@@ -1,3 +1,10 @@
+---
+title: Bios Boot Sequence
+tags:
+  - system contracts
+  - bios
+  - boot
+---
 
 # Bios Boot sequence
 

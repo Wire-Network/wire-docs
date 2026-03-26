@@ -2,6 +2,9 @@
 id: how-to-unlink-permission
 title: Unlink a Linked Permission
 description: Learn how to remove a custom permission link from a smart contract action using clio.
+tags:
+  - guide
+  - permissions
 ---
 
 ## Overview

@@ -1,6 +1,9 @@
 ---
 id: multisig-invalidate
 title: multisig invalidate
+tags:
+  - clio
+  - multisig
 ---
 
 ## Command

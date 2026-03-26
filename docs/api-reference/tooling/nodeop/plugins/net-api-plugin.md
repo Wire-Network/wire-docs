@@ -1,5 +1,9 @@
 ---
 title: net_api_plugin
+tags:
+  - nodeop
+  - plugins
+  - network
 ---
 
 ## Description

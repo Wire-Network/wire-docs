@@ -1,5 +1,9 @@
 ---
 title: "system regproducer"
+tags:
+  - clio
+  - system
+  - producers
 ---
 
 ## Command

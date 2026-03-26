@@ -1,5 +1,9 @@
 ---
 title: wallet_api_plugin
+tags:
+  - kiod
+  - plugins
+  - wallet API
 ---
 
 ## Description

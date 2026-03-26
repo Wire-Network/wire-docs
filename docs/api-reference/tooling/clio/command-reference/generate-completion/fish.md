@@ -1,6 +1,10 @@
 ---
 id: fish
 title: fish
+tags:
+  - clio
+  - generate-completion
+  - fish
 ---
 
 ## Command

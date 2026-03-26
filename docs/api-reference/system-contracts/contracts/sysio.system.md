@@ -1,5 +1,8 @@
 ---
 id: sysio.system
+tags:
+  - system contracts
+  - sysio.system
 ---
 
 # `sysio.system`

@@ -1,6 +1,10 @@
 ---
 id: set-contract
 title: set contract
+tags:
+  - clio
+  - set
+  - smart contracts
 ---
 
 ## Command

@@ -1,5 +1,9 @@
 ---
 title: Create a Snapshot with Full State History
+tags:
+  - guide
+  - nodeop
+  - snapshots
 ---
 
 ## Overview

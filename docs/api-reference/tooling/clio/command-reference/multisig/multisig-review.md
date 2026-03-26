@@ -1,6 +1,9 @@
 ---
 id: multisig-review
 title: multisig review
+tags:
+  - clio
+  - multisig
 ---
 
 ## Command

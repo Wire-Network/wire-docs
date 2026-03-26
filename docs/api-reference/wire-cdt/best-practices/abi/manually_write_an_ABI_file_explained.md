@@ -1,7 +1,8 @@
-<!-- ---
-title: Manually write/edit an ABI file
-link_text: Manually write/edit an ABI file
---- -->
+---
+tags:
+  - Wire CDT
+  - ABI
+---
 
 - Advanced features of the newest version of the ABI will require manual construction of the ABI, and odd and advanced C++ patterns could capsize the generator's type deductions. So having a good knowledge of how to write an ABI should be an essential piece of knowledge of a smart contract writer.
 - Please refer to [Create an ABI File](understanding-abi-files.md#create-an-abi-file) to learn about the different sections of an ABI.

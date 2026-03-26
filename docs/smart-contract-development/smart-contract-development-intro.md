@@ -1,7 +1,12 @@
 ---
 sidebar_position: 1
 id: smart-contract-development-intro
-sidebar_label: Smart Contract Development 
+sidebar_label: Smart Contract Development
+tags:
+  - smart contracts
+  - development
+  - overview
+description: Introduction to smart contract development on Wire Network
 ---
 
 

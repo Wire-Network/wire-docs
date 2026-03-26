@@ -1,5 +1,9 @@
 ---
 title: Iterate and Retrieve from Multi-Index Table Based on Secondary Index
+tags:
+  - guide
+  - multi-index
+  - tables
 ---
 
 ## Overview

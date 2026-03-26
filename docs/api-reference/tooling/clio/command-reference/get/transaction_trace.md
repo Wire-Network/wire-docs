@@ -1,6 +1,11 @@
 ---
 id: transaction_trace
 title: transaction_trace
+tags:
+  - clio
+  - get
+  - transactions
+  - trace
 ---
 
 ## Command

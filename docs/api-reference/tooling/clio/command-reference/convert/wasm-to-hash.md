@@ -1,6 +1,11 @@
 ---
 id: wasm-to-hash
 title: wasm_to_hash
+tags:
+  - clio
+  - convert
+  - WASM
+  - hash
 ---
 
 ## Command

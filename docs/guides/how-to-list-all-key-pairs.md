@@ -1,6 +1,10 @@
 ---
 id: how-to-list-all-key-pairs
 description: Learn how to list all public and private keys stored in your wallet using clio.
+tags:
+  - guide
+  - keys
+  - wallet
 ---
 
 # List Key Pairs

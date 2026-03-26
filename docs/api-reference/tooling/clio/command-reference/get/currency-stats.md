@@ -1,6 +1,11 @@
 ---
 id: currency-stats
 title: currency stats
+tags:
+  - clio
+  - get
+  - currency
+  - tokens
 ---
 
 ## Command

@@ -1,5 +1,9 @@
 ---
 title: Compile a Smart Contract via CLI
+tags:
+  - guide
+  - compilation
+  - CLI
 ---
 
 ## Overview

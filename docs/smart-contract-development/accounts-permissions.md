@@ -1,3 +1,14 @@
+---
+id: accounts-permissions
+title: Accounts & Permissions
+tags:
+  - accounts
+  - permissions
+  - keys
+  - authorization
+description: Understanding accounts, permissions, and authorization on Wire blockchain
+---
+
 # Accounts & Permissions
 
 A Wire account is a digital entity on the blockchain that identifies a participant, which can be an individual or a group. An account also represents the smart contract actors that send and receive actions to and from other accounts on the blockchain. Actions, which are the fundamental units of execution, are always encapsulated within transactions, allowing for one or more atomic actions to be grouped together.

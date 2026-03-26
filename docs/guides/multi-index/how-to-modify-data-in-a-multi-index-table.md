@@ -1,5 +1,9 @@
 ---
 title: Modify Data in a Multi-Index Table
+tags:
+  - guide
+  - multi-index
+  - tables
 ---
 
 ## Overview

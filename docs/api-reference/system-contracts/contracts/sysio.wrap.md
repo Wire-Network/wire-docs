@@ -1,5 +1,8 @@
 ---
 id: sysio.wrap
+tags:
+  - system contracts
+  - wrap
 ---
 
 # `sysio.wrap`

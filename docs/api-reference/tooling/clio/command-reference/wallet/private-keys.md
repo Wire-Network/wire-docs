@@ -1,6 +1,10 @@
 ---
 id: private-keys
 title: private_keys
+tags:
+  - clio
+  - wallet
+  - keys
 ---
 
 ## Command

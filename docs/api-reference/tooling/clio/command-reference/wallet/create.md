@@ -1,6 +1,9 @@
 ---
 id: create
 title: create
+tags:
+  - clio
+  - wallet
 ---
 
 ## Command

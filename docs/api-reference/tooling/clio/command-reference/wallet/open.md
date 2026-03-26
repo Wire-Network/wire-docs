@@ -1,6 +1,9 @@
 ---
 id: open
 title: open
+tags:
+  - clio
+  - wallet
 ---
 
 ## Command

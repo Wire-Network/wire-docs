@@ -1,6 +1,10 @@
 ---
 id: set-action
 title: set action permission
+tags:
+  - clio
+  - set
+  - permissions
 ---
 
 ## Command

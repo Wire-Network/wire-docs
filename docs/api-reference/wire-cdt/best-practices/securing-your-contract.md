@@ -1,3 +1,10 @@
+---
+tags:
+  - Wire CDT
+  - best practices
+  - security
+---
+
 # Securing your contract
 
 ## Basic Recommendations

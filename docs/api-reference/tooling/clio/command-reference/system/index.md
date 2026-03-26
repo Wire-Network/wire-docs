@@ -1,6 +1,9 @@
 ---
 id: index
 title: system
+tags:
+  - clio
+  - system
 ---
 
 ## Description

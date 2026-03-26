@@ -1,6 +1,10 @@
 ---
 id: set-code
 title: set code
+tags:
+  - clio
+  - set
+  - smart contracts
 ---
 
 ## Command

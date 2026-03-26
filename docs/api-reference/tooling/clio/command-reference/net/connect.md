@@ -1,5 +1,9 @@
 ---
 title: net connect
+tags:
+  - clio
+  - net
+  - p2p
 ---
 
 ## Command

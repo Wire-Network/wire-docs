@@ -1,3 +1,10 @@
+---
+title: cdt-init
+tags:
+  - Wire CDT
+  - cdt-init
+---
+
 # cdt-init
 
 This tool is used to generate a skeleton smart contract and directory structure.

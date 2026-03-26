@@ -1,7 +1,14 @@
 ---
 id: wns-overview
+title: Interoperability & WNS
 slug: /introduction/wns-overview
-# tags: [introduction, overview, wire network]
+tags:
+  - WNS
+  - interoperability
+  - cross-chain
+  - UTL
+  - wire network
+description: Understanding Wire Name Service and blockchain interoperability
 ---
 
 # Interoperability & WNS

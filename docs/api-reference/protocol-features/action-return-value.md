@@ -2,6 +2,9 @@
 sidebar_label: ACTION_RETURN_VALUE
 title: ACTION_RETURN_VALUE
 sidebar_position: 1
+tags:
+  - protocol features
+  - actions
 ---
 
 

@@ -1,6 +1,11 @@
 ---
 id: block_trace
 title: block_trace
+tags:
+  - clio
+  - get
+  - blocks
+  - trace
 ---
 
 ## Command

@@ -1,5 +1,8 @@
 ---
 title: Kiod Plugins
+tags:
+  - kiod
+  - plugins
 ---
 
 ## Overview

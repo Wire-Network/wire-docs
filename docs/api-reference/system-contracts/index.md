@@ -1,3 +1,9 @@
+---
+title: About System Contracts
+tags:
+  - system contracts
+---
+
 # About System Contracts
 
 The Wire blockchain platform is unique in that the features and characteristics of the blockchain built on it are flexible, that is, they can be changed, or modified completely to suit each business case requirement. Core blockchain features such as account creation and modification, token economics, node operator registration, multi-sig, etc., are implemented inside smart contracts which are deployed on the blockchain built on the Wire platform.

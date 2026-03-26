@@ -1,5 +1,9 @@
 ---
 title: Replay From a blocks.log File
+tags:
+  - guide
+  - nodeop
+  - snapshots
 ---
 
 ## Overview

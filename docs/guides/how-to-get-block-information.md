@@ -1,6 +1,10 @@
 ---
 id: how-to-get-block-information
 description: Learn how to retrieve block information from the Wire blockchain using clio get block command.
+tags:
+  - guide
+  - blocks
+  - clio
 ---
 
 # Query Block Information

@@ -1,6 +1,10 @@
 ---
 id: system-activate
 title: system activate
+tags:
+  - clio
+  - system
+  - protocol
 ---
 
 ## Command

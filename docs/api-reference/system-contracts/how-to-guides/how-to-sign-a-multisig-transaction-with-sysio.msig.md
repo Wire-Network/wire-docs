@@ -1,3 +1,11 @@
+---
+title: How to Sign a Multisig Transaction with sysio.msig
+tags:
+  - system contracts
+  - multisig
+  - guide
+---
+
 # `sysio.msig` examples
 
 ## Multisig proposal

@@ -1,6 +1,9 @@
 ---
 title: Native Logging
 link_text: Native Logging
+tags:
+  - nodeop
+  - logging
 ---
 
 Logging for `nodeop` is controlled by the `logging.json` file. CLI options can be passed to `nodeop` to [setup `logging.json`](#setup-loggingjson). The logging configuration file can be used to define [appenders](#appenders) and tie them to [loggers](#loggers) and [logging levels](#logging-levels).

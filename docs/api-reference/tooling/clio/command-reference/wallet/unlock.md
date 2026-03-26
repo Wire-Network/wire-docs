@@ -1,6 +1,9 @@
 ---
 id: unlock
 title: unlock
+tags:
+  - clio
+  - wallet
 ---
 
 ## Command

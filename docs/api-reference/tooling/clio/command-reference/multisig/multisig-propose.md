@@ -1,6 +1,9 @@
 ---
 id: multisig-propose
 title: multisig propose
+tags:
+  - clio
+  - multisig
 ---
 
 ## Command

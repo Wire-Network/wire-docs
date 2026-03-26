@@ -1,5 +1,8 @@
 ---
 id: sysio.token
+tags:
+  - system contracts
+  - tokens
 ---
 
 # `sysio.token`

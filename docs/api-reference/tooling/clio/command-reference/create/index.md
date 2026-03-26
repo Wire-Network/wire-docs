@@ -1,6 +1,9 @@
 ---
 id: index
 title: create
+tags:
+  - clio
+  - create
 ---
 
 ## Description

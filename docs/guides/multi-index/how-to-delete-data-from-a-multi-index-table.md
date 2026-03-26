@@ -1,5 +1,9 @@
 ---
 title: Delete Data from a Multi-Index Table
+tags:
+  - guide
+  - multi-index
+  - tables
 ---
 
 ## Overview

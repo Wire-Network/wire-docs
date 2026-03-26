@@ -1,5 +1,9 @@
 ---
 title: chain_api_plugin
+tags:
+  - nodeop
+  - plugins
+  - chain API
 ---
 
 ## Description

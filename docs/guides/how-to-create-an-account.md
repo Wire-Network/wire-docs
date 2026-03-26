@@ -1,6 +1,10 @@
 ---
 id: how-to-create-an-account
 description: Learn how to create a new account on the Wire blockchain using clio with the sysio account.
+tags:
+  - guide
+  - accounts
+  - clio
 ---
 
 # Create an Account

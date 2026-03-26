@@ -1,6 +1,11 @@
 ---
 id: pack-hex
 title: pack_hex
+tags:
+  - clio
+  - convert
+  - pack
+  - hex
 ---
 
 ## Command

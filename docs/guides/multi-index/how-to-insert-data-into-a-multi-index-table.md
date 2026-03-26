@@ -1,5 +1,9 @@
 ---
 title: Insert Data into a Multi-Index Table
+tags:
+  - guide
+  - multi-index
+  - tables
 ---
 
 ## Overview

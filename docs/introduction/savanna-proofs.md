@@ -3,6 +3,13 @@ id: savanna-proofs
 title: "Safety & Liveness Proofs"
 sidebar_label:  Safety & Liveness Proofs
 slug: /introduction/savanna-proofs
+tags:
+  - consensus
+  - savanna
+  - BFT
+  - safety
+  - liveness
+  - proofs
 description: A rigorous treatment of the two fundamental properties of BFT consensus, grounded in Savanna's actual voting rules as implemented in `finalizer.cpp`. Derived from wire-sysio / Antelope Spring v1.0.
 ---
 

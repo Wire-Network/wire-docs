@@ -1,5 +1,9 @@
 ---
 title: system claimrewards
+tags:
+  - clio
+  - system
+  - rewards
 ---
 
 ## Command

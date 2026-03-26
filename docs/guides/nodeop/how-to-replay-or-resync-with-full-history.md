@@ -1,5 +1,9 @@
 ---
 title: Replay or Resync with Full History
+tags:
+  - guide
+  - nodeop
+  - snapshots
 ---
 
 ## Overview

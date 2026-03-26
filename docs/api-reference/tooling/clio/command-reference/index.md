@@ -1,5 +1,9 @@
 ---
 title: Clio
+tags:
+  - clio
+  - command reference
+  - CLI
 ---
 
 Documentation for all `clio` main commands

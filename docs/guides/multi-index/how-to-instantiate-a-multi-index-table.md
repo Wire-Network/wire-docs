@@ -1,5 +1,9 @@
 ---
 title: How to Instantiate a Multi-Index Table
+tags:
+  - guide
+  - multi-index
+  - tables
 ---
 
 ## Overview

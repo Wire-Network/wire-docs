@@ -1,3 +1,10 @@
+---
+title: cdt-abidiff
+tags:
+  - Wire CDT
+  - ABI
+---
+
 # cdt-abidiff
 
 The `cdt-abidiff` tool is used to check differences between two ABI files.

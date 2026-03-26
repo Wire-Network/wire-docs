@@ -1,6 +1,9 @@
 ---
 title: Key Formats
 sidebar_position: 2
+tags:
+  - kiod
+  - keys
 ---
 
 # Key Formats

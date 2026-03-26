@@ -1,6 +1,9 @@
 ---
 id: stop
 title: stop
+tags:
+  - clio
+  - wallet
 ---
 
 ## Command

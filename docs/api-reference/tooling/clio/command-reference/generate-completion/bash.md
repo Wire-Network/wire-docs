@@ -1,6 +1,10 @@
 ---
 id: bash
 title: bash
+tags:
+  - clio
+  - generate-completion
+  - bash
 ---
 
 ## Command

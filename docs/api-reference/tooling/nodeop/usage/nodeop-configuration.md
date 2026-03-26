@@ -1,5 +1,8 @@
 ---
 title: Nodeop Configuration
+tags:
+  - nodeop
+  - configuration
 ---
 
 The plugin-specific options can be configured using either CLI options or a configuration file, `config.ini`. Nodeop-specific options can only be configured from the command line. All CLI options and `config.ini` options can be found by running `nodeop --help` as shown above.

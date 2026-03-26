@@ -1,6 +1,10 @@
 ---
 id: account
 title: account
+tags:
+  - clio
+  - get
+  - accounts
 ---
 
 ## Command

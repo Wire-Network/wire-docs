@@ -1,6 +1,11 @@
 ---
 id: abi-to-hash
 title: abi_to_hash
+tags:
+  - clio
+  - convert
+  - ABI
+  - hash
 ---
 
 ## Command

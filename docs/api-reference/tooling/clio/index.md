@@ -1,5 +1,10 @@
 ---
 title: clio
+tags:
+  - clio
+  - CLI
+  - tooling
+  - command line
 ---
 
 ## Introduction
