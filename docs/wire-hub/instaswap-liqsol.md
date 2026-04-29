@@ -48,7 +48,7 @@ Review the transaction warnings:
 Click **Confirm (unsafe)** to execute the swap.
 
 :::warning Transaction Risks
-The Solana wallet will display warnings about the transaction. These warnings are standard for new contract interactions on testnet. Only proceed if you trust the Wire Hub interface.
+The Solana wallet will display warnings about the transaction. These warnings are standard for new contract interactions on testnet. Only proceed after confirming that you are on the pre.wire.network website.
 :::
 
 ### Step 4: Review Transaction Details

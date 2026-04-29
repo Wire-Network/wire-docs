@@ -136,6 +136,7 @@ const sidebars: SidebarsConfig = {
             "wire-hub/use-faucet",
             "wire-hub/instaswap-liqeth",
             "wire-hub/instaswap-liqsol",
+            "wire-hub/instaswap-staked-tokens",
             "wire-hub/stake-liqsol",
             "wire-hub/view-transaction-trace",
             // "wire-hub/connect-to-a-rpc",

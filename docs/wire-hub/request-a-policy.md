@@ -15,7 +15,7 @@ import BrowserWindow from '@site/src/components/BrowserWindow';
 
 ### Step 1: Access Request Policy Page
 
-Begin by navigating to the [Request Policy](https://pre.wire.network/network/request-policy) page on the Wire Hub website. You can access this from the **Contract** section in the sidebar.
+Begin by navigating to the [Request Policy](https://pre.wire.network/network/request-policy) page on the Wire Hub website. You can access this from the **Contract** link in the sidebar.
 
 <BrowserWindow url="https://pre.wire.network/network/request-policy">
       <img src="/img/pre-hub-request-developer-policy.png" alt="pre-hub-request-developer-policy" />

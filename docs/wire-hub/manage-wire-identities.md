@@ -15,7 +15,7 @@ import BrowserWindow from '@site/src/components/BrowserWindow';
 
 ### Step 1: Access Wire Identity Section
 
-In the sidebar, locate the **Wire Identity** section. You will see your currently active Wire account displayed with an `active` permission.
+Open the Connection sidebar by clicking on your address in the top right of the website, then locate the **Wire Identity** section. You will see your currently active Wire account displayed with an `active` permission.
 
 <BrowserWindow url="https://pre.wire.network/">
       <img src="/img/pre-hub-change-wire-identity.png" alt="pre-hub-change-wire-identity" />
