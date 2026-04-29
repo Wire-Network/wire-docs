@@ -26,7 +26,7 @@ In the InstaSwap interface:
 - Enter the amount of LiqETH you want to swap (e.g., "1")
 - The interface will automatically calculate the equivalent LiqSOL amount (e.g., "25.694 LiqSOL")
 - Review the exchange rate and balances displayed
-- Ensure your Solana account is connected
+- Ensure that the displayed Solana recipient address matches your currently connected Solana wallet
 - Click the **Swap to LiqSOL** button
 
 ### Step 3: Approve Spending Cap

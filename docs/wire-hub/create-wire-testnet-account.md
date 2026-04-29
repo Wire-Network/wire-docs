@@ -20,29 +20,33 @@ Begin by navigating to the [Wire Hub](https://pre.wire.network) website with you
 
 ### Step 2: Request a Wire Username
 
-In the sidebar under **Wire Identity**, you'll see *NO WIRE IDENTITY SELECTED* with a message to *Connect your wallet to sync with a Wire account*. Click the blue **REQUEST A WIRE USERNAME** button.
+Clicking your address in the top right of the website will open up the Connection sidebar, where under **Wire Identity** you'll see *NO WIRE IDENTITY SELECTED* with a message to *Connect your wallet to sync with a Wire account*. Click the blue **REQUEST A WIRE USERNAME** button.
+
+This takes you to the Faucet page, where you can request a Wire username from your connected wallet.
 
 <BrowserWindow url="https://pre.wire.network/">
       <img src="/img/pre-hub-create-wire-username.png" alt="pre-hub-create-wire-username" />
 
  </BrowserWindow>
 
-### Step 3: Verify Account Creation
+### Step 3: Request a Wire Username on the Faucet Page
+
+On the Faucet page, click the **Request Wire Username** button to create a new Wire account from your connected wallet.
+
+<BrowserWindow url="https://pre.wire.network/network/faucet">
+      <img src="/img/pre-hub-faucet-request-wire-username.png" alt="pre-hub-faucet" />
+
+ </BrowserWindow>
+
+:::note
+You can create additional Wire accounts via this Faucet page, each of which is directly linked to your connected ETH address.
+:::
+
+### Step 4: Verify Account Creation
 
 If account creation has been successful, you will see a notification at the bottom of the page showing a green pop-up *Wire identity account* followed by your new Wire username (e.g., "xk6j4pka6c").
 
 <BrowserWindow url="https://pre.wire.network/">
       <img src="/img/pre-hub-post-create-wire-username.png" alt="pre-hub-account-created-success" />
-
- </BrowserWindow>
-
-### Alternative: Request Wire Account via Faucet
-
-You can also create additional Wire accounts by accessing the [Faucet page](https://pre.wire.network/network/faucet) from the sidebar.
-
-On the Faucet page, click the **Request Wire Username** button to create a new Wire account from your connected wallet. You can also use the Faucet to request tokens (WIRE, ETH, LiqETH, SOL, LiqSOL).
-
-<BrowserWindow url="https://pre.wire.network/network/faucet">
-      <img src="/img/pre-hub-faucet-request-wire-username.png" alt="pre-hub-faucet" />
 
  </BrowserWindow>

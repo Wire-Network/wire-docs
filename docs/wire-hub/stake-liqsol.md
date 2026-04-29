@@ -79,12 +79,16 @@ Once the staking is complete, the progress panel will show all steps as confirme
 
 ## Important Notes
 
-:::warning Test Environment
-Staking on Wire Testnet uses test tokens with no real value. This feature is for development and testing purposes only.
+:::note ETH staking and native tokens
+The staking flow is similar for **ETH**. On the Staking page, you can also stake **native ETH** and **native SOL** directly by selecting those options instead of the Liq token.
 :::
 
 :::info Wire Username Required
 You must provide a valid Wire username to receive staked tokens. Make sure you've created a Wire account before staking.
+:::
+
+:::warning Test Environment
+Staking on Wire Testnet uses test tokens with no real value. This feature is for development and testing purposes only.
 :::
 
 :::caution Transaction Warnings

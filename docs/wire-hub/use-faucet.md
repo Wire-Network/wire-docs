@@ -24,8 +24,8 @@ The faucet provides the following options:
 - **Airdrop WIRE**: Request 10 WIRE tokens for your Wire account
 - **Airdrop ETH**: Request 0.1 ETH tokens (requires Ethereum wallet connection)
 - **Airdrop LiqETH**: Mint 0.1 LiqETH on Ethereum (requires transaction confirmation)
-- **Airdrop SOL**: Request SOL tokens (requires Solana wallet connection)
-- **Airdrop LiqSOL**: Mint LiqSOL on Solana (requires Solana wallet connection)
+- **Airdrop SOL**: Request 1 SOL token (requires Solana wallet connection)
+- **Airdrop LiqSOL**: Mint 1 LiqSOL on Solana (requires Solana wallet connection)
 
 ## Request WIRE Tokens
 
@@ -35,7 +35,7 @@ Navigate to the [Faucet page](https://pre.wire.network/network/faucet) from the 
 
 ### Step 2: Enter Your Wire Username
 
-In the **Airdrop WIRE** section, enter your Wire username in the text field.
+In the **Airdrop WIRE** section, enter your Wire username in the text field (this will automatically populate with your current WIRE username).
 
 ### Step 3: Request WIRE
 
