@@ -277,4 +277,4 @@ clio push action sysio.roa addpolicy '{"owner": company, "issuer": nodeownera, "
 clio set contract company  company -p  company@active
 ```
 
-The smart contract should now be live on your local blockchain. You can inspect through [Block Explorer](https://hub.wire.network).
+The smart contract should now be live on your local blockchain. You can inspect through [Block Explorer](https://pre.wire.network).

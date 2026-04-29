@@ -1,48 +1,89 @@
 # Deploy Hello World Contract on Wire Testnet
 
+## Overview
 
-## Overview 
-
-This tutorial demonstrates how to deploy a simple `hello-world` smart contract on the Wire Testnet. We’ll create a new contract account, build and deploy the contract, and then invoke its action both from the Wire Hub and via the command line using `clio`.
+This tutorial demonstrates how to deploy a simple `hello-world` smart contract on the Wire Testnet. We'll create a new contract account, build and deploy the contract, and then invoke its action both from the Wire Hub and via the command line using `clio`.
 
 ## Prerequisites
 
 - Before proceeding forward, ensure that **you have completed Getting Started section** and that you have followed [Getting Started Documentation Diagram](/docs/getting-started/getting-started-intro.md).
 - This page assumes you are familiar with [Smart Contract Basics](/docs/smart-contract-development/smart-contract-basics).
+- A MetaMask wallet with the [MetaMask Chrome Extension](https://chromewebstore.google.com/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en) installed.
 
 :::warning[REMINDER]
 The install process has already set up the wallet for the *root* user. To interact with clio, ensure **you are on the root user**. Run `sudo su -` to switch to the root user. All `clio` commands in this tutorial are prefixed with `sudo`.
 :::
 
-import IFrameWindow from '@site/src/components/IFrameWindow';
+import BrowserWindow from '@site/src/components/BrowserWindow';
 
-<IFrameWindow url="https://www.youtube.com/embed/Vf__2VglC5U"></IFrameWindow>
 ---
 
-## Steps 
+## Steps
+
 ### 1. Connect to the Wire Hub & Create Your Wire Testnet Account
 
-- **Open [Wire Hub](https://hub.wire.network)** in your browser.  
-- **Connect your wallet** (e.g., MetaMask).  
-   - Once connected, the Hub should display your account’s public address.  
-- **Create your on-chain account** in the [Wire Testnet Explorer](https://hub.wire.network/explore):  
-   - You’ll be prompted to **sign a message** in MetaMask to retrieve your public key.  
-   - After signing, the system creates a new user account associated with that public key.
+#### 1.1. Connect Your Wallet
 
+Navigate to [Wire Hub](https://pre.wire.network) and click the blue **Connect** button in the top right corner.
+
+<BrowserWindow url="https://pre.wire.network/">
+      <img src="/img/pre-hub.png" alt="pre-hub page" />
+</BrowserWindow>
+
+Select **MetaMask** from the wallet options and follow the prompts to:
+- Add the ETH Wire Devnet network to MetaMask
+- Unlock your MetaMask wallet if needed
+- Confirm the signature request
+
+<BrowserWindow url="https://pre.wire.network/">
+      <img src="/img/pre-hub-wallet-connected.png" alt="pre-hub-wallet-connected" />
+</BrowserWindow>
+
+For detailed instructions, see [Connect a Wallet](/docs/wire-hub/connect-a-wallet).
+
+#### 1.2. Create Your Wire Account
+
+In the sidebar under **Wire Identity**, click the blue **REQUEST A WIRE USERNAME** button.
+
+<BrowserWindow url="https://pre.wire.network/">
+      <img src="/img/pre-hub-create-wire-username.png" alt="pre-hub-create-wire-username" />
+</BrowserWindow>
+
+Once the request is processed, you'll see a notification showing your new Wire username (e.g., "xk6j4pka6c").
+
+<BrowserWindow url="https://pre.wire.network/">
+      <img src="/img/pre-hub-post-create-wire-username.png" alt="pre-hub-account-created" />
+</BrowserWindow>
+
+For detailed instructions, see [Create a Wire Testnet Account](/docs/wire-hub/create-wire-testnet-account).
 
 ---
 
 ### 2. Request a Developer Contract Policy
 
-- **Open the [Node Owner Dashboard](https://hub.wire.network/explore/node-owner)**.  
-- **Request `Developer Contract Policy`** for a new contract account:  
-   - Randomly generated usernames and keys are displayed. You can shuffle them if you want.  
-   - **Save these credentials** in a secure place — this account will be the contract account you will deploy your contract to.
+Navigate to the [Request Policy](https://pre.wire.network/network/request-policy) page from the **Contract** section in the sidebar.
 
-- Confirm the new contract policy was created. In the [Wire Hub](https://hub.wire.network) or [Explorer](https://hub.wire.network/explore), you should see:
-   - **Account Type**: `Contract Account`
-   - **Public Keys**: Matching the public key you just saved.
+<BrowserWindow url="https://pre.wire.network/network/request-policy">
+      <img src="/img/pre-hub-request-developer-policy.png" alt="pre-hub-request-developer-policy" />
+</BrowserWindow>
 
+You'll see:
+- **Contract Account Username**: A unique username for your contract (e.g., "contractzxne")
+- **Contract Account Key Pair**: Private and public keys for your contract
+
+**IMPORTANT**: Click **Copy Username** and **Copy Keys** to save these credentials securely. You'll need them to deploy your smart contract.
+
+<BrowserWindow url="https://pre.wire.network/network/request-policy">
+      <img src="/img/pre-hub-policy-copy-keys.png" alt="pre-hub-policy-copy-keys" />
+</BrowserWindow>
+
+Check the box *"I have saved the username and key pair to a safe place"* and click **Request New Contract Policy**.
+
+<BrowserWindow url="https://pre.wire.network/network/request-policy">
+      <img src="/img/pre-hub-policy-success.png" alt="pre-hub-policy-success" />
+</BrowserWindow>
+
+For detailed instructions, see [Request a Developer Contract Policy](/docs/wire-hub/request-a-policy).
 
 ---
 
@@ -54,25 +95,23 @@ Clone the existing GitHub repository containing the `hello-world` contract to yo
 git clone https://github.com/Wire-Network/guides.git && cd guides/hello-world-contract
 ```
 
-### 4. Import the private key (from your contract account)
+### 4. Import the Contract Account Private Key
 
-Ensure your wallet is unlocked: 
-
-```sh 
-sudo clio wallet unlock --name=default --password "$(cat /path/to/wallet-password.txt)"
-```
-
-Then, import the key pair generated in [Step 2](#2-request-a-developer-contract-policy):
+Ensure your wallet is unlocked:
 
 ```sh
-sudo clio wallet import --private-key <YOUR_PRIVATE_KEY>
+sudo clio wallet unlock --name=default --password "$(cat /opt/wire-network/secrets/wallet_password.txt)"
 ```
 
+Then, import the private key from the contract account you created in [Step 2](#2-request-a-developer-contract-policy):
 
+```sh
+sudo clio wallet import --private-key `YOUR_CONTRACT_PRIVATE_KEY`
+```
 
 ### 5. Compile the Contract
 
-Compile it using the `./build.sh`. This script uses the Wire Contract Development Toolkit (CDT) the `hello-world` contract into WebAssembly (WASM) format. The script will create a compilation folder `hello/` with the WASM and ABI files.
+Compile the contract using the build script:
 
 ```bash
 ./build.sh
@@ -80,11 +119,9 @@ Compile it using the `./build.sh`. This script uses the Wire Contract Developmen
 
 Upon successful compilation, you will see a `hello/` folder with `hello.abi` and `hello.wasm` files.
 
-<!-- ![compiled-dir](/img/compiled-dir.png) -->
-
 ```sh title="hello-world-contract/"
 |   ....
-├── hello           
+├── hello
 │   ├── hello.abi
 │   └── hello.wasm
 |   ...
@@ -94,97 +131,71 @@ Upon successful compilation, you will see a `hello/` folder with `hello.abi` and
 
 #### Edit the Deploy Script
 
-- Open the deploy script (e.g., `deploy.sh`).
-- Add -u parameter with the RPC of the testnet - `https://testnet-00.wire.foundation`
-- Set the authority/permissions parameter (`-p`) to the contract account’s own username. The contracts deploys using its own authority (`-p <contractUsername>@active`).
-- Set the parameter after `contract` subcommand to match the contract account's username as well.
-
-:::info
-Don't forget adding the `-u` to the deploy script. The video was recorded on a server already connected to the testnet locally, hence it was unintentionally omitted.
-:::
+Open the deploy script (`deploy.sh`) and update it to use the Wire Testnet RPC endpoint:
 
 ```sh title="deploy.sh"
-sudo clio -u https://testnet-00.wire.foundation set contract contractAccount ./hello -p contractAccount@active
+sudo clio -u https://testnet-api-use1.dev.wire-dev.com set contract `CONTRACT_USERNAME` ./hello -p `CONTRACT_USERNAME`@active
 ```
+
+Replace ``CONTRACT_USERNAME`` with your contract account username from Step 2.
 
 See more information about `clio set contract` [here](/docs/api-reference/tooling/clio/command-reference/set/set-contract).
 
-Run the deploy script:
+#### Run the Deploy Script
 
 ```sh
 ./deploy.sh
 ```
-If successful, you’ll see a transaction receipt indicating “executed success”.
 
-- In the [Wire Hub](https://hub.wire.network) or [Explorer](https://hub.wire.network/explore), navigate to the *Accounts* -> *Contract Accounts* list. You should see your new contract.
-- You can then inspect tables and actions under the *Contract* tab on the contract’s account page.
+If successful, you'll see a transaction receipt indicating "executed transaction: `TRANSACTION_ID`".
 
-#### Testing the `hi()` Action from the Wire Hub
+You can view your deployed contract in the [Wire Hub](https://pre.wire.network) by navigating to **Accounts** in the explorer.
 
-The Hello World contract includes a single action called `hi()`, which logs a greeting in the console.
+### 7. Test the Contract
 
-- In the [Wire Hub](https://hub.wire.network), open the *Contract* Tab for your contract’s account.
-- You’ll see *Actions* listed (in this case, just `hi`) and parameters field.
-- To invoke the action, enter a username(e.g. `bob`) and click Submit.
-- The Hub displays a receipt upon success, and you can view the console log output:
+#### 7.1. Test via Command Line
 
-```txt
-Hello, bob
+Push an action to invoke the `hi` action with the contract's authority:
+
+```sh
+sudo clio -u https://testnet-api-use1.dev.wire-dev.com push action `CONTRACT_USERNAME` hi '["bob"]' -p `CONTRACT_USERNAME`@active
 ```
 
-- Copy the transaction ID to search the transaction and view the Transaction Detail page.
+Output:
 
+```sh
+executed transaction: `TRANSACTION_ID`
+>> Hello, bob
+```
 
-#### Testing the `hi` Action with `clio`
+#### 7.2. Verify in Wire Hub
 
-- Push an action with your personal Authority (Fails)
-
-   Let's attempt to push an action with your personal authority (Fails)
-
-   ```sh
-   sudo clio -u https://testnet-00.wire.foundation push action <contractAccount> hi '["bob"]' -p <yourWireUsername>@active
-   ```
-
-   It will fail because you haven’t imported your personal account’s private key into your local clio wallet.
-
-   ```sh 
-   Error 3090003: Provided keys, permissions, and delays do not satisfy declared authorizations
-   Ensure that you have the related private keys inside your wallet and your wallet is unlocked.
-   Error Details:
-   transaction declares authority '{"actor":"yourWireUsername","permission":"active"}', but does not have signatures for it.
-   ```
-
-- Push the Action with the Contract’s Authority (Succeeds)
-
-   Run the command again, but use the contract policy account authority:
-
-   ```sh
-   sudo clio -u https://testnet-00.wire.foundation push action <contractAccount> hi '["bob"]' -p <contractAccount>@active
-   ```
-
-   Output:
-
-   ```sh
-   executed transaction: success
-   Hello, bob
-   ```
-
+Navigate to your contract's account page in [Wire Hub](https://pre.wire.network) to:
+- View the transaction in the transaction history
+- Inspect the contract's actions and tables
+- See the console output from the action
 
 ---
 
-🎉 Congratulations! You’ve successfully:
- - Created a Wire Testnet account
- - Requested a Developer Contract Policy
- - Built and Deployed a `hello-world` contract
- - Tested the contract actions via the Wire Hub and from the command line (clio)
+## Summary
+
+🎉 Congratulations! You've successfully:
+- Connected your wallet to Wire Hub
+- Created a Wire Testnet account
+- Requested a Developer Contract Policy for a contract account
+- Built and deployed a `hello-world` contract to the Wire Testnet
+- Tested the contract action via the command line
+
+## Next Steps
+
+- Explore [Smart Contract Development](/docs/smart-contract-development/smart-contract-development-intro) to learn more about building contracts
+- Try the [Company Contract Tutorial](/docs/smart-contract-development/company-contract) for a more complex example
+- Learn about [Accounts & Permissions](/docs/smart-contract-development/accounts-permissions)
 
 ## References
 
-
-[hello-world Tutorial](/docs/smart-contract-development/hello-world-contract-short)
-
-[Wire Testnet - Connect a Wallet](/docs/wire-hub/connect-a-wallet)
-
-[Wire Testnet - Create an account](/docs/wire-hub/create-wire-testnet-account)
-
-[Wire Testnet - Request Developer Contract Policy](/docs/wire-hub/request-a-policy)
+- [Hello World Tutorial](/docs/smart-contract-development/hello-world-contract-short)
+- [Wire Testnet - Connect a Wallet](/docs/wire-hub/connect-a-wallet)
+- [Wire Testnet - Create an Account](/docs/wire-hub/create-wire-testnet-account)
+- [Wire Testnet - Request Developer Contract Policy](/docs/wire-hub/request-a-policy)
+- [Network Information](/docs/introduction/network-information)

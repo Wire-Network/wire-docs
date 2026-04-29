@@ -1,0 +1,248 @@
+# Deploy Tip Jar Contract on Wire Testnet
+
+## Overview
+
+This tutorial demonstrates how to deploy a Tip Jar smart contract on the Wire Testnet. The Tip Jar contract allows users to send tips to content creators using any `sysio.token` token (WIRE, LIQETH, etc.), and creators can claim their accumulated tips. This example shows how to handle token transfers, store state across multiple token types, and use inline actions.
+
+## What You'll Learn
+
+- How to accept `sysio.token` transfers in your contract
+- How to store balances per user and per token symbol
+- How to send inline transfers from your contract
+- How to set code permissions for contracts that need to sign transfers
+
+## Prerequisites
+
+- Before proceeding forward, ensure that **you have completed Getting Started section** and that you have followed [Getting Started Documentation Diagram](/docs/getting-started/getting-started-intro.md).
+- This page assumes you are familiar with [Smart Contract Basics](/docs/smart-contract-development/smart-contract-basics).
+- A MetaMask wallet with the [MetaMask Chrome Extension](https://chromewebstore.google.com/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en) installed.
+
+:::warning[REMINDER]
+The install process has already set up the wallet for the *root* user. To interact with clio, ensure **you are on the root user**. Run `sudo su -` to switch to the root user. All `clio` commands in this tutorial are prefixed with `sudo`.
+:::
+
+import BrowserWindow from '@site/src/components/BrowserWindow';
+
+---
+
+## Steps
+
+### 1. Connect to the Wire Hub & Create Your Wire Testnet Account
+
+Follow the same setup process as the Hello World tutorial:
+
+- Connect your wallet to [Wire Hub](https://pre.wire.network) - see [Connect a Wallet](/docs/wire-hub/connect-a-wallet)
+- Create a Wire testnet account - see [Create a Wire Testnet Account](/docs/wire-hub/create-wire-testnet-account)
+
+### 2. Request a Developer Contract Policy
+
+Navigate to [Request Policy](https://pre.wire.network/network/request-policy) and request a developer contract policy. Save the contract account username and keys securely.
+
+For detailed instructions, see [Request a Developer Contract Policy](/docs/wire-hub/request-a-policy).
+
+---
+
+### 3. Clone the Tip Jar Contract Repository
+
+Clone the guides repository containing the Tip Jar contract:
+
+```bash
+git clone https://github.com/Wire-Network/guides.git && cd guides/tip-jar-contract
+```
+
+### 4. Import the Contract Account Private Key
+
+Ensure your wallet is unlocked:
+
+```sh
+sudo clio wallet unlock --name=default --password "$(cat /opt/wire-network/secrets/wallet_password.txt)"
+```
+
+Then, import the private key from the contract account you created in Step 2:
+
+```sh
+sudo clio wallet import --private-key `YOUR_CONTRACT_PRIVATE_KEY`
+```
+
+### 5. Compile the Contract
+
+The Tip Jar contract has two main components:
+
+**Header (`include/tipjar.hpp`)**:
+- `claimtips` action: Allows creators to claim their accumulated tips
+- `on_transfer` notification: Handles incoming `sysio.token` transfers
+- `tips` table: Stores balances scoped by creator and token symbol
+
+**Implementation (`src/tipjar.cpp`)**:
+- Parses memo format: `"tip: creator"`
+- Validates creator account exists
+- Accumulates tips per creator per token
+- Sends inline transfers when claiming
+
+Compile the contract using the build script:
+
+```bash
+./build.sh
+```
+
+Upon successful compilation, you will see a `tipjar/` folder with `tipjar.abi` and `tipjar.wasm` files.
+
+```sh title="tip-jar-contract/"
+|   ....
+├── tipjar
+│   ├── tipjar.abi
+│   └── tipjar.wasm
+|   ...
+```
+
+### 6. Deploy the Contract
+
+#### Edit the Deploy Script
+
+Open the deploy script (`deploy.sh`) and update it to use the Wire Testnet RPC endpoint:
+
+```sh title="deploy.sh"
+sudo clio -u https://testnet-api-use1.dev.wire-dev.com set contract `CONTRACT_USERNAME` ./tipjar -p `CONTRACT_USERNAME`@active
+```
+
+Replace `CONTRACT_USERNAME` with your contract account username from Step 2.
+
+#### Run the Deploy Script
+
+```sh
+./deploy.sh
+```
+
+If successful, you'll see a transaction receipt indicating "executed transaction: `TRANSACTION_ID`".
+
+### 7. Set Code Permission
+
+The Tip Jar contract needs permission to sign `sysio.token::transfer` actions from its own balance. Add `sysio.code` to the contract account's active permission:
+
+```sh
+sudo clio -u https://testnet-api-use1.dev.wire-dev.com set account permission `CONTRACT_USERNAME` active --add-code -p `CONTRACT_USERNAME`@active
+```
+
+This allows the contract to authorize inline transfers in the `claimtips` action.
+
+---
+
+## Testing the Tip Jar Contract
+
+### Send a Tip
+
+Transfer tokens to the contract with a memo specifying the creator:
+
+```sh
+sudo clio -u https://testnet-api-use1.dev.wire-dev.com transfer `YOUR_WIRE_ACCOUNT` `CONTRACT_USERNAME` "1.0000 WIRE" "tip: creator123" -p `YOUR_WIRE_ACCOUNT`@active
+```
+
+The memo format is: `"tip: creator"`
+
+- The text after `tip:` must be an existing Wire account
+- Bad memo formats or nonexistent accounts will reject the transfer
+- This prevents funds from becoming unclaimable
+
+### Check Accumulated Tips
+
+Query the tips table for a specific creator:
+
+```sh
+sudo clio -u https://testnet-api-use1.dev.wire-dev.com get table `CONTRACT_USERNAME` creator123 tips
+```
+
+Example output:
+
+```json
+{
+  "rows": [
+    {
+      "balance": "1.0000 WIRE"
+    }
+  ],
+  "more": false
+}
+```
+
+Tips are stored as one row per creator per token symbol. For example, `creator123` can have separate rows for `1.0000 WIRE` and `2.0000 LIQETH`.
+
+### Claim Tips
+
+The creator claims all their accumulated tips:
+
+```sh
+sudo clio -u https://testnet-api-use1.dev.wire-dev.com push action `CONTRACT_USERNAME` claimtips '["creator123"]' -p creator123@active
+```
+
+The `claimtips` action:
+1. Reads all tip rows for the creator
+2. Sends inline `sysio.token::transfer` actions for each balance
+3. Erases the tip rows after successful transfer
+4. The contract signs the transfers with its active permission
+
+### Verify in Wire Hub
+
+Navigate to [Wire Hub](https://pre.wire.network) to:
+- View the contract account and its transactions
+- See the tip transfers in the transaction history
+- Check token balances in the Wire Portfolio
+
+---
+
+## How It Works
+
+### Receiving Tips (on_transfer)
+
+When someone transfers tokens to the contract:
+
+1. The `on_transfer` notification handler is triggered
+2. Contract validates the memo format: `"tip: creator"`
+3. Contract checks that the creator account exists
+4. Contract stores or accumulates the balance in the tips table
+   - Table is scoped by creator (each creator has their own scope)
+   - Primary key is the token symbol code
+   - Multiple token types can coexist for one creator
+
+### Claiming Tips (claimtips)
+
+When a creator claims their tips:
+
+1. Creator signs the `claimtips` action with their account
+2. Contract iterates through all tip rows in the creator's scope
+3. For each row, contract:
+   - Reads the balance
+   - Erases the row (before sending to ensure atomicity)
+   - Sends an inline `sysio.token::transfer` action
+4. If any transfer fails, the entire transaction rolls back
+
+### Code Permission
+
+The `sysio.code` permission allows the contract to:
+- Sign inline actions with its own authority
+- Transfer tokens from its own balance
+- Without this permission, the `claimtips` action would fail
+
+---
+
+## Summary
+
+🎉 Congratulations! You've successfully:
+- Deployed a Tip Jar contract to the Wire Testnet
+- Set up code permissions for inline transfers
+- Sent tips to creators using token transfers
+- Claimed accumulated tips using the contract action
+- Learned how to handle multi-token state storage
+
+## Next Steps
+
+- Modify the contract to add tip limits or fees
+- Create a frontend for the Tip Jar using [Interacting with Contracts](/docs/smart-contract-development/interacting-with-contracts/smart-contracts-clio)
+- Explore other token handling patterns
+- Learn about [Accounts & Permissions](/docs/smart-contract-development/accounts-permissions)
+
+## References
+
+- [Tip Jar Source Code](https://github.com/Wire-Network/guides/tree/main/tip-jar-contract)
+- [Smart Contract Development](/docs/smart-contract-development/smart-contract-development-intro)
+- [Wire Testnet - Request Developer Contract Policy](/docs/wire-hub/request-a-policy)
+- [Network Information](/docs/introduction/network-information)

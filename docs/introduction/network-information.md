@@ -14,10 +14,24 @@ description: Wire Network endpoints and connection information
 
 ## Wire Testnet
 
-| **Name**         | **Value**                         |
-|------------------|-----------------------------------|
-| Network Name     | Wire Testnet                     |
-| RPC URL          | [https://testnet-00.wire.foundation/](https://testnet-00.wire.foundation/) |
-| Hyperion         | [https://testnet-hyperion.wire.foundation/](https://testnet-hyperion.wire.foundation/) |
-| Hyperion Swagger UI Index | [https://testnet-hyperion.wire.foundation/v2/docs/static/index.html](https://testnet-hyperion.wire.foundation/v2/docs/static/index.html)
-| Explorer         | [https://hub.wire.network/](https://hub.wire.network) |
+### Chain API Endpoints
+
+| **Region**       | **Endpoint**                         |
+|------------------|--------------------------------------|
+| US East 1        | https://testnet-api-use1.dev.wire-dev.com/v1/chain/get_info |
+| EU West 1        | https://testnet-api-euw1.dev.wire-dev.com/v1/chain/get_info |
+
+### State History (SHiP) Endpoints
+
+| **Region**       | **Endpoint**                         |
+|------------------|--------------------------------------|
+| US East 1        | ws://testnet-ship-use1.dev.wire-dev.com:8080 |
+| EU West 1        | ws://testnet-ship-euw1.dev.wire-dev.com:8080 |
+
+### Hyperion
+
+| **Service**      | **Endpoint**                         |
+|------------------|--------------------------------------|
+| Hyperion API     | https://hyperion-wire-testnet.dev.wire-dev.com |
+| Hyperion Docs    | https://hyperion-wire-testnet.dev.wire-dev.com/v2/docs/static/index.html |
+| Hyperion Stream  | wss://hyperion-wire-testnet.dev.wire-dev.com/stream/?EIO=4&transport=websocket |

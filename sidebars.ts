@@ -40,7 +40,6 @@ const sidebars: SidebarsConfig = {
           ],
         },
         "introduction/glossary",
-        // "introduction/network-information",
       ],
     },
 
@@ -102,21 +101,49 @@ const sidebars: SidebarsConfig = {
         },
       ],
     },
-    // {
-    //   type: "category",
-    //   link: {
-    //     type: "generated-index",
-    //   },
-    //   collapsed: false,
-    //   label: "Wire Hub",
-    //   items: [
-    //     "wire-hub/connect-to-a-rpc",
-    //     "wire-hub/inspect-transaction",
-    //     "wire-hub/connect-a-wallet",
-    //     "wire-hub/create-wire-testnet-account",
-    //     "wire-hub/request-a-policy",
-    //   ],
-    // },
+    {
+      type: "category",
+      link: {
+        type: "generated-index",
+      },
+      collapsed: false,
+      label: "Wire Testnet",
+      items: [
+        "introduction/network-information",
+        "guides/hello-world-video-testnet",
+        "guides/tip-jar-contract-testnet",
+        {
+          type: "category",
+          link: {
+            type: "generated-index",
+          },
+          collapsed: false,
+          label: "Wire Hub",
+          items: [
+            "wire-hub/connect-a-wallet",
+            {
+              type: "doc",
+              id: "wire-hub/create-wire-testnet-account",
+              label: "Create an Account (Testnet Only)",
+            },
+            "wire-hub/manage-wire-identities",
+            "wire-hub/view-account-details",
+            {
+              type: "doc",
+              id: "wire-hub/request-a-policy",
+              label: "Request a Developer Contract Policy (Testnet Only)",
+            },
+            "wire-hub/use-faucet",
+            "wire-hub/instaswap-liqeth",
+            "wire-hub/instaswap-liqsol",
+            "wire-hub/stake-liqsol",
+            "wire-hub/view-transaction-trace",
+            // "wire-hub/connect-to-a-rpc",
+            // "wire-hub/inspect-transaction",
+          ],
+        },
+      ],
+    },
   ],
 
   apiReferenceSidebar: [
