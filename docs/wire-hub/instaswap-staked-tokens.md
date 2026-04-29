@@ -21,9 +21,8 @@ import BrowserWindow from '@site/src/components/BrowserWindow';
 Navigate to the [InstaSwap page](https://pre.wire.network/network/instaswap) from the sidebar.
 
 <BrowserWindow url="https://pre.wire.network/network/instaswap">
-      <img src="/img/pre-hub-instaswap-liqsol-start.png" alt="pre-hub-instaswap-start" />
-
- </BrowserWindow>
+      <img src="/img/pre-hub-instaswap-stakedliqeth-wire.png" alt="pre-hub-instaswap-stakedliqeth-wire" />
+</BrowserWindow>
 
 ### Step 2: Select the Staked Tokens Swap
 
