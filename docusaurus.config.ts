@@ -172,14 +172,6 @@ const config: Config = {
     ] satisfies Redocusaurus.PresetEntry,
   ],
   themeConfig: {
-    announcementBar: {
-      id: "docs_update_in_progress",
-      content:
-        "⚠️ This documentation is currently being updated and <strong>may contain outdated information</strong>. Please check back soon for the latest content.",
-      backgroundColor: "#fff3cd",
-      textColor: "#664d03",
-      isCloseable: true,
-    },
     tableOfContents: {
       minHeadingLevel: 2,
       maxHeadingLevel: 6,
