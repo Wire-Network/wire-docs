@@ -57,7 +57,7 @@ executed transaction: 6761530f000a2a98bdb002f41c1905e5e3e234031ee54077bcfb47c57b
 >> Employee added: jack
 ```
 
-You could use block explorer to inspect the table and the transactions.
+You could use a block explorer to inspect the table and the transactions.
 
 ![be-table-check](/img/be-table-check.png)
 

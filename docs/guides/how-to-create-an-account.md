@@ -16,7 +16,7 @@ In a Wire Blockchain, creating a new account is a privilege reserved for existin
 * Install the currently supported version of `clio`
 
 :::info
-| The `clio` tool is bundled with the Wire software. [Installing Wire Core](/docs/getting-started/install-dependencies.md) will also install the clio tool.
+The `clio` tool is bundled with the Wire software. [Installing Wire Core](/docs/getting-started/install-dependencies.md) will also install the clio tool.
 :::
 
 * [Accounts and Permissions](/docs/smart-contract-development/accounts-permissions.md).
@@ -48,11 +48,11 @@ clio create account [creator account name] [new account name] [OwnerKey] [Active
 | `ActiveKey` | The public key for the active permission (optional but recommended) |
 
 :::tip[Recommend]
-| `ActiveKey` is optional but recommended. If omitted, the `OwnerKey` will be used for both permissions.
+`ActiveKey` is optional but recommended. If omitted, the `OwnerKey` will be used for both permissions.
 :::
 
 :::info[Note]
-| To create a new account in the Wire blockchain, an existing account, also referred to as a creator account, is required to authorize the creation of a new account. For a newly created Wire blockchain, the default system account used to create a new account is `sysio`.
+To create a new account in the Wire blockchain, an existing account, also referred to as a creator account, is required to authorize the creation of a new account. For a newly created Wire blockchain, the default system account used to create a new account is `sysio`.
 :::
 
 ### Example

@@ -23,13 +23,13 @@ The install process has already set up the wallet for the *root* user. To intera
 
 ## Overview
 
-This article gives a brief summary of the concept of account and provides instructions on how to create a new account.
+This article gives a brief summary of the concept of an account and provides instructions on how to create a new account.
 
 ## Account
 
 An **account** on the blockchain is the identity of a participant on the blockchain — whether a single user, a group, or a smart-contract actor — and it carries the authorizations that control what that participant can do. This flexible permission framework lets ownership be assigned to one key, multiple keys, or even other accounts. Because every action or transaction must be signed by an account, a valid account is required to send, receive, or invoke smart-contract actions with other accounts on-chain.
 
-In this practical tutorial series, we utilize two user accounts, `bob` and `alice`, along with the default `sysio` account for configuration purposes. Additional accounts are also created for various contracts in the future articles.
+In this practical tutorial series, we utilize two user accounts, `bob` and `alice`, along with the default `sysio` account for configuration purposes. Additional accounts are also created for various contracts in future articles.
 
 ## Creating an account
 
@@ -51,7 +51,7 @@ Here is the output of the first command, confirming that the transaction has bee
 
 ![creating-account](/img/clio-create-account.png)
 
-If you encounter errors ensure you are correctly loading environment variables and that your wallet is unlocked.
+If you encounter errors, ensure you are correctly loading environment variables and that your wallet is unlocked.
 
 - inspect value of `$PUBLIC_KEY` by `echo $PUBLIC_KEY`
 
@@ -82,9 +82,9 @@ For a clear understanding of how Wire accounts and their associated public keys 
 
 ## Troubleshooting
 
-### `[clio: Failed to connect to nodeop at ](http://127.0.0.1:8888/); is nodeop running?`
+### `clio: Failed to connect to nodeop at http://127.0.0.1:8888/; is nodeop running?`
 
-Doublecheck if `nodeop` is running; and use `/opt/wire-network/blockproducer/stop.sh` and `/opt/wire-network/blockproducer/start.sh` to restart the node.
+Double-check if `nodeop` is running; and use `/opt/wire-network/blockproducer/stop.sh` and `/opt/wire-network/blockproducer/start.sh` to restart the node.
 
 ```bash
 pidof nodeop

@@ -13,5 +13,5 @@ Plugins extend the core functionality implemented in `kiod`. For information on 
 * [`wallet_plugin`](wallet-plugin.md)
 
 :::info
-| Plugins add incremental functionality to `kiod`. Unlike runtime plugins, `kiod` plugins are built at compile-time.
+Plugins add incremental functionality to `kiod`. Unlike runtime plugins, `kiod` plugins are built at compile-time.
 :::

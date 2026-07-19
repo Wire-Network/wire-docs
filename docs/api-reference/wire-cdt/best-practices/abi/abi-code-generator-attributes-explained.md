@@ -64,7 +64,7 @@ class [[sysio::contract("ANY_NAME_YOU_LIKE")]] test_contract : public sysio::con
 };
 ```
 
-The code above will mark this `class` as being a Wire contract, this allows for namespacing of contracts, i.e. you can include headers like `sysio::token` and not have `sysio::token`'s actions/tables wind up in you ABI or generated dispatcher.
+The code above will mark this `class` as being a Wire contract, this allows for namespacing of contracts, i.e. you can include headers like `sysio::token` and not have `sysio::token`'s actions/tables wind up in your ABI or generated dispatcher.
 
 ## [[sysio::on_notify("VALID_SYSIO_ACCOUNT_NAME::VALID_SYSIO_ACTION_NAME")]]
 

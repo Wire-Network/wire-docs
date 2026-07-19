@@ -7,13 +7,13 @@ tags:
 
 ## Overview
 
-This tutorial provides instructions to how to hand-write an ABI file. This should normally not be necessary since `cdt-cpp` can automatically generate an ABI file from your source code if it is properly annotated.
+This tutorial provides instructions on how to hand-write an ABI file. This should normally not be necessary since `cdt-cpp` can automatically generate an ABI file from your source code if it is properly annotated.
 
 ## Introduction
 
 The Application Binary Interface (ABI) is a JSON-based description to convert user actions between their JSON and Binary representations. The ABI also describes how to convert the database state to/from JSON. Once you have described your contract via an ABI then developers and users will be able to interact with your contract seamlessly via JSON.
 
-This tutorial will use the [sysio.token](https://github.com/Wire-Network/wire-system-contracts/tree/master/contracts/sysio.token) contract as an example. *sysio.token contract does not cover every possible permutation of an ABI definition.  
+This tutorial will use the [sysio.token](https://github.com/Wire-Network/wire-system-contracts/tree/master/contracts/sysio.token) contract as an example. *sysio.token contract does not cover every possible permutation of an ABI definition.*  
 
 To make things easy, we will start with an empty ABI.
 
@@ -33,7 +33,7 @@ To make things easy, we will start with an empty ABI.
 
 ## Types
 
-An ABI enables any client or interface to interpret and even generate an GUI for you contract. For this to work in a consistent manner, we'll need to describe the custom types that are used as a parameter in any public action or struct that we would like to describe in the ABI.
+An ABI enables any client or interface to interpret and even generate a GUI for your contract. For this to work in a consistent manner, we'll need to describe the custom types that are used as a parameter in any public action or struct that we would like to describe in the ABI.
 
 :::info
 |Built-in Types
@@ -72,7 +72,7 @@ Our ABI now looks like this:
 
 ## Structs
 
-We now need to describe the structs of the token contract. By looking at `sysio.token.hpp`, we can quickly determine which structs are utilized by public actions. This is particularly important for when we describe our actions in the the ABI file in the next step.
+We now need to describe the structs of the token contract. By looking at `sysio.token.hpp`, we can quickly determine which structs are utilized by public actions. This is particularly important for when we describe our actions in the ABI file in the next step.
 
 A struct's object definition in JSON looks like the following:
 
@@ -91,7 +91,7 @@ A struct's object definition in JSON looks like the following:
 }
 ```
 
-Looking through the `sysio.token` contract, we see a number of structs that require definition. Please note, not all of the structs are explicitly defined, some correspond to an actions' parameters. Here's a list of structs that require an ABI description for the `sysio.token` contract:
+Looking through the `sysio.token` contract, we see a number of structs that require definition. Please note, not all of the structs are explicitly defined, some correspond to an action's parameters. Here's a list of structs that require an ABI description for the `sysio.token` contract:
 
 ## Implicit Structs
 
@@ -258,7 +258,7 @@ An action's JSON object definition looks like the following:
 }
 ```
 
-Next, we'll describe the actions of the `sysio.token` contract by aggregating all the public functions describe in the `sysio.token` contract's [header file](https://github.com/Wire-Network/wire-system-contracts/blob/master/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L24-L36). We'll then describe each action's *type* to their previously described struct. In most situations, the function name and the struct name will be equal, but are not required to be equal.
+Next, we'll describe the actions of the `sysio.token` contract by aggregating all the public functions described in the `sysio.token` contract's [header file](https://github.com/Wire-Network/wire-system-contracts/blob/master/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L24-L36). We'll then map each action's *type* to its previously described struct. In most situations, the function name and the struct name will be equal, but are not required to be equal.
 
 Below is a list of actions that link to their source code with example JSON provided for how each action would be described.
 
@@ -330,7 +330,7 @@ Finally, we need to describe our tables. Here's a table's JSON object definition
 
 The sysio.token contract instantiates two tables, [accounts](https://github.com/Wire-Network/wire-system-contracts/blob/master/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L57) and [stat](https://github.com/Wire-Network/wire-system-contracts/blob/master/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L58).
 
-The accounts table is an i64 index, based on the [`account` struct](https://github.com/Wire-Network/wire-system-contracts/blob/master/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L43-L47), has a [`uint64` as it's primary key](https://github.com/Wire-Network/wire-system-contracts/blob/master/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L46) and it's key been arbitrarily named "currency".
+The accounts table is an i64 index, based on the [`account` struct](https://github.com/Wire-Network/wire-system-contracts/blob/master/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L43-L47), has a [`uint64` as its primary key](https://github.com/Wire-Network/wire-system-contracts/blob/master/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L46) and its key has been arbitrarily named "currency".
 
 Here's how the accounts table would be described in the ABI
 
@@ -344,7 +344,7 @@ Here's how the accounts table would be described in the ABI
 }
 ```
 
-The stat table is an i64 index, based on the [`currenct_stats` struct](https://github.com/Wire-Network/wire-system-contracts/blob/master/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L49-L55), has a [`uint64` as it's primary key](https://github.com/Wire-Network/wire-system-contracts/blob/master/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L54) and it's key been arbitrarily named "currency"
+The stat table is an i64 index, based on the [`currency_stats` struct](https://github.com/Wire-Network/wire-system-contracts/blob/master/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L49-L55), has a [`uint64` as its primary key](https://github.com/Wire-Network/wire-system-contracts/blob/master/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L54) and its key has been arbitrarily named "currency"
 
 Here's how the stat table would be described in the ABI
 
@@ -362,7 +362,7 @@ You'll notice the above tables have the same "key name." Naming your keys simila
 
 ## Putting it all Together
 
-Finally, once all the pieces are strewn together, we have ourselves a ABI file that accurately describes the `sysio.token` contract.
+Finally, once all the pieces are strewn together, we have ourselves an ABI file that accurately describes the `sysio.token` contract.
 
 ```json
 {
@@ -579,4 +579,4 @@ Every time you change a struct, add a table, add an action or add parameters to 
 
 ### Table returns no rows
 
-Check that your table is accurately described in the `<<glossary:ABI>>` file. For example, If you use `clio` to add a table on a contract with a malformed `<<glossary:ABI>>` definition and then get rows from that table, you will recieve an empty result. `clio` will not produce an error when adding a row nor reading a row when a contract has failed to properly describe its tables in its `<<glossary:ABI>>` File.
+Check that your table is accurately described in the `<<glossary:ABI>>` file. For example, If you use `clio` to add a table on a contract with a malformed `<<glossary:ABI>>` definition and then get rows from that table, you will receive an empty result. `clio` will not produce an error when adding a row nor reading a row when a contract has failed to properly describe its tables in its `<<glossary:ABI>>` file.

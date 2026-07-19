@@ -67,7 +67,7 @@ Name | Type | Description
 `accounts` | array of `permission_level_weight` | list of `account@permission` levels and weights
 `waits` | array of `wait_weight` | list of time waits and weights
 
-The `key_weight` type contains the actor's public key and associated weight. The `permission_level_weight` type consists of the actor's `account@permission` level and associated weight. The `wait_weight` contains the time wait and associated weight (used to satisfy action authorizations in delayed user transactions. All of these types allow to define lists of authority factors that are used for satisfaction of action authorizations.
+The `key_weight` type contains the actor's public key and associated weight. The `permission_level_weight` type consists of the actor's `account@permission` level and associated weight. The `wait_weight` contains the time wait and associated weight (used to satisfy action authorizations in delayed user transactions). All of these types allow you to define lists of authority factors that are used for satisfaction of action authorizations.
 
 #### Authority Factors
 
@@ -89,6 +89,6 @@ The authority table for `jack`'s `release-code` named permission is shown in the
 
 Since both `katey@active` and `kyle@active` factors have a weight of 2, *either one can satisfy the action authorization*. This means that either `katey` or `kyle` with a permission level of `active` or higher can independently execute any action under `jack`'s `release-code` permission.
 
-Alternatively, it would require two acounts each with weight of 1 to satisfy the action authorization - in this case account with public key `SYS7Hnv4iBfcw2...` and `nick@active`.
+Alternatively, it would require two accounts each with a weight of 1 to satisfy the action authorization - in this case account with public key `SYS7Hnv4iBfcw2...` and `nick@active`.
 
 ![account-weights-example](../../static/img/weights-example.png)

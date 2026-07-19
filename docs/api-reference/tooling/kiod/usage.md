@@ -9,7 +9,7 @@ tags:
 ---
 
 :::tip[Recommended Usage]
-| For most users, the easiest way to use `kiod` is to have `clio` launch it automatically. Wallet files will be created in the default directory (`~/sysio-wallet`).
+For most users, the easiest way to use `kiod` is to have `clio` launch it automatically. Wallet files will be created in the default directory (`~/sysio-wallet`).
 :::
 
 ## Launching kiod manually
@@ -23,7 +23,7 @@ kiod
 By default, `kiod` creates the folder `~/sysio-wallet` and populates it with a basic `config.ini` file.  The location of the config file can be specified on the command line using the `--config-dir` argument.  The configuration file contains the HTTP server endpoint for incoming HTTP connections and other parameters for cross-origin resource sharing.
 
 :::info[Wallet Location]
-| The location of the wallet data folder can be specified on the command line with the `--data-dir` option.
+The location of the wallet data folder can be specified on the command line with the `--data-dir` option.
 :::
 
 ## Auto-locking

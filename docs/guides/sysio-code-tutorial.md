@@ -21,7 +21,7 @@ The `sysio.code` permission is a special authority flag that enables a smart con
 * Install the currently supported version of `clio`.
 
 :::note
-| The `clio` tool is bundled with the Wire software. [Installing Wire Sysio](/docs/getting-started/install-dependencies.md) will install the `clio` and `kiod` command line tools.
+The `clio` tool is bundled with the Wire software. [Installing Wire Sysio](/docs/getting-started/install-dependencies.md) will install the `clio` and `kiod` command line tools.
 :::
 
 * You have access to a local Wire node.

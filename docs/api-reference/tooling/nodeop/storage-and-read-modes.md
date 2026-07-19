@@ -56,7 +56,7 @@ When `nodeop` is configured to be in irreversible read mode, it will still track
 
 ### Speculative Mode (Deprecated)
 
-Speculative mode is low latency but fragile, there is no guarantee that the transactions reflected in the state will be included in the chain OR that they will reflected in the same order the state implies.
+Speculative mode is low latency but fragile, there is no guarantee that the transactions reflected in the state will be included in the chain OR that they will be reflected in the same order the state implies.
 
 This mode features the lowest latency, but is the least consistent.
 

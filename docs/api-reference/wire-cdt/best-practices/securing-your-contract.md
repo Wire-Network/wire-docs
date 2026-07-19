@@ -13,7 +13,7 @@ The following are basic recommendations which can be the foundation for securing
 
 ### 1. Authorization Checks
 
-The following methods are available in the Wire Sysio core software and they can be used to implemented authorization checks in your smart contracts:
+The following methods are available in the Wire Sysio core software and they can be used to implement authorization checks in your smart contracts:
 
 - `has_auth`
 - `require_auth`

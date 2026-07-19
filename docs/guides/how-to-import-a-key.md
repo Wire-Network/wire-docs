@@ -14,7 +14,7 @@ tags:
 * Install the currently supported version of `clio`
 
 :::info
-| The `clio` tool is bundled with the Wire software. [Installing Wire Core](/docs/getting-started/install-dependencies.md) will also install the clio tool.
+The `clio` tool is bundled with the Wire software. [Installing Wire Core](/docs/getting-started/install-dependencies.md) will also install the clio tool.
 :::
 
 :::warning[REMINDER]

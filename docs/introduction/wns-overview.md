@@ -21,13 +21,13 @@ While these solutions offer different approaches, they often share common drawba
 
 Moreover, the heterogeneous nature of blockchain technology presents ongoing compatibility issues with both new and existing networks. Many interoperability solutions are inherently limited by the number of chains they can support, restricting their effectiveness in a rapidly evolving ecosystem.
 
-At its core, Wire Network is designed to overcome these challenges. Wire Name Service (WNS), when combined with the Wire layer-1 settlement layer and the Universal Polymorphic Address Protocol, collectively forms to create a *Universal Transaction Layer* (UTL).
+At its core, Wire Network is designed to overcome these challenges. Wire Name Service (WNS), when combined with the Wire layer-1 settlement layer and the Universal Polymorphic Address Protocol, collectively form a *Universal Transaction Layer* (UTL).
 
 This article explores the architecture and processes of Wire Network and WNS, detailing how it addresses the inherent challenges of blockchain interoperability and sets a new standard for seamless cross-chain transactions.
 
 ## Design
 
-The UTL's design is a hub-and-spoke model (see diagram below). This design enables transactions between different blockchain networks through a universal hub, providing a seamless, secure and cost-efficient way for environment for assets to interact & move between chains.
+The UTL's design is a hub-and-spoke model (see diagram below). This design enables transactions between different blockchain networks through a universal hub, providing a seamless, secure, and cost-efficient environment for assets to interact and move between chains.
 
 ![wns-design](../../static/img/wns-design.png)
 
@@ -41,7 +41,7 @@ WNS is comprised of native settlement and target chain ('escrow' or 'bucket') co
 
 ## Security Principles
 
-The security framework of WNS is robust, relying on multiple checks and balances to prevent malicious activities. Key features are the use of standard cryptographic proofs to verify transactions, implementation of UTXO model to track transaction outputs; as well utilizing a completely independent sub-chain to aid with the transaction verification process. This sub-chain, also knowns as S-chain (stands for *settlement*) includes only the relevant transactions and data needed for the target chain, allowing for fast and efficient processing.
+The security framework of WNS is robust, relying on multiple checks and balances to prevent malicious activities. Key features are the use of standard cryptographic proofs to verify transactions, implementation of the UTXO model to track transaction outputs, as well as utilizing a completely independent sub-chain to aid with the transaction verification process. This sub-chain, also known as S-chain (stands for *settlement*), includes only the relevant transactions and data needed for the target chain, allowing for fast and efficient processing.
 
 ### UTXO
 
@@ -49,7 +49,7 @@ The UTXO (Unspent Transaction Output) model views each token amount as a distinc
 
 **Example:**
 
-Bob wants to send 15 USDC to Alice. To complete the transaction, Bob’s wallet selects UTXOs that equal or exceed the required amount. UTXO #1 (12 USDC) and UTXO #2 (5 USDC) are selected, which together are total of 17 USDC.
+Bob wants to send 15 USDC to Alice. To complete the transaction, Bob’s wallet selects UTXOs that equal or exceed the required amount. UTXO #1 (12 USDC) and UTXO #2 (5 USDC) are selected, which together total 17 USDC.
 
 ![utxo-example](../../static/img/utxo-example.png)
 

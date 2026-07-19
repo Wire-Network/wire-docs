@@ -1,4 +1,4 @@
-# Wire Hub(Testnet Only):Create an Account
+# Wire Hub (Testnet Only): Create an Account
 
 ## Prerequisites
 
@@ -14,7 +14,7 @@ import BrowserWindow from '@site/src/components/BrowserWindow';
 Begin by navigating to the [Wire Hub](https://hub.wire.network) website.
 
 <BrowserWindow url="https://hub.wire.network/">
-      <img src="/img/hub.png" alt="=hub page" />
+      <img src="/img/hub.png" alt="hub page" />
 
  </BrowserWindow>
 
@@ -29,7 +29,7 @@ You will see your account dashboard:
 
 ### Step 3: Create an Account
 
-Click *Create Account* button to go ahead with registering a new account tied to your wallet.
+Click the *Create Account* button to go ahead with registering a new account tied to your wallet.
 
 <BrowserWindow url="https://hub.wire.network/">
       <img src="/img/hub-create-account.png" alt="hub-create-account" />

@@ -151,7 +151,7 @@ The configuration options are:
 ```
 
 :::info
-| The default logging level for all loggers, if no `logging.json` is provided is `info`. Each logger can be configured independently in the `logging.json` file.
+The default logging level for all loggers, if no `logging.json` is provided is `info`. Each logger can be configured independently in the `logging.json` file.
 :::
 
 ## Example `logging.json`

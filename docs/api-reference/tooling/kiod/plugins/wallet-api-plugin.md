@@ -11,7 +11,7 @@ tags:
 The `wallet_api_plugin` exposes functionality from the [`wallet_plugin`](wallet-plugin.md) to the RPC API interface managed by the [`http_plugin`](../../nodeop/plugins/http-plugin.md).
 
 :::warning[Caution]
-| This plugin exposes wallets. Therefore, running this plugin on a publicly accessible node is not recommended. As of 1.2.0, the `wallet_api_plugin` is only available through `kiod`. It is no longer supported by `nodeop`.
+This plugin exposes wallets. Therefore, running this plugin on a publicly accessible node is not recommended. As of 1.2.0, the `wallet_api_plugin` is only available through `kiod`. It is no longer supported by `nodeop`.
 :::
 
 ## Usage

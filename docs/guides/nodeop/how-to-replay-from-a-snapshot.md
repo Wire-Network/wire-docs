@@ -13,7 +13,7 @@ Location          | Name                       |  Action                        
 data/snapshots    | `<head block id in hex>.bin` | place the snapshot file you want to replay here   |
 data/             | *                          | remove                                            |
 
-You can use `snapshots-dir = "snapshots"` in the configuration file or using the `--snapshots-dir` command line option, to specify the where to find the the snapshot to replay, use `--snapshot` to specify the name of the snapshot to replay.
+You can use `snapshots-dir = "snapshots"` in the configuration file or using the `--snapshots-dir` command line option, to specify where to find the snapshot to replay, use `--snapshot` to specify the name of the snapshot to replay.
 
 ```sh
 nodeop --snapshot yoursnapshot.name \

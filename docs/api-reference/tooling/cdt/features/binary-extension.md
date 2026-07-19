@@ -10,11 +10,11 @@ tags:
 
 You can find the implementation of `sysio::binary_extension` [here](https://github.com/Wire-Network/wire-cdt/blob/master/libraries/sysiolib/core/sysio/binary_extension.hpp).
 
-Our primary concern when using this type is when we are adding a new field to a smart contract's data structure that is currently utilized in an `sysio::multi_index` type (AKA a _table_), or when adding a new parameter to an action declaration.
+Our primary concern when using this type is when we are adding a new field to a smart contract's data structure that is currently utilized in a `sysio::multi_index` type (AKA a _table_), or when adding a new parameter to an action declaration.
 
-By wrapping the new field in an `sysio::binary_extension`, you are enabling your contract to be _backwards compatible_ for future use. Note that this new field/parameter **MUST** be appended at the end of a data structure (this is due to implementation details in `sysio::multi_index`, which relies on the `boost::multi_index` type), or at the end of the parameter list in an action declaration.
+By wrapping the new field in a `sysio::binary_extension`, you are enabling your contract to be _backwards compatible_ for future use. Note that this new field/parameter **MUST** be appended at the end of a data structure (this is due to implementation details in `sysio::multi_index`, which relies on the `boost::multi_index` type), or at the end of the parameter list in an action declaration.
 
-If you don't wrap the new field in an `sysio::binary_extension`, the `sysio::multi_index` table will be reformatted in such a way that disallows reads to the former datum; or in an action's case, the function will be uncallable.
+If you don't wrap the new field in a `sysio::binary_extension`, the `sysio::multi_index` table will be reformatted in such a way that disallows reads to the former datum; or in an action's case, the function will be uncallable.
 
 ***
 
@@ -423,7 +423,7 @@ warning: transaction executed locally, but may not be confirmed by the network y
 
 ***
 
-Now, let's upgrade the smart contract by adding a new field to the table and a new parameter to an action while **NOT** wrapping the new field/parameter in an `sysio::binary_extension` type and see what happens:
+Now, let's upgrade the smart contract by adding a new field to the table and a new parameter to an action while **NOT** wrapping the new field/parameter in a `sysio::binary_extension` type and see what happens:
 
 **binary_extension_contract.hpp**
 
@@ -558,7 +558,7 @@ Whoops! We aren't able to write to our table the original way with the upgraded 
 
 ***
 
-Ok, let's back up and wrap the new field and the new action parameter in an `sysio::binary_extension` type:
+Ok, let's back up and wrap the new field and the new action parameter in a `sysio::binary_extension` type:
 
 **binary_extension_contract.hpp**
 
@@ -653,7 +653,7 @@ struct [[sysio::table]] structure {
 }
 ```
 
-Note the `$` after the types now; this indicates that this type is an `sysio::binary_extension` type field.
+Note the `$` after the types now; this indicates that this type is a `sysio::binary_extension` type field.
 
 ```diff
 {
@@ -725,4 +725,4 @@ Just keep these simple rules in mind when upgrading a smart contract.
 If you are adding a new field to a struct currently in use by a `sysio::multi_index` be **SURE** to:
 
 - add the field at the end of the struct.
-- wrap the type using an `sysio::binary_extension` type.
+- wrap the type using a `sysio::binary_extension` type.

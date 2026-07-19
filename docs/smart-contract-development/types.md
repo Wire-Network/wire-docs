@@ -143,7 +143,7 @@ function recover(checksum256 hash, signature sig) {
 
 The `asset` type is used to represent a quantity of a digital asset. It is a 64-bit integer with a symbol, but it's displayed as a string.
 
-It is resistent to overflow and underflow, and has various methods for performing arithmetic operations easily.
+It is resistant to overflow and underflow, and has various methods for performing arithmetic operations easily.
 
 | Asset Types | Description |
 | --- | --- |

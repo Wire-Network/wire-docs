@@ -15,7 +15,7 @@ description: Step-by-step guide to creating a company contract using Wire CDT
 
 ## Overview
 
-This page will guide you to creating and developing a simple contract using Wire CDT and C++ language. While prior knowledge of C++ is not necessary for this tutorial, we encourage you to familiarize yourself with the basics of C++ to enhance your understanding.
+This page will guide you through creating and developing a simple contract using Wire CDT and C++ language. While prior knowledge of C++ is not necessary for this tutorial, we encourage you to familiarize yourself with the basics of C++ to enhance your understanding.
 
 ## Prerequisites
 
@@ -40,7 +40,7 @@ Open `company-contract` in your preferred text editor to begin coding.
 
 ### 2\. Write the Contract Code
 
-In C++, splitting class declarations and definitions into separate header (.hpp) and source  (.cpp) files is a common practice that promotes better code organization, readability, and compile time-efficiency. This approach helps segregating interface from implementation; as well hiding the implementation details from other parts of the program and exposing only what is necessary. For the purposes of this and future tutorials, we will stick to that approach.
+In C++, splitting class declarations and definitions into separate header (.hpp) and source (.cpp) files is a common practice that promotes better code organization, readability, and compile time-efficiency. This approach helps segregate interface from implementation, as well as hiding the implementation details from other parts of the program and exposing only what is necessary. For the purposes of this and future tutorials, we will stick to that approach.
 
 2.1. Define contract interfaces in `company.hpp`
 
@@ -236,7 +236,7 @@ Before deploying, ensure you have an open wallet and account to deploy the contr
 
 :::note
 
-In Wire ecosystem, deploying a smart contract requires an account; an account can own one smart contract instance and a smart contract instance must be deployed to an account. Each account functions as a distinct namespace for the contract, which means that the contract’s code and its state are encapsulated within that account.
+In the Wire ecosystem, deploying a smart contract requires an account; an account can own one smart contract instance and a smart contract instance must be deployed to an account. Each account functions as a distinct namespace for the contract, which means that the contract’s code and its state are encapsulated within that account.
 
 :::
 

@@ -21,7 +21,7 @@ Always ensure you have a secure backup of your current keys before updating them
 * Install the currently supported version of `clio.`
   
 :::info[Note]
-| The `clio` tool and `kiod` are bundled with the Wire software. [Installing Wire core](/docs/getting-started/install-dependencies.md) will install the `clio` and `kiod` command line tools.
+The `clio` tool and `kiod` are bundled with the Wire software. [Installing Wire core](/docs/getting-started/install-dependencies.md) will install the `clio` and `kiod` command line tools.
 :::
 
 * You have access to a local Wire node.

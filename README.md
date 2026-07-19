@@ -22,7 +22,7 @@ This command starts a local development server and opens up a browser window. Mo
 npm build
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+This command generates static content into the `build` directory and can be served using any static content hosting service.
 
 ### Clear .docusaurus directory
 
@@ -47,4 +47,4 @@ npm clear
       © 2025 Wire Network. All rights reserved.
     </td>
   </tr>
-</table
+</table>

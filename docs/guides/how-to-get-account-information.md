@@ -18,7 +18,7 @@ This guide explains how to retrieve account information using the `clio get acco
 * Install the currently supported version of `clio`
 
 :::info
-| The `clio` tool is bundled with the Wire software. [Installing Wire core](/docs/getting-started/install-dependencies.md) will install the `clio` and `kiod` command line tools.
+The `clio` tool is bundled with the Wire software. [Installing Wire core](/docs/getting-started/install-dependencies.md) will install the `clio` and `kiod` command line tools.
 :::
 
 :::warning[REMINDER]
@@ -65,5 +65,5 @@ SYS balances:
 ```
 
 :::info[Account Fields]
-| Depending on the network you are connected, you might see different fields associated with an account.
+Depending on the network you are connected to, you might see different fields associated with an account.
 :::

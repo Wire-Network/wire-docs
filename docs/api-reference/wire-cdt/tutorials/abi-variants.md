@@ -160,5 +160,5 @@ class [[sysio::contract]] multi_index_example : public contract {
 ```
 
 :::warning
-| Be aware, it is not recommend to use `sysio::binary_extension` inside variant definition, this can lead to data corruption unless one is very careful in understanding how these two templates work and how the ABI gets generated!
+Be aware, it is not recommend to use `sysio::binary_extension` inside variant definition, this can lead to data corruption unless one is very careful in understanding how these two templates work and how the ABI gets generated!
 :::

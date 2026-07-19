@@ -31,11 +31,11 @@ Start by cloning the existing GitHub repository containing the Hello World contr
 git clone https://github.com/Wire-Network/guides.git && cd guides/hello-world-contract
 ```
 
-Then open the code into your favorite code editor and inspect the files.
+Then open the code in your favorite code editor and inspect the files.
 
 ### 2. Compile the Contract
 
-Compile it using the `./build.sh`. This script uses the Wire Contract Development Toolkit (CDT) the Hello World contract into WebAssembly (WASM) format. The script will create a compilation folder `hello/` with the WASM and ABI files.
+Compile it using the `./build.sh`. This script uses the Wire Contract Development Toolkit (CDT) to compile the Hello World contract into WebAssembly (WASM) format. The script will create a compilation folder `hello/` with the WASM and ABI files.
 
 ```bash
 ./build.sh
@@ -46,16 +46,16 @@ Upon successful compilation, you will see a `hello` folder with `hello.abi` and 
 <!-- ![compiled-dir](/img/compiled-dir.png) -->
 
 ```sh title="hello-world-contract/"
-|   ....
+  ....
 ├── hello           
 │   ├── hello.abi
 │   └── hello.wasm
-|   ...
+  ...
 ```
 
 ### 3. Deploy the Contract
 
-Before deploying, ensure you have an account to deploy the contract to. Create an account if necessary and replace `PUBLIC_KEY` with the development key used in Manage Local Wallet with clio guide (see [Import Keys](../getting-started/manage-local-wallet-with-clio.md#import-the-development-key); key pair is also listed [here](../getting-started/manage-local-wallet-with-clio.md#development-key)). Your wallet must be also unlocked before using it (see [Unlock a wallet](../getting-started/manage-local-wallet-with-clio.md#unlock-a-wallet)).
+Before deploying, ensure you have an account to deploy the contract to. Create an account if necessary and replace `PUBLIC_KEY` with the development key used in Manage Local Wallet with clio guide (see [Import Keys](../getting-started/manage-local-wallet-with-clio.md#import-the-development-key); key pair is also listed [here](../getting-started/manage-local-wallet-with-clio.md#development-key)). Your wallet must also be unlocked before using it (see [Unlock a wallet](../getting-started/manage-local-wallet-with-clio.md#unlock-a-wallet)).
 
 #### 3.1. Create an account using `clio`
 

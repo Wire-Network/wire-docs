@@ -72,7 +72,7 @@ sudo clio wallet import --private-key <YOUR_PRIVATE_KEY>
 
 ### 5. Compile the Contract
 
-Compile it using the `./build.sh`. This script uses the Wire Contract Development Toolkit (CDT) the `hello-world` contract into WebAssembly (WASM) format. The script will create a compilation folder `hello/` with the WASM and ABI files.
+Compile it using the `./build.sh`. This script uses the Wire Contract Development Toolkit (CDT) to compile the `hello-world` contract into WebAssembly (WASM) format. The script will create a compilation folder `hello/` with the WASM and ABI files.
 
 ```bash
 ./build.sh
@@ -83,11 +83,11 @@ Upon successful compilation, you will see a `hello/` folder with `hello.abi` and
 <!-- ![compiled-dir](/img/compiled-dir.png) -->
 
 ```sh title="hello-world-contract/"
-|   ....
+  ....
 ├── hello           
 │   ├── hello.abi
 │   └── hello.wasm
-|   ...
+  ...
 ```
 
 ### 6. Deploy the Contract
@@ -125,7 +125,7 @@ The Hello World contract includes a single action called `hi()`, which logs a gr
 
 - In the [Wire Hub](https://hub.wire.network), open the *Contract* Tab for your contract’s account.
 - You’ll see *Actions* listed (in this case, just `hi`) and parameters field.
-- To invoke the action, enter a username(e.g. `bob`) and click Submit.
+- To invoke the action, enter a username (e.g. `bob`) and click Submit.
 - The Hub displays a receipt upon success, and you can view the console log output:
 
 ```txt

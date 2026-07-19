@@ -12,7 +12,7 @@ tags:
 # Getting Started
 
 :::info
-The diagram below serves as a comprehensive roadmap, detailing the *sequential steps required to effectively utilize the documentation provided*. For optimal understanding and efficiency, it’s important to follow the order of the steps, beggining with this article, contunuing with setting up your local environment and progressing through the smart development contracts section.
+The diagram below serves as a comprehensive roadmap, detailing the *sequential steps required to effectively utilize the documentation provided*. For optimal understanding and efficiency, it’s important to follow the order of the steps, beginning with this article, continuing with setting up your local environment and progressing through the smart contract development section.
 
 :::
 
@@ -28,7 +28,7 @@ The Wire platform is supported on the following environments:
 
 ## System Info
 
-The subsequent tutorials([hello world contract](../smart-contract-development/hello-world-contract-short.md), [company contract](../smart-contract-development/company-contract.md)) are up to date with the following Wire components.
+The subsequent tutorials ([hello world contract](../smart-contract-development/hello-world-contract-short.md), [company contract](../smart-contract-development/company-contract.md)) are up to date with the following Wire components.
 
 | Component          | Version |
 | ------------------ | ------- |
@@ -37,13 +37,13 @@ The subsequent tutorials([hello world contract](../smart-contract-development/he
 
 ## Development Experience
 
-Wire based blockchains execute user-generated applications and code using WebAssembly (WASM). WASM is an emerging web standard with widespread support from Google, Microsoft, Apple, and industry leading companies.
+Wire based blockchains execute user-generated applications and code using WebAssembly (WASM). WASM is an emerging web standard with widespread support from Google, Microsoft, Apple, and industry-leading companies.
 
 At the moment the most mature toolchain for building applications that compile to WASM is clang/llvm with their C/C++ compiler.
 
 ### Command Line Knowledge
 
-There are a variety of tools provided along with Wire core and CDT packages which requires you to have a basic command line knowledge in order to interact with them.
+There are a variety of tools provided along with Wire core and CDT packages which require you to have a basic command line knowledge in order to interact with them.
 
 ### Development Tools
 

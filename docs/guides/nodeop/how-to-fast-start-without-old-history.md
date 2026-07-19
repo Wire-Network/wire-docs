@@ -19,7 +19,7 @@ This process will permanently delete all historical blockchain data from your lo
 - Install the currently supported version of `clio`.
 
 :::info
-| The `clio` tool and `kiod` are bundled with the Wire software. [Installing Wire core](/docs/getting-started/install-dependencies.md) will install the `clio` and `kiod` command line tools.
+The `clio` tool and `kiod` are bundled with the Wire software. [Installing Wire core](/docs/getting-started/install-dependencies.md) will install the `clio` and `kiod` command line tools.
 :::
 
 - Learn about [Using Nodeop](/docs/api-reference/tooling/nodeop/usage/index.md).
@@ -59,7 +59,7 @@ Do not stop `nodeop` until it has received *at least 1 block* from the network, 
 
 If `nodeop` fails to receive blocks from the network, then try the above using `net_api_plugin`. Use [`clio net disconnect`](/docs/api-reference/tooling/clio/command-reference/net/disconnect.md) and [`clio net connect`](/docs/api-reference/tooling/clio/command-reference/net/connect.md) to reconnect nodes which timed out.
 
-You must have the `net_api_plugin` enabled on your `nodeop` instance. That plugin is **not** enabled `/opt/wire-network/blockproducer/config/config.ini` by default, so you will need to stop your node and edit the `config.ini` file to enable it:
+You must have the `net_api_plugin` enabled on your `nodeop` instance. That plugin is **not** enabled in `/opt/wire-network/blockproducer/config/config.ini` by default, so you will need to stop your node and edit the `config.ini` file to enable it:
 
 ```ini
 # ....previous plugins ...
@@ -67,5 +67,5 @@ plugin = sysio::net_api_plugin
 ```
 
 :::warning[Caution when using `net_api_plugin`]
-| Use use a firewall to block access to your `http-server-address` despite port 8887 not being exposed to the public by default. The `net_api_plugin` is not intended for public use and should only be used in a secure environment.
+Use a firewall to block access to your `http-server-address` despite port 8887 not being exposed to the public by default. The `net_api_plugin` is not intended for public use and should only be used in a secure environment.
 :::
