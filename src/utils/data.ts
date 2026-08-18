@@ -11,7 +11,7 @@ const SOCIALS = [
   },
   {
     name: "x",
-    link: "https://x.com/Wire_Blockchain",
+    link: "https://x.com/wirenetwork",
     icon: "/assets/logos/socials/x.svg",
   },
   {

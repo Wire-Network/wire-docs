@@ -42,7 +42,7 @@ npm clear
     <td>
       <strong>Wire Network</strong><br>
       <a href="https://www.wire.network/">Website</a> |
-      <a href="https://x.com/wire_blockchain">Twitter</a> |
+      <a href="https://x.com/wirenetwork">Twitter</a> |
       <a href="https://www.linkedin.com/company/wire-network-blockchain/">LinkedIn</a><br>
       © 2025 Wire Network. All rights reserved.
     </td>

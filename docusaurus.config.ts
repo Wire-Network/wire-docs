@@ -249,7 +249,7 @@ const config: Config = {
             },
             {
               label: "Twitter",
-              href: "https://x.com/wire_blockchain",
+              href: "https://x.com/wirenetwork",
             },
           ],
         },
