@@ -68,17 +68,19 @@ Wire Sysio executables are located at `/usr/local/bin`.
 
 ```sh
 which cdt-cpp
-
-Expected Output -> /usr/bin/cdt-cpp
 ```
+<pre>
+Expected Output -> /usr/bin/cdt-cpp
+</pre>
 
 or
 
 ```sh
 cdt-cpp --version
-
-Expected Output -> cdt-cpp version 4.1.1
 ```
+<pre>
+Expected Output -> cdt-cpp version 4.1.1
+</pre>
 
 :::info
 Wire CDT is located at `/usr/opt` with symlinks to each of its executable in `/usr/bin`. You can list the contents using `ls -la usr/opt/cdt/<version>/bin`.
