@@ -14,7 +14,7 @@ import BrowserWindow from '@site/src/components/BrowserWindow';
 Begin by navigating to the [Wire Hub](https://hub.wire.network) website.
 
 <BrowserWindow url="https://hub.wire.network/">
-      <img src="/img/hub.png" alt="=hub page" />
+      <img src="/img/hub.png" alt="hub page" />
 
  </BrowserWindow>
 
@@ -28,7 +28,7 @@ Begin by navigating to the [Wire Hub](https://hub.wire.network) website.
 ### Step 3: Select Your Wallet Provider
 
 <BrowserWindow url="https://hub.wire.network/">
-      <img src="/img/hub-connect-metamask-wallet.png" alt="hub-connect-metamast-wallet" />
+      <img src="/img/hub-connect-metamask-wallet.png" alt="hub-connect-metamask-wallet" />
 
  </BrowserWindow>
 

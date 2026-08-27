@@ -145,7 +145,7 @@ __Possible solution__: The key point here is the `expected order` and what you t
 }
 ```
 
-The code above has one `print` statement before the `singleton_set.send` and another one after the `singleton_set.send`. If you wrote some more `print` statements in the code that implements the `singleton_set.send` action and expect to see them before the second `print` statement then it is a wrong assumption. The inline actions are broadcasted to the network and they are executed at a different time, asynchronous of the current execution thread of the current `multi_index_example::mod` action, therefor it is impossible to predict when the `print` statements from inline action code will be outputted.
+The code above has one `print` statement before the `singleton_set.send` and another one after the `singleton_set.send`. If you wrote some more `print` statements in the code that implements the `singleton_set.send` action and expect to see them before the second `print` statement then it is a wrong assumption. The inline actions are broadcasted to the network and they are executed at a different time, asynchronously from the current execution thread of the current `multi_index_example::mod` action, therefore it is impossible to predict when the `print` statements from inline action code will be outputted.
 
 ## Assertion failure while creating an account after sysio.system was installed
 

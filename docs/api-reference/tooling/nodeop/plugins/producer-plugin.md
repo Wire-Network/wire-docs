@@ -11,7 +11,7 @@ tags:
 The `producer_plugin` loads functionality required for a node to produce blocks.
 
 :::info
-| Additional configuration is required to produce blocks. Please read [Configuring Block Producing Node](../usage/node-setups/producing-node.md).
+Additional configuration is required to produce blocks. Please read [Configuring Block Producing Node](../usage/node-setups/producing-node.md).
 :::
 
 ## Usage

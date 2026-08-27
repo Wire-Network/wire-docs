@@ -20,7 +20,7 @@ The `net_api_plugin` provides four RPC API endpoints:
 See [Net API Reference Documentation](/docs/api-reference/net-api).
 
 :::danger
-| This plugin exposes endpoints that allow management of p2p connections. Running this plugin on a publicly accessible node is **NOT** recommended as it can be exploited.
+This plugin exposes endpoints that allow management of p2p connections. Running this plugin on a publicly accessible node is **NOT** recommended as it can be exploited.
 :::
 
 ## Usage

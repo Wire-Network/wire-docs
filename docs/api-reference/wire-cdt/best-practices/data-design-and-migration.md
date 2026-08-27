@@ -52,6 +52,6 @@ If you prefer less code complexity and can accept downtime for your application:
 2. Deploy a new contract using only the new version of the table, at which point, your migration and downtime is complete.
 
 ::: warning
-| Both of the above migration methods require some pre-planning (like the ability to put your contract into a maintenance mode for user feedback)
+Both of the above migration methods require some pre-planning (like the ability to put your contract into a maintenance mode for user feedback)
 
 :::

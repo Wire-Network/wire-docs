@@ -71,7 +71,7 @@ Before deploying, ensure you have an open wallet and account to deploy the contr
 
 :::note
 
-In Wire ecosystem, deploying a smart contract requires an account; an account can own one smart contract instance and a smart contract instance must be deployed to an account. Each account functions as a distinct namespace for the contract, which means that the contract’s code and its state are encapsulated within that account.
+In the Wire ecosystem, deploying a smart contract requires an account; an account can own one smart contract instance and a smart contract instance must be deployed to an account. Each account functions as a distinct namespace for the contract, which means that the contract’s code and its state are encapsulated within that account.
 
 :::
 

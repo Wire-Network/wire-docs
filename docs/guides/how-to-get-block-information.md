@@ -14,7 +14,7 @@ tags:
 * Install the currently supported version of `clio`.
 
 :::info[Note]
-| The `clio` tool and `kiod` are bundled with the Wire software. [Installing Wire core](/docs/getting-started/install-dependencies.md) will install the `clio` and `kiod` command line tools.
+The `clio` tool and `kiod` are bundled with the Wire software. [Installing Wire core](/docs/getting-started/install-dependencies.md) will install the `clio` and `kiod` command line tools.
 :::
 
 <!-- TODO: add reference for block lifecycle -->

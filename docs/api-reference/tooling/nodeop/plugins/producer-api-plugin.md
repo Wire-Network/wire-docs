@@ -11,7 +11,7 @@ tags:
 The `producer_api_plugin` exposes a number of endpoints for the [`producer_plugin`](producer-plugin.md) to the RPC API interface managed by the [`http_plugin`](http-plugin.md).
 
 :::danger
-| This plugin exposes endpoints that allow management of p2p connections. Running this plugin on a publicly accessible node is **NOT** recommended as it can be exploited.
+This plugin exposes endpoints that allow management of p2p connections. Running this plugin on a publicly accessible node is **NOT** recommended as it can be exploited.
 :::
 
 See [Producer API Reference Documentation](/docs/api-reference/producer-api).

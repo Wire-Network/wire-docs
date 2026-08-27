@@ -59,7 +59,7 @@ CONTRACT contractname : public contract {
 }
 ```
 
-The code snippet above are essentially equivalent to:
+The code snippet above is essentially equivalent to:
 
 ```cpp title="project/include/contractname.hpp"
 #pragma once
@@ -87,7 +87,7 @@ void contractname::dosomething() {
 
 ### Header vs. Source Files
 
-In C++, code is typically split into header files (`.hpp` or `.h`) and source files (`.cpp`), especially when projects get large. This helps with code organization and readibility.
+In C++, code is typically split into header files (`.hpp` or `.h`) and source files (`.cpp`), especially when projects get large. This helps with code organization and readability.
 
 - **Header files** are used to declare functions, classes, structs, and other types.
 - **Source files** are used for the implementation of functions declared in header files.

@@ -5,7 +5,7 @@ tags:
 ---
 
 :::warning
-| The `history_plugin` that the `history_api_plugin` depends upon is deprecated and will no longer be maintained. Please use the [`state_history_plugin`](state-history-plugin.md) or the [`trace_api_plugin`](trace-api-plugin.md) instead.
+The `history_plugin` that the `history_api_plugin` depends upon is deprecated and will no longer be maintained. Please use the [`state_history_plugin`](state-history-plugin.md) or the [`trace_api_plugin`](trace-api-plugin.md) instead.
 :::
 
 ## Description

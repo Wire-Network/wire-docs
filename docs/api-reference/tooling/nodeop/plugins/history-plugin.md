@@ -5,7 +5,7 @@ tags:
 ---
 
 :::warning
-| The `history_plugin` is deprecated and will no longer be maintained. Please use the [`state_history_plugin`](state-history-plugin.md) or the [`trace_api_plugin`](trace-api-plugin.md) instead.
+The `history_plugin` is deprecated and will no longer be maintained. Please use the [`state_history_plugin`](state-history-plugin.md) or the [`trace_api_plugin`](trace-api-plugin.md) instead.
 :::
 
 ## Description
@@ -34,13 +34,13 @@ Config Options for sysio::history_plugin:
   -f [ --filter-on ] arg                Track actions which match 
                                         receiver:action:actor. Actor may be 
                                         blank to include all. Action and Actor 
-                                        both blank allows all from Recieiver. 
+                                        both blank allows all from Receiver. 
                                         Receiver may not be blank.
   -F [ --filter-out ] arg               Do not track actions which match 
                                         receiver:action:actor. Action and Actor
-                                        both blank excludes all from Reciever. 
+                                        both blank excludes all from Receiver. 
                                         Actor blank excludes all from 
-                                        reciever:action. Receiver may not be 
+                                        receiver:action. Receiver may not be 
                                         blank.
 ```
 

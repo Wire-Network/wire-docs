@@ -26,7 +26,7 @@ curl http://127.0.0.1:8887/v1/producer/create_snapshot | json_pp
 * Wait for `nodeop` to process several more blocks after the snapshot completed. This ensures that the state-history files include **at least one block** beyond the snapshot, and that the `blocks.log` file contains the next block after it becomes irreversible.
 
 :::info
-| If the block included in the snapshot is forked out, then the snapshot will be invalid.
+If the block included in the snapshot is forked out, then the snapshot will be invalid.
 :::
 
 1. Stop `nodeop` by running: `/opt/wire-network/blockproducer/stop.sh`.

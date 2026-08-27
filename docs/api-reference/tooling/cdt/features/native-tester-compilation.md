@@ -42,7 +42,7 @@ using namespace sysio;
 using namespace sysio::native;
 
 SYSIO_TEST_BEGIN(hello_test)
-   // These can be redefined by the user to suit there needs per unit test
+   // These can be redefined by the user to suit their needs per unit test
    // the idea is that in a future release there will be a base library that 
    // initializes these to "useable" default implementations and probably 
    // helpers to more easily define read_action_data and action_data_size intrinsics
@@ -107,7 +107,7 @@ Every `intrinsic` that is defined for sysio (prints, require_auth, etc.) is re-d
 
 ## CDT Native Tester API
 
-- CHECK_ASSERT(...) : This macro will check whether a particular assert has occured and flag the tests as failed but allow the rest of the tests to run.  
+- CHECK_ASSERT(...) : This macro will check whether a particular assert has occurred and flag the tests as failed but allow the rest of the tests to run.  
   - This is called either by
     - `CHECK_ASSERT("<assert message>", [](<args>){ whatever_function(<args>); })`
     - `CHECK_ASSERT([](std::string msg){ user defined comparison function }, [](<args>){ whatever_function(<args>); })`
@@ -115,8 +115,8 @@ Every `intrinsic` that is defined for sysio (prints, require_auth, etc.) is re-d
   - This is called either by
     - `CHECK_PRINT("<print message>", [](<args>){ whatever_function(<args>); })`
     - `CHECK_PRINT([](std::string print_buffer){ user defined comparison function }, [](<args>){ whatever_function(<args>); })`
-- CHECK_EQUAL(X, Y) : This macro will check whether two inputs equal eachother and fail the test but allow the rest of the test to continue.
-- REQUIRE_ASSERT(...) : This macro will check whether a particular assert has occured and flag the tests as failed and halt the test on failure.  
+- CHECK_EQUAL(X, Y) : This macro will check whether two inputs equal each other and fail the test but allow the rest of the test to continue.
+- REQUIRE_ASSERT(...) : This macro will check whether a particular assert has occurred and flag the tests as failed and halt the test on failure.  
   - This is called either by
     - `REQUIRE_ASSERT("<assert message>", [](<args>){ whatever_function(<args>); })`
     - `REQUIRE_ASSERT([](std::string msg){ user defined comparison function }, [](<args>){ whatever_function(<args>); })`
@@ -124,7 +124,7 @@ Every `intrinsic` that is defined for sysio (prints, require_auth, etc.) is re-d
   - This is called either by
     - `REQUIRE_PRINT("<print message>", [](<args>){ whatever_function(<args>); })`
     - `REQUIRE_PRINT([](std::string print_buffer){ user defined comparison function }, [](<args>){ whatever_function(<args>); })`
-- REQUIRE_EQUAL(X, Y) : This macro will check whether two inputs `X` and `Y` equal eachother and fail the test and halt the test on failure.
+- REQUIRE_EQUAL(X, Y) : This macro will check whether two inputs `X` and `Y` equal each other and fail the test and halt the test on failure.
 - SYSIO_TEST_BEGIN(X) : This macro defines the beginning of a unit test and assigns `X` as the symbolic name of that test.
 - SYSIO_TEST_END : This macro defines the end of a unit test.
 - SYSIO_TEST(X) : This is used to run a particular named unit test `X` in the main function.

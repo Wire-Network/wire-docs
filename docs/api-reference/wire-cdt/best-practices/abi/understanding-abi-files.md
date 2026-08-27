@@ -5,14 +5,14 @@ tags:
 ---
 ## Introduction
 
-ABI files can be generated using the `cdt-cpp` utility provided by CDT. However, there are several situations that may cause ABI's generation to malfunction or fail altogether. Advanced C++ patterns can trip it up and custom types can sometimes cause issues for ABI generation. For this reason, it's **imperative** you understand how ABI files work, so you can debug and fix if and when necessary.
+ABI files can be generated using the `cdt-cpp` utility provided by CDT. However, there are several situations that may cause ABI generation to malfunction or fail altogether. Advanced C++ patterns can trip it up and custom types can sometimes cause issues for ABI generation. For this reason, it's **imperative** you understand how ABI files work, so you can debug and fix if and when necessary.
 
 ## What is an ABI
 
 The Application Binary Interface (ABI) is a JSON-based description on how to convert user actions between their JSON and Binary representations. The ABI also describes how to convert the database state to/from JSON. Once you have described your contract via an ABI then developers and users will be able to interact with your contract seamlessly via JSON.
 
 ::: warning
-| ABI can be bypassed when executing transactions. Messages and actions passed to a contract do not have to conform to the ABI. The ABI is a guide, not a gatekeeper.
+ABI can be bypassed when executing transactions. Messages and actions passed to a contract do not have to conform to the ABI. The ABI is a guide, not a gatekeeper.
 :::
 
 ## Create an ABI File
@@ -37,7 +37,7 @@ Start with an empty ABI, for exemplification we will work based on the `sysio.to
 An ABI enables any client or interface to interpret and even generate a GUI for your contract. For this to work consistently, describe the custom types that are used as a parameter in any public action or struct that needs to be described in the ABI.
 
 ::: info
-| Wire implements a number of custom built-ins.
+Wire implements a number of custom built-ins.
 :::
 
 ```json
@@ -87,7 +87,7 @@ A struct's object definition in JSON looks like the following:
 }    
 ```
 
-In the `sysio.token` contract, there's a number of structs that require definition. Please note, not all of the structs are explicitly defined, some correspond to an actions' parameters. Here's a list of structs that require an ABI description for the `sysio.token` contract:
+In the `sysio.token` contract, there are a number of structs that require definition. Please note, not all of the structs are explicitly defined, some correspond to an action's parameters. Here's a list of structs that require an ABI description for the `sysio.token` contract:
 
 ## Implicit Structs
 
@@ -303,7 +303,7 @@ Describe the tables. Here's a table's JSON object definition:
 
 The sysio.token contract instantiates two tables, [accounts](https://github.com/Wire-Network/wire-system-contracts/blob/master/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L134) and [stat](https://github.com/Wire-Network/wire-system-contracts/blob/master/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L135).
 
-The `accounts` table is an i64 index, based on the [`account` struct](https://github.com/Wire-Network/wire-system-contracts/blob/master/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L120-L124), has a [`uint64` as it's primary key](https://github.com/Wire-Network/wire-system-contracts/blob/master/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L123)
+The `accounts` table is an i64 index, based on the [`account` struct](https://github.com/Wire-Network/wire-system-contracts/blob/master/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L120-L124), has a [`uint64` as its primary key](https://github.com/Wire-Network/wire-system-contracts/blob/master/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L123)
 
 Here's how the accounts table would be described in the ABI
 
@@ -317,7 +317,7 @@ Here's how the accounts table would be described in the ABI
 }
 ```
 
-The `stat` table is an i64 index, based on the [`currency_stats` struct](https://github.com/Wire-Network/wire-system-contracts/blob/master/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L126-L132), has a [`uint64` as it's primary key](https://github.com/Wire-Network/wire-system-contracts/blob/master/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L131)
+The `stat` table is an i64 index, based on the [`currency_stats` struct](https://github.com/Wire-Network/wire-system-contracts/blob/master/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L126-L132), has a [`uint64` as its primary key](https://github.com/Wire-Network/wire-system-contracts/blob/master/contracts/sysio.token/include/sysio.token/sysio.token.hpp#L131)
 
 Here's how the stat table would be described in the ABI
 

@@ -4,11 +4,11 @@ tags:
   - debugging
 ---
 
-In order to be able to debug your smart contract, you will need to setup a local `nodeop` node. This local `nodeop` node can be run as separate private testnet or as an extension of a public testnet.  This local node also needs to be run with the contracts-console option on, either `--contracts-console` via the command line or `contracts-console = true` via the `config.ini` file and/or by setting up logging on your running node and checking the output logs.
+In order to be able to debug your smart contract, you will need to set up a local `nodeop` node. This local `nodeop` node can be run as a separate private testnet or as an extension of a public testnet.  This local node also needs to be run with the contracts-console option on, either `--contracts-console` via the command line or `contracts-console = true` via the `config.ini` file and/or by setting up logging on your running node and checking the output logs.
 
 See below for details on logging.
 
-When you are creating your smart contract for the first time, it is recommended to test and debug your smart contract on a private testnet first, since you have full control of the whole blockchain and can easily add suitable logging. This enables you to have unlimited amount of eos needed and you can just reset the state of the blockchain whenever you want. When it is ready for production, debugging  on the public testnet (or official testnet) can be done by connecting your local nodeop to the public testnet (or official testnet) so you can see the log of the testnet in your local nodeop.
+When you are creating your smart contract for the first time, it is recommended to test and debug your smart contract on a private testnet first, since you have full control of the whole blockchain and can easily add suitable logging. This enables you to have an unlimited amount of tokens needed and you can just reset the state of the blockchain whenever you want. When it is ready for production, debugging on the public testnet (or official testnet) can be done by connecting your local nodeop to the public testnet (or official testnet) so you can see the log of the testnet in your local nodeop.
 
 The concept is the same, so for the following guide, debugging on the private testnet will be covered.
 
@@ -16,11 +16,11 @@ If you haven't set up your own local `nodeop`, follow the [Setup guide](https://
 
 # Method
 
-The main method used to debug smart contract is **Caveman Debugging**. Printing is utilized to inspect the value of a variable and check the flow of the contract. Printing in smart contracts can be done through the Print API. The C++ API is a wrapper for C API and is the recommended API.
+The main method used to debug a smart contract is **Caveman Debugging**. Printing is utilized to inspect the value of a variable and check the flow of the contract. Printing in smart contracts can be done through the Print API. The C++ API is a wrapper for C API and is the recommended API.
 
 # Print
 
-Print C API supports the following data type that you can print:
+Print C API supports the following data types that you can print:
 
 - prints - a null terminated char array (string)
 - prints_l - any char array (string) with given size

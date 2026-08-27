@@ -42,7 +42,7 @@ sudo wire-cli install -g
 ```
 
 :::info
-It is important to note that we are *intentially* using wire-cli to launch a full-scale Wire blockchain environment. This is a multi-node setup(**blockproducer**, **bp-relay**, and **chain-api**) with deployed system contracts, resource management, including contract policies, all very similar to a testnet configuration setup.
+It is important to note that we are *intentionally* using wire-cli to launch a full-scale Wire blockchain environment. This is a multi-node setup (**blockproducer**, **bp-relay**, and **chain-api**) with deployed system contracts, resource management, including contract policies, all very similar to a testnet configuration setup.
 :::
 
 ##### Verify installation
@@ -81,7 +81,7 @@ Expected Output -> cdt-cpp version 4.1.1
 ```
 
 :::info
-Wire CDT is located at `/usr/opt` with symlinks to each of its executable in `/usr/bin`. You can list the contents using `ls -la usr/opt/cdt/<version>/bin`.
+Wire CDT is located at `/usr/opt` with symlinks to each of its executables in `/usr/bin`. You can list the contents using `ls -la usr/opt/cdt/<version>/bin`.
 :::
 
 &nbsp;
@@ -117,7 +117,7 @@ info  [timestamp] nodeop          controller.cpp:2375  log_applied          ] Pr
 info  [timestamp] nodeop          controller.cpp:2375  log_applied          ] Produced block a505dcb166388262... #4248 @ 2026-03-16T15:56:46.500 signed by sysio [trxs: 0, lib: 4246, net: 0, cpu: 100 us, elapsed: 81 us, producing time: 462054 us]
 ```
 
-Verify the `[timestamp]` is a recent one and that you aren't looking at a stale logs.
+Verify the `[timestamp]` is a recent one and that you aren't looking at stale logs.
 
 To exit logs: <kbd>Ctrl</kbd> + <kbd>C</kbd>
 

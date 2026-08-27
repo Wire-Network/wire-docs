@@ -42,7 +42,7 @@ Defining a model in Wire smart contracts is similar to defining a C++ struct, bu
 
 #### Secondary Key
 
-A secondary index is more flexible than a primary key and it's primaraly used when you intend to associate multiple rows with the same key. It can be any of the following data types:
+A secondary index is more flexible than a primary key and it's primarily used when you intend to associate multiple rows with the same key. It can be any of the following data types:
 
 - `uint64_t`
 - `uint128_t`
@@ -151,7 +151,7 @@ auto iterator = users.find(1);
 
 :::warning[Always Check If the Row Exists]
 
-When you retrieve data from a table using the `find(`) method, you must check whether the row actually exists. If the row is not found, the iterator returned will be equal to `users.end()`, which is a special iterator representing the end of the table.
+When you retrieve data from a table using the `find()` method, you must check whether the row actually exists. If the row is not found, the iterator returned will be equal to `users.end()`, which is a special iterator representing the end of the table.
 
 ```cpp
 if (iterator != users.end()) {
@@ -358,7 +358,7 @@ configs.set(ConfigModel{
 
 ### Removing data
 
-Once you've instantiated a `singleton`, it's easy to remove it. Just called the `remove` method on the instance itself.
+Once you've instantiated a `singleton`, it's easy to remove it. Just call the `remove` method on the instance itself.
 
 ```cpp
 configs.remove();

@@ -7,7 +7,7 @@ tags:
 
 ## Wallet Import Format (WIF)
 
-Wallet Import Format is an encoding for a private EDSA key.  Wire uses the same version, checksum, and encoding scheme as the Bitcoin WIF addresses and should be compatible with existing libraries [1]. Check [Bitcoin WIF](https://en.bitcoin.it/wiki/Wallet_import_format) for more information.
+Wallet Import Format is an encoding for a private ECDSA key.  Wire uses the same version, checksum, and encoding scheme as the Bitcoin WIF addresses and should be compatible with existing libraries [1]. Check [Bitcoin WIF](https://en.bitcoin.it/wiki/Wallet_import_format) for more information.
 
 **Example of a WIF Private Key:**
 

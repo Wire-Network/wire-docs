@@ -51,7 +51,7 @@ clio --url <instance-url>:<port> COMMAND
 ```
 
 :::info[Default address:port]
-| If no optional arguments are used (i.e. no `--url`), `clio` attempts to connect to a local `nodeop` running at localhost or `127.0.0.1` and default port `8888`. Use the `nodeop` command line arguments or [config.ini](/docs/api-reference/tooling/nodeop/usage/nodeop-configuration.md) file to specify a different address.
+If no optional arguments are used (i.e. no `--url`), `clio` attempts to connect to a local `nodeop` running at localhost or `127.0.0.1` and default port `8888`. Use the `nodeop` command line arguments or [config.ini](/docs/api-reference/tooling/nodeop/usage/nodeop-configuration.md) file to specify a different address.
 :::
 
 ---
@@ -65,7 +65,7 @@ clio --wallet-url http://<kiod-host>:8900 COMMAND
 ```
 
 :::info[Default address:port]
-| If no optional arguments are used (i.e. no `--wallet-url`), `clio` attempts to connect to a local `nodeop` or `kiod` running at localhost or `127.0.0.1` and default port `8900`. Use the `kiod` command line arguments or [config.ini](/docs/api-reference/tooling/kiod/usage.md#launching-kiod-manually) file to specify a different address.
+If no optional arguments are used (i.e. no `--wallet-url`), `clio` attempts to connect to a local `nodeop` or `kiod` running at localhost or `127.0.0.1` and default port `8900`. Use the `kiod` command line arguments or [config.ini](/docs/api-reference/tooling/kiod/usage.md#launching-kiod-manually) file to specify a different address.
 :::
 
 ## Reference

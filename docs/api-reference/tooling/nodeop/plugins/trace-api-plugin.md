@@ -163,7 +163,7 @@ Compressed trace log files have the `.clog` file extension (see [Compression of 
 The data is compressed into raw zlib form with full-flush *seek points* placed at regular intervals. A decompressor can start from any of these *seek points* without reading previous data and it can also traverse a seek point without issue if it appears within the data.
 
 :::info[Size reduction of trace logs]
-| Data compression can reduce the space growth of trace logs twentyfold! For instance, with 512 seek points and using the test dataset on the Wire network, data compression reduces the growth of the trace directory from &#126;50 GiB/day to &#126;2.5 GiB/day for full data. Due to the high redundancy of the trace log contents, the compression is still comparable to `gzip -9`. The decompressed data is also made immediately available via the [Trace RPC API](/docs/api-reference/trace-api/) without any service degradation.
+Data compression can reduce the space growth of trace logs twentyfold! For instance, with 512 seek points and using the test dataset on the Wire network, data compression reduces the growth of the trace directory from &#126;50 GiB/day to &#126;2.5 GiB/day for full data. Due to the high redundancy of the trace log contents, the compression is still comparable to `gzip -9`. The decompressed data is also made immediately available via the [Trace RPC API](/docs/api-reference/trace-api/) without any service degradation.
 :::
 
 #### Role of seek points
@@ -195,7 +195,7 @@ The `trace_api_plugin` also supports an option to optimize disk space by applyin
 If the argument `N` is 0 or greater, the plugin automatically sets a background thread to compress the irreversible sections of the trace log files. The previous N irreversible blocks past the current LIB block are left uncompressed.
 
 :::info[Trace API utility]
-| The trace log files can also be compressed manually with the [trace_api_util](../../utilities/trace-api-util.md) utility.
+The trace log files can also be compressed manually with the [trace_api_util](../../utilities/trace-api-util.md) utility.
 :::
 
 If resource usage cannot be effectively managed via the `trace-minimum-irreversible-history-blocks` and `trace-minimum-uncompressed-irreversible-history-blocks` options, then there might be a need for periodic manual maintenance. In that case, the user may opt to manage resources through an external system or recurrent process.
@@ -205,5 +205,5 @@ If resource usage cannot be effectively managed via the `trace-minimum-irreversi
 The `trace-dir` option defines the directory on the filesystem where the trace log files are stored by the `trace_api_plugin`. These files are stable once the LIB block has progressed past a given slice and then can be deleted at any time to reclaim filesystem space. The deployed system contract will tolerate any out-of-process management system that removes some or all of these files in this directory regardless of what data they represent, or whether there is a running `nodeop` instance accessing them or not.  Data which would nominally be available, but is no longer so due to manual maintenance, will result in a HTTP 404 response from the appropriate API endpoint(s).
 
 :::info[For node operators]
-| Node operators can take full control over the lifetime of the historical data available in their nodes via the `trace-api-plugin` and the `trace-minimum-irreversible-history-blocks` and `trace-minimum-uncompressed-irreversible-history-blocks` options in conjunction with any external filesystem resource manager.
+Node operators can take full control over the lifetime of the historical data available in their nodes via the `trace-api-plugin` and the `trace-minimum-irreversible-history-blocks` and `trace-minimum-uncompressed-irreversible-history-blocks` options in conjunction with any external filesystem resource manager.
 :::

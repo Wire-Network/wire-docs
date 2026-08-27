@@ -51,7 +51,7 @@ Wallets:
 
 ## Unlock a Wallet
 
-The `kiod` wallet(s) have been opened, but is still locked.
+The `kiod` wallet(s) have been opened, but are still locked.
 
 ```bash
 clio wallet unlock
@@ -88,7 +88,7 @@ The asterisk (\*) next to the name means that the wallet is currently *unlocked*
 
 ## Create and Import keys into your wallet​
 
-To generate a key pair directly within the wallet, you could use `clio wallet create_key` command.
+To generate a key pair directly within the wallet, you could use the `clio wallet create_key` command.
 
 ```bash
 clio wallet create_key
@@ -126,7 +126,7 @@ clio wallet keys_by_name --password  "$(cat /opt/wire-network/secrets/wallet_pas
 
 :::warning[IMPORTANT]
 
-**Save the public key somewhere safe as you would need it in the upcoming tutorials.**
+**Save the public key somewhere safe as you will need it in the upcoming tutorials.**
 
 You could set it as environment variable:
 
@@ -138,7 +138,7 @@ You could set it as environment variable:
 
 ## Import the Development Key​
 
-Every new Wire chain has a default system user called `sysio`. This account is used to setup the chain by deploying system contracts that handle essential functions related to resource management, governance and consensus of the chain.
+Every new Wire chain has a default system user called `sysio`. This account is used to set up the chain by deploying system contracts that handle essential functions related to resource management, governance and consensus of the chain.
 
 Every new Wire chain also comes with a *development key*, and this key is always the same one.
 

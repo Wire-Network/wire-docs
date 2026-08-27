@@ -8,7 +8,7 @@ tags:
 ---
 
 :::warning Deprecation Notice
-| **Important**: The command `clio get transaction_id <trx>` relies on the `history_api_plugin`, which in turn depends on the `history_plugin`. Please be aware that the `history_plugin` is **deprecated** and will no longer be maintained. For accessing historical blockchain data, consider using the `state_history_plugin` for full-history solutions or the `trace_api_plugin`.
+**Important**: The command `clio get transaction_id <trx>` relies on the `history_api_plugin`, which in turn depends on the `history_plugin`. Please be aware that the `history_plugin` is **deprecated** and will no longer be maintained. For accessing historical blockchain data, consider using the `state_history_plugin` for full-history solutions or the `trace_api_plugin`.
 :::
 
 ## Description

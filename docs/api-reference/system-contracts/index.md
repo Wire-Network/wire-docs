@@ -10,7 +10,7 @@ The Wire blockchain platform is unique in that the features and characteristics 
 
 ## Concepts
 
-### System contracts, system accounts, priviledged accounts
+### System contracts, system accounts, privileged accounts
 
 At the genesis of a Wire-based blockchain, there is only one account present: `sysio`, which is the **main system account**. There are other system accounts, which are created by `sysio`, and control specific actions of the system contracts mentioned earlier.
 
@@ -18,7 +18,7 @@ Privileged accounts are accounts which can execute a transaction while skipping 
 
 Not all system accounts contain a system contract, but each system account has important roles in the blockchain functionality, as follows:
 
-|Account|Priviledged|Has contract|Description|
+|Account|Privileged|Has contract|Description|
 |---|---|---|---|
 |sysio|Yes|It contains the `sysio.system` contract|The main system account on a Wire based blockchain.|
 |sysio.msig|Yes|It contains the `sysio.msig` contract|Allows the signing of a multi-sig transaction proposal for later execution if all required parties sign the proposal before the expiration time.|
@@ -50,7 +50,7 @@ As CPU and RAM, NET is also a very important resource in Wire-based blockchains.
 
 - About System Contracts
   - [Concepts](#concepts)
-    - [System contracts, system accounts, priviledged accounts](#system-contracts-system-accounts-priviledged-accounts)
+    - [System contracts, system accounts, privileged accounts](#system-contracts-system-accounts-privileged-accounts)
     - [RAM](#ram)
     - [CPU](#cpu)
     - [NET](#net)
@@ -85,14 +85,14 @@ Below are listed the actions which are declared in the `sysio.bios` contract, ma
 |updateauth|Updates the permission for an account.|
 |deleteauth|Delete permission for an account.|
 |linkauth|Assigns a specific action from a contract to a permission you have created.|
-|unlinkauth|Assigns a specific action from a contract to a permission you have created.|
+|unlinkauth|Removes the assignment of a specific action from a contract to a permission you have created.|
 |canceldelay|Allows for cancellation of a deferred transaction.|
 |onerror|Called every time an error occurs while a transaction was processed.|
 |setcode|Allows for update of the contract code of an account.|
 
 ### `sysio.system` contract
 
-The `sysio.system` contract is another smart contract that Block.one provides an implementation for as a sample system contract.  It is a version of `sysio.bios` only this time it is not minimalist, it contains more elaborated structures, classes, methods, and actions needed for a Wire based blockchain core functionality:
+The `sysio.system` contract is another smart contract that Block.one provides an implementation for as a sample system contract.  It is a version of `sysio.bios` only this time it is not minimalist, it contains more elaborate structures, classes, methods, and actions needed for the core functionality of a Wire-based blockchain:
 
 The actions implemented and publicly exposed by the `sysio.system` system contract are presented in the table below. Just like the `sysio.bios` sample contract there are a few actions which are not implemented at the contract level (`newaccount`, `updateauth`, `deleteauth`, `linkauth`, `unlinkauth`, `canceldelay`, `onerror`, `setabi`, `setcode`), they are just declared in the contract so they will show in the contract's ABI and users will be able to push those actions to the chain via the account holding the 'sysio.system' contract, but the implementation is at the Wire Sysio core level. They are referred to as **native actions.**
 
@@ -102,7 +102,7 @@ The actions implemented and publicly exposed by the `sysio.system` system contra
 |updateauth|Updates the permission for an account.|
 |deleteauth|Delete permission for an account.|
 |linkauth|Assigns a specific action from a contract to a permission you have created.|
-|unlinkauth|Assigns a specific action from a contract to a permission you have created.|
+|unlinkauth|Removes the assignment of a specific action from a contract to a permission you have created.|
 |canceldelay|Allows for cancellation of a deferred transaction.|
 |onerror|Called every time an error occurs while a transaction was processed.|
 |setabi|Allows for updates of the contract ABI of an account.|

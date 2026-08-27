@@ -33,7 +33,7 @@ Use the multi-index `find(...)` method to locate the user object you want to del
 
 ### 2. Delete the User(if found)
 
-Check to see if the user exists and use `erase(...)` method to delete the row from table. Otherwise print an informational message and return.
+Check to see if the user exists and use the `erase(...)` method to delete the row from table. Otherwise print an informational message and return.
 
 ```cpp title="contract.cpp"
 [[sysio::action]] void multi_index_example::del(name user) {
